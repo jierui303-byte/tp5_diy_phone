@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>DIY 手机壳</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script><style type="text/css" abt="234"></style>
+    <script src="__INDEXPATH__/api.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__INDEXPATH__/tool/touch.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="__INDEXPATH__/tool/exif.js"></script>
+    <link rel="stylesheet" href="__INDEXPATH__/static/design.css">
+    <link rel="stylesheet" href="__INDEXPATH__/static/iconfont.css">
+    <script src="__INDEXPATH__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__INDEXPATH__/drag.js" type="text/javascript"></script>
+
+<body>
+<div id="app">
+    <div class="head" style="color: rgb(110, 110, 110);"><span id="msg" style=""> {$current['var_name']} 修改</span><!----></div>
+    <div class="content">
+        <canvas id="paper" width="208px" height="435px" style="width: 208.352px; height: 435.42px;">此浏览器不支持canvas！</canvas>
+        <div class="mask" style="width: 208.352px; height: 435.42px; background-image: url('http://www.shangyandiy.com/mobilediy/img/spec/20180816/b8a29ca5-3f4f-4c53-b0a7-0c7b3bbfac97.png');"></div>
+        <div class="mask mb" style="width: 208.352px; height: 435.42px; background-image: url('http://www.shangyandiy.com/mobilediy/img/spec/20180826/9cf25d1b-c9d7-4ed0-a613-a5fa41c74316.png');"></div>
+        <div class="mask pic" style="width: 208.352px; height: 435.42px; background-image: url('http://www.shangyandiy.com/mobilediy/img/map/20181007/e5c21f95-f052-4cff-9905-f8d7d0dedf09.png');"></div>
+        <div class="paster" style="left: 296.5px; top: 269.5px; width: 80px; height: 80px; display: none;cursor: move;">
+            <i id="pde" class="p-sc iconfont icon-shanchu"></i>
+            <i id="pro" class="p-sf iconfont icon-suofang"></i>
+            <img id="pimg" src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/7de6daeb-ecaf-40ea-8ac1-5980a1427d59.png" alt="">
+        </div>
+        <img id="pre" src="" alt="">
+        <div id="decorate" class="decorate" style=""><i>收起</i>
+            <nav>
+                <span class="active" data-index="0">蒙版</span>
+                <span class="" data-index="1">贴图</span>
+            </nav>
+            <div>
+                <div class="category"><!---->
+                    <ul style="width: 320px;">
+                        <li class="active">情侣</li>
+                        <li class="">卡通</li>
+                        <li class="">简约</li>
+                        <li class="">钱币</li>
+                    </ul>
+                </div>
+                <div class="d-list">
+                    <ul style="width: 700px;">
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/77c3f2bc-b0c9-4e57-a30d-33ca67b42e9f.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/ca5dc1f8-b5c7-4086-9ea0-2e6509380bc2.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/927cbaf7-3e59-4b34-abf3-0502cf4ba5be.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/decdb7bc-4850-46ca-97a6-029aaaede02e.png" alt="加载失败"></li>
+                        <li class="active"><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/44e67e0a-2ebb-427e-acd6-b025c730eb99.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/8ffc267a-9f99-4d40-aa86-e694bdac8664.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/daecc8e7-25bd-4fa0-8285-dea1b3d6ef37.png" alt="加载失败"></li>
+                        <li class=""><img src="" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/5d43654a-5319-4ede-b723-c8b70621d94e.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/7de6daeb-ecaf-40ea-8ac1-5980a1427d59.png" alt="加载失败"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>选择图片</div>
+        <div>蒙版 · 贴图</div>
+        <div>提交</div>
+        <input id="choose" type="file" accept="image/*" onchange="showPic(this)">
+    </div>
+    <div class="loading" style="display: none;">
+        <img src="__INDEXPATH__/static/loading.gif" alt="上传中，图片加载失败">
+        <span>高清图片上传中</span> <span>请稍等...</span>
+    </div>
+    <div id="error"></div>
+    <div class="order" style="display: none;"><div>
+        <h5>下单成功！</h5>
+        <h5>订单编号：530</h5>
+        <button>邮寄</button>
+        <button>自取</button>
+    </div>
+    </div>
+    <div class="order" style="display: none;"><div>
+        <h5>订单编号：530</h5>
+        <form id="form2" method="post"><input type="hidden" name="orderId"><br>
+            <input type="text" name="tel" placeholder="请输入手机号"><br>
+            <input type="text" name="name" placeholder="请输入姓名"><br>
+            <input type="text" name="address" placeholder="请输入收货地址"><br>
+        </form>
+        <button>提交</button>
+        <button class="esc">取消</button>
+    </div>
+    </div>
+    <form id="form1">
+        <input type="text" name="tbShopsId">
+        <input type="text" name="tbSpecId">
+        <textarea id="bs64" name="file"></textarea>
+    </form>
+</div>
+<script src="__INDEXPATH__/touchkit-master/example/zepto.min.js"></script>
+<script src="__INDEXPATH__/touchkit-master/example/dist/example.js"></script>
+<script>
+    $(function(){
+        inits();
+        function inits(){
+            $('#decorate').hide();//隐藏贴图蒙版模块
+            //加载 一下默认蒙版选中的数据显示
+            var index = $('#decorate nav span.active').data('index');
+            isNum(index);
+            console.log(index);
+        }
+
+        //点击蒙版贴图调出
+        $('.footer div:nth-child(2)').on('click', function(){
+            $('#decorate').show();
+        });
+        //点击 收起
+        $('#decorate').on('click', 'i', function(){
+            $('#decorate').hide();
+        });
+
+        //点击 选择图片
+        $('.footer div:nth-child(1)').on('click', function(){
+            $('#choose').click();//打开本地上传文件 对话框
+        });
+
+        //点击蒙版和切图切换
+        $('#decorate').on('click', 'nav span', function(){
+            $(this).addClass('active').siblings('span').removeClass('active');
+            //判断是蒙版被点击还是切图被 点击
+            var index = $(this).data('index');//0蒙版  1切图
+            isNum(index);
+            console.log(index);
+        });
+
+        //选中哪个图片更换哪个图片地址
+        $('.d-list').on('click', 'ul li', function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            var s = $(this).find('img').attr('src');
+            //判断当前是 贴图还是蒙版
+            var index = $('#decorate nav span.active').data('index');
+            if(index == 0){
+                //0蒙版直接更换大图
+                $('.pic').css("background-image","url(" + s + ")");
+            }else{
+                //贴图是小图 可更改大小和显示位置可挪动
+                $('.paster').show().css({
+                    'left':'110px',
+                    'zIndex':'32'
+                }).find('img').attr('src', s);
+            }
+            console.log(s);
+
+        });
+
+        //category分类点击加载图片
+        $('.category').on('click', 'ul li', function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            //判断当前是 贴图还是蒙版
+            var index = $('#decorate nav span.active').data('index');
+            //获取分类下 id
+            var cateId = $(this).data('id');
+            if(index == 0){
+                //获取蒙版分类下图片
+                $.ajax({
+                    type: "get",
+                    url: "/ajaxGetMaskCategoryPicturesById/"+cateId+".html",
+                    dataType: "json",
+                    success: function(data){
+                        console.log(data);
+                        if(data.code == 1){
+                            var str = '';
+                            $.each(data.data, function(i, item){
+                                if(i==0){
+                                    str += '<li data-id="'+item['id']+'" class="active"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                }else{
+                                    str += '<li data-id="'+item['id']+'"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                }
+                            });
+                            $('.d-list ul').empty().append(str);
+                        }else{
+                            //机型为空
+                            alert('蒙版图片为空');
+                        }
+
+                    }
+                });
+            }else{
+                //获取贴图分类下图片
+                $.ajax({
+                    type: "get",
+                    url: "/ajaxGetChartCategoryPicturesById/"+cateId+".html",
+                    dataType: "json",
+                    success: function(data){
+                        console.log(data);
+                        if(data.code == 1){
+                            var str = '';
+                            $.each(data.data, function(i, item){
+                                if(i==0){
+                                    str += '<li data-id="'+item['id']+'" class="active"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                }else{
+                                    str += '<li data-id="'+item['id']+'"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                }
+                            });
+                            $('.d-list ul').empty().append(str);
+                        }else{
+                            //机型为空
+                            alert('蒙版图片为空');
+                        }
+
+                    }
+                });
+            }
+        });
+
+        $('.paster').on('mouseover', function(){
+            $('#pde').show();
+            $('#pro').show();
+            $(this).css('border', '1px dashed #cccccc');
+        });
+        $('.paster').on('mouseout', function(){
+            $('#pde').hide();
+            $('#pro').hide();
+            $(this).css('border', 'none');
+        });
+        //拖动贴图元素
+        $('.paster').myDrag({
+            randomPosition:false,
+            direction:'all',
+            handler:false,
+        });
+        //选中图片拖动
+        $('#pre').myDrag({
+            randomPosition:false,
+            direction:'all',
+            handler:false,
+        });
+
+        //去掉
+        $('#pde').on('click', function(){
+            $('.paster').hide().find('img').attr('src', '');
+        });
+
+    });
+
+    function showPic(data) {
+        //3.当用户上传图片后，触发input标签的onchange事件，执行showPic()方法
+        if (data.files && data.files[0]) {
+            //4.判断input标签的file是否存在
+            var reader = new FileReader();//5.实例化一个FileReader()接口
+            reader.readAsDataURL(data.files[0]);//6.通过readAsDataURL()方法读取文件，将图片内嵌在网页之中
+            reader.onload = function(evt) {
+                //7.调用FileReader()的onload事件，当文件读取成功时，执行8
+                //8.将reader的result属性值赋值给data.parentNode.childNodes[1].childNodes[1].src，实现图片预览
+//                console.log(evt.target.result);
+                $('#pre').css({
+                    position: 'absolute',
+                    zIndex: '21',
+                    left: '77px',
+                    top: '163px',
+                    width: '199px'
+                }).attr('src', evt.target.result);
+            }
+        }
+    }
+
+    function isNum(index){
+        if(index == 0){
+            $.ajax({
+                type: "get",
+                url: "/ajaxGetMaskCategorys.html",
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    if(data.code == 1){
+                        var str = '';
+                        $.each(data.data, function(i, item){
+                            if(i==0){
+                                str += '<li data-id="'+item['id']+'" class="active">'+item['cate_name']+'</li>';
+                            }else{
+                                str += '<li data-id="'+item['id']+'">'+item['cate_name']+'</li>';
+                            }
+                            console.log(item['type_name']);
+                        });
+                        $('.category ul').empty().append(str);
+                        //去加载第一个分类下的图片列表
+                        $.ajax({
+                            type: "get",
+                            url: "/ajaxGetMaskCategoryPicturesById/"+data.data[0]['id']+".html",
+                            dataType: "json",
+                            success: function(data){
+                                console.log(data);
+                                if(data.code == 1){
+                                    var str = '';
+                                    $.each(data.data, function(i, item){
+                                        if(i==0){
+                                            str += '<li data-id="'+item['id']+'" class="active"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                        }else{
+                                            str += '<li data-id="'+item['id']+'"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                        }
+                                    });
+                                    $('.d-list ul').empty().append(str);
+                                }else{
+                                    //机型为空
+                                    alert('蒙版图片为空');
+                                }
+
+                            }
+                        });
+                    }else{
+                        //机型为空
+                        alert('蒙版分类为空');
+                    }
+
+                }
+            });
+        }else if(index == 1){
+            //加载贴图分类
+            $.ajax({
+                type: "get",
+                url: "/ajaxGetChartCategorys.html",
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    if(data.code == 1){
+                        var str = '';
+                        $.each(data.data, function(i, item){
+                            if(i==0){
+                                str += '<li data-id="'+item['id']+'" class="active">'+item['cate_name']+'</li>';
+                            }else{
+                                str += '<li data-id="'+item['id']+'">'+item['cate_name']+'</li>';
+                            }
+                            console.log(item['type_name']);
+                        });
+                        $('.category ul').empty().append(str);
+                        //去加载第一个分类下的图片列表
+                        $.ajax({
+                            type: "get",
+                            url: "/ajaxGetChartCategoryPicturesById/"+data.data[0]['id']+".html",
+                            dataType: "json",
+                            success: function(data){
+                                console.log(data);
+                                if(data.code == 1){
+                                    var str = '';
+                                    $.each(data.data, function(i, item){
+                                        if(i==0){
+                                            str += '<li data-id="'+item['id']+'" class="active"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                        }else{
+                                            str += '<li data-id="'+item['id']+'"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                        }
+                                    });
+                                    $('.d-list ul').empty().append(str);
+                                }else{
+                                    //机型为空
+                                    alert('蒙版图片为空');
+                                }
+
+                            }
+                        });
+                    }else{
+                        //机型为空
+                        alert('蒙版分类为空');
+                    }
+
+                }
+            });
+        }
+    }
+</script>
+<!--<script>-->
+    <!--var app = new Vue({-->
+        <!--el: '#app',-->
+        <!--data: {-->
+            <!--file: null,-->
+            <!--maskb: '',-->
+            <!--maska: '',-->
+            <!--shopId: '',-->
+            <!--brandId: '',-->
+            <!--brand: [],-->
+            <!--current: {},-->
+            <!--paper: {-->
+                <!--width: '240px',-->
+                <!--height: '420px'-->
+            <!--},-->
+            <!--isMove: false,-->
+            <!--isRotate: false,-->
+            <!--img: {width: 0,height:0},-->
+            <!--target: {-->
+                <!--width: 0,-->
+                <!--height: 0-->
+            <!--},-->
+            <!--moveData: {-->
+                <!--oldX: null,-->
+                <!--oldY: null,-->
+                <!--offsetX: 0,-->
+                <!--offsetY: 0,-->
+                <!--scale: 1-->
+            <!--},-->
+            <!--sending: false,-->
+            <!--devicePixelRatio: window.devicePixelRatio ? window.devicePixelRatio : 1,-->
+            <!--decorate: {-->
+                <!--show:false,-->
+                <!--categoryIdx: 0,-->
+                <!--maskList: [],-->
+                <!--mapList: [],-->
+                <!--list: [],-->
+                <!--type: 0,-->
+                <!--currentMask: {mapId: -1},-->
+                <!--currentMap: {mapId: -1}-->
+            <!--},-->
+            <!--paster: {-->
+                <!--tag: document.getElementsByClassName('paster')[0],-->
+                <!--width: 80,-->
+                <!--height: 80,-->
+                <!--left: 0,-->
+                <!--top: 0,-->
+                <!--moving: false,-->
+                <!--scaleing: false,-->
+                <!--old: {-->
+                    <!--x: 0,-->
+                    <!--y: 0-->
+                <!--}-->
+            <!--},-->
+            <!--isIOS:false,-->
+            <!--order: {},-->
+            <!--orderShow:false,-->
+            <!--orderSuccess: false,-->
+            <!--orderForm: {-->
+                <!--orderId: '',-->
+                <!--name: '',-->
+                <!--tel: '',-->
+                <!--address: ''-->
+            <!--}-->
+        <!--},-->
+        <!--computed: {-->
+            <!--maskpic:function(){-->
+                <!--return this.decorate.currentMask.mapId != -1 ? 'url("' + this.decorate.currentMask.mapUrl + '")' : '';-->
+            <!--},-->
+            <!--pasterStyle:function(){-->
+                <!--return {-->
+                    <!--left: this.paster.left + 'px',-->
+                    <!--top: this.paster.top + 'px',-->
+                    <!--width: this.paster.width + 'px',-->
+                    <!--height: this.paster.height + 'px'-->
+                <!--}-->
+            <!--},-->
+        <!--},-->
+    <!--mounted:function(){-->
+        <!--// 判断手机类型-->
+        <!--if (navigator.userAgent.indexOf('iPhone')>=0) {-->
+            <!--this.isIOS = true-->
+        <!--}-->
+        <!--// 设置初始 贴图居中-->
+        <!--this.paster.left = document.body.offsetWidth/2 - 40-->
+        <!--this.paster.top = document.body.offsetHeight/2 - 40-->
+
+        <!--// 初始化-->
+        <!--this.paper.tag = document.getElementById('paper')-->
+        <!--this.paper.ctx = document.getElementById('paper').getContext("2d")-->
+        <!--var paperGesture = setGesture(this.paper.tag); //得到一个对象-->
+        <!--paperGesture.gesturestart = function(e) { //双指开始-->
+        <!--};-->
+        <!--paperGesture.gesturemove = function(e) { //双指移动-->
+            <!--if(app.isRotate) {-->
+                <!--app.moveData.rotation = e.rotation-->
+            <!--} else {-->
+                <!--if(Math.abs(e.rotation) > 6) {-->
+                    <!--app.isRotate = true-->
+                <!--}-->
+            <!--}-->
+            <!--app.wheel(e);-->
+        <!--};-->
+        <!--paperGesture.gestureend = function(e) {-->
+            <!--app.isRotate = false-->
+            <!--app.moveData.beginScale = app.moveData.scale-->
+            <!--app.moveData.beginRotation = parseFloat(app.moveData.rotation) + parseFloat(app.moveData.beginRotation)-->
+            <!--app.moveData.rotation = 0-->
+        <!--};-->
+
+        <!--// 获取蒙版 贴图 分类-->
+        <!--axios.get(API.mapType).then(function(res){-->
+            <!--if (res.data && res.data.length >0) {-->
+            <!--this.decorate.mapList = res.data-->
+        <!--} else {-->
+            <!--this.decorate.mapList = [{mapTypeName: '暂无分类',mapTypeId: ''}]-->
+        <!--}-->
+    <!--})-->
+        <!--axios.get(API.maskType).then(function(res){-->
+            <!--if (res.data && res.data.length >0) {-->
+            <!--this.decorate.maskList = res.data-->
+        <!--} else {-->
+            <!--this.decorate.maskList = [{mapTypeName: '暂无分类', mapTypeId: ''}]-->
+        <!--}-->
+    <!--})-->
+    <!--},-->
+    <!--created:function(){-->
+        <!--try {-->
+            <!--var params = {}-->
+            <!--location.href.split('?')[1].split('&').forEach(function(item) {-->
+                <!--params[item.split('=')[0]] = item.split('=')[1]-->
+            <!--})-->
+            <!--if(params.m && params.s) {-->
+                <!--this.shopId = params.s-->
+            <!--} else JSON.parse('boen')-->
+
+            <!--axios.get(API.detail, {-->
+                        <!--params: {-->
+                            <!--specId: params.m-->
+                        <!--}-->
+                    <!--})-->
+                    <!--.then(function(res) {-->
+                        <!--app.current = res.data-->
+                        <!--app.current.specUrl = API.fillHost(app.current.specUrl)-->
+                        <!--app.current.specUrl1 = API.fillHost(app.current.specUrl1)-->
+                        <!--let img = new Image()-->
+                        <!--img.src = app.current.specUrl-->
+
+                        <!--app.maska = 'url("' + app.current.specUrl + '")'-->
+                        <!--app.maskb = 'url("' + app.current.specUrl1 + '")'-->
+                        <!--img.onload = function() {-->
+                            <!--app.target.width = img.width-->
+                            <!--app.target.height = img.height-->
+                            <!--var fh = document.getElementsByClassName('content')[0].offsetHeight-->
+                            <!--app.paper.height = fh * 0.82 + 'px'-->
+                            <!--app.paper.width = img.width / img.height * fh * 0.82 + 'px'-->
+                        <!--}-->
+                    <!--})-->
+
+        <!--}-->
+        <!--catch(e) {-->
+<!--//            alert('参数错误，非法访问')-->
+<!--//            location.href = 'https://baidu.com'-->
+        <!--}-->
+
+        <!--//初始化图片-->
+
+        <!--this.img = document.getElementById('pre')-->
+    <!--},-->
+
+    <!--methods: {-->
+        <!--pasterToggle:function(e, tag) {-->
+            <!--let targetId = e.target.id-->
+            <!--if (tag === 0) {-->
+                <!--// 按下-->
+                <!--switch (targetId) {-->
+                    <!--case 'pde':-->
+                        <!--this.decorate.currentMap = {mapId:-1}-->
+                        <!--break-->
+                    <!--case 'pro':-->
+                        <!--this.paster.scaleing = true-->
+                        <!--break-->
+                    <!--default:-->
+                        <!--this.paster.moving = true-->
+                        <!--this.paster.old.x = e.changedTouches[0].clientX-->
+                        <!--this.paster.old.y = e.changedTouches[0].clientY-->
+                        <!--return-->
+                <!--}-->
+            <!--} else {-->
+                <!--// 弹起-->
+                <!--switch (targetId) {-->
+                    <!--case 'pro':-->
+                        <!--this.paster.scaleing = false-->
+                        <!--break-->
+                    <!--default:-->
+                        <!--this.paster.moving = false-->
+                        <!--return-->
+                <!--}-->
+            <!--}-->
+        <!--},-->
+        <!--pasterMove:function(e) {-->
+            <!--e.preventDefault()-->
+            <!--if (this.paster.moving) {-->
+                <!--this.paster.left += e.changedTouches[0].clientX - this.paster.old.x-->
+                <!--this.paster.top += e.changedTouches[0].clientY - this.paster.old.y-->
+                <!--this.paster.old.x = e.changedTouches[0].clientX-->
+                <!--this.paster.old.y = e.changedTouches[0].clientY-->
+            <!--} else if (this.paster.scaleing) {-->
+                <!--this.paster.width=e.changedTouches[0].clientX-this.paster.left-->
+                <!--this.paster.height=e.changedTouches[0].clientY-this.paster.top-->
+            <!--}-->
+        <!--},-->
+        <!--setCurrentDec :function(item) {-->
+            <!--if (!this.decorate.type) {-->
+                <!--this.decorate.currentMask = this.decorate.currentMask.mapId != item.mapId?item:{mapId:-1}-->
+            <!--}-->
+            <!--else {-->
+                <!--// 选中贴图-->
+                <!--this.decorate.currentMap = this.decorate.currentMap.mapId != item.mapId?item:{mapId:-1}-->
+                <!--if (this.decorate.currentMap.mapId != -1) {-->
+
+                <!--}-->
+            <!--}-->
+        <!--},-->
+        <!--openDecorate:function() {-->
+            <!--this.decorate.show = true-->
+            <!--this.getDecorateList()-->
+        <!--},-->
+        <!--chanCategory:function(index) {-->
+            <!--this.decorate.categoryIdx = index-->
+            <!--this.getDecorateList()-->
+        <!--},-->
+        <!--getDecorateList :function() {-->
+            <!--if (!this.decorate.type) {-->
+                <!--axios.get(API.maskList, {-->
+                            <!--params: {-->
+                                <!--mapTypeId: this.decorate.maskList[this.decorate.categoryIdx].mapTypeId-->
+                            <!--}-->
+                        <!--})-->
+                        <!--.then(function(res){-->
+                    <!--if (res.data.data && res.data.data.length >0) {-->
+                    <!--this.decorate.list = res.data.data.map(function(item){-->
+                        <!--item.mapUrl = API.fillHost(item.mapUrl)-->
+                    <!--item.miniatureUrl = API.fillHost(item.miniatureUrl)-->
+                    <!--return item-->
+                <!--})-->
+                <!--} else {-->
+                    <!--this.decorate.list = [{mapUrl: '',miniatureUrl:''}]-->
+                <!--}-->
+            <!--})-->
+            <!--} else {-->
+                <!--axios.get(API.mapList, {-->
+                            <!--params: {-->
+                                <!--mapTypeId: this.decorate.mapList[this.decorate.categoryIdx].mapTypeId-->
+                            <!--}-->
+                        <!--})-->
+                        <!--.then(function(res){-->
+                    <!--if (res.data.data && res.data.data.length >0) {-->
+                    <!--this.decorate.list = res.data.data.map(function(item){-->
+                        <!--item.mapUrl = API.fillHost(item.mapUrl)-->
+                    <!--item.miniatureUrl = API.fillHost(item.miniatureUrl)-->
+                    <!--return item-->
+                <!--})-->
+                <!--} else {-->
+                    <!--this.decorate.list = [{mapUrl: ''}]-->
+                <!--}-->
+            <!--})-->
+            <!--}-->
+        <!--},-->
+        <!--chanType:function(i) {-->
+            <!--this.decorate.type = i-->
+            <!--this.decorate.categoryIdx = 0-->
+            <!--this.getDecorateList()-->
+        <!--},-->
+        <!--goIndex:function() {-->
+            <!--location.href = document.referrer-->
+        <!--},-->
+        <!--choosePic:function(e) {-->
+            <!--let _this = this-->
+            <!--let reader = new FileReader()-->
+            <!--reader.onload = function() {-->
+                <!--let img = document.getElementById('pre')-->
+                <!--img.src = this.result-->
+                <!--img.onload = function() {-->
+                    <!--_this.img = img-->
+                    <!--// 清空移动信息-->
+                    <!--_this.moveData = {-->
+                        <!--oldX: null,-->
+                        <!--oldY: null,-->
+                        <!--offsetX: 0,-->
+                        <!--offsetY: 0,-->
+                        <!--scale: 1,-->
+                        <!--beginScale: 1,-->
+                        <!--rotation: 0,-->
+                        <!--beginRotation: 0-->
+                    <!--}-->
+
+                    <!--//设置缩放比例时是否交换宽高-->
+                    <!--var flag = false-->
+
+                    <!--// 获取图片方向-->
+
+                    <!--EXIF.getData(img, function() {-->
+                        <!--switch(parseInt(EXIF.getAllTags(this).Orientation)) {-->
+                            <!--case 3:-->
+                                <!--app.moveData.beginRotation = 180-->
+                                <!--break;-->
+                            <!--case 6:-->
+                                <!--app.moveData.beginRotation = 90-->
+                                <!--flag = true-->
+                                <!--break;-->
+                            <!--case 8:-->
+                                <!--flag = true-->
+                                <!--app.moveData.beginRotation = -90-->
+                                <!--break;-->
+                            <!--default:-->
+                                <!--app.moveData.beginRotation = 0-->
+                        <!--}-->
+                    <!--});-->
+
+                    <!--// 如果是旋转的图片 把高当场宽 并调整位置-->
+                    <!--var tempw-->
+                    <!--if(flag) {-->
+                        <!--tempw = _this.img.height-->
+                        <!--//									_this.moveData.offsetX = -parseInt(_this.paper.width)/2-->
+                    <!--} else {-->
+                        <!--tempw = _this.img.width-->
+                    <!--}-->
+                    <!--// 设置初始缩放比例-->
+                    <!--_this.moveData.scale = _this.moveData.beginScale = parseInt(_this.paper.width) / parseInt(tempw)-->
+                    <!--var rh = parseInt(_this.paper.width) / parseInt(tempw) * parseInt(_this.img.height)-->
+                    <!--if(parseInt(_this.paper.height) > rh) {-->
+                        <!--_this.moveData.offsetY = (parseInt(_this.paper.height) - rh) / 2-->
+                    <!--}-->
+
+                    <!--_this.drawPaper()-->
+
+                <!--}-->
+            <!--}-->
+            <!--reader.readAsDataURL(e.target.files[0])-->
+        <!--},-->
+        <!--openFile:function(e) {-->
+            <!--e.stopPropagation()-->
+            <!--document.getElementById('choose').click()-->
+        <!--},-->
+        <!--down:function(e) {-->
+            <!--if(e.touches.length == 1) {-->
+                <!--this.isMove = true-->
+            <!--}-->
+        <!--},-->
+        <!--up:function(e) {-->
+            <!--if(e.touches.length == 0) {-->
+                <!--this.isMove = false-->
+                <!--this.moveData.oldX = null-->
+                <!--this.moveData.oldY = null-->
+            <!--}-->
+        <!--},-->
+        <!--wheel:function(e) {-->
+            <!--let _oldW = parseInt(this.img.width) * this.moveData.scale-->
+            <!--if(_oldW <= 200 && e.scale < 1) return-->
+            <!--let _oldY = parseInt(this.img.height) * this.moveData.scale-->
+            <!--this.moveData.scale = (e.scale - 1) + this.moveData.beginScale-->
+            <!--this.moveData.offsetX -= Math.round((parseInt(this.img.width) * this.moveData.scale - _oldW) / 2)-->
+            <!--this.moveData.offsetY -= Math.round((parseInt(this.img.height) * this.moveData.scale - _oldY) / 2)-->
+            <!--this.drawPaper()-->
+        <!--},-->
+        <!--move:function(e) {-->
+            <!--if(this.isMove && this.img && e.touches.length == 1) {-->
+                <!--e = e.touches[0]-->
+                <!--if(this.moveData.oldX) {-->
+                    <!--this.moveData.offsetX += (e.pageX - this.moveData.oldX)-->
+                    <!--this.moveData.offsetY += (e.pageY - this.moveData.oldY)-->
+                <!--}-->
+                <!--this.moveData.oldX = e.pageX-->
+                <!--this.moveData.oldY = e.pageY-->
+                <!--this.drawPaper()-->
+            <!--}-->
+        <!--},-->
+        <!--drawPaper:function(fin) {-->
+            <!--// 缩放是为了解决 DPR的问题-->
+            <!--this.paper.ctx.scale(this.devicePixelRatio, this.devicePixelRatio)-->
+            <!--// 清除画布-->
+            <!--this.paper.ctx.clearRect(0, 0, parseInt(this.paper.width), parseInt(this.paper.height))-->
+            <!--var mw = parseInt(this.moveData.offsetX + this.img.width * this.moveData.scale / 2)-->
+            <!--var mh = parseInt(this.moveData.offsetY + this.img.height * this.moveData.scale / 2)-->
+            <!--// 移动-->
+            <!--this.paper.ctx.translate(mw, mh)-->
+            <!--// 旋转-->
+            <!--this.paper.ctx.rotate((parseFloat(this.moveData.rotation) + parseFloat(this.moveData.beginRotation)) * Math.PI / 180)-->
+            <!--// 画-->
+            <!--this.paper.ctx.drawImage(this.img, -this.img.width * this.moveData.scale / 2, -this.img.height * this.moveData.scale / 2, parseInt(this.img.width) * this.moveData.scale, parseInt(this.img.height) * this.moveData.scale)-->
+            <!--// 旋转和移动回去-->
+            <!--this.paper.ctx.rotate(-(parseFloat(this.moveData.rotation) + parseFloat(this.moveData.beginRotation)) * Math.PI / 180)-->
+            <!--this.paper.ctx.translate(-mw, -mh)-->
+
+            <!--// 判断是否画上模板 或 贴图-->
+            <!--if (fin == 'gakki') {-->
+                <!--this.paper.ctx.globalCompositeOperation = 'source-over'-->
+                <!--this.drawMask()-->
+            <!--} else {-->
+                <!--// 缩放回去 暴力做法-->
+                <!--this.paper.ctx.scale(1 / this.devicePixelRatio, 1 / this.devicePixelRatio)-->
+            <!--}-->
+        <!--},-->
+        <!--drawMask:function() {-->
+            <!--// 先画蒙版-->
+            <!--if (this.decorate.currentMask.mapId != -1) {-->
+                <!--let mbimg = new Image()-->
+                <!--mbimg.crossOrigin = "*"-->
+                <!--mbimg.onload = function () {-->
+                    <!--app.paper.ctx.drawImage(mbimg,0,0, parseInt(app.paper.width), parseInt(app.paper.height))-->
+                    <!--app.drawPaster()-->
+                <!--}-->
+                <!--mbimg.src = this.decorate.currentMask.mapUrl-->
+            <!--} else {-->
+                <!--this.drawPaster()-->
+            <!--}-->
+        <!--},-->
+        <!--drawPaster:function() {-->
+            <!--if (this.decorate.currentMap.mapId != -1) {-->
+                <!--// 画贴图-->
+                <!--let mbimg = new Image()-->
+                <!--mbimg.crossOrigin = "*"-->
+                <!--mbimg.onload = function () {-->
+                    <!--let ow = app.paster.left - app.paper.tag.offsetLeft-->
+                    <!--// 40是标题栏高度-->
+                    <!--let oh = app.paster.top - app.paper.tag.offsetTop - 40-->
+                    <!--app.paper.ctx.drawImage(mbimg,ow,oh, app.paster.width, app.paster.height)-->
+                    <!--// 缩放回去 暴力做法-->
+                    <!--app.paper.ctx.scale(1 / app.devicePixelRatio, 1 / app.devicePixelRatio)-->
+                    <!--app.send()-->
+                <!--}-->
+                <!--mbimg.src = this.decorate.currentMap.mapUrl-->
+            <!--} else {-->
+                <!--// 缩放回去 暴力做法-->
+                <!--app.paper.ctx.scale(1 / app.devicePixelRatio, 1 / app.devicePixelRatio)-->
+                <!--app.send()-->
+            <!--}-->
+        <!--},-->
+        <!--dataURLtoFile:function(dataurl, filename = 'file') {-->
+            <!--let arr = dataurl.split(',')-->
+            <!--let mime = arr[0].match(/:(.*?);/)[1]-->
+            <!--let suffix = mime.split('/')[1]-->
+            <!--let bstr = atob(arr[1])-->
+            <!--let n = bstr.length-->
+            <!--let u8arr = new Uint8Array(n)-->
+            <!--while(n&#45;&#45;) {-->
+                <!--u8arr[n] = bstr.charCodeAt(n)-->
+            <!--}-->
+            <!--return new File([u8arr], `${filename}.${suffix}`, {-->
+                <!--type: mime-->
+            <!--})-->
+        <!--},-->
+        <!--beforeSend:function () {-->
+            <!--// if (!this.img) {-->
+            <!--//   alert('请先选择图片')-->
+            <!--//   return-->
+            <!--// }-->
+            <!--if (this.decorate.currentMask.mapId != -1 || this.decorate.currentMap.mapId != -1) {-->
+                <!--this.drawPaper('gakki')-->
+            <!--} else {-->
+                <!--this.send()-->
+            <!--}-->
+        <!--},-->
+        <!--send:function() {-->
+            <!--if(this.sending) return alert('图片上传中，勿重复提交')-->
+            <!--this.sending = true-->
+            <!--let tcanvas = document.createElement('canvas')-->
+            <!--tcanvas.width = this.target.width-->
+            <!--tcanvas.height = this.target.height-->
+            <!--tcanvas.getContext('2d').drawImage(this.paper.tag, 0, 0, tcanvas.width, tcanvas.height)-->
+            <!--let fd-->
+            <!--// 判断提交方式-->
+            <!--if (this.isIOS) {-->
+                <!--// document.getElementById('bs64').value = this.paper.tag.toDataURL('image/png')-->
+                <!--document.getElementById('bs64').value = tcanvas.toDataURL('image/png')-->
+                <!--fd = new FormData(document.querySelector('#form1'))-->
+            <!--} else {-->
+                <!--fd = new FormData()-->
+                <!--fd.append('tbShopsId', app.shopId)-->
+                <!--fd.append('tbSpecId', app.current.specId)-->
+                <!--// fd.append('file1', this.dataURLtoFile(this.paper.tag.toDataURL('image/png')))-->
+                <!--fd.append('file1', this.dataURLtoFile(tcanvas.toDataURL('image/png')))-->
+            <!--}-->
+            <!--var config = {-->
+                <!--headers: {-->
+                    <!--'Content-Type': 'multipart/form-data'-->
+                <!--}-->
+            <!--}-->
+            <!--let url = this.isIOS?API.order_ios:API.order_android-->
+            <!--axios.post(url, fd, config)-->
+                    <!--.then(function(res) {-->
+                        <!--app.order = res.data-->
+                        <!--app.orderForm.orderId = res.data.orderId-->
+                        <!--app.orderSuccess = true-->
+                        <!--app.sending = false-->
+                        <!--app.drawPaper()-->
+                    <!--})-->
+                    <!--.catch(function(e) {-->
+                        <!--// var er  =  document.getElementById('error')-->
+                        <!--// er.style.display = 'block'-->
+                        <!--// er.innerHTML += e.toString()+'<br>'+fd.get('tbShopsId')+'<br>'+fd.get('file')+'&#45;&#45;<br>'+fd.get('tbSpecId')-->
+                        <!--alert('出现错误，联系管理员')-->
+                        <!--app.sending = false-->
+                        <!--app.drawPaper()-->
+                    <!--})-->
+        <!--},-->
+        <!--sendPost:function () {-->
+            <!--this.orderSuccess = false-->
+            <!--var fd = new FormData(document.querySelector('#form2'))-->
+            <!--var config = {-->
+                <!--headers: {-->
+                    <!--'Content-Type': 'multipart/form-data'-->
+                <!--}-->
+            <!--}-->
+            <!--axios.post(API.order_post, fd, config)-->
+                    <!--.then(function(res) {-->
+                        <!--alert(res.data);-->
+                        <!--app.orderShow = false-->
+                    <!--})-->
+        <!--}-->
+    <!--}-->
+    <!--})-->
+<!--</script>-->
+
+
+
+</body>
+</html>

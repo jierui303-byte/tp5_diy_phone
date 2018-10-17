@@ -1,0 +1,139 @@
+﻿{extend name="layout:index" /}
+
+{block name="title"}
+<title>添加管理员 - 管理员管理 - H-ui.admin v3.0</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+
+{/block}
+
+{block name="bodyMain"}
+<article class="cl pd-20">
+	<form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
+		<input type="hidden" name="id" value="{$authGroupInfo['id']}">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$authGroupInfo['title']}" placeholder="" id="title" name="title" datatype="*4-16" nullmsg="用户账户不能为空">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">备注：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$authGroupInfo['remark']}" placeholder="" id="remark" name="remark">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">网站角色：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<dl class="permission-list">
+					<dt></dt>
+					<dd>
+						{foreach $rules as $vo}
+						<dl class="cl permission-list2 skin-minimal">
+							<dt>
+								<label class="">
+									<input type="checkbox" value="{$vo.id}" {if condition="in_array($vo.id, $authGroupInfo['rules'])"}checked{/if} name="rules[]" id="user-Character-0-0">
+									{$vo.title}</label>
+							</dt>
+							<dd>
+								{if condition="$vo.sub"}
+								{foreach $vo.sub as $v}
+								<label class="">
+									<input type="checkbox" value="{$v.id}" {if condition="in_array($v.id, $authGroupInfo['rules'])"}checked{/if} name="rules[]" id="user-Character-0-0-0">
+									{$v.title}</label>
+								{/foreach}
+								{/if}
+							</dd>
+						</dl>
+						{/foreach}
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
+			</div>
+		</div>
+	</form>
+</article>
+
+<!--_footer 作为公共模版分离出去-->
+{include file="layout/_footer" /}
+<!--/_footer /作为公共模版分离出去-->
+
+{block name="javascript"}
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__ADMINPATH__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="__ADMINPATH__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="__ADMINPATH__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".permission-list dt input:checkbox").click(function(){
+		$(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
+	});
+	$(".permission-list2 dd input:checkbox").click(function(){
+		var l =$(this).parent().parent().find("input:checked").length;
+		var l2=$(this).parents(".permission-list").find(".permission-list2 dd").find("input:checked").length;
+		if($(this).prop("checked")){
+			$(this).closest("dl").find("dt input:checkbox").prop("checked",true);
+			$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",true);
+		}
+		else{
+			if(l==0){
+				$(this).closest("dl").find("dt input:checkbox").prop("checked",false);
+			}
+			if(l2==0){
+				$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",false);
+			}
+		}
+	});
+	
+	$("#form-admin-role-add").validate({
+		rules:{
+			title:{
+				required:true,
+			},
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			$(form).ajaxSubmit({
+				url:"{:url('admin/roles/editRole', ['id'=>$authGroupInfo['id']])}",//form提交数据的地址  data数据不用带了自动加上了
+				type:'post',　　　  //form提交的方式(method:post/get)
+				beforeSerialize:function(){}, //序列化提交数据之前的回调函数
+				beforeSubmit:function(){},　　//提交前执行的回调函数
+				success:function(responseData){
+					if(responseData.code == 1){
+						//添加成功
+						layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
+						setTimeout(function(){
+							var index = parent.layer.getFrameIndex(window.name);//获取子页面元素
+							parent.location.reload();//刷新父页面
+							parent.layer.close(index);//关闭子页面元素
+						},1000);//定时器关闭子页面
+					}else{
+						//添加失败
+						layer.msg(responseData.msg,{icon:"5",time:responseData.wait*1000});
+					}
+				},//提交成功后执行的回调函数
+				error:function(responseData){
+					layer.msg('提交失败',{icon:"5",time:3*1000});
+				},//提交失败执行的函数
+				dataType:'json',　　　　　　　//服务器返回数据类型
+				clearForm:true,　　　　　　 //提交成功后是否清空表单中的字段值
+				restForm:true,　　　　　　  //提交成功后是否重置表单中的字段值，即恢复到页面加载时的状态
+				timeout:6000 　　　　　 　 //设置请求时间，超过该时间后，自动退出请求，单位(毫秒).
+			});
+
+			return false;
+		}
+	});
+});
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+{/block}
+
+{/block}

@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Canvas+AlloyFinger</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <style>
+        .ribbon {
+            top: 3.2em;
+            right: -4.7em;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+            color:#fff;
+            display: block;
+            padding: .6em 3.5em;
+            position: fixed;
+            text-align: center;
+            text-decoration: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: green;
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body>
+<a href="https://github.com/AlloyTeam/AlloyFinger" class="ribbon">Fork me on Github</a>
+<script src="__INDEXPATH__/alloy_paper.js"></script>
+<script src="__INDEXPATH__/alloy_finger.js"></script>
+
+<div style="text-align: center;">
+    <canvas id="ourCanvas" width="300" height="600" style="border: 1px solid black;"></canvas>
+</div>
+
+<script>
+
+    ;(function (AlloyPaper) {
+        var Stage = AlloyPaper.Stage, Bitmap = AlloyPaper.Bitmap,Loader=AlloyPaper.Loader;
+
+        var stage = new Stage("#ourCanvas");
+        stage.autoUpdate=false;
+        var ld = new Loader();
+        ld.loadRes([
+            { id: "test", src: "__INDEXPATH__/test.png" }
+        ]);
+        ld.complete(function () {
+            var bmp = new Bitmap(ld.get("test"));
+            bmp.originX = 0.5;
+            bmp.originY = 0.5;
+            bmp.x = stage.width / 2;
+            bmp.y =150;
+            stage.add(bmp);
+
+            stage.update();
+
+            var initScale = 1;
+            new AlloyFinger(bmp, {
+                multipointStart: function () {
+                    initScale = bmp.scaleX;
+                },
+                rotate: function (evt) {
+                    bmp.rotation += evt.angle;
+                    stage.update();
+                },
+                pinch: function (evt) {
+                    bmp.scaleX = bmp.scaleY = initScale * evt.scale;
+                    stage.update();
+                },
+                pressMove: function (evt) {
+                    bmp.x += evt.deltaX;
+                    bmp.y += evt.deltaY;
+                    console.log(evt);
+                    evt.preventDefault();
+                    stage.update();
+                }
+
+            });
+
+        });
+
+
+    })(AlloyPaper)
+
+
+
+</script>
+
+<!--<script>-->
+
+    <!--;(function (AlloyPaper) {-->
+        <!--var Stage = AlloyPaper.Stage, Bitmap = AlloyPaper.Bitmap,Loader=AlloyPaper.Loader;-->
+
+        <!--var stage = new Stage("#ourCanvas");-->
+        <!--stage.autoUpdate=false;-->
+        <!--var ld = new Loader();-->
+        <!--ld.loadRes([-->
+            <!--{ id: "test", src: "__INDEXPATH__/test.png" },-->
+            <!--{ id: "test2", src: "__INDEXPATH__/test2.png" },-->
+            <!--{ id: "test3", src: "http://test.jierui303.com/uploads/chart/20180928/fed331a34bd064ccee128442ca86e575.png" },-->
+            <!--{ id: "test4", src: "http://test.jierui303.com/uploads/mask/20181009/8809a38a9e1580a93d6daba4ddf189f7.png" }-->
+        <!--]);-->
+        <!--ld.complete(function () {-->
+            <!--var bmp = new Bitmap(ld.get("test"));-->
+            <!--bmp.originX = 0.5;-->
+            <!--bmp.originY = 0.5;-->
+            <!--bmp.x = stage.width / 2;-->
+            <!--bmp.y =150;-->
+            <!--stage.add(bmp);-->
+
+            <!--var bmp2 = new Bitmap(ld.get("test2"));-->
+            <!--bmp2.originX = 0.5;-->
+            <!--bmp2.originY = 0.5;-->
+            <!--bmp2.x = stage.width / 2;-->
+            <!--bmp2.y =450;-->
+            <!--stage.add(bmp2);-->
+
+            <!--var bmp3 = new Bitmap(ld.get("test3"));-->
+            <!--bmp3.originX = 0.5;-->
+            <!--bmp3.originY = 0.5;-->
+            <!--bmp3.x = stage.width / 2;-->
+            <!--bmp3.y =450;-->
+            <!--stage.add(bmp3);-->
+
+            <!--var bmp4 = new Bitmap(ld.get("test4"));-->
+            <!--bmp4.originX = 0;-->
+            <!--bmp4.originY = 0;-->
+            <!--bmp4.x = 0;-->
+            <!--bmp4.y = 0;-->
+            <!--bmp4.scaleX = 0.6;-->
+            <!--bmp4.scaleY = 0.6;-->
+            <!--stage.add(bmp4);-->
+
+            <!--stage.update();-->
+
+            <!--var initScale = 1;-->
+            <!--new AlloyFinger(bmp, {-->
+                <!--multipointStart: function () {-->
+                    <!--initScale = bmp.scaleX;-->
+                <!--},-->
+                <!--rotate: function (evt) {-->
+                    <!--bmp.rotation += evt.angle;-->
+                    <!--stage.update();-->
+                <!--},-->
+                <!--pinch: function (evt) {-->
+                    <!--bmp.scaleX = bmp.scaleY = initScale * evt.scale;-->
+                    <!--stage.update();-->
+                <!--},-->
+                <!--pressMove: function (evt) {-->
+                    <!--bmp.x += evt.deltaX;-->
+                    <!--bmp.y += evt.deltaY;-->
+                    <!--evt.preventDefault();-->
+                    <!--stage.update();-->
+                <!--}-->
+
+            <!--});-->
+
+            <!--new AlloyFinger(bmp2, {-->
+                <!--multipointStart: function () {-->
+                    <!--initScale = bmp2.scaleX;-->
+                <!--},-->
+                <!--rotate: function (evt) {-->
+                    <!--bmp2.rotation += evt.angle;-->
+                    <!--stage.update();-->
+                <!--},-->
+                <!--pinch: function (evt) {-->
+                    <!--bmp2.scaleX = bmp2.scaleY = initScale * evt.scale;-->
+                    <!--stage.update();-->
+                <!--},-->
+                <!--pressMove: function (evt) {-->
+                    <!--bmp2.x += evt.deltaX;-->
+                    <!--bmp2.y += evt.deltaY;-->
+                    <!--evt.preventDefault();-->
+                    <!--stage.update();-->
+                <!--}-->
+
+            <!--});-->
+
+            <!--new AlloyFinger(bmp3, {-->
+                <!--multipointStart: function () {-->
+                    <!--initScale = bmp3.scaleX;-->
+                <!--},-->
+                <!--rotate: function (evt) {-->
+                    <!--bmp3.rotation += evt.angle;-->
+                    <!--stage.update();-->
+                <!--},-->
+                <!--pinch: function (evt) {-->
+                    <!--bmp3.scaleX = bmp3.scaleY = initScale * evt.scale;-->
+                    <!--stage.update();-->
+                <!--},-->
+                <!--pressMove: function (evt) {-->
+                    <!--bmp3.x += evt.deltaX;-->
+                    <!--bmp3.y += evt.deltaY;-->
+                    <!--evt.preventDefault();-->
+                    <!--stage.update();-->
+                <!--}-->
+
+            <!--});-->
+
+            <!--new AlloyFinger(bmp4, {-->
+                <!--multipointStart: function () {-->
+                    <!--initScale = bmp3.scaleX;-->
+                <!--},-->
+                <!--rotate: function (evt) {-->
+                    <!--bmp3.rotation += evt.angle;-->
+                    <!--stage.update();-->
+                <!--},-->
+                <!--pinch: function (evt) {-->
+                    <!--bmp3.scaleX = bmp3.scaleY = initScale * evt.scale;-->
+                    <!--stage.update();-->
+                <!--},-->
+                <!--pressMove: function (evt) {-->
+                    <!--bmp3.x += evt.deltaX;-->
+                    <!--bmp3.y += evt.deltaY;-->
+                    <!--evt.preventDefault();-->
+                    <!--stage.update();-->
+                <!--}-->
+
+            <!--});-->
+        <!--});-->
+
+
+    <!--})(AlloyPaper)-->
+
+
+
+<!--</script>-->
+</body>
+</html>

@@ -1,0 +1,200 @@
+﻿{extend name="layout:index" /}
+
+{block name="title"}
+<title>管理员列表</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+<style>
+	.icheckbox-blue, .iradio-blue{
+		position: absolute;
+		top: 50%;
+		transform: translate(0, -50%);
+		left: 35%;
+	}
+</style>
+{/block}
+
+{block name="bodyMain"}
+
+<!--_header 作为公共模版分离出去-->
+{include file="layout/_header" /}
+<!--/_header 作为公共模版分离出去-->
+
+<!--_menu 作为公共模版分离出去-->
+{include file="layout/_menu" /}
+<!--/_menu 作为公共模版分离出去-->
+
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 权限管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="text-c">
+				<form class="Huiform" method="post" action="" target="_self">
+					<input type="text" class="input-text" style="width:250px" placeholder="权限名称" id="" name="">
+					<button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜权限节点</button>
+				</form>
+			</div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20">
+				<span class="l">
+					<a href="javascript:;" onclick="admin_rule_all_del()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+					<a href="javascript:;" onclick="admin_permission_add('添加权限节点','{:url('admin/permissions/addPermission')}','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加权限节点</a>
+				</span>
+				<span class="r">共有数据：<strong>{$count}</strong> 条</span>
+			</div>
+			<table class="table table-border table-bordered table-bg table-hover skin-minimal">
+				<thead>
+					<tr>
+						<th scope="col" colspan="7">权限节点</th>
+					</tr>
+					<tr class="text-c">
+						<th width="25" style="position: relative;"><input type="checkbox" id="checkboxAll" name="" value=""></th>
+						<th width="40">ID</th>
+						<th width="200">权限名称</th>
+						<th>字段名</th>
+						<th width="100">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				{foreach $data as $vo}
+					<tr class="text-c">
+						<td class="zsort" data-id="{$vo.id}" style="position: relative;">
+							<input type="checkbox" value="{$vo.id ?? ''}" name="picCheck" >
+						</td>
+						<td>{$vo.id}</td>
+						<td>{$vo.title}</td>
+						<td>{$vo.name}</td>
+						<td>
+							<a title="编辑" href="javascript:;" onclick="admin_permission_edit('角色编辑','{:url('admin/permissions/editPermission', ['id'=>$vo.id])}','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+							<a title="删除" href="javascript:;" onclick="admin_permission_del('{$vo.id}','1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						</td>
+					</tr>
+				{/foreach}
+				</tbody>
+			</table>
+		</article>
+	</div>
+</section>
+
+<!--_footer 作为公共模版分离出去-->
+{include file="layout/_footer" /}
+<!--/_footer /作为公共模版分离出去-->
+
+{block name="javascript"}
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__ADMINPATH__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__ADMINPATH__/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="__ADMINPATH__/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.skin-minimal input').iCheck({
+			checkboxClass: 'icheckbox-blue',
+			radioClass: 'iradio-blue',
+			increaseArea: '20%'
+		});
+		$('.table-sort').dataTable({
+			"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+			"bStateSave": true,//状态保存
+			"aoColumnDefs": [
+				//{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+				{"orderable":false,"aTargets":[0,8]}// 制定列不参与排序
+			]
+		});
+		//全选与反选
+		var checkAll = $('#checkboxAll');
+		var checkboxes = $('input[name=picCheck]');
+		checkAll.on('ifChecked ifUnchecked', function(event) {
+			if (event.type == 'ifChecked') {
+				checkboxes.iCheck('check');
+			} else {
+				checkboxes.iCheck('uncheck');
+			}
+		});
+		checkboxes.on('ifChanged', function(event){
+			if(checkboxes.filter(':checked').length == checkboxes.length) {
+				checkAll.prop('checked', 'checked');
+			} else {
+				checkAll.removeProp('checked');
+			}
+			checkAll.iCheck('update');
+		});
+	});
+/*
+	参数解释：
+	title	标题
+	url		请求的url
+	id		需要操作的数据id
+	w		弹出层宽度（缺省调默认值）
+	h		弹出层高度（缺省调默认值）
+*/
+/*管理员-权限-添加*/
+function admin_permission_add(title,url,w,h){
+	layer_show(title,url,w,h);
+}
+/*管理员-权限-编辑*/
+function admin_permission_edit(title,url,id,w,h){
+	layer_show(title,url,w,h);
+}
+
+/*管理员-权限-删除*/
+function admin_permission_del(obj,id){
+	var postUrl = "{:url('admin/permissions/del')}";
+	layer.confirm('角色删除须谨慎，确认要删除吗？', {
+		btn: ['确定','取消'] //按钮
+	}, function(){
+		//model为数据模型类名
+		$.post(postUrl, {"id":obj, 'model':'AuthRule'}, function (responseData) {
+			if (responseData.code == 1) {
+				layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
+				setTimeout(function(){
+					window.location.href = "{:url('admin/permissions/index')}";
+				},100)
+			} else {
+				layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
+				setTimeout(function(){
+					window.location.href = "{:url('admin/permissions/index')}";
+				},100)
+			}
+		});
+	}, function(){
+		layer.msg('取消成功', {icon:"6",time: 1000});
+	});
+}
+	/*管理员-多条删除*/
+	function admin_rule_all_del(){
+		var postUrl = "{:url('admin/permissions/del_all')}";
+		var str = '';
+		$(".zsort").each(function(){
+			if($(this).find('input').prop('checked')){
+				str += $(this).data('id')+',';
+			}
+		});
+		if(!str){
+			layer.msg('请先选中待删除数据', {icon:"6",time: 1000});
+			return false;
+		}
+		layer.confirm('你确定要删除选中的多项吗？', {
+			btn: ['确定','取消'] //按钮
+		}, function(){
+			//model为数据模型类名
+			$.post(postUrl,{'id':str, 'model':'AuthRule'},function(responseData){
+				if (responseData.code == 1) {
+					layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
+					setTimeout(function(){
+						window.location.href = "{:url('admin/permissions/index')}";
+					},100)
+				} else {
+					layer.msg(responseData.msg,{icon:"5",time:responseData.wait*1000});
+					setTimeout(function(){
+						window.location.href = "{:url('admin/permissions/index')}";
+					},100)
+				}
+			});
+		}, function(){
+			layer.msg('取消成功', {icon:"6",time: 1000});
+		});
+	}
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+{/block}
+
+{/block}

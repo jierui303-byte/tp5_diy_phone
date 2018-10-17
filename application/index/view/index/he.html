@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>js+canvas多张图片合成一张图片代码</title>
+
+    <style>
+        img {
+            border: solid 1px #ddd;
+        }
+    </style>
+
+</head>
+<body>
+
+<h3 style="text-align: center">注：请在服务端运行才能看到效果</h3>
+<div align="center">
+    <img src="./img/img1.png" width="300">
+    <img src="./img/img2.png" width="300">
+    <img src="./img/img3.png" width="300">
+    <img src="./img/img4.png" width="300">
+</div>
+
+<div id="imgBox" align="center">
+    <input type="button" value="一键合成" onclick="hecheng()">
+</div>
+
+<img id="iss" src="" alt="">
+<script>
+
+    function hecheng(){
+        draw(function(){
+            document.getElementById('imgBox').innerHTML='<p style="padding:10px 0">合成图片成功！可以鼠标另存图片查看我是否是一张图片~~！</p><img src="'+base64[0]+'">';
+        })
+    }
+
+    var data=['./img/img1.png','./img/img2.png','./img/img3.png','./img/img4.png'];
+    data = ["http://test.jierui303.com/uploads/phoneTyleBrandPicture/20181010/387c87929c7f248aca20193cd429b414.png", "http://test.jierui303.com/uploads/mask/20181009/8809a38a9e1580a93d6daba4ddf189f7.png", "http://test.jierui303.com/uploads/chart/20180928/0260c78958a18ab86174e51d0795c5c4.png", "http://test.jierui303.com/uploads/phoneTyleBrandPicture/20181010/e0928ff4e604dbfb1793c80dc4330961.png"];
+    var base64=[];
+    function draw(fn){
+        var c=document.createElement('canvas'),
+                ctx=c.getContext('2d'),
+                len=data.length;
+        c.width=290;
+        c.height=290;
+        ctx.rect(0,0,c.width,c.height);
+        ctx.fillStyle='#fff';
+        ctx.fill();
+        function drawing(n){
+            if(n<len){
+                console.log(n+'bbbb');
+                var img=new Image;
+                //img.crossOrigin = 'Anonymous'; //解决跨域
+                img.src=data[n];
+                img.onload=function(){
+                    ctx.drawImage(img,0,0,290,290);
+                    drawing(n+1);//递归
+                }
+            }else{
+                //保存生成作品图片
+                document.getElementById('iss').src = c.toDataURL("image/jpeg",0.8);
+                base64.push(c.toDataURL("image/jpeg",0.8));
+                //alert(JSON.stringify(base64));
+                fn();
+            }
+        }
+        drawing(0);
+    }
+</script>
+
+<!--<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">-->
+<!--<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>-->
+<!--<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>-->
+<!--</div>-->
+</body>
+</html>

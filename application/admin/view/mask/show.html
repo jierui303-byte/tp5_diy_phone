@@ -1,0 +1,181 @@
+﻿{extend name="layout:index" /}
+
+{block name="title"}
+<title>商铺列表</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+<link href="__ADMINPATH__/lib/lightbox2/2.8.1/css/lightbox.css" rel="stylesheet" type="text/css" >
+{/block}
+
+{block name="bodyMain"}
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+	<span class="c-gray en">&gt;</span>
+	图片管理
+	<span class="c-gray en">&gt;</span>
+	图片展示
+	<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+<div class="pd-20 skin-minimal">
+	<div class="text-c"> 类型：
+		<select name="maskCategoryId" id="maskCategoryId" class="select" style="width:120px;">
+			{volist name="data" id="vo"}
+			<option value="{$vo.id}" {if condition="$vo.id eq $currentId"}selected{/if}>{$vo.cate_name}</option>
+			{/volist}
+		</select>
+	</div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+		<span class="l">
+			<div class="check-box">
+				全选：
+				<input name="" type="checkbox" id="checkboxAll">
+				<label for="checkboxAll">&nbsp;</label>
+			</div>
+			<a href="javascript:;" onclick="picture_all_del()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+			<a class="btn btn-primary radius" onclick="picture_add('添加图片','{:url('admin/mask/addMaskPicture', ['id'=>$currentId])}', '10001')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加图片</a>
+		</span>
+		<span class="r">共有数据：<strong>{$count}</strong> 条</span>
+	</div>
+	<div class="portfolio-content">
+		<ul class="cl portfolio-area">
+			{volist name="picList" id="vo"}
+			<li class="item zsort" data-id="{$vo.id}">
+				<div class="portfoliobox">
+					<div style="height: 20px;position:relative;">
+						<a style="text-decoration:none;display: block;float: right;" class="ml-5" onclick="picture_del('{$vo.id}')" href="javascript:;" title="删除"><i class="Hui-iconfont"></i></a>
+						<input class="checkbox" name="picCheck" type="checkbox" value="{$vo.id}">
+					</div>
+					<div class="picbox">
+						<a href="{$vo.pic_path}" data-lightbox="gallery" data-title="客厅1">
+							<img src="{$vo.pic_path}">
+						</a>
+					</div>
+					<div class="textbox">{$vo.pic_old_name} </div>
+				</div>
+			</li>
+			{/volist}
+		</ul>
+	</div>
+</div>
+<!--_footer 作为公共模版分离出去-->
+{include file="layout/_footer" /}
+<!--/_footer /作为公共模版分离出去-->
+
+{block name="javascript"}
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__ADMINPATH__/lib/lightbox2/2.8.1/js/lightbox.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+
+	$(".portfolio-area li").hover(function (){
+		$(this).find(".textbox").show().css({
+			backgroundColor:'#ddd'
+		});
+	},function (){
+		$(this).find(".textbox").hide();
+	});
+	$('#maskCategoryId').change(function () {
+        var index = $(this).val();
+        console.log(index);
+        window.location.href = "{$ROOT_PATH}"+"/{$routeName}/"+index+".{$ext}";
+	});
+
+	//全选与反选
+	var checkAll = $('#checkboxAll');
+	var checkboxes = $('input[name=picCheck]');
+	checkAll.on('ifChecked ifUnchecked', function(event) {
+		if (event.type == 'ifChecked') {
+			checkboxes.iCheck('check');
+		} else {
+			checkboxes.iCheck('uncheck');
+		}
+	});
+	checkboxes.on('ifChanged', function(event){
+		if(checkboxes.filter(':checked').length == checkboxes.length) {
+			checkAll.prop('checked', 'checked');
+		} else {
+			checkAll.removeProp('checked');
+		}
+		checkAll.iCheck('update');
+	});
+
+});
+/*图片-添加*/
+function picture_add(title,url,id){
+    var index = layer.open({
+        type: 2,
+        title: title,
+        content: url,
+        end: function () {
+            location.reload();//子窗口关闭时的回调函数，更新父窗口
+        }
+    });
+    layer.full(index);//全屏显示，因为上方area设置了宽高所以此处关闭全屏
+}
+/*图片-单条删除*/
+function picture_del(obj) {
+	var postUrl = "{:url('admin/mask/del')}";
+	layer.confirm('你确定要删除吗？', {
+		btn: ['确定','取消'] //按钮
+	}, function(){
+		//model为数据模型类名
+		$.post(postUrl, {"id":obj, 'model':'MaskPicture'}, function (responseData) {
+			if (responseData.code == 1) {
+				layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
+				setTimeout(function(){
+					window.location.href = "{:url('admin/mask/show', ['id'=>$currentId])}";
+				},100)
+			} else {
+				layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
+				setTimeout(function(){
+					window.location.href = "{:url('admin/mask/show', ['id'=>$currentId])}";
+				},100)
+			}
+		});
+	}, function(){
+		layer.msg('取消成功', {icon:"6",time: 1000});
+	});
+}
+/*图片-多条删除*/
+function picture_all_del(){
+	var postUrl = "{:url('admin/mask/del_all')}";
+	var str = '';
+	$(".zsort").each(function(){
+		if($(this).find('input').prop('checked')){
+			str += $(this).data('id')+',';
+		}
+	});
+	if(!str){
+		layer.msg('请先选中待删除数据', {icon:"6",time: 1000});
+		return false;
+	}
+	layer.confirm('你确定要删除选中的多项吗？', {
+		btn: ['确定','取消'] //按钮
+	}, function(){
+		//model为数据模型类名
+		$.post(postUrl,{'id':str, 'model':'MaskPicture'},function(responseData){
+			if (responseData.code == 1) {
+				layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
+				setTimeout(function(){
+					window.location.href = "{:url('admin/mask/show', ['id'=>$currentId])}";
+				},100)
+			} else {
+				layer.msg(responseData.msg,{icon:"5",time:responseData.wait*1000});
+				setTimeout(function(){
+					window.location.href = "{:url('admin/mask/show', ['id'=>$currentId])}";
+				},100)
+			}
+		});
+	}, function(){
+		layer.msg('取消成功', {icon:"6",time: 1000});
+	});
+}
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+{/block}
+
+{/block}

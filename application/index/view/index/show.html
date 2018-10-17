@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>DIY 手机壳</title>
+    <link rel="stylesheet" href="__INDEXPATH__/static/design.css">
+    <link rel="stylesheet" href="__INDEXPATH__/static/iconfont.css">
+    <script src="__INDEXPATH__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__INDEXPATH__/fabric.js"></script>
+    <style>
+        .canvas-container{
+            left:20%;
+            top:0px;
+        }
+    </style>
+<body>
+<div id="app">
+    <div class="head" style="color: rgb(110, 110, 110);"><span id="msg" style=""> {$current['var_name']} 修改</span><!----></div>
+    <div class="content">
+        <canvas id="paper" width="208px" height="435px" style="width: 208.352px; height: 435.42px;">此浏览器不支持canvas！</canvas>
+        <div class="mask varbg1" style="width: 208.352px; height: 435.42px; display:none;background-image: url({$current['var_template'][0]});"></div>
+        <div class="mask mb varbg2" style="width: 208.352px; height: 435.42px;  display:none;background-image: url({$current['var_template'][1]});"></div>
+        <div class="mask pic maskbg" data-bg="" style=" display:none;width: 208.352px; height: 435.42px;"></div>
+
+        <div class="paster" style="width: 80px; height: 80px; display: none;cursor: move;">
+            <i id="pde" class="p-sc iconfont icon-shanchu"></i>
+            <i id="pro" class="p-sf iconfont icon-suofang"></i>
+            <img id="pimg" src="" alt="">
+        </div>
+        <div class="preDiv" style="display: none;position:relative;left: 24%;top: 20px;width: 208.352px;height: 435.42px;overflow: hidden;border: 1px dashed #ff0000;">
+            <img id="pre" src="" alt="">
+        </div>
+        <div id="decorate" class="decorate" style=""><i>收起</i>
+            <nav>
+                <span class="active" data-index="0">蒙版</span>
+                <span class="" data-index="1">贴图</span>
+            </nav>
+            <div>
+                <div class="category"><!---->
+                    <ul style="width: 320px;">
+                        <li class="active">情侣</li>
+                        <li class="">卡通</li>
+                        <li class="">简约</li>
+                        <li class="">钱币</li>
+                    </ul>
+                </div>
+                <div class="d-list">
+                    <ul style="width: 700px;">
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/77c3f2bc-b0c9-4e57-a30d-33ca67b42e9f.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/ca5dc1f8-b5c7-4086-9ea0-2e6509380bc2.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/927cbaf7-3e59-4b34-abf3-0502cf4ba5be.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/decdb7bc-4850-46ca-97a6-029aaaede02e.png" alt="加载失败"></li>
+                        <li class="active"><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/44e67e0a-2ebb-427e-acd6-b025c730eb99.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/8ffc267a-9f99-4d40-aa86-e694bdac8664.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/daecc8e7-25bd-4fa0-8285-dea1b3d6ef37.png" alt="加载失败"></li>
+                        <li class=""><img src="" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/5d43654a-5319-4ede-b723-c8b70621d94e.png" alt="加载失败"></li>
+                        <li class=""><img src="http://www.shangyandiy.com/mobilediy/img/map/img/20180903/7de6daeb-ecaf-40ea-8ac1-5980a1427d59.png" alt="加载失败"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" style="z-index: 23;position: relative;bottom: 0;">
+        <div>选择图片</div>
+        <div>蒙版 · 贴图</div>
+        <div>预览</div>
+        <input id="choose" type="file" accept="image/*">
+    </div>
+    <div class="loading" style="display: none;">
+        <img src="__INDEXPATH__/static/loading.gif" alt="上传中，图片加载失败">
+        <span>高清图片上传中</span> <span>请稍等...</span>
+    </div>
+    <div id="error"></div>
+    <div class="order" style="display: none;">
+        <div>
+            <h5>订单编号：{$orderNum}</h5>
+            <form id="form2" method="post">
+                <input type="hidden" name="orderId"><br>
+                <input type="text" name="tel" placeholder="请输入手机号"><br>
+                <input type="text" name="name" placeholder="请输入姓名"><br>
+                <input type="text" name="address" placeholder="请输入收货地址"><br>
+            </form>
+            <button class="submit">提交</button>
+            <button class="esc">取消</button>
+        </div>
+    </div>
+    <form id="form1">
+        <input type="text" name="tbShopsId">
+        <input type="text" name="tbSpecId">
+        <textarea id="bs64" name="file"></textarea>
+    </form>
+
+    <div class="showImgDiv" id="imgBox">
+        <img id="showImg" src="" alt="" style="margin-top: 10px;margin-bottom: 10px;">
+        <div id="xiaDan" style="width: 49.5%;height: 48px;line-height: 48px;background: #00aa66;float: left;color:#fff;">下单</div>
+        <div id="cancelXD" style="width: 49.5%;height: 48px;line-height: 48px;background: #FFA500;float: right;color:#fff;">取消</div>
+    </div>
+</div>
+
+<div id="imgs" align="center">
+    <img src="http://test.jierui303.com/img/img1.png" width="300">
+    <img src="http://test.jierui303.com/img/img2.png" width="300">
+    <img src="http://test.jierui303.com/img/img3.png" width="300">
+    <img src="http://test.jierui303.com/img/img4.png" width="300">
+</div>
+<script src="__INDEXPATH__/Event.js-master/js/Event.js"></script>
+<script src="__INDEXPATH__/Event.js-master/demos/inc/MagicTouch.js"></script>
+<script>
+    var canvas = new fabric.Canvas('paper', {
+        renderOnAddRemove: false,
+        stateful: false,
+        width:208,
+        height:435
+    });
+
+    var bgSrc1 = $('.varbg2').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","");
+    var bgSrc2 = $('.varbg1').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","");
+
+    canvas.setBackgroundImage(bgSrc2, canvas.renderAll.bind(canvas), {
+        width: canvas.width,
+        height: canvas.height,
+        repeat:'no-repeat',
+        originX: 'left',
+        originY: 'top',
+        left:0,
+        top:0,
+        crossOrigin: 'anonymous'
+    });
+    // canvas.selections=false//取消框选
+    // object.set('selectable',false)//单个元素禁止选中
+
+    eventjs.add(window, "drag", function(event, self) {
+        //获取当前选中对象，
+        var act_obj = canvas.getActiveObject();
+        if(act_obj){
+            act_obj.set({
+                left: self.x-act_obj.width/2,
+                top: self.y-act_obj.height/2,
+                borderOpacityWhenMoving:0.5,
+                centeredRotation:true,
+                hasRotatingPoint:false
+            });
+        }
+        console.log(self.gesture, self.fingers, self.state, self.start, self.x, self.y, self.bbox);
+    });
+
+    eventjs.add(window, "gesture", function(event, self) {
+        //获取当前选中对象，
+        var act_obj = canvas.getActiveObject();
+        if(act_obj){
+            act_obj.set({
+                centeredScaling:true,
+            }).scale(self.scale);
+        }
+        console.log(self.gesture, self.fingers, self.state, self.rotation, self.scale);
+    });
+</script>
+<script>
+    function getData(){
+        var uploadImg = $('#pre').attr('src');
+        var maskImg = $('.maskbg').data('bg');
+        var chartImg = $('#pimg').attr('src');
+        var data = [{ id: "1", src: $('.varbg2').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","") }];
+        if(uploadImg){
+            data.push({
+                id:"2",
+                src:uploadImg
+            });
+        }
+        if(maskImg){
+            data.push({
+                id:"3",
+                src:maskImg
+            });
+        }
+        if(chartImg){
+            data.push({
+                id:"4",
+                src:chartImg
+            });
+        }
+        data.push({ id: "5", src: $('.varbg1').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","") });
+        return data;
+    }
+
+    function drawCanvas(canvas, fabric){
+        console.log(getData());
+        canvas.clear();//清空
+        //设置背景1
+        canvas.setBackgroundImage(bgSrc1, canvas.renderAll.bind(canvas), {
+            width: canvas.width,
+            height: canvas.height,
+            repeat:'no-repeat',
+            originX: 'left',
+            originY: 'top',
+            left:0,
+            top:0,
+            crossOrigin: 'anonymous'
+        });
+        //画上传图片
+        fabric.Image.fromURL($('#pre').attr('src'), function(oImg){
+            //将图像向下缩放，并将其翻转，然后再将其添加到画布上
+            oImg.set('zIndex', 1);
+            oImg.setWidth(oImg.width);
+            oImg.setHeight(oImg.height);
+            canvas.add(oImg);
+            console.log('画上传图片层级顺序：'+oImg.zIndex);
+            canvas.sendToBack(oImg);//将对象或多个选择的对象移动到绘制对象堆栈的底部
+        });
+        //画蒙版
+        fabric.Image.fromURL($('.maskbg').data('bg'), function(oImg){
+            //将图像向下缩放，并将其翻转，然后再将其添加到画布上
+            oImg.set('zIndex', 3);
+            oImg.setWidth(canvas.width);
+            oImg.setHeight(canvas.height);
+            oImg.set('selectable',false);//单个元素禁止选中
+            canvas.add(oImg);
+            console.log('画蒙版层级顺序：'+oImg.zIndex);
+        });
+        //画贴图
+        fabric.Image.fromURL($('#pimg').attr('src'), function(oImg){
+            //将图像向下缩放，并将其翻转，然后再将其添加到画布上
+             oImg.scale(0.5).set('flipX', true);
+            oImg.set('zIndex', 4);
+            oImg.setWidth(oImg.width);
+            oImg.setHeight(oImg.height);
+            canvas.add(oImg);
+            console.log('画贴图层级顺序：'+oImg.zIndex);
+        });
+
+        //画边框2
+        canvas.setOverlayImage(bgSrc2, canvas.renderAll.bind(canvas), {
+            width: canvas.width,
+            height: canvas.height,
+            repeat:'no-repeat',
+            originX: 'left',
+            originY: 'top',
+            left:0,
+            top:0,
+            crossOrigin: 'anonymous'
+        });
+
+//        下移：canvas.sendBackwards(canvas.getActiveObject());
+//        上移：canvas.bringForward(canvas.getActiveObject());
+//        置顶：canvas.bringToFront(canvas.getActiveObject());
+//        置底：canvas.sendToBack(canvas.getActiveObject());
+    }
+
+    $(document).ready(function(){
+
+        //下单点击
+        $('.showImgDiv #xiaDan').on('click', function(){
+            $('.order').show();
+        });
+        //下单提交表单
+        $('.order .submit').on('click', function(){
+            var tel = $('input[name=tel]').val();
+            var name = $('input[name=name]').val();
+            var address = $('input[name=address]').val();
+            var imgBase64 = $('#showImg').attr('src');
+            if(!tel || !name || !address){
+                alert('表单信息不能为空');
+                return false;
+            }
+            //把图片进行上传并且返回图片的完整地址
+            console.log(imgBase64);
+
+            //ajax表单提交订单
+            $.ajax({
+                type: "post",
+                url: "/ajaxPost.html",
+                data:{
+                    tel:tel,
+                    name:name,
+                    address:address,
+                    imgBase64:imgBase64
+                },
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    if(data.code == 1){
+                        var str = '<div><h5>下单成功！</h5>'+
+                                '<h5>订单编号：{$orderNum}</h5>'+
+                                '<button>邮寄</button>'+
+                                '<button>自取</button>'+
+                                '</div>';
+                        $('.order').empty().append(str);
+                    }else{
+                        alert(data.msg);
+                    }
+
+                }
+            });
+
+        });
+        //取消表单提交
+        $('.order .esc').on('click', function(){
+            $(this).parents('.order').hide();
+        });
+
+        $('.showImgDiv #cancelXD').on('click', function(){
+            $(this).parent().hide().find('#showImg').attr('src', '');
+        });
+
+        //点击提交合成图片并显示出来
+        $('.footer div:nth-child(3)').on('click', function(){
+            //将canvas元素导出到dataurl图像
+            var dataURL = canvas.toDataURL({
+                format: 'jpeg',
+                quality: 0.8,
+                left: 0,
+                top: 0,
+                width: 208,
+                height: 435
+            });
+            $('.showImgDiv').show().css({
+                position:'absolute',
+                left:0,
+                top:0,
+                zIndex:34,
+                background: '#1503036b',
+                width: '100%',
+                height: '100%',
+            }).find('#showImg').attr('src', dataURL).css({
+                width:'208px',
+                height:'435px'
+            });
+        });
+
+        //选中图片上传
+        $('#choose').on('change', function(e){
+            console.log(this.value);
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();//5.实例化一个FileReader()接口
+                reader.readAsDataURL(this.files[0]);//6.通过readAsDataURL()方法读取文件，将图片内嵌在网页之中
+                reader.onload = function(evt) {
+                    //7.调用FileReader()的onload事件，当文件读取成功时，执行8
+                    //8.将reader的result属性值赋值给data.parentNode.childNodes[1].childNodes[1].src，实现图片预览
+                    $('#pre').attr('src', evt.target.result);
+                    drawCanvas(canvas, fabric);
+                }
+            }
+        });
+
+        //选中哪个图片更换哪个图片地址
+        $('.d-list').on('click', 'ul li', function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            var s = $(this).find('img').attr('src');
+            //判断当前是 贴图还是蒙版
+            var index = $('#decorate nav span.active').data('index');
+            if(index == 0){
+                //0蒙版直接更换大图
+                $('.pic').css("background-image","url(" + s + ")").data('bg', s);
+
+                drawCanvas(canvas, fabric);
+            }else{
+                //贴图是小图 可更改大小和显示位置可挪动
+                $('.paster').find('img').attr('src', s);
+
+                drawCanvas(canvas, fabric);
+            }
+            console.log(s);
+        });
+
+
+        inits();
+        function inits(){
+            $('#decorate').hide();//隐藏贴图蒙版模块
+            //加载 一下默认蒙版选中的数据显示
+            var index = $('#decorate nav span.active').data('index');
+            isNum(index);
+            console.log(index);
+        }
+
+        //点击蒙版贴图调出
+        $('.footer div:nth-child(2)').on('click', function(){
+            $('#decorate').show();
+        });
+        //点击 收起
+        $('#decorate').on('click', 'i', function(){
+            $('#decorate').hide();
+        });
+
+        //点击 选择图片
+        $('.footer div:nth-child(1)').on('click', function(){
+            $('#choose').click();//打开本地上传文件 对话框
+        });
+
+        //点击蒙版和切图切换
+        $('#decorate').on('click', 'nav span', function(){
+            $(this).addClass('active').siblings('span').removeClass('active');
+            //判断是蒙版被点击还是切图被 点击
+            var index = $(this).data('index');//0蒙版  1切图
+            isNum(index);
+            console.log(index);
+        });
+
+        //category分类点击加载图片
+        $('.category').on('click', 'ul li', function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            //判断当前是 贴图还是蒙版
+            var index = $('#decorate nav span.active').data('index');
+            //获取分类下 id
+            var cateId = $(this).data('id');
+            if(index == 0){
+                //获取蒙版分类下图片
+                $.ajax({
+                    type: "get",
+                    url: "/ajaxGetMaskCategoryPicturesById/"+cateId+".html",
+                    dataType: "json",
+                    success: function(data){
+                        console.log(data);
+                        if(data.code == 1){
+                            var str = '';
+                            $.each(data.data, function(i, item){
+                                if(i==0){
+                                    str += '<li data-id="'+item['id']+'" class="active"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                }else{
+                                    str += '<li data-id="'+item['id']+'"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                }
+                            });
+                            $('.d-list ul').empty().append(str);
+                        }else{
+                            //机型为空
+                            alert('蒙版图片为空');
+                        }
+
+                    }
+                });
+            }else{
+                //获取贴图分类下图片
+                $.ajax({
+                    type: "get",
+                    url: "/ajaxGetChartCategoryPicturesById/"+cateId+".html",
+                    dataType: "json",
+                    success: function(data){
+                        console.log(data);
+                        if(data.code == 1){
+                            var str = '';
+                            $.each(data.data, function(i, item){
+                                if(i==0){
+                                    str += '<li data-id="'+item['id']+'" class="active"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                }else{
+                                    str += '<li data-id="'+item['id']+'"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                }
+                            });
+                            $('.d-list ul').empty().append(str);
+                        }else{
+                            //机型为空
+                            alert('蒙版图片为空');
+                        }
+
+                    }
+                });
+            }
+        });
+
+        $('.paster').on('mouseover', function(){
+            $('#pde').show();
+            $('#pro').show();
+            $(this).css('border', '1px dashed #cccccc');
+        });
+        $('.paster').on('mouseout', function(){
+            $('#pde').hide();
+            $('#pro').hide();
+            $(this).css('border', 'none');
+        });
+
+        //隐藏掉贴图框
+        $('#pde').on('click', function(){
+            $('.paster').hide();
+        });
+
+        //隐藏掉上传的图框
+        $('#prePde').on('click', function(){
+            $(this).parent().hide();
+        });
+    });
+
+    function isNum(index){
+        if(index == 0){
+            $.ajax({
+                type: "get",
+                url: "/ajaxGetMaskCategorys.html",
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    if(data.code == 1){
+                        var str = '';
+                        $.each(data.data, function(i, item){
+                            if(i==0){
+                                str += '<li data-id="'+item['id']+'" class="active">'+item['cate_name']+'</li>';
+                            }else{
+                                str += '<li data-id="'+item['id']+'">'+item['cate_name']+'</li>';
+                            }
+                            console.log(item['type_name']);
+                        });
+                        $('.category ul').empty().append(str);
+                        //去加载第一个分类下的图片列表
+                        $.ajax({
+                            type: "get",
+                            url: "/ajaxGetMaskCategoryPicturesById/"+data.data[0]['id']+".html",
+                            dataType: "json",
+                            success: function(data){
+                                console.log(data);
+                                if(data.code == 1){
+                                    var str = '';
+                                    $.each(data.data, function(i, item){
+                                        if(i==0){
+                                            str += '<li data-id="'+item['id']+'" class="active"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                        }else{
+                                            str += '<li data-id="'+item['id']+'"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                        }
+                                    });
+                                    $('.d-list ul').empty().append(str);
+                                }else{
+                                    //机型为空
+                                    alert('蒙版图片为空');
+                                }
+
+                            }
+                        });
+                    }else{
+                        //机型为空
+                        alert('蒙版分类为空');
+                    }
+
+                }
+            });
+        }else if(index == 1){
+            //加载贴图分类
+            $.ajax({
+                type: "get",
+                url: "/ajaxGetChartCategorys.html",
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    if(data.code == 1){
+                        var str = '';
+                        $.each(data.data, function(i, item){
+                            if(i==0){
+                                str += '<li data-id="'+item['id']+'" class="active">'+item['cate_name']+'</li>';
+                            }else{
+                                str += '<li data-id="'+item['id']+'">'+item['cate_name']+'</li>';
+                            }
+                            console.log(item['type_name']);
+                        });
+                        $('.category ul').empty().append(str);
+                        //去加载第一个分类下的图片列表
+                        $.ajax({
+                            type: "get",
+                            url: "/ajaxGetChartCategoryPicturesById/"+data.data[0]['id']+".html",
+                            dataType: "json",
+                            success: function(data){
+                                console.log(data);
+                                if(data.code == 1){
+                                    var str = '';
+                                    $.each(data.data, function(i, item){
+                                        if(i==0){
+                                            str += '<li data-id="'+item['id']+'" class="active"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                        }else{
+                                            str += '<li data-id="'+item['id']+'"><img src="'+item['pic_path']+'" alt="加载失败"></li>';
+                                        }
+                                    });
+                                    $('.d-list ul').empty().append(str);
+                                }else{
+                                    //机型为空
+                                    alert('蒙版图片为空');
+                                }
+
+                            }
+                        });
+                    }else{
+                        //机型为空
+                        alert('蒙版分类为空');
+                    }
+
+                }
+            });
+        }
+    }
+</script>
+
+
+
+</body>
+</html>

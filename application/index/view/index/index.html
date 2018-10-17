@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>DIY 手机壳</title>
+    <script src="__INDEXPATH__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+            -ms-touch-select: none;
+            -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+            -webkit-appearance: none;
+            list-style: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #app {
+            height: 100%;
+            text-align: center;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .head {
+            height: 40px;
+            line-height: 40px;
+            background: #FFA500;
+            box-shadow: 0 0 1px #ccc;
+            color: #fff;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .brands, .brandList {
+            padding: 10px 2%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        .brands {
+            height: 320px;
+        }
+
+        .brands:before {
+            content: '';
+            display: block;
+            clear: both;
+            height:0;
+            overflow:hidden;
+            visibility:hidden;
+        }
+
+        .brands li {
+            float: left;
+            width: calc(33.3% - 4px);
+            padding: 2px;
+        }
+
+        .brands li img {
+            width: 100%;
+            height: auto;
+        }
+        h5{
+            color: #6E6E6E;
+            text-align: left;
+            margin: 10px;
+            font-size: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .brandList{
+            min-height: calc(100% - 68px);
+            box-sizing: border-box;
+            border: 1px solid #eee;
+        }
+        .brandList li{
+            float: left;
+            width: 50%;
+            height: 48px;
+            line-height: 48px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+        }
+        .mask {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #333;
+            z-index: 66;
+            opacity: 0.8;
+        }
+        .mask ul{
+            z-index: 67;
+            position: absolute;
+            left: 0;
+            top: 30%;
+            height: 40%;
+            width: 60%;
+            padding: 0 20%;
+            overflow-y: scroll;
+        }
+        .mask ul li{
+            background: #fff;
+            font-size: 1.2em;
+            line-height: 2.8em;
+            border: 1px solid #ddd;
+        }
+    </style>
+<body>
+<div id="app">
+    <div class="head">
+        <span>店铺地址：新品：纳米防爆镜面壳（非易碎玻璃壳）</span>
+    </div>
+    <h5>请选择品牌</h5>
+    <ul class="brands">
+        {foreach $brandLists as $vo}
+        <li data-id="{$vo.id}"><img src="{$vo.brand_logo}" alt="加载失败"></li>
+        {/foreach}
+    </ul>
+    <h5 id="tag">请选择机型</h5>
+    <ul class="brandList">
+        <span>请先选择品牌</span>
+    </ul>
+    <div style="background-color: rgb(252, 252, 252); color: rgb(110, 110, 110); font-size: 12px; line-height: 16px;">	(c) Copyright 2018 尚颜手机美容 </div>
+    <div class="mask" style="display: none;">
+        <ul></ul>
+    </div>
+</div>
+<script>
+    $(function(){
+        //点击品牌事件获取机型列表
+        $('.brands').on('click', 'li', function(){
+            console.log($(this).data('id'));
+            var brand_id = $(this).data('id');//品牌id
+            //加载获取机型列表
+            $.ajax({
+                type: "get",
+                url: "/ajaxGetPhoneTypes/"+brand_id+".html",
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    if(data.code == 1){
+                        var str = '';
+                        $.each(data.data, function(i, item){
+                            str += '<li data-id="'+item['id']+'" data-brand_id="'+item['brand_id']+'">'+item['type_name']+'</li>';
+                            console.log(item['type_name']);
+                        });
+                        $('.brandList').empty().append(str);
+                    }else{
+                        //机型为空
+                        alert('机型为空');
+                    }
+
+                }
+            });
+        });
+
+        //点击机型事件获取品种列表
+        $('.brandList').on('click', 'li', function(){
+            console.log($(this).data('id'));
+            var brand_id = $(this).data('brand_id');//品牌id
+            var type_id = $(this).data('id');//机型id
+            //加载获取机型列表
+            $.ajax({
+                type: "get",
+                url: "/ajaxGetPhoneVarieties/"+type_id+".html",
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    if(data.code == 1){
+                        var str = '';
+                        $.each(data.data, function(i, item){
+                            str += '<li data-id="'+item['id']+'" data-type_id="'+item['type_id']+'">'+item['var_name']+'</li>';
+                            console.log(item['var_name']);
+                        });
+                        $('.mask').show().find('ul').empty().append(str);
+                    }else{
+                        //机型为空
+                        alert('品种为空');
+                    }
+
+                }
+            });
+        });
+
+        $('.mask').click(function(){
+            if(!$(this).is(':visible')){　　//如果node是隐藏的则显示node元素，否则隐藏
+                $(this).show();
+            }else{
+                $(this).hide();
+            }
+            console.log($(this).is(':visible'));
+        });
+
+        //点击品种 跳转
+        $('.mask ul').on('click', 'li', function(){
+            var type_id = $(this).data('type_id');//机型id
+            var var_id = $(this).data('id');//品种id
+            console.log($(this).data('id'));
+            window.location.href='/show/'+type_id+'/'+var_id+'.html';
+        });
+    });
+</script>
+</body>
+</html>
