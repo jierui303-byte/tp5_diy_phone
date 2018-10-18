@@ -188,13 +188,27 @@
                 canvas.renderAll();
             }else{
                 //拖动结束之后，把图片定位到最后位置并记录下元素的坐标
-                
-                // canvas.discardActiveObject(act_obj);
+                var left = Math.abs(self.start.x - self.x);
+                var top = Math.abs(self.start.y - self.y);
+
+                act_obj.set({
+                    left: left,
+                    top: top,
+                    borderOpacityWhenMoving:0.5,
+                    centeredRotation:true,
+                    hasRotatingPoint:false,
+                    originX:'center',
+                    originY:'center',
+                    border:'5px solid red'
+                });
+                canvas.bringToFront(act_obj);
+                canvas.renderAll();
+            
             }
         }
         
         console.log('拖动开始了');
-        // console.log(act_obj.width);
+        console.log(act_obj.index);
         console.log('拖动开始了left：'+left+"=====top:"+top);
         console.log(self.state);
         console.log(self.fingers);
