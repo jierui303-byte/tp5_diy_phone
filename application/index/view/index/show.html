@@ -128,6 +128,7 @@
         width:208,
         height:435
     });
+    console.log(canvas);
 
     var bgSrc1 = $('.varbg2').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","");
     var bgSrc2 = $('.varbg1').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","");
@@ -222,6 +223,7 @@
         }
         
         console.log('拖动开始了');
+        console.log(canvas);
         console.log(canvas.getActiveObject(act_obj));
         console.log('拖动开始了left：'+left+"=====top:"+top);
         console.log(self.state);
