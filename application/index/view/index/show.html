@@ -156,23 +156,23 @@
     });
 
     eventjs.add(window, "tap", function(event, self) {
-        var act_obj = canvas.getActiveObject();
-        if(act_obj){ 
-            var left = 100;
-            var top = 100;
+        // var act_obj = canvas.getActiveObject();
+        // if(act_obj){ 
+        //     var left = 100;
+        //     var top = 100;
 
-            act_obj.set({
-                left: left+'px',
-                top: top+'px',
-                borderOpacityWhenMoving:0.5,
-                // centeredRotation:true,
-                // hasRotatingPoint:false,
-                originX:'center',
-                originY:'center',
-                border:'5px solid red'
-            });
-            canvas.renderAll();
-        }
+        //     act_obj.set({
+        //         left: left+'px',
+        //         top: top+'px',
+        //         borderOpacityWhenMoving:0.5,
+        //         // centeredRotation:true,
+        //         // hasRotatingPoint:false,
+        //         originX:'center',
+        //         originY:'center',
+        //         border:'5px solid red'
+        //     });
+        //     canvas.renderAll();
+        // }
         console.log('我被tap。。。。');
         $('#click').val('我被tap。。。。');
         console.log(self.gesture, self.fingers);
@@ -204,21 +204,21 @@
             }else{
                  // 如果是up是抬起停止拖动
                 //拖动结束之后，把图片定位到最后位置并记录下元素的坐标
-                var left = Math.abs(self.start.x - self.x);
-                var top = Math.abs(self.start.y - self.y);
+                // var left = Math.abs(self.start.x - self.x);
+                // var top = Math.abs(self.start.y - self.y);
 
-                act_obj.set({
-                    left: left+'px',
-                    top: top+'px',
-                    borderOpacityWhenMoving:0.5,
-                    // centeredRotation:true,
-                    // hasRotatingPoint:false,
-                    originX:'left',
-                    originY:'top',
-                    border:'5px solid red'
-                });
-                canvas.bringToFront(act_obj);
-                canvas.renderAll();
+                // act_obj.set({
+                //     left: left+'px',
+                //     top: top+'px',
+                //     borderOpacityWhenMoving:0.5,
+                //     // centeredRotation:true,
+                //     // hasRotatingPoint:false,
+                //     originX:'left',
+                //     originY:'top',
+                //     border:'5px solid red'
+                // });
+                // canvas.bringToFront(act_obj);
+                // canvas.renderAll();
             
             }
         }
