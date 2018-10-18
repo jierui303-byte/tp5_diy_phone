@@ -147,7 +147,9 @@
                 top: self.y - act_obj.height/2,
                 borderOpacityWhenMoving:0.5,
                 centeredRotation:true,
-                hasRotatingPoint:false
+                hasRotatingPoint:false,
+                originX:'center',
+                originY:'center',
             });
         }
         console.log(self.state);
@@ -160,6 +162,8 @@
         var act_obj = canvas.getActiveObject();
         if(act_obj){
             act_obj.set({
+                originX:'center',
+                originY:'center',
                 centeredScaling:true,
                 centeredRotation:true,
                 hasRotatingPoint:true
