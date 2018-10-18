@@ -13,7 +13,6 @@ class PhoneVarieties extends Base
 {
     public function index($type_id)
     {
-        echo ROOT_PATH;exit;
         $arrS = (new PhoneVarietiesService())->getAllListsByWhere(
             [
                 'status' => 1,
