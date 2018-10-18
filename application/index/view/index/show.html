@@ -131,14 +131,14 @@
     });
 
     fabric.Object.prototype.transparentCorners = false;
-  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+    fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 
-  fabric.Canvas.prototype.getAbsoluteCoords = function(object) {
-    return {
-      left: object.left + this._offset.left,
-      top: object.top + this._offset.top
-    };
-  }
+    fabric.Canvas.prototype.getAbsoluteCoords = function(object) {
+        return {
+          left: object.left + this._offset.left,
+          top: object.top + this._offset.top
+        };
+    }
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
 
@@ -148,8 +148,8 @@
         console.log(act_obj);
         if(act_obj){
             act_obj.set({
-                left: self.x-act_obj.width/2,
-                top: self.y-act_obj.height/2,
+                left: self.x,
+                top: self.y,
                 borderOpacityWhenMoving:0.5,
                 centeredRotation:true,
                 hasRotatingPoint:false
