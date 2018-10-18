@@ -144,6 +144,11 @@
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
 
+
+    eventjs.add(window, "tap", function(event, self) {
+        console.log(self.gesture, self.fingers);
+    });
+
     eventjs.add(window, "drag", function(event, self) {
         //最后结束时 获取当前选中对象
         var act_obj = canvas.getActiveObject();
