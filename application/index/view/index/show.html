@@ -128,7 +128,8 @@
         width:208,
         height:435
     });
-    console.log(canvas);
+    console.log(canvas.wrapperEl.offsetTop);
+    console.log(canvas.wrapperEl.offsetWidth);
 
     var bgSrc1 = $('.varbg2').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","");
     var bgSrc2 = $('.varbg1').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","");
