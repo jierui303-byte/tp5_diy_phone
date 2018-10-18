@@ -22,7 +22,7 @@
     <input type="button" value="一些按钮" id="inline-btn" style="position: absolute; left: 195.848px; top: 321.21px;">
     <i id="pde" class="p-sc iconfont icon-shanchu"></i>
             <i id="pro" class="p-sf iconfont icon-suofang"></i>
-            
+
         <canvas id="paper" width="208px" height="435px" style="width: 208.352px; height: 435.42px;">此浏览器不支持canvas！</canvas>
         <div class="mask varbg1" style="width: 208.352px; height: 435.42px; display:none;background-image: url({$current['var_template'][0]});"></div>
         <div class="mask mb varbg2" style="width: 208.352px; height: 435.42px;  display:none;background-image: url({$current['var_template'][1]});"></div>
@@ -265,6 +265,8 @@ var btn = document.getElementById('pro'),
                 positionBtn(oImg) 
             });
             oImg.on('scaling', function() { positionBtn(oImg) });
+        },{
+            hasControls:false
         });
 
         //画边框2
