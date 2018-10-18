@@ -186,8 +186,8 @@
             if(self.state == 'down'){
                 canvas.setActiveObject(act_obj);
 
-                var left = Math.abs(self.start.x - self.x);
-                var top = Math.abs(self.start.y - self.y);
+                var left = Math.abs(self.x - canvas.wrapperEl.offsetWidth);
+                var top = Math.abs(self.y - canvas.wrapperEl.offsetTop);
 
                 act_obj.set({
                     left: left+'px',
@@ -204,8 +204,8 @@
             }else{
                  // 如果是up是抬起停止拖动
                 //拖动结束之后，把图片定位到最后位置并记录下元素的坐标
-                var left = Math.abs(self.start.x - self.x);
-                var top = Math.abs(self.start.y - self.y);
+                var left = Math.abs(self.x - canvas.wrapperEl.offsetWidth);
+                var top = Math.abs(self.y - canvas.wrapperEl.offsetTop);
 
                 act_obj.set({
                     left: left+'px',
