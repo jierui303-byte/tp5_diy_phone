@@ -31,7 +31,7 @@
 				<label for="checkboxAll">&nbsp;</label>
 			</div>
 			<a href="javascript:;" onclick="picture_all_del()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-			<a class="btn btn-primary radius" onclick="picture_add('添加图片','{:url('admin/mask/addMaskPicture', ['id'=>$currentId])}', '10001')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加图片</a>
+			<a class="btn btn-primary radius" onclick="picture_add('添加图片','{:url('admin/chart/addChartPicture', ['id'=>$currentId])}', '10001')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加图片</a>
 		</span>
 		<span class="r">共有数据：<strong>{$count}</strong> 条</span>
 	</div>
@@ -118,21 +118,21 @@ function picture_add(title,url,id){
 }
 /*图片-单条删除*/
 function picture_del(obj) {
-	var postUrl = "{:url('admin/mask/del')}";
+	var postUrl = "{:url('admin/chart/del')}";
 	layer.confirm('你确定要删除吗？', {
 		btn: ['确定','取消'] //按钮
 	}, function(){
 		//model为数据模型类名
-		$.post(postUrl, {"id":obj, 'model':'MaskPicture'}, function (responseData) {
+		$.post(postUrl, {"id":obj, 'model':'ChartPicture'}, function (responseData) {
 			if (responseData.code == 1) {
 				layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
 				setTimeout(function(){
-					window.location.href = "{:url('admin/mask/show', ['id'=>$currentId])}";
+					window.location.href = "{:url('admin/chart/show', ['id'=>$currentId])}";
 				},100)
 			} else {
 				layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
 				setTimeout(function(){
-					window.location.href = "{:url('admin/mask/show', ['id'=>$currentId])}";
+					window.location.href = "{:url('admin/chart/show', ['id'=>$currentId])}";
 				},100)
 			}
 		});
@@ -142,7 +142,7 @@ function picture_del(obj) {
 }
 /*图片-多条删除*/
 function picture_all_del(){
-	var postUrl = "{:url('admin/mask/del_all')}";
+	var postUrl = "{:url('admin/chart/del_all')}";
 	var str = '';
 	$(".zsort").each(function(){
 		if($(this).find('input').prop('checked')){
@@ -157,16 +157,16 @@ function picture_all_del(){
 		btn: ['确定','取消'] //按钮
 	}, function(){
 		//model为数据模型类名
-		$.post(postUrl,{'id':str, 'model':'MaskPicture'},function(responseData){
+		$.post(postUrl,{'id':str, 'model':'ChartPicture'},function(responseData){
 			if (responseData.code == 1) {
 				layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
 				setTimeout(function(){
-					window.location.href = "{:url('admin/mask/show', ['id'=>$currentId])}";
+					window.location.href = "{:url('admin/chart/show', ['id'=>$currentId])}";
 				},100)
 			} else {
 				layer.msg(responseData.msg,{icon:"5",time:responseData.wait*1000});
 				setTimeout(function(){
-					window.location.href = "{:url('admin/mask/show', ['id'=>$currentId])}";
+					window.location.href = "{:url('admin/chart/show', ['id'=>$currentId])}";
 				},100)
 			}
 		});
