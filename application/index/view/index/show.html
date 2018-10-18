@@ -142,11 +142,13 @@
         if(self.state == 'up'){
             //最后结束时 获取当前选中对象
             var act_obj = canvas.getActiveObject();
+            var left = self.start.x - self.x;
+            var top = self.start.y - self.y;
 
             if(act_obj){
                 act_obj.set({
-                    left: self.x - self.bbox.width/2,
-                    top: self.y - self.bbox.height/2,
+                    left: left,
+                    top: top,
                     borderOpacityWhenMoving:0.5,
                     centeredRotation:true,
                     hasRotatingPoint:false,
