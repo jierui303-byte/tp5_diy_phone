@@ -109,14 +109,16 @@
     <img src="http://test.jierui303.com/img/img3.png" width="300">
     <img src="http://test.jierui303.com/img/img4.png" width="300">
 </div>
-<script src="__INDEXPATH__/Event.js-master/js/Event.js"></script>
-<script src="__INDEXPATH__/Event.js-master/demos/inc/MagicTouch.js"></script>
+<!-- <script src="__INDEXPATH__/Event.js-master/js/Event.js"></script> -->
+<!-- <script src="__INDEXPATH__/Event.js-master/demos/inc/MagicTouch.js"></script> -->
 <script>
     var canvas = new fabric.Canvas('paper', {
         renderOnAddRemove: false,
         stateful: false,
         width:208,
-        height:435
+        height:435,
+        originX:'center',
+        originY:'center'
     });
 
     var bgSrc1 = $('.varbg2').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","");
