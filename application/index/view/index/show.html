@@ -152,7 +152,7 @@
         // 如果是up是抬起停止拖动
             if(self.state == 'down'){
                 canvas.setActiveObject(act_obj);
-                
+
                 var left = Math.abs(self.start.x - self.x);
                 var top = Math.abs(self.start.y - self.y);
 
@@ -164,6 +164,7 @@
                     hasRotatingPoint:false,
                     originX:'center',
                     originY:'center',
+                    border:'5px solid red'
                 });
                 
                 canvas.renderAll();
