@@ -141,6 +141,8 @@
 
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
+    var left = 0;
+    var top = 0;
 
     eventjs.add(window, "drag", function(event, self) {
         //最后结束时 获取当前选中对象
@@ -150,8 +152,8 @@
         // 如果是up是抬起停止拖动
             if(self.state == 'down'){
                 
-                var left = Math.abs(self.start.x - self.x);
-                var top = Math.abs(self.start.y - self.y);
+                left = Math.abs(self.start.x - self.x);
+                top = Math.abs(self.start.y - self.y);
 
                 act_obj.set({
                     left: left,
@@ -186,6 +188,8 @@
         var act_obj = canvas.getActiveObject();
         if(act_obj){
             act_obj.set({
+                left: left,
+                top: top,
                 originX:'center',
                 originY:'center',
                 centeredScaling:true,
@@ -195,8 +199,8 @@
         }
         console.log('拖动开始了');
         console.log(self.gesture);//当前被拖动元素的宽度
-        console.log(self.fingers);
-        console.log(self.state);
+        console.log(self.fingers);//1为end 2为change
+        console.log(self.state);//手势状态：change和end
         console.log(self.rotation);
         console.log(self.scale);
         console.log('拖动结束了');
