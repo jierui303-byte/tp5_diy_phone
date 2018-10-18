@@ -28,8 +28,8 @@
         <div class="mask pic maskbg" data-bg="" style=" display:none;width: 208.352px; height: 435.42px;"></div>
 
         <div class="paster" style="width: 80px; height: 80px; display: none;cursor: move;">
-            <i id="pde" class="p-sc iconfont icon-shanchu"></i>
-            <i id="pro" class="p-sf iconfont icon-suofang"></i>
+        <i id="pde" class="p-sc iconfont icon-shanchu"></i>
+        <i id="pro" class="p-sf iconfont icon-suofang"></i>
             <img id="pimg" src="" alt="">
         </div>
         <div class="preDiv" style="display: none;position:relative;left: 24%;top: 20px;width: 208.352px;height: 435.42px;overflow: hidden;border: 1px dashed #ff0000;">
@@ -109,16 +109,14 @@
     <img src="http://test.jierui303.com/img/img3.png" width="300">
     <img src="http://test.jierui303.com/img/img4.png" width="300">
 </div>
-<!-- <script src="__INDEXPATH__/Event.js-master/js/Event.js"></script> -->
-<!-- <script src="__INDEXPATH__/Event.js-master/demos/inc/MagicTouch.js"></script> -->
+<script src="__INDEXPATH__/Event.js-master/js/Event.js"></script>
+<script src="__INDEXPATH__/Event.js-master/demos/inc/MagicTouch.js"></script>
 <script>
     var canvas = new fabric.Canvas('paper', {
         renderOnAddRemove: false,
         stateful: false,
         width:208,
-        height:435,
-        centeredRotation:true,
-        centeredScaling:true,
+        height:435
     });
 
     var bgSrc1 = $('.varbg2').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","");
@@ -294,9 +292,7 @@ var btn = document.getElementById('pro'),
             });
             oImg.on('scaling', function() { positionBtn(oImg) });
         },{
-            hasBorders:false,
-            notAllowedCursor:1,
-            preserveObjectStacking:false,
+            hasBorders:false
         });
 
         //画边框2
