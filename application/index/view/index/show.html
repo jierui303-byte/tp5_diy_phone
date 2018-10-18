@@ -169,6 +169,7 @@
         }
         
         console.log('拖动开始了');
+        console.log(act_obj);
         console.log('拖动开始了left：'+left+"=====top:"+top);
         console.log(self.state);
         console.log(self.fingers);
@@ -188,7 +189,9 @@
         var act_obj = canvas.getActiveObject();
         if(act_obj){
             if(self.state == 'change'){
-                //根据缩放值
+                //根据缩放值计算新的宽高重新绘制
+                var width = 0;
+                var height = 0;
                 act_obj.set({
                     left: left,
                     top: top,
