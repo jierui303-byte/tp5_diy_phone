@@ -143,8 +143,6 @@
 
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
-    var left = 0;
-    var top = 0;
 
     eventjs.add(window, "drag", function(event, self) {
         //最后结束时 获取当前选中对象
@@ -154,8 +152,8 @@
         // 如果是up是抬起停止拖动
             if(self.state == 'down'){
                 
-                left = Math.abs(self.start.x - self.x);
-                top = Math.abs(self.start.y - self.y);
+                var left = Math.abs(self.start.x - self.x);
+                var top = Math.abs(self.start.y - self.y);
 
                 act_obj.set({
                     left: left,
