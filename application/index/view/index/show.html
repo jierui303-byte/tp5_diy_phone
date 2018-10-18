@@ -153,6 +153,10 @@
     });
 
     eventjs.add(window, "tap", function(event, self) {
+        var act_obj = canvas.getActiveObject();
+        if(act_obj){ 
+            canvas.discardActiveObject(act_obj);
+        }
         console.log('我被tap。。。。');
         $('#click').val('我被tap。。。。');
         console.log(self.gesture, self.fingers);
