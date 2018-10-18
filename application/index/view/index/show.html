@@ -155,7 +155,21 @@
     eventjs.add(window, "tap", function(event, self) {
         var act_obj = canvas.getActiveObject();
         if(act_obj){ 
-            canvas.discardActiveObject(act_obj);
+            var left = 100;
+            var top = 100;
+
+                act_obj.set({
+                    left: left,
+                    top: top,
+                    borderOpacityWhenMoving:0.5,
+                    centeredRotation:true,
+                    hasRotatingPoint:false,
+                    originX:'center',
+                    originY:'center',
+                    border:'5px solid red'
+                });
+                canvas.bringToFront(act_obj);
+                canvas.renderAll();
         }
         console.log('我被tap。。。。');
         $('#click').val('我被tap。。。。');
