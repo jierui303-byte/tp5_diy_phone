@@ -145,7 +145,7 @@
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
 
-    eventjs.add(window, "drag", function(event, self) {
+    eventjs.add(document.getElementById('paper'), "drag", function(event, self) {
         //获取当前选中对象，
         var act_obj = canvas.getActiveObject();
         console.log(act_obj);
@@ -162,7 +162,7 @@
         console.log(self.gesture, self.fingers, self.state, self.start, self.x, self.y, self.bbox);
     });
 
-    eventjs.add(window, "gesture", function(event, self) {
+    eventjs.add(document.getElementById('paper'), "gesture", function(event, self) {
         //检测到指纹缩放时
         //获取当前选中对象，
         var act_obj = canvas.getActiveObject();
