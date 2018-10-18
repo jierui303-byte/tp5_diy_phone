@@ -117,8 +117,8 @@
         stateful: false,
         width:208,
         height:435,
-        originX:'center',
-        originY:'center'
+        centeredRotation:true,
+        centeredScaling:true,
     });
 
     var bgSrc1 = $('.varbg2').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","");
@@ -294,7 +294,8 @@ var btn = document.getElementById('pro'),
             });
             oImg.on('scaling', function() { positionBtn(oImg) });
         },{
-            hasBorders:false
+            hasBorders:false,
+            notAllowedCursor:[0,1,2,3,4,5],
         });
 
         //画边框2
