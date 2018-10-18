@@ -144,8 +144,8 @@
         // 如果是up是抬起停止拖动
             if(self.state == 'up'){
                 
-                var left = Math.abs(self.start.x - self.x);
-                var top = Math.abs(self.start.y - self.y);
+                var left = Math.abs(self.start.x - self.x) + self.bbox.width/2;
+                var top = Math.abs(self.start.y - self.y) +  + self.bbox.height/2;
 
                 act_obj.set({
                     left: left,
