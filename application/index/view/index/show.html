@@ -184,12 +184,16 @@
         // console.log(self.gesture, self.fingers, self.state, self.start, self.x, self.y, self.bbox);
     });
 
+    var scaleV = 1;
+
     eventjs.add(window, "gesture", function(event, self) {
         //获取当前选中对象，
         var act_obj = canvas.getActiveObject();
         if(act_obj){
             //当指纹放大或缩小时，状态为change
             if(self.state == 'change'){
+
+                scaleV = self.scale;
                 
                 act_obj.set({
                     originX:'center',
@@ -197,7 +201,7 @@
                     centeredScaling:true,
                     centeredRotation:true,
                     hasRotatingPoint:true
-                }).scale(self.scale);
+                }).scale(scaleV);
 
                 canvas.renderAll();
             }
