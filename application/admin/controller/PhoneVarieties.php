@@ -13,6 +13,7 @@ class PhoneVarieties extends Base
 {
     public function index($type_id)
     {
+        echo ROOT_PATH;exit;
         $arrS = (new PhoneVarietiesService())->getAllListsByWhere(
             [
                 'status' => 1,
@@ -38,7 +39,6 @@ class PhoneVarieties extends Base
         $oldFileType = $fileInfo['type'];//上传图片的原类型
         $old_tmp_name = $fileInfo['tmp_name'];//临时存放路径
         $newLeavePath = ROOT_PATH . 'uploads'.DS.'phoneVarieties';//定义新的存储路径 /uploads/mask 蒙版目录下
-        echo ROOT_PATH;
         if($file){
             //支持对上传文件的验证，包括文件大小、文件类型和后缀
             $info = $file->validate(['size'=>1567800,'ext'=>'jpg,png,gif'])
