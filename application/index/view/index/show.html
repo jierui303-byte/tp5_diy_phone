@@ -18,6 +18,7 @@
 <div id="app">
     <div class="head" style="color: rgb(110, 110, 110);"><span id="msg" style=""> {$current['var_name']} 修改</span><!----></div>
     <div class="content">
+    <input type="button" value="一些按钮" id="inline-btn" style="position: absolute; left: 195.848px; top: 321.21px;">
         <canvas id="paper" width="208px" height="435px" style="width: 208.352px; height: 435.42px;">此浏览器不支持canvas！</canvas>
         <div class="mask varbg1" style="width: 208.352px; height: 435.42px; display:none;background-image: url({$current['var_template'][0]});"></div>
         <div class="mask mb varbg2" style="width: 208.352px; height: 435.42px;  display:none;background-image: url({$current['var_template'][1]});"></div>
@@ -128,6 +129,16 @@
         top:0,
         crossOrigin: 'anonymous'
     });
+
+    fabric.Object.prototype.transparentCorners = false;
+  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
+  fabric.Canvas.prototype.getAbsoluteCoords = function(object) {
+    return {
+      left: object.left + this._offset.left,
+      top: object.top + this._offset.top
+    };
+  }
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
 
@@ -149,6 +160,7 @@
     });
 
     eventjs.add(window, "gesture", function(event, self) {
+        //检测到指纹缩放时
         //获取当前选中对象，
         var act_obj = canvas.getActiveObject();
         if(act_obj){
@@ -186,6 +198,17 @@
         data.push({ id: "5", src: $('.varbg1').css('backgroundImage').replace('url(','').replace(')','').replace("\"","").replace("\"","") });
         return data;
     }
+
+var btn = document.getElementById('inline-btn'),
+      btnWidth = 85,
+      btnHeight = 18;
+
+  function positionBtn(obj) {
+    var absCoords = canvas.getAbsoluteCoords(obj);
+
+    btn.style.left = (absCoords.left - btnWidth / 2) + 'px';
+    btn.style.top = (absCoords.top - btnHeight / 2) + 'px';
+  }
 
     function drawCanvas(canvas, fabric){
         console.log(getData());
@@ -230,6 +253,8 @@
             oImg.setHeight(oImg.height);
             canvas.add(oImg);
             console.log('画贴图层级顺序：'+oImg.zIndex);
+            oImg.on('moving', function() { positionBtn(img) });
+            oImg.on('scaling', function() { positionBtn(img) });
         });
 
         //画边框2
