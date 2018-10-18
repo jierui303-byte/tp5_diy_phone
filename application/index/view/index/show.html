@@ -128,7 +128,7 @@
         width:208,
         height:435
     });
-    
+
     console.log(canvas.wrapperEl.offsetTop);
     console.log(canvas.wrapperEl.offsetWidth);
 
@@ -158,21 +158,20 @@
     eventjs.add(window, "tap", function(event, self) {
         var act_obj = canvas.getActiveObject();
         if(act_obj){ 
-            var left = 1000;
-            var top = 1000;
+            var left = 100;
+            var top = 100;
 
-                act_obj.set({
-                    left: left+'px',
-                    top: top+'px',
-                    borderOpacityWhenMoving:0.5,
-                    centeredRotation:true,
-                    hasRotatingPoint:false,
-                    originX:'center',
-                    originY:'center',
-                    border:'5px solid red'
-                });
-                canvas.bringToFront(act_obj);
-                canvas.renderAll();
+            act_obj.set({
+                left: left+'px',
+                top: top+'px',
+                borderOpacityWhenMoving:0.5,
+                // centeredRotation:true,
+                // hasRotatingPoint:false,
+                originX:'center',
+                originY:'center',
+                border:'5px solid red'
+            });
+            canvas.renderAll();
         }
         console.log('我被tap。。。。');
         $('#click').val('我被tap。。。。');
@@ -194,8 +193,8 @@
                     left: left+'px',
                     top: top+'px',
                     borderOpacityWhenMoving:0.5,
-                    centeredRotation:true,
-                    hasRotatingPoint:false,
+                    // centeredRotation:true,
+                    // hasRotatingPoint:false,
                     originX:'left',
                     originY:'top',
                     border:'5px solid red'
@@ -212,8 +211,8 @@
                     left: left+'px',
                     top: top+'px',
                     borderOpacityWhenMoving:0.5,
-                    centeredRotation:true,
-                    hasRotatingPoint:false,
+                    // centeredRotation:true,
+                    // hasRotatingPoint:false,
                     originX:'left',
                     originY:'top',
                     border:'5px solid red'
