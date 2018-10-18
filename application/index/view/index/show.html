@@ -137,15 +137,16 @@
     // object.set('selectable',false)//单个元素禁止选中
 
     eventjs.add(window, "drag", function(event, self) {
+        //最后结束时 获取当前选中对象
+        var act_obj = canvas.getActiveObject();
+        if(act_obj){ 
         // 如果是down是按下开始拖动
         // 如果是up是抬起停止拖动
-        if(self.state == 'up'){
-            //最后结束时 获取当前选中对象
-            var act_obj = canvas.getActiveObject();
-            var left = Math.abs(self.start.x - self.x);
-            var top = Math.abs(self.start.y - self.y);
+            if(self.state == 'up'){
+                
+                var left = Math.abs(self.start.x - self.x);
+                var top = Math.abs(self.start.y - self.y);
 
-            if(act_obj){
                 act_obj.set({
                     left: left,
                     top: top,
@@ -155,6 +156,7 @@
                     originX:'center',
                     originY:'center',
                 });
+                
             }
         }
         
