@@ -19,7 +19,9 @@
 <div id="app">
     <div class="head" style="color: rgb(110, 110, 110);"><span id="msg" style=""> {$current['var_name']} 修改</span><!----></div>
     <div class="content">
-        <div id="info" style="background: #eef; width: 100px; position: absolute;top:0;left:0;">    
+        <div id="info" style="background: #eef; width: 100px; position: absolute;top:0;left:0;">  
+            <input type="text" id="width" value=""> <br/>
+            <input type="text" id="height" value=""> <br/>  
             <input type="text" id="gesture" value=""> <br/>
             <input type="text" id="fingers" value=""> <br/>
             <input type="text" id="state" value=""> <br/>
@@ -209,12 +211,16 @@
 
         }
         console.log('拖动开始了');
+        console.log(width);
+        console.log(height);
         console.log(self.gesture);//当前被拖动元素的宽度
         console.log(self.fingers);//1为end 2为change
         console.log(self.state);//手势状态：change和end
         console.log(self.rotation);
         console.log(self.scale);
         console.log('拖动结束了');
+        $('#width').val(width);
+        $('#height').val(height);
         $('#gesture').val(self.gesture);
         $('#fingers').val(self.fingers);
         $('#state').val(self.state);
