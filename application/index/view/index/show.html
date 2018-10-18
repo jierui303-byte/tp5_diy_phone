@@ -167,6 +167,7 @@
                     originY:'center',
                 });
                 
+                canvas.renderAll();
             }
         }
         
@@ -200,14 +201,14 @@
                 act_obj.set({
                     left: left,//保持之前拖动位置不变
                     top: top,
-                    // originX:'center',
-                    // originY:'center',
+                    originX:'center',
+                    originY:'center',
                     centeredScaling:true,
                     centeredRotation:true,
                     hasRotatingPoint:true
                 }).scale(self.scale);
+
                 canvas.renderAll();
-                // drawCanvas(canvas, fabric);
             }
             
 
