@@ -167,7 +167,6 @@
         var act_obj = canvas.getActiveObject();
         if(act_obj){ 
         // 如果是down是按下开始拖动
-        // 如果是up是抬起停止拖动
             if(self.state == 'down'){
                 canvas.setActiveObject(act_obj);
 
@@ -187,6 +186,7 @@
                 canvas.bringToFront(act_obj);
                 canvas.renderAll();
             }else{
+                 // 如果是up是抬起停止拖动
                 //拖动结束之后，把图片定位到最后位置并记录下元素的坐标
                 var left = Math.abs(self.start.x - self.x);
                 var top = Math.abs(self.start.y - self.y);
@@ -362,7 +362,10 @@ var btn = document.getElementById('pro'),
             canvas.add(oImg);
             console.log('画贴图层级顺序：'+oImg.zIndex);
         },{
-            hasBorders:false
+            hasBorders:false,
+            borderColor:'red',
+            hasBorder:true,
+            borderDashArray:[2,4,6,7,8]
         });
 
         //画边框2
