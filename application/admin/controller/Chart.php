@@ -37,7 +37,7 @@ class Chart extends Base
             ['cate_id'=>$id],
             ['id,cate_id,pic_old_name,pic_path']
         );//获取相应分类的图片
-        echo 'aaa';exit;
+        
         $this->assign('data', $arrS);
         $this->assign('count', count($picList));
         $this->assign('picList', $picList);
