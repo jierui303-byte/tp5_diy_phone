@@ -187,15 +187,20 @@
         //获取当前选中对象，
         var act_obj = canvas.getActiveObject();
         if(act_obj){
-            act_obj.set({
-                left: left,
-                top: top,
-                originX:'center',
-                originY:'center',
-                centeredScaling:true,
-                centeredRotation:true,
-                hasRotatingPoint:true
-            }).scale(self.scale);
+            if(self.state == 'change'){
+                //根据缩放值
+                act_obj.set({
+                    left: left,
+                    top: top,
+                    // originX:'center',
+                    // originY:'center',
+                    centeredScaling:true,
+                    centeredRotation:true,
+                    hasRotatingPoint:true
+                }).scale(self.scale);
+            }
+            
+
         }
         console.log('拖动开始了');
         console.log(self.gesture);//当前被拖动元素的宽度
