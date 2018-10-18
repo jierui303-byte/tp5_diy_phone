@@ -156,24 +156,24 @@
     });
 
     eventjs.add(window, "tap", function(event, self) {
-        // var act_obj = canvas.getActiveObject();
-        // if(act_obj){ 
-        //     var left = 1000;
-        //     var top = 1000;
+        var act_obj = canvas.getActiveObject();
+        if(act_obj){ 
+            var left = 1000;
+            var top = 1000;
 
-        //         act_obj.set({
-        //             left: left+'px',
-        //             top: top+'px',
-        //             borderOpacityWhenMoving:0.5,
-        //             centeredRotation:true,
-        //             hasRotatingPoint:false,
-        //             originX:'center',
-        //             originY:'center',
-        //             border:'5px solid red'
-        //         });
-        //         canvas.bringToFront(act_obj);
-        //         canvas.renderAll();
-        // }
+                act_obj.set({
+                    left: left+'px',
+                    top: top+'px',
+                    borderOpacityWhenMoving:0.5,
+                    centeredRotation:true,
+                    hasRotatingPoint:false,
+                    originX:'center',
+                    originY:'center',
+                    border:'5px solid red'
+                });
+                canvas.bringToFront(act_obj);
+                canvas.renderAll();
+        }
         console.log('我被tap。。。。');
         $('#click').val('我被tap。。。。');
         console.log(self.gesture, self.fingers);
