@@ -142,34 +142,34 @@
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
 
-    eventjs.add(window, "drag", function(event, self) {
-        //获取当前选中对象，
-        var act_obj = canvas.getActiveObject();
-        console.log(act_obj);
-        if(act_obj){
-            act_obj.set({
-                left: self.x,
-                top: self.y,
-                borderOpacityWhenMoving:0.5,
-                centeredRotation:true,
-                hasRotatingPoint:false
-            });
-        }
-        console.log(self.state);
-        console.log(self.gesture, self.fingers, self.state, self.start, self.x, self.y, self.bbox);
-    });
+    // eventjs.add(window, "drag", function(event, self) {
+    //     //获取当前选中对象，
+    //     var act_obj = canvas.getActiveObject();
+    //     console.log(act_obj);
+    //     if(act_obj){
+    //         act_obj.set({
+    //             left: self.x,
+    //             top: self.y,
+    //             borderOpacityWhenMoving:0.5,
+    //             centeredRotation:true,
+    //             hasRotatingPoint:false
+    //         });
+    //     }
+    //     console.log(self.state);
+    //     console.log(self.gesture, self.fingers, self.state, self.start, self.x, self.y, self.bbox);
+    // });
 
-    eventjs.add(window, "gesture", function(event, self) {
-        //检测到指纹缩放时
-        //获取当前选中对象，
-        var act_obj = canvas.getActiveObject();
-        if(act_obj){
-            act_obj.set({
-                centeredScaling:true,
-            }).scale(self.scale);
-        }
-        console.log(self.gesture, self.fingers, self.state, self.rotation, self.scale);
-    });
+    // eventjs.add(window, "gesture", function(event, self) {
+    //     //检测到指纹缩放时
+    //     //获取当前选中对象，
+    //     var act_obj = canvas.getActiveObject();
+    //     if(act_obj){
+    //         act_obj.set({
+    //             centeredScaling:true,
+    //         }).scale(self.scale);
+    //     }
+    //     console.log(self.gesture, self.fingers, self.state, self.rotation, self.scale);
+    // });
 </script>
 <script>
     function getData(){
