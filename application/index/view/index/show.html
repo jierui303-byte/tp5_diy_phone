@@ -19,7 +19,12 @@
 <div id="app">
     <div class="head" style="color: rgb(110, 110, 110);"><span id="msg" style=""> {$current['var_name']} 修改</span><!----></div>
     <div class="content">
-        <p id="info" style="background: #eef; width: 583px; padding: 10px; overflow: scroll; height: 40px"> </p>
+        <p id="info" style="background: #eef; width: 583px; padding: 10px; overflow: scroll; height: 40px">    <input type="text" id="gesture" value=""> 
+            <input type="text" id="fingers" value=""> 
+            <input type="text" id="state" value=""> 
+            <input type="text" id="rotation" value=""> 
+            <input type="text" id="scale" value=""> 
+        </p>
     
 
         <canvas id="paper" width="208px" height="435px" style="width: 208.352px; height: 435.42px;">此浏览器不支持canvas！</canvas>
@@ -187,7 +192,19 @@
                 hasRotatingPoint:true
             }).scale(self.scale);
         }
-        console.log(self.gesture, self.fingers, self.state, self.rotation, self.scale);
+        console.log('拖动开始了');
+        console.log(self.gesture);//当前被拖动元素的宽度
+        console.log(self.fingers);
+        console.log(self.state);
+        console.log(self.rotation);
+        console.log(self.scale);
+        console.log('拖动结束了');
+        $('#gesture').val(self.gesture);
+        $('#fingers').val(self.fingers);
+        $('#state').val(self.state);
+        $('#rotation').val(self.rotation);
+        $('#scale').val(self.scale);
+        // console.log(self.gesture, self.fingers, self.state, self.rotation, self.scale);
     });
 </script>
 <script>
