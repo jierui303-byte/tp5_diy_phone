@@ -143,7 +143,10 @@
 
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
-
+    
+    eventjs.add(window, "click", function(event, self) {
+        console.log(self.gesture, self.x, self.y);
+    });
 
     eventjs.add(window, "tap", function(event, self) {
         console.log(self.gesture, self.fingers);
