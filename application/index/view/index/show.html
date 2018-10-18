@@ -184,10 +184,10 @@
     });
 
     eventjs.add(window, "gesture", function(event, self) {
-        //检测到指纹缩放时
         //获取当前选中对象，
         var act_obj = canvas.getActiveObject();
         if(act_obj){
+            //当指纹放大或缩小时，状态为change
             if(self.state == 'change'){
                 //根据缩放值计算新的宽高重新绘制
                 var width = act_obj.width * self.scale;
@@ -196,7 +196,7 @@
                 act_obj.set({
                     width：width,
                     height: height,
-                    left: left,
+                    left: left,//保持之前拖动位置不变
                     top: top,
                     // originX:'center',
                     // originY:'center',
