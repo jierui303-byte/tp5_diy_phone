@@ -151,6 +151,7 @@
         // 如果是down是按下开始拖动
         // 如果是up是抬起停止拖动
             if(self.state == 'down'){
+                canvas.setActiveObject(act_obj);
                 
                 var left = Math.abs(self.start.x - self.x);
                 var top = Math.abs(self.start.y - self.y);
@@ -195,7 +196,8 @@
         if(act_obj){
             //当指纹放大或缩小时，状态为change
             if(self.state == 'change'){
-
+                canvas.setActiveObject(act_obj);
+                
                 scaleV = self.scale;
 
                 act_obj.set({
