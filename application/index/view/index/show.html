@@ -134,6 +134,7 @@
     eventjs.add(window, "drag", function(event, self) {
         //获取当前选中对象，
         var act_obj = canvas.getActiveObject();
+        console.act_obj;
         if(act_obj){
             act_obj.set({
                 left: self.x-act_obj.width/2,
