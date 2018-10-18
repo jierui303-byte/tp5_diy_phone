@@ -9,6 +9,7 @@ class Login extends Base
 {
     public function index()
     {
+        echo 'sss';exit;
         if($this->request->isPost()){
             //登录判断
             $userInfo = (new Users())->getOneByWhere([
