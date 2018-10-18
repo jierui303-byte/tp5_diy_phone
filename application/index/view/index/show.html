@@ -19,9 +19,8 @@
 <div id="app">
     <div class="head" style="color: rgb(110, 110, 110);"><span id="msg" style=""> {$current['var_name']} 修改</span><!----></div>
     <div class="content">
-    <input type="button" value="一些按钮" id="inline-btn" style="position: absolute; left: 195.848px; top: 321.21px;">
-    <i id="pde" class="p-sc iconfont icon-shanchu"></i>
-            <i id="pro" class="p-sf iconfont icon-suofang"></i>
+        <p id="info" style="background: #eef; width: 583px; padding: 10px; overflow: scroll; height: 40px"> </p>
+    
 
         <canvas id="paper" width="208px" height="435px" style="width: 208.352px; height: 435.42px;">此浏览器不支持canvas！</canvas>
         <div class="mask varbg1" style="width: 208.352px; height: 435.42px; display:none;background-image: url({$current['var_template'][0]});"></div>
@@ -29,6 +28,8 @@
         <div class="mask pic maskbg" data-bg="" style=" display:none;width: 208.352px; height: 435.42px;"></div>
 
         <div class="paster" style="width: 80px; height: 80px; display: none;cursor: move;">
+            <i id="pde" class="p-sc iconfont icon-shanchu"></i>
+            <i id="pro" class="p-sf iconfont icon-suofang"></i>
             <img id="pimg" src="" alt="">
         </div>
         <div class="preDiv" style="display: none;position:relative;left: 24%;top: 20px;width: 208.352px;height: 435.42px;overflow: hidden;border: 1px dashed #ff0000;">
@@ -172,6 +173,30 @@
     //     }
     //     console.log(self.gesture, self.fingers, self.state, self.rotation, self.scale);
     // });
+    var info = document.getElementById('info');
+
+canvas.on({
+  'touch:gesture': function() {
+    var text = document.createTextNode(' Gesture ');
+    info.insertBefore(text, info.firstChild);
+  },
+  'touch:drag': function() {
+    var text = document.createTextNode(' Dragging ');
+    info.insertBefore(text, info.firstChild);
+  },
+  'touch:orientation': function() {
+    var text = document.createTextNode(' Orientation ');
+    info.insertBefore(text, info.firstChild);
+  },
+  'touch:shake': function() {
+    var text = document.createTextNode(' Shaking ');
+    info.insertBefore(text, info.firstChild);
+  },
+  'touch:longpress': function() {
+    var text = document.createTextNode(' Longpress ');
+    info.insertBefore(text, info.firstChild);
+  }
+});
 </script>
 <script>
     function getData(){
@@ -267,7 +292,7 @@ var btn = document.getElementById('pro'),
             });
             oImg.on('scaling', function() { positionBtn(oImg) });
         },{
-            hasControls:false
+            hasBorders:false
         });
 
         //画边框2
