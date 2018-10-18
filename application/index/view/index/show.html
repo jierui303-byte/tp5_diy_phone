@@ -20,6 +20,8 @@
     <div class="head" style="color: rgb(110, 110, 110);"><span id="msg" style=""> {$current['var_name']} 修改</span><!----></div>
     <div class="content">
         <div id="info" style="background: #eef; width: 100px; position: absolute;top:0;left:0;">  
+            <input type="text" id="click" value=""> <br/>
+            <input type="text" id="tap" value=""> <br/>
             <input type="text" id="width" value=""> <br/>
             <input type="text" id="height" value=""> <br/>  
             <input type="text" id="gesture" value=""> <br/>
@@ -145,10 +147,14 @@
     // object.set('selectable',false)//单个元素禁止选中
     
     eventjs.add(window, "click", function(event, self) {
+        console.log('我被点击了。。。。');
+        $('#click').val('我被点击了');
         console.log(self.gesture, self.x, self.y);
     });
 
     eventjs.add(window, "tap", function(event, self) {
+        console.log('我被tap。。。。');
+        $('#click').val('我被tap。。。。');
         console.log(self.gesture, self.fingers);
     });
 
