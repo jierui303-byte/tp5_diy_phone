@@ -253,8 +253,8 @@ var btn = document.getElementById('inline-btn'),
             oImg.setHeight(oImg.height);
             canvas.add(oImg);
             console.log('画贴图层级顺序：'+oImg.zIndex);
-            oImg.on('moving', function() { positionBtn(img) });
-            oImg.on('scaling', function() { positionBtn(img) });
+            oImg.on('moving', function() { positionBtn(oImg) });
+            oImg.on('scaling', function() { positionBtn(oImg) });
         });
 
         //画边框2
