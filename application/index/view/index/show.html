@@ -150,6 +150,8 @@
     // object.set('selectable',false)//单个元素禁止选中
     
     eventjs.add(window, "click", function(event, self) {
+        //当点击了canvas以外的坐标点时，取消当前活动选项
+        // canvas.discardActiveObject(act_obj);
         console.log('我被点击了。。。。');
         $('#click').val('我被点击了');
         console.log(self.gesture, self.x, self.y);
