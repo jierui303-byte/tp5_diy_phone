@@ -174,15 +174,14 @@
 
     eventjs.add(window, "drag", function(event, self) {
         //如果是down是按下开始拖动
-        //获取当前选中对象
-        var act_obj = canvas.getActiveObject();
-        var bl = act_obj.oCoords.bl;
-        console.log(act_obj);
         if(self.state == 'down'){
             if(act_obj){ 
+                //获取当前选中对象
+                var act_obj = canvas.getActiveObject();
+                var bl = act_obj.oCoords.bl;
                 var left = Math.abs(self.start.x - self.x);
                 var top = Math.abs(self.start.y - self.y);
-
+                console.log(act_obj);
                 if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
                     act_obj.set({
                         left: left,
