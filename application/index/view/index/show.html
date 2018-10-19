@@ -197,13 +197,14 @@
                     originY:'top',
                     border:'5px solid red'
                 });
-
                 canvas.setActiveObject(act_obj);
-                canvas.renderAll();
-                
                 btn.style.left = '100px';
                 btn.style.top = '100px';
                 btn.style.zIndex = 99;
+
+                canvas.renderAll();
+                
+                
             }
         // 如果是down是按下开始拖动
             // if(self.state == 'down'){
