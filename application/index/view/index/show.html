@@ -240,7 +240,8 @@
                     originX:'left',
                     originY:'top',
                     border:'5px solid red'
-                }).setActiveObject(act_obj);
+                });
+                act_obj.setActiveObject(act_obj);
 
                 canvas.renderAll();
             }
@@ -329,7 +330,8 @@
                 centeredScaling:true,
                 centeredRotation:true,
                 hasRotatingPoint:true
-            }).scale(self.scale).setActiveObject(act_obj);
+            }).scale(self.scale);
+            act_obj.setActiveObject(act_obj);
 
             canvas.renderAll();
 
