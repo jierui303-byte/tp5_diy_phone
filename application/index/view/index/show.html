@@ -165,13 +165,31 @@
         // console.log('canvas定位坐标点：', leftX, rightX);
         // console.log('加上canvas宽高后的坐标', topY, bottomY);
 
-        if(self.x <= leftX && self.y <= topY || self.x >= rightX && self.y <= bottomY || self.x <= leftX && self.y <= bottomY && self.y >= topY && self.y >= topY < topY ||self.x >= rightX && self.y <= bottomY && self.y >= topY && self.y >= topY < topY ){
+        if(self.x <= leftX && self.y <= topY && self.x >= rightX){
+            console.log('顶部点击');
             if(act_obj){
                 console.log('当前被选中元素的状态：'+act_obj.active);
                 canvas.discardActiveObject();
                 canvas.renderAll();
             }
         }
+
+        if(self.x <= leftX && self.x >= rightX && self.y >= bottomY){
+            console.log('底部点击');
+            if(act_obj){
+                console.log('当前被选中元素的状态：'+act_obj.active);
+                canvas.discardActiveObject();
+                canvas.renderAll();
+            }
+        }
+
+        //  if(self.x <= leftX && self.y <= topY || self.x >= rightX && self.y <= bottomY || self.x <= leftX && self.y <= bottomY && self.y >= topY && self.y >= topY < topY ||self.x >= rightX && self.y <= bottomY && self.y >= topY && self.y >= topY < topY ){
+        //     if(act_obj){
+        //         console.log('当前被选中元素的状态：'+act_obj.active);
+        //         canvas.discardActiveObject();
+        //         canvas.renderAll();
+        //     }
+        // }
         
     });
 
