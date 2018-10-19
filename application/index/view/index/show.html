@@ -201,8 +201,8 @@
                 canvas.setActiveObject(act_obj);
                 canvas.renderAll();
                 
-                btn.style.left = left + 'px';
-                btn.style.top = top + 'px';
+                btn.style.left = (left + canvas.wrapperEl.offsetWidth) + 'px';
+                btn.style.top = (top + canvas.wrapperEl.offsetTop) + 'px';
                 btn.style.zIndex = 99;
             }
         // 如果是down是按下开始拖动
