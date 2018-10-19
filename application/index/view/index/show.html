@@ -175,7 +175,7 @@
     eventjs.add(window, "drag", function(event, self) {
         //最后结束时 获取当前选中对象
         var act_obj = canvas.getActiveObject();
-        console.log(itemIndex);
+        console.log(act_obj);
         if(act_obj){ 
             var left = Math.abs(self.start.x - self.x);
             var top = Math.abs(self.start.y - self.y);
@@ -202,8 +202,8 @@
                 
             }
             //计算光标位置
-            btn.style.left = self.x + 'px';
-            btn.style.top = self.y + 'px';
+            btn.style.left = (act_obj.left + canvas.wrapperEl.offsetWidth) + 'px';
+            btn.style.top = (act_obj.top + canvas.wrapperEl.offsetTop) + 'px';
             btn.style.zIndex = 99;
         // 如果是down是按下开始拖动
             // if(self.state == 'down'){
