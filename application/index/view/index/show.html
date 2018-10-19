@@ -168,6 +168,10 @@
     var chartLeft = 0;
     var chartTop = 0;
 
+    var btn = document.getElementById('pde'),
+      btnWidth = 85,
+      btnHeight = 18;
+
     eventjs.add(window, "drag", function(event, self) {
         //最后结束时 获取当前选中对象
         var act_obj = canvas.getActiveObject();
@@ -196,7 +200,10 @@
 
                 canvas.setActiveObject(act_obj);
                 canvas.renderAll();
-                positionBtn(act_obj);
+                
+                btn.style.left = left + 'px';
+                btn.style.top = top + 'px';
+                btn.style.zIndex = 99;
             }
         // 如果是down是按下开始拖动
             // if(self.state == 'down'){
@@ -328,9 +335,7 @@
         return data;
     }
 
-    var btn = document.getElementById('pde'),
-      btnWidth = 85,
-      btnHeight = 18;
+    
 
     function positionBtn(obj) {
         var absCoords = canvas.getAbsoluteCoords(obj);
