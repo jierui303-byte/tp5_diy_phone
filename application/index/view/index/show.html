@@ -366,7 +366,7 @@ var btn = document.getElementById('pro'),
         //画上传图片
         fabric.Image.fromURL($('#pre').attr('src'), function(oImg){
             //将图像向下缩放，并将其翻转，然后再将其添加到画布上
-            oImg.set('zIndex', 1);
+            oImg.scale(0.5).set('zIndex', 1);
             // oImg.setWidth(oImg.width);
             // oImg.setHeight(oImg.height);
             canvas.add(oImg);
@@ -394,11 +394,11 @@ var btn = document.getElementById('pro'),
             oImg.setControlVisible('tr', true);
             oImg.setControlVisible('bl', true);
             oImg.setControlVisible('br', true);
-            oImg.setControlVisible('ml', true);
-            oImg.setControlVisible('mt', true);
-            oImg.setControlVisible('mr', true);
-            oImg.setControlVisible('mb', true);
-            oImg.setControlVisible('mtr', true);
+            oImg.setControlVisible('ml', false);
+            oImg.setControlVisible('mt', false);
+            oImg.setControlVisible('mr', false);
+            oImg.setControlVisible('mb', false);
+            oImg.setControlVisible('mtr', false);
             oImg.setCoords();
             canvas.add(oImg);
             console.log('画贴图层级顺序：'+oImg.zIndex);
