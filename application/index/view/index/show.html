@@ -230,7 +230,7 @@
             var left = Math.abs(self.start.x - self.x);
             var top = Math.abs(self.start.y - self.y);
             
-            if(self.x >= canvas.wrapperEl.offsetWidth && self.y >= canvas.wrapperEl.offsetTop){
+            if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
                 act_obj.set({
                     left: left,
                     top: top,
