@@ -399,8 +399,9 @@ var btn = document.getElementById('pro'),
             oImg.setControlVisible('mr', true);
             oImg.setControlVisible('mb', true);
             oImg.setControlVisible('mtr', true);
-            oImg.cornerStyle('circle');
+            // oImg.cornerStyle(circle);
             oImg.cornerSize(16);
+            oImg.setCoords();
             canvas.add(oImg);
             console.log('画贴图层级顺序：'+oImg.zIndex);
         },{
