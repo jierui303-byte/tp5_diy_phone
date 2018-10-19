@@ -241,7 +241,8 @@
                     originY:'top',
                     border:'5px solid red'
                 });
-                act_obj.setActiveObject(act_obj);
+                
+                canvas.setActiveObject(act_obj);
 
                 canvas.renderAll();
             }
@@ -331,7 +332,8 @@
                 centeredRotation:true,
                 hasRotatingPoint:true
             }).scale(self.scale);
-            act_obj.setActiveObject(act_obj);
+
+            canvas.setActiveObject(act_obj);
 
             canvas.renderAll();
 
