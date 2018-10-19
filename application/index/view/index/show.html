@@ -179,7 +179,8 @@
                 y:canvas.wrapperEl.offsetTop + canvas.height
             };
 
-            if(self.y <= trX.y){
+            //小于左上角或者是右上角的y就OK
+            if(self.y <= tlX.y){
                 console.log('顶部点击');
                 console.log('当前被选中元素的状态：'+act_obj.active);
                 
@@ -189,7 +190,8 @@
                 return false;
             }
 
-            if(self.y >= brX.y){
+            //大于左下角的y就OK
+            if(self.y >= blX.y){
                 console.log('底部点击');
                 console.log('当前被选中元素的状态：'+act_obj.active);
                 
@@ -199,6 +201,7 @@
                 return false;
             }
 
+            //y在左上角y和左下角y之间 x只需要小于左上角还是左下角的x就行
             if(self.x <= tlX.x && self.y >= tlX.y && self.y <= blX.y){
                 console.log('左边点击');
                 console.log('当前被选中元素的状态：'+act_obj.active);
@@ -209,6 +212,7 @@
                 return false;
             }
 
+            //y在右上角y和右下角y之间 x只需要大于右上角还是右下角的x就行
             if(self.x >= trX.x && self.y >= trX.y && self.y <= brX.y){
                 console.log('右边点击');
                 console.log('当前被选中元素的状态：'+act_obj.active);
