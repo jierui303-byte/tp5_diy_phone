@@ -167,11 +167,11 @@
         console.log(self.gesture, self.x, self.y);
     });
 
-    eventjs.add(window, "tap", function(event, self) {
-        console.log('我被tap。。。。');
-        $('#click').val('我被tap。。。。');
-        console.log(self.gesture, self.fingers);
-    });
+    // eventjs.add(window, "tap", function(event, self) {
+    //     console.log('我被tap。。。。');
+    //     $('#click').val('我被tap。。。。');
+    //     console.log(self.gesture, self.fingers);
+    // });
 
     eventjs.add(window, "drag", function(event, self) {
         //最后结束时 获取当前选中对象
