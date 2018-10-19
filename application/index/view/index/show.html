@@ -198,8 +198,9 @@
                     border:'5px solid red'
                 });
                 canvas.setActiveObject(act_obj);
-                btn.style.left = '100px';
-                btn.style.top = '100px';
+                //计算光标位置
+                btn.style.left = self.x + 'px';
+                btn.style.top = self.y + 'px';
                 btn.style.zIndex = 99;
 
                 canvas.renderAll();
