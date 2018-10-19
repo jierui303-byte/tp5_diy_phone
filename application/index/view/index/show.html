@@ -191,12 +191,6 @@
 
                 canvas.setActiveObject(act_obj);
                 canvas.renderAll();
-
-                $('#pro').css({
-                    left:self.x+'px',
-                    top:self.y+'px',
-                    zIndex:99
-                });
             }
         // 如果是down是按下开始拖动
             // if(self.state == 'down'){
@@ -413,6 +407,8 @@
             oImg.setCoords();
             canvas.add(oImg);
             console.log('画贴图层级顺序：'+oImg.zIndex);
+            oImg.on('moving', function() { positionBtn(oImg) });
+            oImg.on('scaling', function() { positionBtn(oImg) });
             positionBtn(oImg);
         },{
             hasBorders:true,
