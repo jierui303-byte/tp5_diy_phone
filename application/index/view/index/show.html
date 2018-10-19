@@ -198,15 +198,13 @@
                     border:'5px solid red'
                 });
                 canvas.setActiveObject(act_obj);
-                //计算光标位置
-                btn.style.left = self.x + 'px';
-                btn.style.top = self.y + 'px';
-                btn.style.zIndex = 99;
-
                 canvas.renderAll();
                 
-                
             }
+            //计算光标位置
+            btn.style.left = self.x + 'px';
+            btn.style.top = self.y + 'px';
+            btn.style.zIndex = 99;
         // 如果是down是按下开始拖动
             // if(self.state == 'down'){
 
