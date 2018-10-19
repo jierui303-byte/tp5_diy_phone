@@ -181,12 +181,6 @@
             var top = Math.abs(self.start.y - self.y);
             
             if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
-                // if(itemIndex == 3){
-                //     chartLeft = left;
-                //     chartTop = top;
-                // }else if(itemIndex == 3){
-
-                // }
                 act_obj.set({
                     left: left,
                     top: top,
@@ -201,9 +195,10 @@
                 canvas.renderAll();
                 
             }
+            var bl = act_obj.oCoords.bl;
             //计算光标位置
-            btn.style.left = (act_obj.left + canvas.wrapperEl.offsetWidth) + 'px';
-            btn.style.top = (act_obj.top + canvas.wrapperEl.offsetTop) + 'px';
+            btn.style.left = (bl.x + canvas.wrapperEl.offsetWidth) + 'px';
+            btn.style.top = (bl.y + canvas.wrapperEl.offsetTop) + 'px';
             btn.style.zIndex = 99;
         // 如果是down是按下开始拖动
             // if(self.state == 'down'){
