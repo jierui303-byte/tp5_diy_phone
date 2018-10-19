@@ -149,79 +149,79 @@
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
     
-    eventjs.add(window, "click", function(event, self) {
-        //当点击了canvas以外的坐标点时，取消当前活动选项
-        var act_obj = canvas.getActiveObject();
-        // console.log(act_obj);
+    // eventjs.add(window, "click", function(event, self) {
+    //     //当点击了canvas以外的坐标点时，取消当前活动选项
+    //     var act_obj = canvas.getActiveObject();
+    //     // console.log(act_obj);
 
-        if(act_obj){
-            //左上角
-            var tl = {
-                x:canvas.wrapperEl.offsetWidth,
-                y:canvas.wrapperEl.offsetTop
-            };
+    //     if(act_obj){
+    //         //左上角
+    //         var tl = {
+    //             x:canvas.wrapperEl.offsetWidth,
+    //             y:canvas.wrapperEl.offsetTop
+    //         };
 
-            //右上角
-            var tr = {
-                x:canvas.wrapperEl.offsetWidth + canvas.width,
-                y:canvas.wrapperEl.offsetTop
-            };
+    //         //右上角
+    //         var tr = {
+    //             x:canvas.wrapperEl.offsetWidth + canvas.width,
+    //             y:canvas.wrapperEl.offsetTop
+    //         };
 
-            //左下角
-            var bl = {
-                x:canvas.wrapperEl.offsetWidth,
-                y:canvas.wrapperEl.offsetTop + canvas.height
-            };
+    //         //左下角
+    //         var bl = {
+    //             x:canvas.wrapperEl.offsetWidth,
+    //             y:canvas.wrapperEl.offsetTop + canvas.height
+    //         };
 
-            //右下角
-            var br = {
-                x:canvas.wrapperEl.offsetWidth + canvas.width,//左上角
-                y:canvas.wrapperEl.offsetTop + canvas.height
-            };
+    //         //右下角
+    //         var br = {
+    //             x:canvas.wrapperEl.offsetWidth + canvas.width,//左上角
+    //             y:canvas.wrapperEl.offsetTop + canvas.height
+    //         };
 
-            console.log(tl, tr, bl, br);
+    //         console.log(tl, tr, bl, br);
 
-            if(self.y <= tr.y){
-                //小于左上角或者是右上角的y就OK
-                console.log('顶部点击');
-                console.log('当前被选中元素的状态：'+act_obj.active);
+    //         if(self.y <= tr.y){
+    //             //小于左上角或者是右上角的y就OK
+    //             console.log('顶部点击');
+    //             console.log('当前被选中元素的状态：'+act_obj.active);
                 
-                canvas.discardActiveObject();
-                canvas.renderAll();
+    //             canvas.discardActiveObject();
+    //             canvas.renderAll();
 
-                return false;
-            }else if(self.y >= bl.y){
-                //大于左下角的y就OK
-                console.log('底部点击');
-                console.log('当前被选中元素的状态：'+act_obj.active);
+    //             return false;
+    //         }else if(self.y >= bl.y){
+    //             //大于左下角的y就OK
+    //             console.log('底部点击');
+    //             console.log('当前被选中元素的状态：'+act_obj.active);
                 
-                canvas.discardActiveObject();
-                canvas.renderAll();
+    //             canvas.discardActiveObject();
+    //             canvas.renderAll();
 
-                return false;
-            }else if(self.x <= tl.x && self.y >= tl.y && self.y <= bl.y){
-                //y在左上角y和左下角y之间 x只需要小于左上角还是左下角的x就行
-                console.log('左边点击');
-                console.log('当前被选中元素的状态：'+act_obj.active);
+    //             return false;
+    //         }else if(self.x <= tl.x && self.y >= tl.y && self.y <= bl.y){
+    //             //y在左上角y和左下角y之间 x只需要小于左上角还是左下角的x就行
+    //             console.log('左边点击');
+    //             console.log('当前被选中元素的状态：'+act_obj.active);
 
-                canvas.discardActiveObject();
-                canvas.renderAll();
+    //             canvas.discardActiveObject();
+    //             canvas.renderAll();
 
-                return false;
-            }else if(self.x >= br.x && self.y >= tr.y && self.y <= br.y){
-                //y在右上角y和右下角y之间 x只需要大于右上角还是右下角的x就行
-                console.log('右边点击');
-                console.log('当前被选中元素的状态：'+act_obj.active);
+    //             return false;
+    //         }else if(self.x >= br.x && self.y >= tr.y && self.y <= br.y){
+    //             //y在右上角y和右下角y之间 x只需要大于右上角还是右下角的x就行
+    //             console.log('右边点击');
+    //             console.log('当前被选中元素的状态：'+act_obj.active);
                 
-                canvas.discardActiveObject();
-                canvas.renderAll();
+    //             canvas.discardActiveObject();
+    //             canvas.renderAll();
 
-                return false;
-            }
+    //             return false;
+    //         }
 
-        }
+    //     }
         
-    });
+    // });
 
     eventjs.add(window, "drag", function(event, self) {
         //最后结束时 获取当前选中对象
@@ -551,6 +551,9 @@ var btn = document.getElementById('pro'),
 
         //点击提交合成图片并显示出来
         $('.footer div:nth-child(3)').on('click', function(){
+            //点击预览时取消当前选中的对象
+            canvas.discardActiveObject();
+            canvas.renderAll();
             //将canvas元素导出到dataurl图像
             var dataURL = canvas.toDataURL({
                 format: 'jpeg',
