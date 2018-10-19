@@ -149,36 +149,44 @@
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
     
-    eventjs.add(window, "click", function(event, self) {
+    eventjs.add(window, "click tap", function(event, self) {
         //当点击了canvas以外的坐标点时，取消当前活动选项
-        // canvas.discardActiveObject(act_obj);
+        var act_obj = canvas.getActiveObject();
+        if(act_obj){
+            if(self.x <= canvas.wrapperEl.offsetWidth && self.x >= canvas.wrapperEl.offsetWidth + canvas.width){
+                canvas.discardActiveObject(act_obj);
+            }
+            if(self.y <= canvas.wrapperEl.offsetTop && self.y >= canvas.wrapperEl.offsetTop + canvas.height){
+                canvas.discardActiveObject(act_obj);
+            }
+        }
         console.log('我被点击了。。。。');
         $('#click').val('我被点击了');
         console.log(self.gesture, self.x, self.y);
     });
 
-    eventjs.add(window, "tap", function(event, self) {
-        // var act_obj = canvas.getActiveObject();
-        // if(act_obj){ 
-        //     var left = 100;
-        //     var top = 100;
+    // eventjs.add(window, "tap", function(event, self) {
+    //     // var act_obj = canvas.getActiveObject();
+    //     // if(act_obj){ 
+    //     //     var left = 100;
+    //     //     var top = 100;
 
-        //     act_obj.set({
-        //         left: left+'px',
-        //         top: top+'px',
-        //         borderOpacityWhenMoving:0.5,
-        //         // centeredRotation:true,
-        //         // hasRotatingPoint:false,
-        //         originX:'center',
-        //         originY:'center',
-        //         border:'5px solid red'
-        //     });
-        //     canvas.renderAll();
-        // }
-        console.log('我被tap。。。。');
-        $('#click').val('我被tap。。。。');
-        console.log(self.gesture, self.fingers);
-    });
+    //     //     act_obj.set({
+    //     //         left: left+'px',
+    //     //         top: top+'px',
+    //     //         borderOpacityWhenMoving:0.5,
+    //     //         // centeredRotation:true,
+    //     //         // hasRotatingPoint:false,
+    //     //         originX:'center',
+    //     //         originY:'center',
+    //     //         border:'5px solid red'
+    //     //     });
+    //     //     canvas.renderAll();
+    //     // }
+    //     console.log('我被tap。。。。');
+    //     $('#click').val('我被tap。。。。');
+    //     console.log(self.gesture, self.fingers);
+    // });
 
     eventjs.add(window, "drag", function(event, self) {
         //最后结束时 获取当前选中对象
@@ -410,9 +418,9 @@ var btn = document.getElementById('pro'),
             cornerColor:'yellow',//选中手柄颜色
             hasBorder:true,
             hasRotatingPoint:false,//取消主控手柄
-            selectionDashArray:[2, 4, 6],
+            borderDashArray:[3,3],
             cornerStyle:'circle',
-            cornerSize:25,
+            cornerSize:30,
             transparentCorners:false
         });
 
