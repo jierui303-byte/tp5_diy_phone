@@ -148,90 +148,26 @@
 
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
-    
-    // eventjs.add(window, "click", function(event, self) {
-    //     //当点击了canvas以外的坐标点时，取消当前活动选项
-    //     var act_obj = canvas.getActiveObject();
-    //     // console.log(act_obj);
 
-    //     if(act_obj){
-    //         //左上角
-    //         var tl = {
-    //             x:canvas.wrapperEl.offsetWidth,
-    //             y:canvas.wrapperEl.offsetTop
-    //         };
-
-    //         //右上角
-    //         var tr = {
-    //             x:canvas.wrapperEl.offsetWidth + canvas.width,
-    //             y:canvas.wrapperEl.offsetTop
-    //         };
-
-    //         //左下角
-    //         var bl = {
-    //             x:canvas.wrapperEl.offsetWidth,
-    //             y:canvas.wrapperEl.offsetTop + canvas.height
-    //         };
-
-    //         //右下角
-    //         var br = {
-    //             x:canvas.wrapperEl.offsetWidth + canvas.width,//左上角
-    //             y:canvas.wrapperEl.offsetTop + canvas.height
-    //         };
-
-    //         console.log(tl, tr, bl, br);
-
-    //         if(self.y <= tr.y){
-    //             //小于左上角或者是右上角的y就OK
-    //             console.log('顶部点击');
-    //             console.log('当前被选中元素的状态：'+act_obj.active);
-                
-    //             canvas.discardActiveObject();
-    //             canvas.renderAll();
-
-    //             return false;
-    //         }else if(self.y >= bl.y){
-    //             //大于左下角的y就OK
-    //             console.log('底部点击');
-    //             console.log('当前被选中元素的状态：'+act_obj.active);
-                
-    //             canvas.discardActiveObject();
-    //             canvas.renderAll();
-
-    //             return false;
-    //         }else if(self.x <= tl.x && self.y >= tl.y && self.y <= bl.y){
-    //             //y在左上角y和左下角y之间 x只需要小于左上角还是左下角的x就行
-    //             console.log('左边点击');
-    //             console.log('当前被选中元素的状态：'+act_obj.active);
-
-    //             canvas.discardActiveObject();
-    //             canvas.renderAll();
-
-    //             return false;
-    //         }else if(self.x >= br.x && self.y >= tr.y && self.y <= br.y){
-    //             //y在右上角y和右下角y之间 x只需要大于右上角还是右下角的x就行
-    //             console.log('右边点击');
-    //             console.log('当前被选中元素的状态：'+act_obj.active);
-                
-    //             canvas.discardActiveObject();
-    //             canvas.renderAll();
-
-    //             return false;
-    //         }
-
-    //     }
-        
-    // });
+    var itemIndex = 0;
+    var chartLeft = 0;
+    var chartTop = 0;
 
     eventjs.add(window, "drag", function(event, self) {
         //最后结束时 获取当前选中对象
         var act_obj = canvas.getActiveObject();
-        console.log(act_obj);
+        console.log(itemIndex);
         if(act_obj){ 
             var left = Math.abs(self.start.x - self.x);
             var top = Math.abs(self.start.y - self.y);
             
             if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
+                if(itemIndex == 3){
+                    chartLeft = left;
+                    chartTop = top;
+                }else if(itemIndex == 3){
+                    
+                }
                 act_obj.set({
                     left: left,
                     top: top,
@@ -314,19 +250,7 @@
         //获取当前选中对象
         var act_obj = canvas.getActiveObject();
         console.log(act_obj);
-        if(act_obj){
-            // if(self.state == 'start'){
-            //     //手势开始时触发 保证对象还在原位置
-                
-
-            // }else if(self.state == 'change'){
-            //     //当指纹放大或缩小时，状态为change    
-                
-            // }else{
-            //     //手势结束时触发
-            //     // canvas.discardActiveObject(act_obj);
-            // }
-            
+        if(act_obj){            
             act_obj.set({
                 originX:'center',
                 originY:'center',
@@ -387,18 +311,18 @@
         return data;
     }
 
-var btn = document.getElementById('pro'),
+    var btn = document.getElementById('pro'),
       btnWidth = 85,
       btnHeight = 18;
 
-  function positionBtn(obj) {
-    var absCoords = canvas.getAbsoluteCoords(obj);
-    console.log(absCoords.left, btnWidth / 2);
-    console.log(absCoords.top, btnHeight / 2);
-    btn.style.left = (absCoords.left - btnWidth / 2) + 'px';
-    btn.style.top = (absCoords.top - btnHeight / 2) + 'px';
-    btn.style.zIndex = 999;
-  }
+    function positionBtn(obj) {
+        var absCoords = canvas.getAbsoluteCoords(obj);
+        console.log(absCoords.left, btnWidth / 2);
+        console.log(absCoords.top, btnHeight / 2);
+        btn.style.left = (absCoords.left - btnWidth / 2) + 'px';
+        btn.style.top = (absCoords.top - btnHeight / 2) + 'px';
+        btn.style.zIndex = 999;
+    }
 
     function drawCanvas(canvas, fabric){
         console.log(getData());
@@ -429,8 +353,9 @@ var btn = document.getElementById('pro'),
             oImg.setControlVisible('mtr', true);
             oImg.setCoords();
             canvas.add(oImg);
+            itemIndex = oImg.zIndex;
             console.log('画上传图片层级顺序：'+oImg.zIndex);
-            canvas.sendToBack(oImg);//将对象或多个选择的对象移动到绘制对象堆栈的底部
+            // canvas.sendToBack(oImg);//将对象或多个选择的对象移动到绘制对象堆栈的底部
         }, {
             hasBorders:true,
             borderColor:'red',//选中框颜色
@@ -449,6 +374,7 @@ var btn = document.getElementById('pro'),
             // oImg.setHeight(canvas.height);
             oImg.set('selectable',false);//单个元素禁止选中
             canvas.add(oImg);
+            itemIndex = oImg.zIndex;
             console.log('画蒙版层级顺序：'+oImg.zIndex);
         },{
             width: canvas.width,
