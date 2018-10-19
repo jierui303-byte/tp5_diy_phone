@@ -180,7 +180,7 @@
                 });
 
                 canvas.setActiveObject(act_obj);
-                positionBtn(act_obj);
+                positionBtn(oImg, canvas);
                 
                 canvas.renderAll();
             }
@@ -261,7 +261,7 @@
             }).scale(self.scale);
 
             canvas.setActiveObject(act_obj);
-            positionBtn(act_obj);
+            positionBtn(oImg, canvas);
 
             canvas.renderAll();
 
@@ -318,7 +318,7 @@
       btnWidth = 85,
       btnHeight = 18;
 
-    function positionBtn(obj) {
+    function positionBtn(obj, canvas) {
         var absCoords = canvas.getAbsoluteCoords(obj);
         console.log(absCoords.left, btnWidth / 2);
         console.log(absCoords.top, btnHeight / 2);
@@ -399,7 +399,7 @@
             oImg.setCoords();
             canvas.add(oImg);
             console.log('画贴图层级顺序：'+oImg.zIndex);
-            positionBtn(oImg);
+            positionBtn(oImg, canvas);
         },{
             hasBorders:true,
             borderColor:'red',//选中框颜色
