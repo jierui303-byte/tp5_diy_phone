@@ -174,16 +174,14 @@
 
     eventjs.add(window, "drag", function(event, self) {
         //如果是down是按下开始拖动
+        //获取当前选中对象
+        var act_obj = canvas.getActiveObject();
+        var bl = act_obj.oCoords.bl;
+        console.log(act_obj);
         if(self.state == 'down'){
-            //获取当前选中对象
-            var act_obj = canvas.getActiveObject();
-
-            console.log(act_obj);
-
             if(act_obj){ 
                 var left = Math.abs(self.start.x - self.x);
                 var top = Math.abs(self.start.y - self.y);
-                var bl = act_obj.oCoords.bl;
 
                 if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
                     act_obj.set({
@@ -213,7 +211,11 @@
             }
         }else{
             //如果是up是抬起停止拖动
-            
+            $('#pde').show().css({
+                left:(bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px',
+                top:(bl.y + canvas.wrapperEl.offsetTop - 10) + 'px',
+                zIndex:99
+            });
         }
         
         // console.log('拖动开始了');
