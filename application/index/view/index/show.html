@@ -413,12 +413,18 @@
             oImg.setControlVisible('mb', false);
             oImg.setControlVisible('mtr', true);
             oImg.setCoords();
-            canvas.add(oImg);
+            // canvas.add(oImg);
             //在控制点位置上画一个圆形
             var circle = new fabric.Circle({
               radius: 20, fill: 'green', left: 100, top: 100
             });
-            canvas.add(circle);
+            var group = new fabric.Group([ circle, oImg ], {
+              left: 150,
+              top: 100,
+              angle: -10
+            });
+
+            canvas.add(group);
             console.log('画贴图层级顺序：'+oImg.zIndex);
             oImg.on('moving', function() { positionBtn(oImg) });
             oImg.on('scaling', function() { positionBtn(oImg) });
