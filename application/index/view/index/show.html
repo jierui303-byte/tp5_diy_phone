@@ -156,8 +156,8 @@
         console.log('canvas对象信息');
         console.log(this);
         return {
-          left: object.left + this._offset.left,
-          top: object.top + this._offset.top
+          left: object.aCoords.bl.x + this._offset.left,
+          top: object.aCoords.bl.y + this._offset.top
         };
     }
 
