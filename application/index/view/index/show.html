@@ -180,7 +180,8 @@
                 });
 
                 canvas.setActiveObject(act_obj);
-
+                positionBtn(act_obj);
+                
                 canvas.renderAll();
             }
         // 如果是down是按下开始拖动
@@ -260,8 +261,10 @@
             }).scale(self.scale);
 
             canvas.setActiveObject(act_obj);
+            positionBtn(act_obj);
 
             canvas.renderAll();
+
 
         }
         // console.log('拖动开始了');
@@ -396,6 +399,7 @@
             oImg.setCoords();
             canvas.add(oImg);
             console.log('画贴图层级顺序：'+oImg.zIndex);
+            positionBtn(oImg);
         },{
             hasBorders:true,
             borderColor:'red',//选中框颜色
