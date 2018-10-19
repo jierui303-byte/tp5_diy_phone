@@ -418,16 +418,16 @@
             var circle = new fabric.Circle({
               radius: 20, fill: 'green', left: 100, top: 100
             });
-            var group = new fabric.Group([ circle, oImg ], {
+            var group = new fabric.Group([ oImg, circle ], {
               left: 150,
               top: 100,
               angle: -10
             });
             // group.item(0).setFill('red'); 
-            group.item(0).set({ 
-              left: 0,
-              top: 0,
-            });
+            // group.item(1).set({ 
+            //   left: 0,
+            //   top: 0,
+            // });
             canvas.add(group);
             //对组内元素 进行设置
             
