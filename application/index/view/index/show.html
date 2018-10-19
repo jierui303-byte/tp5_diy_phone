@@ -403,9 +403,11 @@ var btn = document.getElementById('pro'),
             canvas.add(oImg);
             console.log('画贴图层级顺序：'+oImg.zIndex);
         },{
-            hasBorders:false,
-            borderColor:'red',
+            hasBorders:true,
+            borderColor:'red',//选中框颜色
+            cornerColor：'yellow',//选中手柄颜色
             hasBorder:true,
+            hasRotatingPoint:false,//取消主控手柄
             selectionDashArray:[2, 4, 6],
             cornerStyle:'circle',
             cornerSize:16
