@@ -162,12 +162,12 @@
             var top = Math.abs(self.start.y - self.y);
             
             if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
-                if(itemIndex == 3){
-                    chartLeft = left;
-                    chartTop = top;
-                }else if(itemIndex == 3){
+                // if(itemIndex == 3){
+                //     chartLeft = left;
+                //     chartTop = top;
+                // }else if(itemIndex == 3){
                     
-                }
+                // }
                 act_obj.set({
                     left: left,
                     top: top,
@@ -355,7 +355,7 @@
             canvas.add(oImg);
             itemIndex = oImg.zIndex;
             console.log('画上传图片层级顺序：'+oImg.zIndex);
-            // canvas.sendToBack(oImg);//将对象或多个选择的对象移动到绘制对象堆栈的底部
+            canvas.sendToBack(oImg);//将对象或多个选择的对象移动到绘制对象堆栈的底部
         }, {
             hasBorders:true,
             borderColor:'red',//选中框颜色
