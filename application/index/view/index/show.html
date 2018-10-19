@@ -161,9 +161,9 @@
 
         console.log('我被点击了。。。。');
         // $('#click').val('我被点击了');
-        // console.log(self.gesture, self.x, self.y);
-        // console.log('canvas定位坐标点：', leftX, rightX);
-        // console.log('加上canvas宽高后的坐标', topY, bottomY);
+        console.log(self.gesture, self.x, self.y);
+        console.log('canvas定位坐标点：', leftX, rightX);
+        console.log('加上canvas宽高后的坐标', topY, bottomY);
 
         if(self.x <= leftX && self.y <= topY && self.x >= rightX){
             console.log('顶部点击');
@@ -172,6 +172,7 @@
                 canvas.discardActiveObject();
                 canvas.renderAll();
             }
+            return false;
         }
 
         if(self.x <= leftX && self.x >= rightX && self.y >= bottomY){
@@ -181,6 +182,7 @@
                 canvas.discardActiveObject();
                 canvas.renderAll();
             }
+            return false;
         }
 
 
@@ -191,6 +193,7 @@
                 canvas.discardActiveObject();
                 canvas.renderAll();
             }
+            return false;
         }
 
         if(self.x >= rightX && self.y >= topY && self.y <= bottomY){
@@ -200,6 +203,7 @@
                 canvas.discardActiveObject();
                 canvas.renderAll();
             }
+            return false;
         }
 
 
