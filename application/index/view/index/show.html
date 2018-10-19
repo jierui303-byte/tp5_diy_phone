@@ -366,7 +366,7 @@ var btn = document.getElementById('pro'),
         //画上传图片
         fabric.Image.fromURL($('#pre').attr('src'), function(oImg){
             //将图像向下缩放，并将其翻转，然后再将其添加到画布上
-            oImg.scale(0.5).set('zIndex', 1);
+            oImg.scale(0.3).set('zIndex', 1);
             // oImg.setWidth(oImg.width);
             // oImg.setHeight(oImg.height);
             canvas.add(oImg);
