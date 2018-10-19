@@ -153,15 +153,17 @@
         //当点击了canvas以外的坐标点时，取消当前活动选项
         var act_obj = canvas.getActiveObject();
         if(act_obj){
+            console.log('我被点击了。。。。');
+            $('#click').val('我被点击了');
             if(self.x <= canvas.wrapperEl.offsetWidth && self.x >= canvas.wrapperEl.offsetWidth + canvas.width){
+                console.log('当前被选中元素的状态：'+act_obj.state);
                 canvas.discardActiveObject(act_obj);
             }
             if(self.y <= canvas.wrapperEl.offsetTop && self.y >= canvas.wrapperEl.offsetTop + canvas.height){
+                console.log('当前被选中元素的状态：'+act_obj.state);
                 canvas.discardActiveObject(act_obj);
             }
         }
-        console.log('我被点击了。。。。');
-        $('#click').val('我被点击了');
         console.log(self.gesture, self.x, self.y);
     });
 
