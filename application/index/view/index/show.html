@@ -159,7 +159,7 @@
         var topY = canvas.wrapperEl.offsetTop;
         var bottomY = canvas.wrapperEl.offsetTop + canvas.height;
 
-        console.log('我被点击了。。。。');
+        // console.log('我被点击了。。。。');
         // $('#click').val('我被点击了');
         // console.log(self.gesture, self.x, self.y);
         // console.log('canvas定位坐标点：', leftX, rightX);
@@ -183,13 +183,26 @@
             }
         }
 
-        //  if(self.x <= leftX && self.y <= topY || self.x >= rightX && self.y <= bottomY || self.x <= leftX && self.y <= bottomY && self.y >= topY && self.y >= topY < topY ||self.x >= rightX && self.y <= bottomY && self.y >= topY && self.y >= topY < topY ){
-        //     if(act_obj){
-        //         console.log('当前被选中元素的状态：'+act_obj.active);
-        //         canvas.discardActiveObject();
-        //         canvas.renderAll();
-        //     }
-        // }
+
+        if(self.x <= leftX && self.y >= topY && self.y <= bottomY){
+            console.log('左边点击');
+            if(act_obj){
+                console.log('当前被选中元素的状态：'+act_obj.active);
+                canvas.discardActiveObject();
+                canvas.renderAll();
+            }
+        }
+
+        if(self.x >= rightX && self.y >= topY && self.y <= bottomY){
+            console.log('右边点击');
+            if(act_obj){
+                console.log('当前被选中元素的状态：'+act_obj.active);
+                canvas.discardActiveObject();
+                canvas.renderAll();
+            }
+        }
+
+
         
     });
 
