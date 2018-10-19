@@ -266,30 +266,27 @@
         //获取当前选中对象
         var act_obj = canvas.getActiveObject();
         if(act_obj){
-            if(self.state == 'start'){
-                //手势开始时触发 保证对象还在原位置
+            // if(self.state == 'start'){
+            //     //手势开始时触发 保证对象还在原位置
                 
 
-            }else if(self.state == 'change'){
-                //当指纹放大或缩小时，状态为change
-                canvas.setActiveObject(act_obj);
+            // }else if(self.state == 'change'){
+            //     //当指纹放大或缩小时，状态为change    
                 
-                scaleV = self.scale;
-
-                act_obj.set({
-                    originX:'center',
-                    originY:'center',
-                    centeredScaling:true,
-                    centeredRotation:true,
-                    hasRotatingPoint:true
-                }).scale(scaleV);
-
-                canvas.renderAll();
-            }else{
-                //手势结束时触发
-                // canvas.discardActiveObject(act_obj);
-            }
+            // }else{
+            //     //手势结束时触发
+            //     // canvas.discardActiveObject(act_obj);
+            // }
             
+            act_obj.set({
+                originX:'center',
+                originY:'center',
+                centeredScaling:true,
+                centeredRotation:true,
+                hasRotatingPoint:true
+            }).scale(self.scale).setActiveObject(act_obj).bringToFront(act_obj);
+
+            canvas.renderAll();
 
         }
         console.log('拖动开始了');
