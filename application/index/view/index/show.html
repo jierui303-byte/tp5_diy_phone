@@ -149,17 +149,17 @@
         crossOrigin: 'anonymous'
     });
 
-    fabric.Canvas.prototype.getAbsoluteCoords = function(object) {
-        //此处返回 要定位删除的一个控制点的位置 坐标
-        console.log('被拖动元素 对象信息');
-        console.log(object);
-        console.log('canvas对象信息');
-        console.log(this);
-        return {
-          left: object.aCoords.bl.x + this._offset.left,
-          top: object.aCoords.bl.y + this._offset.top
-        };
-    }
+    // fabric.Canvas.prototype.getAbsoluteCoords = function(object) {
+    //     //此处返回 要定位删除的一个控制点的位置 坐标
+    //     console.log('被拖动元素 对象信息');
+    //     console.log(object);
+    //     console.log('canvas对象信息');
+    //     console.log(this);
+    //     return {
+    //       left: object.aCoords.bl.x + this._offset.left,
+    //       top: object.aCoords.bl.y + this._offset.top
+    //     };
+    // }
 
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
@@ -337,17 +337,17 @@
 
     
 
-    function positionBtn(obj) {
-        var absCoords = canvas.getAbsoluteCoords(obj);
-        console.log('返回的移动点的坐标位置');
-        console.log(absCoords.left, btnWidth / 2);
-        console.log(absCoords.top, btnHeight / 2);
-        // btn.style.left = (absCoords.left - btnWidth / 2) + 'px';
-        // btn.style.top = (absCoords.top - btnHeight / 2) + 'px';
-        btn.style.left = (absCoords.left) + 'px';
-        btn.style.top = (absCoords.top) + 'px';
-        btn.style.zIndex = 99;
-    }
+    // function positionBtn(obj) {
+    //     var absCoords = canvas.getAbsoluteCoords(obj);
+    //     console.log('返回的移动点的坐标位置');
+    //     console.log(absCoords.left, btnWidth / 2);
+    //     console.log(absCoords.top, btnHeight / 2);
+    //     // btn.style.left = (absCoords.left - btnWidth / 2) + 'px';
+    //     // btn.style.top = (absCoords.top - btnHeight / 2) + 'px';
+    //     btn.style.left = (absCoords.left) + 'px';
+    //     btn.style.top = (absCoords.top) + 'px';
+    //     btn.style.zIndex = 99;
+    // }
 
     function drawCanvas(canvas, fabric){
         console.log(getData());
@@ -433,9 +433,9 @@
             // //对组内元素 进行设置
             
             console.log('画贴图层级顺序：'+oImg.zIndex);
-            oImg.on('moving', function() { positionBtn(oImg) });
-            oImg.on('scaling', function() { positionBtn(oImg) });
-            positionBtn(oImg);
+            // oImg.on('moving', function() { positionBtn(oImg) });
+            // oImg.on('scaling', function() { positionBtn(oImg) });
+            // positionBtn(oImg);
         },{
             hasBorders:true,
             borderColor:'red',//选中框颜色
