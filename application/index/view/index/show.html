@@ -211,11 +211,9 @@
             }
         }else{
             //如果是up是抬起停止拖动
-            $('#pde').show().css({
-                left:(bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px',
-                top:(bl.y + canvas.wrapperEl.offsetTop - 10) + 'px',
-                zIndex:99
-            });
+            $('#pde').hide();
+            canvas.discardActiveObject();
+            canvas.renderAll();
         }
         
         // console.log('拖动开始了');
