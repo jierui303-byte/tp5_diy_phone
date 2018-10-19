@@ -399,6 +399,7 @@
             oImg.setControlVisible('mtr', true);
             oImg.setCoords();
             canvas.add(oImg);
+            canvas.setActiveObject(act_obj);
             //在控制点位置上画一个圆形
             // var circle = new fabric.Circle({
             //   radius: 20, fill: 'green', left: -20, top: -20
@@ -411,11 +412,9 @@
             // canvas.add(group);
             // //对组内元素 进行设置
             
-            console.log('画贴图层级顺序：'+oImg.zIndex);
             console.log(oImg);
-            // oImg.on('moving', function() { positionBtn(oImg) });
-            // oImg.on('scaling', function() { positionBtn(oImg) });
-            // positionBtn(oImg);
+            //把删除按钮定位到左上角位置
+            
         },{
             hasBorders:true,
             borderColor:'red',//选中框颜色
