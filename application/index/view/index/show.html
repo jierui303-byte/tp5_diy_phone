@@ -149,7 +149,7 @@
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
     
-    eventjs.add(window, "click tap", function(event, self) {
+    eventjs.add(window, "click", function(event, self) {
         //当点击了canvas以外的坐标点时，取消当前活动选项
         var act_obj = canvas.getActiveObject();
         console.log(act_obj);
