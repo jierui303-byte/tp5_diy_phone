@@ -196,6 +196,7 @@
 
                 canvas.setActiveObject(act_obj);
                 canvas.renderAll();
+                positionBtn(act_obj);
             }
         // 如果是down是按下开始拖动
             // if(self.state == 'down'){
@@ -274,7 +275,7 @@
             }).scale(self.scale);
 
             canvas.setActiveObject(act_obj);
-            // positionBtn(act_obj, canvas);
+            
 
             canvas.renderAll();
 
