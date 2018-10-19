@@ -17,7 +17,9 @@
     </style>
 <body>
 <div id="app">
-    <div class="head" style="color: rgb(110, 110, 110);"><span id="msg" style=""> {$current['var_name']} 修改</span><!----></div>
+    <div class="head" style="color: rgb(110, 110, 110);">
+        <span id="msg" style=""> {$current['var_name']} 修改</span><!---->
+    </div>
     <div class="content">
         <div id="info" style="background: #eef; width: 100px; position: absolute;top:0;left:0;">  
             <input type="text" id="click" value=""> <br/>
@@ -30,7 +32,8 @@
             <input type="text" id="rotation" value=""> <br/>
             <input type="text" id="scale" value=""> 
         </div>
-    
+        <i id="pde" class="p-sc iconfont icon-shanchu"></i>
+        <i id="pro" class="p-sf iconfont icon-suofang"></i>
 
         <canvas id="paper" width="208px" height="435px" style="width: 208.352px; height: 435.42px;">此浏览器不支持canvas！</canvas>
         <div class="mask varbg1" style="width: 208.352px; height: 435.42px; display:none;background-image: url({$current['var_template'][0]});"></div>
@@ -38,8 +41,8 @@
         <div class="mask pic maskbg" data-bg="" style=" display:none;width: 208.352px; height: 435.42px;"></div>
 
         <div class="paster" style="width: 80px; height: 80px; display: none;cursor: move;">
-        <i id="pde" class="p-sc iconfont icon-shanchu"></i>
-        <i id="pro" class="p-sf iconfont icon-suofang"></i>
+        <!-- <i id="pde" class="p-sc iconfont icon-shanchu"></i>
+        <i id="pro" class="p-sf iconfont icon-suofang"></i> -->
             <img id="pimg" src="" alt="">
         </div>
         <div class="preDiv" style="display: none;position:relative;left: 24%;top: 20px;width: 208.352px;height: 435.42px;overflow: hidden;border: 1px dashed #ff0000;">
