@@ -226,6 +226,7 @@
     eventjs.add(window, "drag", function(event, self) {
         //最后结束时 获取当前选中对象
         var act_obj = canvas.getActiveObject();
+        console.log(act_obj);
         if(act_obj){ 
             var left = Math.abs(self.start.x - self.x);
             var top = Math.abs(self.start.y - self.y);
@@ -241,7 +242,7 @@
                     originY:'top',
                     border:'5px solid red'
                 });
-                
+
                 canvas.setActiveObject(act_obj);
 
                 canvas.renderAll();
@@ -312,6 +313,7 @@
     eventjs.add(window, "gesture", function(event, self) {
         //获取当前选中对象
         var act_obj = canvas.getActiveObject();
+        console.log(act_obj);
         if(act_obj){
             // if(self.state == 'start'){
             //     //手势开始时触发 保证对象还在原位置
