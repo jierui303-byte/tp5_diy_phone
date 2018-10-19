@@ -191,7 +191,11 @@
 
                 canvas.setActiveObject(act_obj);
                 canvas.renderAll();
-                positionBtn(act_obj);
+
+                $('#pro').css({
+                    left:self.x,
+                    top:self.y
+                });
             }
         // 如果是down是按下开始拖动
             // if(self.state == 'down'){
