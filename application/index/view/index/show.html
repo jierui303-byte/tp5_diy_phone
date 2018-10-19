@@ -160,11 +160,11 @@
             console.log(canvas.wrapperEl.offsetWidth, canvas.wrapperEl.offsetTop);
             if(self.x <= canvas.wrapperEl.offsetWidth || self.x >= canvas.wrapperEl.offsetWidth + canvas.width){
                 console.log('当前被选中元素的状态：'+act_obj.active);
-                canvas.discardActiveObject(act_obj);
+                // canvas.discardActiveObject(act_obj);
             }
             if(self.y <= canvas.wrapperEl.offsetTop || self.y >= canvas.wrapperEl.offsetTop + canvas.height){
                 console.log('当前被选中元素的状态：'+act_obj.active);
-                canvas.discardActiveObject(act_obj);
+                // canvas.discardActiveObject(act_obj);
             }
         }
     });
