@@ -322,17 +322,18 @@
         return data;
     }
 
-    var btn = document.getElementById('pro'),
+    var btn = document.getElementById('pde'),
       btnWidth = 85,
       btnHeight = 18;
 
     function positionBtn(obj) {
         var absCoords = canvas.getAbsoluteCoords(obj);
+        console.log('返回的移动点的坐标位置');
         console.log(absCoords.left, btnWidth / 2);
         console.log(absCoords.top, btnHeight / 2);
         btn.style.left = (absCoords.left - btnWidth / 2) + 'px';
         btn.style.top = (absCoords.top - btnHeight / 2) + 'px';
-        btn.style.zIndex = 999;
+        btn.style.zIndex = 99;
     }
 
     function drawCanvas(canvas, fabric){
