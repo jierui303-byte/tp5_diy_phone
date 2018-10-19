@@ -153,19 +153,38 @@
         //当点击了canvas以外的坐标点时，取消当前活动选项
         var act_obj = canvas.getActiveObject();
         console.log(act_obj);
+        
+        //左上角
+        var tlX = {
+            x:canvas.wrapperEl.offsetWidth,
+            y:canvas.wrapperEl.offsetTop
+        };
 
-        var leftX = canvas.wrapperEl.offsetWidth;
-        var rightX = canvas.wrapperEl.offsetWidth + canvas.width;
-        var topY = canvas.wrapperEl.offsetTop;
-        var bottomY = canvas.wrapperEl.offsetTop + canvas.height;
+        //右上角
+        var trX = {
+            x:canvas.wrapperEl.offsetWidth + canvas.width,
+            y:canvas.wrapperEl.offsetTop
+        };
 
-        console.log('我被点击了。。。。');
-        // $('#click').val('我被点击了');
-        console.log(self.gesture, self.x, self.y);
-        console.log('canvas定位坐标点：', leftX, rightX);
-        console.log('加上canvas宽高后的坐标', topY, bottomY);
+        //左下角
+        var blX = {
+            x:canvas.wrapperEl.offsetWidth,
+            y:canvas.wrapperEl.offsetTop + canvas.height
+        };
 
-        if(self.x <= leftX && self.y <= topY && self.x >= rightX){
+        //右下角
+        var brY = {
+            x:canvas.wrapperEl.offsetWidth + canvas.width,//左上角
+            y:canvas.wrapperEl.offsetTop + canvas.height
+        };
+
+        // console.log('我被点击了。。。。');
+        // // $('#click').val('我被点击了');
+        // console.log(self.gesture, self.x, self.y);
+        // console.log('canvas定位坐标点：', leftX, topY);
+        // console.log('加上canvas宽高后的坐标', topY, bottomY);
+
+        if(self.x <= tlX.x && self.y <= tlX.y && self.x >= trX.x){
             console.log('顶部点击');
             if(act_obj){
                 console.log('当前被选中元素的状态：'+act_obj.active);
@@ -175,7 +194,7 @@
             return false;
         }
 
-        if(self.x <= leftX && self.x >= rightX && self.y >= bottomY){
+        if(self.x <= blX.x && self.x >= blX.y && self.y >= brX.x){
             console.log('底部点击');
             if(act_obj){
                 console.log('当前被选中元素的状态：'+act_obj.active);
@@ -185,8 +204,7 @@
             return false;
         }
 
-
-        if(self.x <= leftX && self.y >= topY && self.y <= bottomY){
+        if(self.x <= tlX.x && self.y >= tlX.y && self.y <= blX.y){
             console.log('左边点击');
             if(act_obj){
                 console.log('当前被选中元素的状态：'+act_obj.active);
@@ -196,7 +214,7 @@
             return false;
         }
 
-        if(self.x >= rightX && self.y >= topY && self.y <= bottomY){
+        if(self.x >= trX.x && self.y >= trX.y && self.y <= brX.y){
             console.log('右边点击');
             if(act_obj){
                 console.log('当前被选中元素的状态：'+act_obj.active);
