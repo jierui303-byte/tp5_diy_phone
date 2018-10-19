@@ -184,42 +184,44 @@
         if(act_obj){ 
         // 如果是down是按下开始拖动
             if(self.state == 'down'){
-                canvas.setActiveObject(act_obj);
 
-                // var left = Math.abs(self.start.x - self.x);
-                // var top = Math.abs(self.start.y - self.y);
-                var left = canvas.left;
-                var top = canvas.top;
+                var left = Math.abs(self.start.x - self.x);
+                var top = Math.abs(self.start.y - self.y);
+                
+                if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
+                    act_obj.set({
+                        left: left,
+                        top: top,
+                        borderOpacityWhenMoving:0.5,
+                        // centeredRotation:true,
+                        // hasRotatingPoint:false,
+                        originX:'left',
+                        originY:'top',
+                        border:'5px solid red'
+                    }).setActiveObject(act_obj).bringToFront(act_obj);
 
-                act_obj.set({
-                    // left: left,
-                    // top: top,
-                    borderOpacityWhenMoving:0.5,
-                    // centeredRotation:true,
-                    // hasRotatingPoint:false,
-                    originX:'left',
-                    originY:'top',
-                    border:'5px solid red'
-                });
-                canvas.bringToFront(act_obj);
-                canvas.renderAll();
+                    canvas.renderAll();
+                }
+
+                
             }else{
                  // 如果是up是抬起停止拖动
-                 var left = canvas.left;
-                var top = canvas.top;
+                //拖动结束之后，把图片定位到最后位置并记录下元素的坐标
+                // var left = Math.abs(self.start.x - self.x);
+                // var top = Math.abs(self.start.y - self.y);
 
-                act_obj.set({
-                    // left: left,
-                    // top: top,
-                    borderOpacityWhenMoving:0.5,
-                    // centeredRotation:true,
-                    // hasRotatingPoint:false,
-                    originX:'left',
-                    originY:'top',
-                    border:'5px solid red'
-                });
-                canvas.bringToFront(act_obj);
-                canvas.renderAll();
+                // act_obj.set({
+                //     left: left+'px',
+                //     top: top+'px',
+                //     borderOpacityWhenMoving:0.5,
+                //     // centeredRotation:true,
+                //     // hasRotatingPoint:false,
+                //     originX:'left',
+                //     originY:'top',
+                //     border:'5px solid red'
+                // });
+                // canvas.bringToFront(act_obj);
+                // canvas.renderAll();
             
             }
         }
