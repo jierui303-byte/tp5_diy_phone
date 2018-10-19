@@ -173,75 +173,42 @@
       btnHeight = 18;
 
     eventjs.add(window, "drag", function(event, self) {
-        //最后结束时 获取当前选中对象
-        var act_obj = canvas.getActiveObject();
-        console.log(act_obj);
-        if(act_obj){ 
-            var left = Math.abs(self.start.x - self.x);
-            var top = Math.abs(self.start.y - self.y);
-            
-            if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
-                act_obj.set({
-                    left: left,
-                    top: top,
-                    borderOpacityWhenMoving:0.5,
-                    // centeredRotation:true,
-                    // hasRotatingPoint:false,
-                    originX:'left',
-                    originY:'top',
-                    border:'5px solid red'
-                });
-                canvas.setActiveObject(act_obj);
-                canvas.renderAll();
+        //如果是down是按下开始拖动
+        if(self.state == 'down'){
+            //获取当前选中对象
+            var act_obj = canvas.getActiveObject();
+
+            console.log(act_obj);
+
+            if(act_obj){ 
+                var left = Math.abs(self.start.x - self.x);
+                var top = Math.abs(self.start.y - self.y);
+                var bl = act_obj.oCoords.bl;
+
+                if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
+                    act_obj.set({
+                        left: left,
+                        top: top,
+                        borderOpacityWhenMoving:0.5,
+                        // centeredRotation:true,
+                        // hasRotatingPoint:false,
+                        originX:'left',
+                        originY:'top',
+                        border:'5px solid red'
+                    });
+                    canvas.setActiveObject(act_obj);
+                    canvas.renderAll();
+                    
+                }
                 
+                //计算光标位置
+                btn.style.left = (bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px';
+                btn.style.top = (bl.y + canvas.wrapperEl.offsetTop - 10) + 'px';
+                btn.style.zIndex = 99;//超出canvas范围时设置为-1就 不显示了
             }
-            var bl = act_obj.oCoords.bl;
-            //计算光标位置
-            btn.style.left = (bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px';
-            btn.style.top = (bl.y + canvas.wrapperEl.offsetTop - 10) + 'px';
-            btn.style.zIndex = 99;//超出canvas范围时设置为-1就 不显示了
-        // 如果是down是按下开始拖动
-            // if(self.state == 'down'){
-
-            //     var left = Math.abs(self.start.x - self.x);
-            //     var top = Math.abs(self.start.y - self.y);
-                
-            //     if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
-            //         act_obj.set({
-            //             left: left,
-            //             top: top,
-            //             borderOpacityWhenMoving:0.5,
-            //             // centeredRotation:true,
-            //             // hasRotatingPoint:false,
-            //             originX:'left',
-            //             originY:'top',
-            //             border:'5px solid red'
-            //         }).setActiveObject(act_obj).bringToFront(act_obj);
-
-            //         canvas.renderAll();
-            //     }
-
-                
-            // }else{
-            //      // 如果是up是抬起停止拖动
-            //     //拖动结束之后，把图片定位到最后位置并记录下元素的坐标
-            //     // var left = Math.abs(self.start.x - self.x);
-            //     // var top = Math.abs(self.start.y - self.y);
-
-            //     // act_obj.set({
-            //     //     left: left+'px',
-            //     //     top: top+'px',
-            //     //     borderOpacityWhenMoving:0.5,
-            //     //     // centeredRotation:true,
-            //     //     // hasRotatingPoint:false,
-            //     //     originX:'left',
-            //     //     originY:'top',
-            //     //     border:'5px solid red'
-            //     // });
-            //     // canvas.bringToFront(act_obj);
-            //     // canvas.renderAll();
+        }else{
+            //如果是up是抬起停止拖动
             
-            // }
         }
         
         // console.log('拖动开始了');
@@ -264,25 +231,30 @@
     var scaleChartV = 1;
 
     eventjs.add(window, "gesture", function(event, self) {
-        //获取当前选中对象
-        var act_obj = canvas.getActiveObject();
-        console.log(act_obj);
-        if(act_obj){            
-            act_obj.set({
-                originX:'center',
-                originY:'center',
-                centeredScaling:true,
-                centeredRotation:true,
-                hasRotatingPoint:true
-            }).scale(self.scale);
+        if(self.state == 'start'){
 
-            canvas.setActiveObject(act_obj);
+        }else if(self.state == 'change'){
+            //获取当前选中对象
+            var act_obj = canvas.getActiveObject();
+            console.log(act_obj);
+            if(act_obj){            
+                act_obj.set({
+                    originX:'center',
+                    originY:'center',
+                    centeredScaling:true,
+                    centeredRotation:true,
+                    hasRotatingPoint:true
+                }).scale(self.scale);
+
+                canvas.setActiveObject(act_obj);
+                canvas.renderAll();
+
+            }
+        }else{
+            //结束手势
             
-
-            canvas.renderAll();
-
-
         }
+        
         // console.log('拖动开始了');
         // console.log(width);
         // console.log(height);
