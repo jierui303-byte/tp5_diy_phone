@@ -197,9 +197,9 @@
             }
             var bl = act_obj.oCoords.bl;
             //计算光标位置
-            btn.style.left = (bl.x + canvas.wrapperEl.offsetWidth) + 'px';
-            btn.style.top = (bl.y + canvas.wrapperEl.offsetTop) + 'px';
-            btn.style.zIndex = 99;
+            btn.style.left = (bl.x + canvas.wrapperEl.offsetWidth + 100) + 'px';
+            btn.style.top = (bl.y + canvas.wrapperEl.offsetTop - 10) + 'px';
+            btn.style.zIndex = 99;//超出canvas范围时设置为-1就 不显示了
         // 如果是down是按下开始拖动
             // if(self.state == 'down'){
 
