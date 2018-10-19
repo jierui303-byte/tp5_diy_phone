@@ -179,17 +179,17 @@
                 y:canvas.wrapperEl.offsetTop + canvas.height
             };
 
-            if(self.x <= tlX.x && self.y <= tlX.y && self.x >= trX.x){
+            if(self.y >= trX.y){
                 console.log('顶部点击');
                 console.log('当前被选中元素的状态：'+act_obj.active);
                 
                 canvas.discardActiveObject();
                 canvas.renderAll();
-                
+
                 return false;
             }
 
-            if(self.x <= blX.x && self.x >= blX.y && self.y >= brX.x){
+            if(self.y >= brX.y){
                 console.log('底部点击');
                 console.log('当前被选中元素的状态：'+act_obj.active);
                 
