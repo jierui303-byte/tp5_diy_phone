@@ -157,11 +157,12 @@
             console.log('我被点击了。。。。');
             $('#click').val('我被点击了');
             console.log(self.gesture, self.x, self.y);
-            if(self.x <= canvas.wrapperEl.offsetWidth && self.x >= canvas.wrapperEl.offsetWidth + canvas.width){
+            console.log(canvas.wrapperEl.offsetWidth, canvas.wrapperEl.offsetTop);
+            if(self.x <= canvas.wrapperEl.offsetWidth || self.x >= canvas.wrapperEl.offsetWidth + canvas.width){
                 console.log('当前被选中元素的状态：'+act_obj.state);
                 canvas.discardActiveObject(act_obj);
             }
-            if(self.y <= canvas.wrapperEl.offsetTop && self.y >= canvas.wrapperEl.offsetTop + canvas.height){
+            if(self.y <= canvas.wrapperEl.offsetTop || self.y >= canvas.wrapperEl.offsetTop + canvas.height){
                 console.log('当前被选中元素的状态：'+act_obj.state);
                 canvas.discardActiveObject(act_obj);
             }
