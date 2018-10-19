@@ -389,10 +389,11 @@ var btn = document.getElementById('pro'),
         //画贴图
         fabric.Image.fromURL($('#pimg').attr('src'), function(oImg){
             //将图像向下缩放，并将其翻转，然后再将其添加到画布上
-             oImg.scale(0.5).set('flipX', true);
-            // oImg.set('zIndex', 4);
-            // oImg.setWidth(oImg.width);
-            // oImg.setHeight(oImg.height);
+            oImg.scale(0.5).set('flipX', true);
+            oImg.setControlVisible('tl', false);
+            oImg.setControlVisible('tr', false);
+            oImg.setControlVisible('bl', false);
+            oImg.setControlVisible('br', false);
             canvas.add(oImg);
             console.log('画贴图层级顺序：'+oImg.zIndex);
         },{
