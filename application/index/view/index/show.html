@@ -156,31 +156,31 @@
 
         if(act_obj){
             //左上角
-            var tlX = {
+            var tl = {
                 x:canvas.wrapperEl.offsetWidth,
                 y:canvas.wrapperEl.offsetTop
             };
 
             //右上角
-            var trX = {
+            var tr = {
                 x:canvas.wrapperEl.offsetWidth + canvas.width,
                 y:canvas.wrapperEl.offsetTop
             };
 
             //左下角
-            var blX = {
+            var bl = {
                 x:canvas.wrapperEl.offsetWidth,
                 y:canvas.wrapperEl.offsetTop + canvas.height
             };
 
             //右下角
-            var brY = {
+            var br = {
                 x:canvas.wrapperEl.offsetWidth + canvas.width,//左上角
                 y:canvas.wrapperEl.offsetTop + canvas.height
             };
 
             //小于左上角或者是右上角的y就OK
-            if(self.y <= tlX.y){
+            if(self.y <= tr.y){
                 console.log('顶部点击');
                 console.log('当前被选中元素的状态：'+act_obj.active);
                 
@@ -191,7 +191,7 @@
             }
 
             //大于左下角的y就OK
-            if(self.y >= blX.y){
+            if(self.y >= bl.y){
                 console.log('底部点击');
                 console.log('当前被选中元素的状态：'+act_obj.active);
                 
@@ -202,7 +202,7 @@
             }
 
             //y在左上角y和左下角y之间 x只需要小于左上角还是左下角的x就行
-            if(self.x <= tlX.x && self.y >= tlX.y && self.y <= blX.y){
+            if(self.x <= tl.x && self.y >= tl.y && self.y <= bl.y){
                 console.log('左边点击');
                 console.log('当前被选中元素的状态：'+act_obj.active);
 
@@ -213,7 +213,7 @@
             }
 
             //y在右上角y和右下角y之间 x只需要大于右上角还是右下角的x就行
-            if(self.x >= trX.x && self.y >= trX.y && self.y <= brX.y){
+            if(self.x >= br.x && self.y >= tr.y && self.y <= br.y){
                 console.log('右边点击');
                 console.log('当前被选中元素的状态：'+act_obj.active);
                 
@@ -224,14 +224,6 @@
             }
 
         }
-        
-        
-
-        // console.log('我被点击了。。。。');
-        // // $('#click').val('我被点击了');
-        // console.log(self.gesture, self.x, self.y);
-        // console.log('canvas定位坐标点：', leftX, topY);
-        // console.log('加上canvas宽高后的坐标', topY, bottomY);
         
     });
 
