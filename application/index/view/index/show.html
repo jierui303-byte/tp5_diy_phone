@@ -149,6 +149,13 @@
         crossOrigin: 'anonymous'
     });
 
+    fabric.Canvas.prototype.getAbsoluteCoords = function(object) {
+        return {
+          left: object.left + this._offset.left,
+          top: object.top + this._offset.top
+        };
+    }
+
     // canvas.selections=false//取消框选
     // object.set('selectable',false)//单个元素禁止选中
 
