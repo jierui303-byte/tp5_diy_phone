@@ -363,7 +363,7 @@
         //画上传图片
         fabric.Image.fromURL($('#pre').attr('src'), function(oImg){
             //将图像向下缩放，并将其翻转，然后再将其添加到画布上
-            img.perPixelTargetFind = true;
+            oImg.perPixelTargetFind = true;
             oImg.scale(0.2).set('flipX', true);
             oImg.setControlVisible('tl', true);
             oImg.setControlVisible('tr', true);
@@ -406,7 +406,7 @@
         //画贴图
         fabric.Image.fromURL($('#pimg').attr('src'), function(oImg){
             //将图像向下缩放，并将其翻转，然后再将其添加到画布上
-            img.perPixelTargetFind = true;
+            oImg.perPixelTargetFind = true;
             oImg.scale(0.5).set('flipX', true);
             oImg.setControlVisible('tl', true);
             oImg.setControlVisible('tr', false);
