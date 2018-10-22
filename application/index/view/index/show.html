@@ -220,9 +220,14 @@
             //如果是up是抬起停止拖动
             if(act_obj){
                 var bl = act_obj.oCoords.bl;
+                // $('#pde').show().css({
+                //     left:(bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px',
+                //     top:(bl.y + canvas.wrapperEl.offsetTop - 10) + 'px',
+                //     zIndex:99
+                // });
                 $('#pde').show().css({
-                    left:(bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px',
-                    top:(bl.y + canvas.wrapperEl.offsetTop - 10) + 'px',
+                    left:(act_obj.left) + 'px',
+                    top:(act_obj.top) + 'px',
                     zIndex:99
                 });
             }
