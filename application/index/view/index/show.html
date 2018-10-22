@@ -185,10 +185,11 @@
                 var mtr = act_obj.oCoords.mtr;
                 var brs = act_obj.getBoundingRect();
                 console.log(brs);
+                console.log(tl);
 
                 var left = Math.abs(self.start.x - self.x);
                 var top = Math.abs(self.start.y - self.y);
-                console.log(act_obj);
+                
                 if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
                     act_obj.set({
                         left: left,
@@ -213,10 +214,11 @@
         }else{
             //如果是up是抬起停止拖动
             if(act_obj){
-                var bl = act_obj.aCoords.tl;
+                var tl = act_obj.aCoords.tl;
                 var mtr = act_obj.oCoords.mtr;
                 var brs = act_obj.getBoundingRect();
                 console.log(brs);
+                console.log(tl);
 
                 $('#pde').show().css({
                     left:(brs.left + canvas._offset.left - 10) + 'px',
