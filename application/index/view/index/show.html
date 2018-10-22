@@ -185,8 +185,8 @@
                 var mtr = act_obj.oCoords.mtr;
                 var brs = act_obj.getBoundingRect();
                 //计算出旋转手柄和左上角坐标位置Y
-                var cY = tl.y-mtr.y;
-                var cX = tl.x;
+                // var cY = tl.y-mtr.y;
+                // var cX = tl.x;
 
                 var left = Math.abs(self.start.x - self.x);
                 var top = Math.abs(self.start.y - self.y);
@@ -218,8 +218,8 @@
                 // });
                 console.log(act_obj.getBoundingRect());
                  $('#pde').show().css({
-                    left:(cX) + 'px',
-                    top:(cY) + 'px',
+                    left:(brs.left) + 'px',
+                    top:(brs.top) + 'px',
                     zIndex:99
                 });
             }
@@ -230,8 +230,8 @@
                 var mtr = act_obj.oCoords.mtr;
                 var brs = act_obj.getBoundingRect();
                 //计算出旋转手柄和左上角坐标位置Y
-                var cY = tl.y-mtr.y;
-                var cX = tl.x;
+                // var cY = tl.y-mtr.y;
+                // var cX = tl.x;
                 // $('#pde').show().css({
                 //     left:(bl.x + canvas.wrapperEl.offsetWidth) + 'px',
                 //     top:(bl.y + canvas.wrapperEl.offsetTop) + 'px',
@@ -239,8 +239,8 @@
                 // });
                 console.log(act_obj.getBoundingRect());
                 $('#pde').show().css({
-                    left:(cX) + 'px',
-                    top:(cY) + 'px',
+                    left:(brs.left) + 'px',
+                    top:(brs.top) + 'px',
                     zIndex:99
                 });
             }
