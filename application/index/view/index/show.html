@@ -185,6 +185,8 @@
         //获取当前选中对象
         var act_obj = canvas.getActiveObject(); 
         if(self.state == 'down'){
+            var numObj = canvas.getObjects();
+            console.log(numObj);
             console.log(canvas.item(0));
             if(act_obj){ 
                 var tl = act_obj.aCoords.tl;
