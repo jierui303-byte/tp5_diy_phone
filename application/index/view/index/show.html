@@ -184,6 +184,7 @@
         //如果是down是按下开始拖动
         //获取当前选中对象
         var act_obj = canvas.getActiveObject(); 
+        console.log(act_obj.index);
         if(self.state == 'down'){
             if(act_obj){ 
                 var tl = act_obj.aCoords.tl;
