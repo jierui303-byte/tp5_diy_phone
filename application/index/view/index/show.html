@@ -205,8 +205,8 @@
                 }
                 
                  $('#pde').show().css({
-                    left:(brs.left) + 'px',
-                    top:(brs.top) + 'px',
+                    left:(brs.left + canvas._offset.left) + 'px',
+                    top:(brs.top + canvas._offset.top) + 'px',
                     zIndex:99
                 });
             }
@@ -219,8 +219,8 @@
                 console.log(brs);
 
                 $('#pde').show().css({
-                    left:(brs.left) + 'px',
-                    top:(brs.top) + 'px',
+                    left:(brs.left + canvas._offset.left) + 'px',
+                    top:(brs.top + canvas._offset.top) + 'px',
                     zIndex:99
                 });
             }
