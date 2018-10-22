@@ -440,8 +440,6 @@
             oImg.setControlVisible('mtr', true);
             oImg.setCoords();
             canvas.add(oImg);
-            itemIndex = oImg.zIndex;
-            console.log('画上传图片层级顺序：'+oImg.zIndex);
             canvas.sendToBack(oImg);//将对象或多个选择的对象移动到绘制对象堆栈的底部
             canvas.setActiveObject(oImg);
         }, {
@@ -462,8 +460,6 @@
         fabric.Image.fromURL($('.maskbg').data('bg'), function(oImg){
             oImg.set('selectable',false);//单个元素禁止选中
             canvas.add(oImg);
-            itemIndex = oImg.zIndex;
-            console.log('画蒙版层级顺序：'+oImg.zIndex);
         },{
             width: canvas.width,
             height: canvas.height,
