@@ -205,9 +205,14 @@
                 // btn.style.left = (bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px';
                 // btn.style.top = (bl.y + canvas.wrapperEl.offsetTop - 10) + 'px';
                 // btn.style.zIndex = 99;//超出canvas范围时设置为-1就 不显示了
-                $('#pde').show().css({
-                    left:(bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px',
-                    top:(bl.y + canvas.wrapperEl.offsetTop - 10) + 'px',
+                // $('#pde').show().css({
+                //     left:(bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px',
+                //     top:(bl.y + canvas.wrapperEl.offsetTop - 10) + 'px',
+                //     zIndex:99
+                // });
+                 $('#pde').show().css({
+                    left:(act_obj.left) + 'px',
+                    top:(act_obj.top) + 'px',
                     zIndex:99
                 });
             }
