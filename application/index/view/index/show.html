@@ -299,6 +299,7 @@
         var act_obj = canvas.getActiveObject(); 
         if(act_obj){
             canvas.remove(act_obj);
+            canvas.renderAll();
             $(this).hide();
         }
     });
