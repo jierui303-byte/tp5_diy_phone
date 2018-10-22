@@ -296,7 +296,7 @@
     //rotate旋转
     eventjs.add(window, "devicemotion", function(event, self) {
         console.log('旋转');
-        console.log(self.gesture，self.acceleration，self.accelerationIncludingGravity);
+        console.log(self.gesture, self.acceleration, self.accelerationIncludingGravity);
         $('#width').val(self.gesture);
         $('#height').val(self.acceleration);
         $('#gesture').val(self.accelerationIncludingGravity);
