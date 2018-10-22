@@ -292,6 +292,16 @@
         // $('#scale').val(self.scale);
         // console.log(self.gesture, self.fingers, self.state, self.rotation, self.scale);
     });
+
+    //删除canvas图层
+    $('#pde').on('click', function(){
+        //获取当前选中对象
+        var act_obj = canvas.getActiveObject(); 
+        if(act_obj){
+            canvas.remove(act_obj);
+            $(this).hide();
+        }
+    });
 </script>
 <script>
     function getData(){
