@@ -294,7 +294,7 @@
     });
 
     //rotate旋转
-    eventjs.add(window, "rotate", function(event, self) {
+    eventjs.add(window, "devicemotion", function(event, self) {
         console.log('旋转');
         console.log(self);
         $('#width').val('旋转');
