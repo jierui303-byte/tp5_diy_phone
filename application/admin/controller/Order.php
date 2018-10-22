@@ -22,8 +22,8 @@ class Order extends Base
             ],
             ['id,name,tel,address,pic,img_base64']
         );
-        var_dump($arrS[4]['img_base64']);
-        exit;
+        // var_dump($arrS[4]['img_base64']);
+        // exit;
         $this->assign('data', $arrS);
         $this->assign('count', count($arrS));
         return $this->fetch('index');
