@@ -184,8 +184,9 @@
                 var tl = act_obj.aCoords.tl;
                 var mtr = act_obj.oCoords.mtr;
                 var brs = act_obj.getBoundingRect();
+                console.log(brs);
                 //计算出旋转手柄和左上角坐标位置Y  圆点坐标半径15px
-                var cY = tl.y-mtr.y;
+                // var cY = tl.y-mtr.y;
                 // var cX = tl.x;
 
                 var left = Math.abs(self.start.x - self.x);
@@ -208,11 +209,11 @@
                 
                 //计算光标位置
                 $('#pde').css({
-                    left:(tl.x + canvas.wrapperEl.offsetWidth) + 'px',
-                    top:(tl.y + canvas.wrapperEl.offsetTop) + 'px',
+                    left:(brs.left + canvas.wrapperEl.offsetWidth) + 'px',
+                    top:(brs.top + canvas.wrapperEl.offsetTop) + 'px',
                     zIndex:99
                 }).show();
-                console.log(act_obj.getBoundingRect());
+                
                 //  $('#pde').show().css({
                 //     left:(brs.left + brs.width/2) + 'px',
                 //     top:(brs.top) + 'px',
@@ -225,16 +226,17 @@
                 var bl = act_obj.aCoords.tl;
                 var mtr = act_obj.oCoords.mtr;
                 var brs = act_obj.getBoundingRect();
+                console.log(brs);
                 //计算出旋转手柄和左上角坐标位置Y
                 // var cY = tl.y-mtr.y;
                 // var cX = tl.x;
                 $('#pde').css({
-                    left:(tl.x + canvas.wrapperEl.offsetWidth) + 'px',
-                    top:(tl.y + canvas.wrapperEl.offsetTop) + 'px',
+                    left:(brs.left + canvas.wrapperEl.offsetWidth) + 'px',
+                    top:(brs.top + canvas.wrapperEl.offsetTop) + 'px',
                     zIndex:99
                 }).show();
 
-                console.log(act_obj.getBoundingRect());
+                
                 // $('#pde').show().css({
                 //     left:(brs.left + 15) + 'px',
                 //     top:(brs.top) + 'px',
