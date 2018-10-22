@@ -400,7 +400,7 @@
             transparentCorners:false,
             left:15,
             top:15,
-            zIndex:3
+            zIndex:0
         });
         //画蒙版
         fabric.Image.fromURL($('.maskbg').data('bg'), function(oImg){
@@ -411,6 +411,7 @@
         },{
             width: canvas.width,
             height: canvas.height,
+            zIndex:1
         });
         //画贴图
         fabric.Image.fromURL($('#pimg').attr('src'), function(oImg){
@@ -455,7 +456,7 @@
             transparentCorners:false,
             left:15,
             top:15,
-            zIndex:4
+            zIndex:2
         });
 
         //画边框2
