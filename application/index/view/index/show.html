@@ -184,8 +184,8 @@
                 var tl = act_obj.oCoords.tl;
                 var mtr = act_obj.oCoords.mtr;
                 var brs = act_obj.getBoundingRect();
-                //计算出旋转手柄和左上角坐标位置Y
-                // var cY = tl.y-mtr.y;
+                //计算出旋转手柄和左上角坐标位置Y  圆点坐标半径15px
+                var cY = tl.y-mtr.y;
                 // var cX = tl.x;
 
                 var left = Math.abs(self.start.x - self.x);
@@ -196,8 +196,7 @@
                         left: left,
                         top: top,
                         borderOpacityWhenMoving:0.5,
-                        // centeredRotation:true,
-                        // hasRotatingPoint:false,
+                        centeredRotation:true,
                         originX:'center',
                         originY:'center',
                         border:'5px solid red'
@@ -208,20 +207,20 @@
                 }
                 
                 //计算光标位置
-                // btn.style.left = (bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px';
-                // btn.style.top = (bl.y + canvas.wrapperEl.offsetTop - 10) + 'px';
-                // btn.style.zIndex = 99;//超出canvas范围时设置为-1就 不显示了
+                btn.style.left = (tl.x + canvas.wrapperEl.offsetWidth) + 'px';
+                btn.style.top = (tl.y + canvas.wrapperEl.offsetTop) + 'px';
+                btn.style.zIndex = 99;//超出canvas范围时设置为-1就 不显示了
                 // $('#pde').show().css({
                 //     left:(bl.x + canvas.wrapperEl.offsetWidth) + 'px',
                 //     top:(bl.y + canvas.wrapperEl.offsetTop) + 'px',
                 //     zIndex:99
                 // });
                 console.log(act_obj.getBoundingRect());
-                 $('#pde').show().css({
-                    left:(brs.left + brs.width/2) + 'px',
-                    top:(brs.top) + 'px',
-                    zIndex:99
-                });
+                //  $('#pde').show().css({
+                //     left:(brs.left + brs.width/2) + 'px',
+                //     top:(brs.top) + 'px',
+                //     zIndex:99
+                // });
             }
         }else{
             //如果是up是抬起停止拖动
@@ -232,17 +231,16 @@
                 //计算出旋转手柄和左上角坐标位置Y
                 // var cY = tl.y-mtr.y;
                 // var cX = tl.x;
+                btn.style.left = (tl.x + canvas.wrapperEl.offsetWidth) + 'px';
+                btn.style.top = (tl.y + canvas.wrapperEl.offsetTop) + 'px';
+                btn.style.zIndex = 99;//超出canvas范围时设置为-1就 不显示了
+
+                console.log(act_obj.getBoundingRect());
                 // $('#pde').show().css({
-                //     left:(bl.x + canvas.wrapperEl.offsetWidth) + 'px',
-                //     top:(bl.y + canvas.wrapperEl.offsetTop) + 'px',
+                //     left:(brs.left + 15) + 'px',
+                //     top:(brs.top) + 'px',
                 //     zIndex:99
                 // });
-                console.log(act_obj.getBoundingRect());
-                $('#pde').show().css({
-                    left:(brs.left + brs.width/2) + 'px',
-                    top:(brs.top) + 'px',
-                    zIndex:99
-                });
             }
         }
         
