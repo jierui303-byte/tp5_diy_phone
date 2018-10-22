@@ -278,9 +278,11 @@
         // console.log(width);
         // console.log(height);
         // console.log(self.gesture);//当前被拖动元素的宽度
-        // console.log(self.fingers);//1为end 2为change
+        console.log(self.fingers);//1为end 2为change
+        console.log(self.minFingers);//1为end 2为change
+        console.log(self.maxFingers);//1为end 2为change
         // console.log(self.state);//手势状态：start,change和end
-        // console.log(self.rotation);
+        console.log(self.rotation);
         // console.log(self.scale);
         // console.log('拖动结束了');
         // $('#width').val(width);
@@ -291,22 +293,6 @@
         // $('#rotation').val(self.rotation);
         // $('#scale').val(self.scale);
         // console.log(self.gesture, self.fingers, self.state, self.rotation, self.scale);
-    });
-
-    //rotate旋转
-    eventjs.add(window, "rotate devicemotion", function(event, self) {
-        console.log('旋转');
-        console.log(self.gesture, self.acceleration, self.accelerationIncludingGravity);
-        $('#width').val(self.gesture);
-        $('#height').val(self.acceleration);
-        $('#gesture').val(self.accelerationIncludingGravity);
-    });
-
-    //pinch捏
-    eventjs.add(window, "pinch", function(event, self) {
-        console.log('pinch');
-        console.log(self);
-        $('#width').val('pinch');
     });
 
     //删除canvas图层
