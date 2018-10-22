@@ -428,7 +428,7 @@
         fabric.Image.fromURL($('#pre').attr('src'), function(oImg){
             //将图像向下缩放，并将其翻转，然后再将其添加到画布上
             oImg.perPixelTargetFind = true;
-            oImg.scale(0.2).set('flipX', false);
+            oImg.scale(scaleMaskV).set('flipX', false).set('angle', rotateMaskV);
             oImg.setControlVisible('tl', true);
             oImg.setControlVisible('tr', true);
             oImg.setControlVisible('bl', true);
@@ -453,10 +453,11 @@
             cornerStyle:'circle',
             cornerSize:30,
             transparentCorners:false,
-            left:15,
-            top:15,
+            left:leftMaskV,
+            top:topMaskV,
             zIndex:0
         });
+   
         //画蒙版
         fabric.Image.fromURL($('.maskbg').data('bg'), function(oImg){
             oImg.set('selectable',false);//单个元素禁止选中
@@ -472,7 +473,7 @@
         fabric.Image.fromURL($('#pimg').attr('src'), function(oImg){
             //将图像向下缩放，并将其翻转，然后再将其添加到画布上
             oImg.perPixelTargetFind = true;
-            oImg.scale(0.5).set('flipX', false);
+            oImg.scale(scaleChartV).set('flipX', false).set('angle', rotateChartV);
             oImg.setControlVisible('tl', true);
             oImg.setControlVisible('tr', false);
             oImg.setControlVisible('bl', false);
@@ -485,20 +486,6 @@
             oImg.setCoords();
             canvas.add(oImg);
             canvas.setActiveObject(oImg);
-            //在控制点位置上画一个圆形
-            // var circle = new fabric.Circle({
-            //   radius: 20, fill: 'green', left: -20, top: -20
-            // });
-            // var group = new fabric.Group([ oImg, circle ], {
-            //   left: 50,
-            //   top: 50,
-            //   angle: -10
-            // });
-            // canvas.add(group);
-            // //对组内元素 进行设置
-            
-            console.log(oImg);
-            //把删除按钮定位到左上角位置
             
         },{
             hasBorders:true,
@@ -509,8 +496,8 @@
             cornerStyle:'circle',
             cornerSize:30,
             transparentCorners:false,
-            left:15,
-            top:15,
+            left:leftChartV,
+            top:topChartV,
             zIndex:2
         });
 
