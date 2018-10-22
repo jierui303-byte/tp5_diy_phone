@@ -230,6 +230,25 @@
                 //计算出旋转手柄和左上角坐标位置Y
                 // var cY = tl.y-mtr.y;
                 // var cX = tl.x;
+                
+                 var left = Math.abs(self.start.x - self.x);
+                var top = Math.abs(self.start.y - self.y);
+                console.log(act_obj);
+                if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
+                    act_obj.set({
+                        left: left,
+                        top: top,
+                        borderOpacityWhenMoving:0.5,
+                        centeredRotation:true,
+                        originX:'center',
+                        originY:'center',
+                        border:'5px solid red'
+                    });
+                    canvas.setActiveObject(act_obj);
+                    canvas.renderAll();
+                    
+                }
+                
                 $('#pde').css({
                     left:(brs.left + canvas.wrapperEl.offsetWidth) + 'px',
                     top:(brs.top + canvas.wrapperEl.offsetTop) + 'px',
