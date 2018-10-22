@@ -185,7 +185,7 @@
                 var mtr = act_obj.oCoords.mtr;
                 var brs = act_obj.getBoundingRect();
                 console.log(brs);
-                console.log(tl);
+                console.log(tl.x, tl.y);
 
                 var left = Math.abs(self.start.x - self.x);
                 var top = Math.abs(self.start.y - self.y);
@@ -218,7 +218,7 @@
                 var mtr = act_obj.oCoords.mtr;
                 var brs = act_obj.getBoundingRect();
                 console.log(brs);
-                console.log(tl);
+                console.log(tl.x, tl.y);
 
                 $('#pde').show().css({
                     left:(brs.left + canvas._offset.left - 10) + 'px',
