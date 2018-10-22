@@ -364,7 +364,7 @@
         fabric.Image.fromURL($('#pre').attr('src'), function(oImg){
             //将图像向下缩放，并将其翻转，然后再将其添加到画布上
             oImg.perPixelTargetFind = true;
-            oImg.scale(0.2).set('flipX', true);
+            oImg.scale(0.2).set('flipX', false);
             oImg.setControlVisible('tl', true);
             oImg.setControlVisible('tr', true);
             oImg.setControlVisible('bl', true);
