@@ -274,23 +274,37 @@
             
         }
         
-        console.log('拖动开始了');
-        console.log(width);
-        console.log(height);
-        console.log(self.gesture);//当前被拖动元素的宽度
-        console.log(self.fingers);//1为end 2为change
-        console.log(self.state);//手势状态：start,change和end
-        console.log(self.rotation);
-        console.log(self.scale);
-        console.log('拖动结束了');
-        $('#width').val(width);
-        $('#height').val(height);
-        $('#gesture').val(self.gesture);
-        $('#fingers').val(self.fingers);
-        $('#state').val(self.state);
-        $('#rotation').val(self.rotation);
-        $('#scale').val(self.scale);
+        // console.log('拖动开始了');
+        // console.log(width);
+        // console.log(height);
+        // console.log(self.gesture);//当前被拖动元素的宽度
+        // console.log(self.fingers);//1为end 2为change
+        // console.log(self.state);//手势状态：start,change和end
+        // console.log(self.rotation);
+        // console.log(self.scale);
+        // console.log('拖动结束了');
+        // $('#width').val(width);
+        // $('#height').val(height);
+        // $('#gesture').val(self.gesture);
+        // $('#fingers').val(self.fingers);
+        // $('#state').val(self.state);
+        // $('#rotation').val(self.rotation);
+        // $('#scale').val(self.scale);
         // console.log(self.gesture, self.fingers, self.state, self.rotation, self.scale);
+    });
+
+    //rotate旋转
+    eventjs.add(window, "rotate", function(event, self) {
+        console.log('旋转');
+        console.log(self);
+        $('#width').val('旋转');
+    });
+
+    //pinch捏
+    eventjs.add(window, "pinch", function(event, self) {
+        console.log('pinch');
+        console.log(self);
+        $('#width').val('pinch');
     });
 
     //删除canvas图层
