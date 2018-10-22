@@ -181,7 +181,7 @@
         var act_obj = canvas.getActiveObject(); 
         if(self.state == 'down'){
             if(act_obj){ 
-                var bl = act_obj.oCoords.bl;
+                var bl = act_obj.oCoords.tl;
                 var left = Math.abs(self.start.x - self.x);
                 var top = Math.abs(self.start.y - self.y);
                 console.log(act_obj);
@@ -205,33 +205,33 @@
                 // btn.style.left = (bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px';
                 // btn.style.top = (bl.y + canvas.wrapperEl.offsetTop - 10) + 'px';
                 // btn.style.zIndex = 99;//超出canvas范围时设置为-1就 不显示了
-                // $('#pde').show().css({
-                //     left:(bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px',
-                //     top:(bl.y + canvas.wrapperEl.offsetTop - 10) + 'px',
-                //     zIndex:99
-                // });
-                console.log(act_obj.getBoundingRect());
-                 $('#pde').show().css({
-                    left:(act_obj.left + 15) + 'px',
-                    top:(act_obj.top - 25) + 'px',
+                $('#pde').show().css({
+                    left:(bl.x + canvas.wrapperEl.offsetWidth) + 'px',
+                    top:(bl.y + canvas.wrapperEl.offsetTop) + 'px',
                     zIndex:99
                 });
+                console.log(act_obj.getBoundingRect());
+                //  $('#pde').show().css({
+                //     left:(act_obj.left + 15) + 'px',
+                //     top:(act_obj.top - 25) + 'px',
+                //     zIndex:99
+                // });
             }
         }else{
             //如果是up是抬起停止拖动
             if(act_obj){
-                var bl = act_obj.oCoords.bl;
-                // $('#pde').show().css({
-                //     left:(bl.x + canvas.wrapperEl.offsetWidth + 50) + 'px',
-                //     top:(bl.y + canvas.wrapperEl.offsetTop - 10) + 'px',
-                //     zIndex:99
-                // });
-                console.log(act_obj.getBoundingRect());
+                var bl = act_obj.oCoords.tl;
                 $('#pde').show().css({
-                    left:(act_obj.left + 30) + 'px',
-                    top:(act_obj.top - 30) + 'px',
+                    left:(bl.x + canvas.wrapperEl.offsetWidth) + 'px',
+                    top:(bl.y + canvas.wrapperEl.offsetTop) + 'px',
                     zIndex:99
                 });
+                console.log(act_obj.getBoundingRect());
+                // $('#pde').show().css({
+                //     left:(act_obj.left + 30) + 'px',
+                //     top:(act_obj.top - 30) + 'px',
+                //     zIndex:99
+                // });
             }
         }
         
