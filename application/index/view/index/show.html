@@ -519,7 +519,15 @@
             crossOrigin: 'anonymous'
         });
         
-        canvas.renderAll();
+        canvas.renderAll();//重绘
+        //重绘之后更新删除按钮的位置
+        var act_obj = canvas.getActiveObject();
+        var tl = act_obj.aCoords.tl;
+        $('#pde').show().css({
+            left:(tl.x + canvas._offset.left - 10) + 'px',
+            top:(tl.y + 10) + 'px',
+            zIndex:99
+        });
         
         console.log('重绘shangchuan tup ash时参数：', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);
         console.log('重绘chart时参数：', scaleChartV, leftChartV, topChartV, rotateChartV);
