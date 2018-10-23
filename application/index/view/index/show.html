@@ -283,28 +283,31 @@
                 if(act_obj.zIndex == 0){
                     //上传的图片
                     scaleUploadV = self.scale;
-                    // leftUploadV = 15;
-                    // topUploadV = 15;
                     rotateUploadV = self.rotation;
+                    act_obj.set({
+                        originX:'center',
+                        originY:'center',
+                        centeredScaling:true,
+                        centeredRotation:true,
+                        hasRotatingPoint:true,
+                        angle:rotateUploadV
+                    }).scale(scaleUploadV);
                 }else if(act_obj.zIndex == 1){
 
                 }else if(act_obj.zIndex == 2){
                     //贴图  记录位置，缩放比例，旋转角度
                     scaleChartV = self.scale;
-                    // leftChartV = 15;
-                    // topChartV = 15;
                     rotateChartV = self.rotation;
+                    act_obj.set({
+                        originX:'center',
+                        originY:'center',
+                        centeredScaling:true,
+                        centeredRotation:true,
+                        hasRotatingPoint:true,
+                        angle:rotateChartV
+                    }).scale(scaleChartV);
                 }
            
-                act_obj.set({
-                    originX:'center',
-                    originY:'center',
-                    centeredScaling:true,
-                    centeredRotation:true,
-                    hasRotatingPoint:true,
-                    angle:self.rotation
-                }).scale(self.scale);
-
                 canvas.setActiveObject(act_obj);
                 canvas.renderAll();
                 console.log('重绘shangchuan tup ash时参数：==gesture', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
