@@ -279,28 +279,18 @@
         // console.log(self.gesture, self.fingers, self.state, self.start, self.x, self.y, self.bbox);
     });
 
-    eventjs.add(window, "gesture", function(event, self) {
-        if(self.state == 'start'){
-            // //获取当前选中对象
-            // var act_obj = canvas.getActiveObject();
-            // if(act_obj){
-            //     if(act_obj.zIndex == 0){
-            //         //上传的图片
-            //         leftUploadV = act_obj.left;
-            //         topUploadV = act_obj.top;
-            //         scaleUploadV = act_obj.scaleX;
-            //         rotateUploadV = act_obj.angle;
-            //         console.log('更新上传图片的left,top值');
-            //     }else if(act_obj.zIndex == 1){
+    var startScale = 1;
+    var endScale = 1;
 
-            //     }else if(act_obj.zIndex == 2){
-            //         //贴图  记录位置，缩放比例，旋转角度
-            //         console.log('更新贴图的left,top值');
-            //         leftChartV = act_obj.left;
-            //         topChartV = act_obj.top;
-            //         scaleChartV = act_obj.scaleX;
-            //         rotateChartV = act_obj.angle;
-            //     }
+    eventjs.add(window, "gesture", function(event, self) {
+        
+        if(self.state == 'start'){
+            // if(act_obj.zIndex == 0){
+            //     startScale = scaleUploadV;
+            // }else if(act_obj.zIndex == 1){
+
+            // }else if(act_obj.zIndex == 2){
+            //    startScale = scaleChartV;
             // }
             
         }else if(self.state == 'change'){
@@ -311,13 +301,14 @@
                 $('#width').val(scaleUploadV);
                 $('#height').val(rotateUploadV);
                 if(act_obj.zIndex == 0){
-                    //判断图片是放大还是缩小 放大就累加 缩小就累减
-                    if(self.scale>1 && scaleChartV>1){
+                    //判断图片是放大还是缩小 放大就累加 缩小就累减  
+                    //在上一次缩放比例基础上进行放大或缩小
+                    if(self.scale>1){
                         //放大
-                        scaleUploadV += 0.1;//每次触发事件都是从0.5开始
+                        scaleUploadV = endScale + 0.1;//每次触发事件都是从0.5开始
                     }else{
                         //缩小
-                        scaleUploadV -= 0.1;//每次触发事件都是从0.5开始
+                        scaleUploadV = endScale - 0.1;//每次触发事件都是从0.5开始
                     }
                     
                     rotateUploadV = self.rotation;
@@ -334,12 +325,12 @@
 
                 }else if(act_obj.zIndex == 2){
                     //贴图  记录位置，缩放比例，旋转角度
-                    if(self.scale>1 && scaleChartV>1){
+                    if(self.scale>1){
                         //放大
-                        scaleChartV += 0.1;
+                        scaleChartV = endScale + 0.1;
                     }else{
                         //缩小
-                        scaleChartV -= 0.1;//每次触发事件都是从0.5开始
+                        scaleChartV = endScale - 0.1;//每次触发事件都是从0.5开始
                     }
                     
                     rotateChartV = self.rotation;
@@ -381,6 +372,7 @@
                     scaleChartV = self.scale;
                     rotateChartV = self.rotation;
                 }
+                endScale = self.scale;//存储最后的缩放比例 
             }
         }
         
