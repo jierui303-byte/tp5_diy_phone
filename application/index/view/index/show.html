@@ -306,9 +306,15 @@
                     if(self.scale > 1){
                         //放大
                         scaleUploadV = endScale + self.scale/10;//每次触发事件都是从0.5开始
+                        if(scaleUploadV > 1){
+                            scaleUploadV = 1;
+                        }
                     }else{
                         //缩小
                         scaleUploadV = endScale - self.scale/10;//每次触发事件都是从0.5开始
+                        if(scaleUploadV < 0){
+                            scaleUploadV = 0.1;
+                        }
                     }
                     endScale = scaleUploadV;//存储最后的缩放比例 
                     rotateUploadV = self.rotation;
@@ -328,9 +334,15 @@
                     if(self.scale > 1){
                         //放大
                         scaleChartV = endScale + self.scale/10;
+                        if(scaleChartV > 1){
+                            scaleChartV = 1;
+                        }
                     }else{
                         //缩小
                         scaleChartV = endScale - self.scale/10;//每次触发事件都是从0.5开始
+                        if(scaleChartV < 0){
+                            scaleChartV = 0.1;
+                        }
                     }
                     endScale = scaleChartV;//存储最后的缩放比例 
                     rotateChartV = self.rotation;
@@ -345,7 +357,7 @@
                     console.log('更新贴图 的缩放大小值');
                 }
            
-                
+
                 canvas.setActiveObject(act_obj);
                 canvas.renderAll();
                 console.log('重绘shangchuan tup ash时参数：==gesture', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
