@@ -175,6 +175,8 @@
     var topChartV = 15;
     var rotateUploadV = 30;
     var rotateChartV = 30;
+    console.log('重绘shangchuan tup ash时参数：==初始化', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
+    console.log('重绘chart时参数：==初始化', scaleChartV, leftChartV, topChartV, rotateChartV);
 
     var btn = document.getElementById('pde'),
       btnWidth = 85,
@@ -186,8 +188,8 @@
         var act_obj = canvas.getActiveObject(); 
         if(self.state == 'down'){
             var numObj = canvas.getObjects();//0是上传的图片   1为蒙版图片   2为贴图
-            console.log(numObj);
-            console.log(act_obj.zIndex);
+            // console.log(numObj);
+            // console.log(act_obj.zIndex);
             
             if(act_obj){ 
                 var tl = act_obj.aCoords.tl;
@@ -211,7 +213,8 @@
                         leftChartV = left;
                         topChartV = top;
                     }
-
+    console.log('重绘shangchuan tup ash时参数：==moving', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
+    console.log('重绘chart时参数：==moving', scaleChartV, leftChartV, topChartV, rotateChartV);
                     act_obj.set({
                         left: left,
                         top: top,
@@ -250,7 +253,7 @@
                 $('#pde').hide();
             }
         }
-        console.log(self);
+        // console.log(self);
         // console.log('拖动开始了');
         // console.log(canvas);
         // console.log(canvas.getActiveObject(act_obj));
@@ -273,7 +276,7 @@
         }else if(self.state == 'change'){
             //获取当前选中对象
             var act_obj = canvas.getActiveObject();
-            console.log(act_obj);
+            // console.log(act_obj);
             if(act_obj){
                 if(act_obj.zIndex == 0){
                     //上传的图片
@@ -290,7 +293,8 @@
                     // topChartV = 15;
                     rotateChartV = self.rotation;
                 }
-            
+            console.log('重绘shangchuan tup ash时参数：==gesture', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
+    console.log('重绘chart时参数：==gesture', scaleChartV, leftChartV, topChartV, rotateChartV);
                 act_obj.set({
                     originX:'center',
                     originY:'center',
@@ -502,6 +506,8 @@
             crossOrigin: 'anonymous'
         });
 
+        console.log('重绘shangchuan tup ash时参数：', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);
+        console.log('重绘chart时参数：', scaleChartV, leftChartV, topChartV, rotateChartV);
 //        下移：canvas.sendBackwards(canvas.getActiveObject());
 //        上移：canvas.bringForward(canvas.getActiveObject());
 //        置顶：canvas.bringToFront(canvas.getActiveObject());
