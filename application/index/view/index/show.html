@@ -213,8 +213,6 @@
                         leftChartV = left;
                         topChartV = top;
                     }
-    console.log('重绘shangchuan tup ash时参数：==moving', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
-    console.log('重绘chart时参数：==moving', scaleChartV, leftChartV, topChartV, rotateChartV);
                     act_obj.set({
                         left: left,
                         top: top,
@@ -228,6 +226,9 @@
                     canvas.renderAll();
                     
                 }
+
+                console.log('重绘shangchuan tup ash时参数：==moving', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
+                console.log('重绘chart时参数：==moving', scaleChartV, leftChartV, topChartV, rotateChartV);
                 
                  $('#pde').show().css({
                     left:(tl.x + canvas._offset.left - 10) + 'px',
@@ -293,8 +294,7 @@
                     // topChartV = 15;
                     rotateChartV = self.rotation;
                 }
-            console.log('重绘shangchuan tup ash时参数：==gesture', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
-            console.log('重绘chart时参数：==gesture', scaleChartV, leftChartV, topChartV, rotateChartV);
+           
                 act_obj.set({
                     originX:'center',
                     originY:'center',
@@ -306,7 +306,8 @@
 
                 canvas.setActiveObject(act_obj);
                 canvas.renderAll();
-
+                console.log('重绘shangchuan tup ash时参数：==gesture', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
+                console.log('重绘chart时参数：==gesture', scaleChartV, leftChartV, topChartV, rotateChartV);
             }
         }else{
             //结束手势
