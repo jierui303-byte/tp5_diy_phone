@@ -175,6 +175,9 @@
     var topChartV = 15;
     var rotateUploadV = 30;
     var rotateChartV = 30;
+
+    var delBtnX = 0;
+    var delBtnY = 0;
     console.log('重绘shangchuan tup ash时参数：==初始化', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
     console.log('重绘chart时参数：==初始化', scaleChartV, leftChartV, topChartV, rotateChartV);
 
@@ -233,7 +236,10 @@
                 console.log('重绘shangchuan tup ash时参数：==moving', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
                 console.log('重绘chart时参数：==moving', scaleChartV, leftChartV, topChartV, rotateChartV);
                 
-                 $('#pde').show().css({
+                delBtnX = tl.x + canvas._offset.left - 10;
+                delBtnY = tl.y + 10;
+
+                $('#pde').show().css({
                     left:(tl.x + canvas._offset.left - 10) + 'px',
                     top:(tl.y + 10) + 'px',
                     zIndex:99
@@ -247,6 +253,8 @@
                 var brs = act_obj.getBoundingRect();
                 // console.log(brs);
                 // console.log(tl.x, tl.y);
+                delBtnX = tl.x + canvas._offset.left - 10;
+                delBtnY = tl.y + 10;
 
                 $('#pde').show().css({
                     left:(tl.x + canvas._offset.left - 10) + 'px',
@@ -354,22 +362,6 @@
             canvas.renderAll();
         }
     });
-
-    function updateDEL(){
-        //重绘之后更新删除按钮的位置
-        var act_obj = canvas.getActiveObject();
-        if(act_obj){
-            var tl = act_obj.aCoords.tl;
-            console.log(tl);
-            console.log('重绘之后更新删除按钮的位置', tl.x + canvas._offset.left - 10, tl.y + 10);
-            $('#pde').show().css({
-                left:(tl.x + canvas._offset.left - 10) + 'px',
-                top:(tl.y + 10) + 'px',
-                zIndex:99
-            });
-        }
-        
-    }
 </script>
 <script>
     function getData(){
@@ -536,7 +528,19 @@
         });
         
         canvas.renderAll();//重绘
-        
+
+        //重绘之后更新删除按钮的位置
+        var act_obj = canvas.getActiveObject();
+        if(act_obj){
+            var tl = act_obj.aCoords.tl;
+            console.log(tl);
+            console.log('重绘之后更新删除按钮的位置', tl.x + canvas._offset.left - 10, tl.y + 10);
+            $('#pde').show().css({
+                left:delBtnX + 'px',
+                top:delBtnY + 'px',
+                zIndex:99
+            });
+        }
 
         console.log('重绘shangchuan tup ash时参数：', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);
         console.log('重绘chart时参数：', scaleChartV, leftChartV, topChartV, rotateChartV);
@@ -641,7 +645,6 @@
                     //8.将reader的result属性值赋值给data.parentNode.childNodes[1].childNodes[1].src，实现图片预览
                     $('#pre').attr('src', evt.target.result);
                     drawCanvas(canvas, fabric);
-                    updateDEL();
                 }
             }
         });
@@ -664,7 +667,6 @@
                 drawCanvas(canvas, fabric);
             }
             console.log(s);
-            updateDEL();
         });
 
 
