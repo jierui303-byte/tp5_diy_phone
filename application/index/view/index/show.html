@@ -303,12 +303,12 @@
                 if(act_obj.zIndex == 0){
                     //判断图片是放大还是缩小 放大就累加 缩小就累减  
                     //在上一次缩放比例基础上进行放大或缩小
-                    if(self.scale>1){
+                    if(self.scale > 1){
                         //放大
-                        scaleUploadV = endScale + 0.1;//每次触发事件都是从0.5开始
+                        scaleUploadV = endScale;//每次触发事件都是从0.5开始
                     }else{
                         //缩小
-                        scaleUploadV = endScale - 0.1;//每次触发事件都是从0.5开始
+                        scaleUploadV = endScale;//每次触发事件都是从0.5开始
                     }
                     
                     rotateUploadV = self.rotation;
@@ -327,10 +327,10 @@
                     //贴图  记录位置，缩放比例，旋转角度
                     if(self.scale>1){
                         //放大
-                        scaleChartV = endScale + 0.1;
+                        scaleChartV = endScale;
                     }else{
                         //缩小
-                        scaleChartV = endScale - 0.1;//每次触发事件都是从0.5开始
+                        scaleChartV = endScale;//每次触发事件都是从0.5开始
                     }
                     
                     rotateChartV = self.rotation;
@@ -353,27 +353,27 @@
         }else{
             //结束手势
              //获取当前选中对象
-            // var act_obj = canvas.getActiveObject();
-            // if(act_obj){
-            //     if(act_obj.zIndex == 0){
-            //         //上传的图片
-            //         leftUploadV = act_obj.left;
-            //         topUploadV = act_obj.top;
-            //         scaleUploadV = self.scale;
-            //         rotateUploadV = self.rotation;
-            //         console.log('更新上传图片的left,top值');
-            //     }else if(act_obj.zIndex == 1){
+            var act_obj = canvas.getActiveObject();
+            if(act_obj){
+                if(act_obj.zIndex == 0){
+                    //上传的图片
+                    leftUploadV = act_obj.left;
+                    topUploadV = act_obj.top;
+                    scaleUploadV = self.scale;
+                    rotateUploadV = self.rotation;
+                    console.log('更新上传图片的left,top值');
+                }else if(act_obj.zIndex == 1){
 
-            //     }else if(act_obj.zIndex == 2){
-            //         //贴图  记录位置，缩放比例，旋转角度
-            //         console.log('更新贴图的left,top值');
-            //         leftChartV = act_obj.left;
-            //         topChartV = act_obj.top;
-            //         scaleChartV = self.scale;
-            //         rotateChartV = self.rotation;
-            //     }
+                }else if(act_obj.zIndex == 2){
+                    //贴图  记录位置，缩放比例，旋转角度
+                    console.log('更新贴图的left,top值');
+                    leftChartV = act_obj.left;
+                    topChartV = act_obj.top;
+                    scaleChartV = self.scale;
+                    rotateChartV = self.rotation;
+                }
                 endScale = self.scale;//存储最后的缩放比例 
-            // }
+            }
         }
         
         // console.log('拖动开始了');
