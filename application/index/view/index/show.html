@@ -667,6 +667,7 @@
 
         //点击提交合成图片并显示出来
         $('.footer div:nth-child(3)').on('click', function(){
+            $('#pde').hide();
             //点击预览时取消当前选中的对象
             canvas.discardActiveObject();
             canvas.renderAll();
