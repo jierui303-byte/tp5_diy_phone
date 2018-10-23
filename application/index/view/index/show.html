@@ -312,7 +312,7 @@
                 $('#height').val(rotateUploadV);
                 if(act_obj.zIndex == 0){
                     //判断图片是放大还是缩小 放大就累加 缩小就累减
-                    if(self.scale>1){
+                    if(self.scale>1 && scaleChartV>1){
                         //放大
                         scaleUploadV += self.scale/2;//每次触发事件都是从0.5开始
                     }else{
@@ -335,7 +335,7 @@
 
                 }else if(act_obj.zIndex == 2){
                     //贴图  记录位置，缩放比例，旋转角度
-                    if(self.scale>1){
+                    if(self.scale>1 && scaleChartV>1){
                         //放大
                         scaleChartV += self.scale/2;
                     }else{
