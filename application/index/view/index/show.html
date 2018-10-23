@@ -352,8 +352,8 @@
                     //上传的图片
                     leftUploadV = act_obj.left;
                     topUploadV = act_obj.top;
-                    scaleUploadV = act_obj.scaleX;
-                    rotateUploadV = act_obj.angle;
+                    scaleUploadV = self.scale;
+                    rotateUploadV = self.rotation;
                     console.log('更新上传图片的left,top值');
                 }else if(act_obj.zIndex == 1){
 
@@ -362,8 +362,8 @@
                     console.log('更新贴图的left,top值');
                     leftChartV = act_obj.left;
                     topChartV = act_obj.top;
-                    scaleChartV = act_obj.scaleX;
-                    rotateChartV = act_obj.angle;
+                    scaleChartV = self.scale;
+                    rotateChartV = self.rotation;
                 }
             }
         }
@@ -379,14 +379,14 @@
         // console.log(self.rotation);
         // console.log(self.scale);
         // console.log('拖动结束了');
-        // $('#width').val(self.fingers);
-        // $('#height').val(self.minFingers);
-        // $('#gesture').val(self.maxFingers);
-        // $('#fingers').val(self.rotation);
-        // $('#fingers').val(self.scale);
-        // $('#state').val(self.state);
-        // $('#rotation').val(self.gesture);
-        // $('#scale').val(self.scale);
+        $('#width').val(self.fingers);
+        $('#height').val(self.minFingers);
+        $('#gesture').val(self.maxFingers);
+        $('#fingers').val(self.rotation);
+        $('#fingers').val(self.scale);
+        $('#state').val(self.state);
+        $('#rotation').val(self.gesture);
+        $('#scale').val(self.scale);
         // console.log(self.gesture, self.fingers, self.state, self.rotation, self.scale);
     });
 
