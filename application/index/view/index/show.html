@@ -210,7 +210,8 @@
                         // centeredRotation:true,
                         originX:'center',
                         originY:'center',
-                        border:'5px solid red'
+                        border:'5px solid red',
+                        angle:
                     });
                     
                     canvas.setActiveObject(act_obj);
@@ -222,6 +223,8 @@
                     //上传的图片
                     leftUploadV = left;
                     topUploadV = top;
+                    scaleUploadV = act_obj.scale;
+                    rotateUploadV = act_obj.rotation;
                     console.log('更新上传图片的left,top值');
                 }else if(act_obj.zIndex == 1){
 
@@ -230,6 +233,8 @@
                     console.log('更新贴图的left,top值');
                     leftChartV = left;
                     topChartV = top;
+                    scaleChartV = act_obj.scale;
+                    rotateChartV = act_obj.rotation;
                 }
                 console.log('重绘shangchuan tup ash时参数：==moving', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);    
                 console.log('重绘chart时参数：==moving', scaleChartV, leftChartV, topChartV, rotateChartV);
@@ -258,7 +263,7 @@
                 $('#pde').hide();
             }
         }
-        // console.log(self);
+        console.log(act_obj);
         // console.log('拖动开始了');
         // console.log(canvas);
         // console.log(canvas.getActiveObject(act_obj));
