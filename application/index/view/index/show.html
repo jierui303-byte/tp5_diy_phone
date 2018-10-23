@@ -306,13 +306,13 @@
                     if(self.scale > 1){
                         //放大
                         scaleUploadV = endScale + self.scale/30;//每次触发事件都是从0.5开始
-                        if(scaleUploadV >= 1){
+                        if(scaleUploadV >= 1 || self.scale >= 1){
                             scaleUploadV = 1;
                         }
                     }else{
                         //缩小
                         scaleUploadV = endScale - self.scale/30;//每次触发事件都是从0.5开始
-                        if(scaleUploadV <= 0){
+                        if(scaleUploadV <= 0 || self.scale <= 0){
                             scaleUploadV = 0.2;
                         }
                     }
@@ -334,13 +334,13 @@
                     if(self.scale > 1){
                         //放大
                         scaleChartV = endScale + self.scale/30;
-                        if(scaleChartV >= 1){
+                        if(scaleChartV >= 1 || self.scale >= 1){
                             scaleChartV = 1;
                         }
                     }else{
                         //缩小
                         scaleChartV = endScale - self.scale/30;//每次触发事件都是从0.5开始
-                        if(scaleChartV <= 0){
+                        if(scaleChartV <= 0 || self.scale <= 0){
                             scaleChartV = 0.2;
                         }
                     }
