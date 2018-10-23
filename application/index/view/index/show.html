@@ -189,7 +189,6 @@
         if(self.state == 'down'){
             var numObj = canvas.getObjects();//0是上传的图片   1为蒙版图片   2为贴图
             // console.log(numObj);
-            console.log(act_obj.zIndex);
             
             if(act_obj){ 
                 var tl = act_obj.aCoords.tl;
@@ -197,6 +196,7 @@
                 var brs = act_obj.getBoundingRect();
                 // console.log(brs);
                 // console.log(tl.x, tl.y);
+                console.log(act_obj.zIndex);
 
                 var left = Math.abs(self.start.x - self.x);
                 var top = Math.abs(self.start.y - self.y);
