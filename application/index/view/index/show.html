@@ -305,13 +305,13 @@
                     //在上一次缩放比例基础上进行放大或缩小
                     if(self.scale > 1){
                         //放大
-                        scaleUploadV = endScale + self.scale;//每次触发事件都是从0.5开始
+                        scaleUploadV = endScale + self.scale/10;//每次触发事件都是从0.5开始
                         if(scaleUploadV >= 1){
                             scaleUploadV = 1;
                         }
                     }else{
                         //缩小
-                        scaleUploadV = endScale - self.scale;//每次触发事件都是从0.5开始
+                        scaleUploadV = endScale - self.scale/10;//每次触发事件都是从0.5开始
                         if(scaleUploadV <= 0){
                             scaleUploadV = 0;
                         }
@@ -333,13 +333,13 @@
                     //贴图  记录位置，缩放比例，旋转角度
                     if(self.scale > 1){
                         //放大
-                        scaleChartV = endScale + self.scale;
+                        scaleChartV = endScale + self.scale/10;
                         if(scaleChartV >= 1){
                             scaleChartV = 1;
                         }
                     }else{
                         //缩小
-                        scaleChartV = endScale - self.scale;//每次触发事件都是从0.5开始
+                        scaleChartV = endScale - self.scale/10;//每次触发事件都是从0.5开始
                         if(scaleChartV <= 0){
                             scaleChartV = 0;
                         }
