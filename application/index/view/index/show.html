@@ -403,7 +403,7 @@
     //     btn.style.zIndex = 99;
     // }
 
-    function drawCanvas(canvas, fabric){
+    function drawCanvas(){
         console.log(getData());
         canvas.clear();//清空
         //设置背景1
@@ -644,7 +644,7 @@
                     //8.将reader的result属性值赋值给data.parentNode.childNodes[1].childNodes[1].src，实现图片预览
                     $('#pre').attr('src', evt.target.result);
                     $('#pde').hide();
-                    drawCanvas(canvas, fabric);
+                    drawCanvas();
                 }
             }
         });
@@ -659,12 +659,12 @@
                 //0蒙版直接更换大图
                 $('.pic').css("background-image","url(" + s + ")").data('bg', s);
                 $('#pde').hide();
-                drawCanvas(canvas, fabric);
+                drawCanvas();
             }else{
                 //贴图是小图 可更改大小和显示位置可挪动
                 $('.paster').find('img').attr('src', s);
                 $('#pde').hide();
-                drawCanvas(canvas, fabric);
+                drawCanvas();
             }
             console.log(s);
         });
