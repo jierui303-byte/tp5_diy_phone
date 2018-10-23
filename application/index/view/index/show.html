@@ -198,9 +198,9 @@
                 // console.log(tl.x, tl.y);
                 console.log(act_obj.zIndex);
 
-                var left = Math.abs(self.start.x - self.x);
-                var top = Math.abs(self.start.y - self.y);
-                console.log('dingw ', self.start.x, self.x, self.start.x - self.x, self.start.y - self.y);
+                var left = tl.x;
+                var top = tl.y;
+                console.log('dingw ', left, self.x, top);
                 
                 if(left >= canvas._offset.left && top >= canvas._offset.top){
                     act_obj.set({
