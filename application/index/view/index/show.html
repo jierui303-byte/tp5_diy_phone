@@ -518,7 +518,9 @@
             top:0,
             crossOrigin: 'anonymous'
         });
-
+        
+        canvas.renderAll();
+        
         console.log('重绘shangchuan tup ash时参数：', scaleUploadV, leftUploadV, topUploadV, rotateUploadV);
         console.log('重绘chart时参数：', scaleChartV, leftChartV, topChartV, rotateChartV);
 //        下移：canvas.sendBackwards(canvas.getActiveObject());
