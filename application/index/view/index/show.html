@@ -201,7 +201,7 @@
                 var left = Math.abs(self.start.x - self.x);
                 var top = Math.abs(self.start.y - self.y);
                 
-                if(left >= canvas.wrapperEl.offsetWidth && top >= canvas.wrapperEl.offsetTop){
+                if(self.x >= canvas._offset.left && self.y >= canvas._offset.top){
                     if(act_obj.zIndex == 0){
                         //上传的图片
                         leftUploadV = left;
