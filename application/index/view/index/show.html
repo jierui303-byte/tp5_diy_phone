@@ -308,6 +308,8 @@
             var act_obj = canvas.getActiveObject();
             // console.log(act_obj);
             if(act_obj){
+                 $('#width').val(scaleUploadV);
+                $('#height').val(rotateUploadV);
                 if(act_obj.zIndex == 0){
                     //上传的图片
                     // scaleUploadV = scaleUploadV;
@@ -379,8 +381,7 @@
         // console.log(self.rotation);
         // console.log(self.scale);
         // console.log('拖动结束了');
-        $('#width').val(self.fingers);
-        $('#height').val(self.minFingers);
+    
         $('#gesture').val(self.maxFingers);
         $('#fingers').val(self.rotation);
         $('#fingers').val(self.scale);
