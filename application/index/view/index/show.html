@@ -308,12 +308,12 @@
             var act_obj = canvas.getActiveObject();
             // console.log(act_obj);
             if(act_obj){
-                 $('#width').val(scaleUploadV);
+                $('#width').val(scaleUploadV);
                 $('#height').val(rotateUploadV);
                 if(act_obj.zIndex == 0){
                     //上传的图片
-                    // scaleUploadV = scaleUploadV;
-                    // rotateUploadV = rotateUploadV;
+                    scaleUploadV = self.scale;
+                    rotateUploadV = self.rotation;
                     act_obj.set({
                         originX:'center',
                         originY:'center',
@@ -327,8 +327,8 @@
 
                 }else if(act_obj.zIndex == 2){
                     //贴图  记录位置，缩放比例，旋转角度
-                    // scaleChartV = scaleChartV;
-                    // rotateChartV = rotateChartV;
+                    scaleChartV = self.scale;
+                    rotateChartV = self.rotation;
                     act_obj.set({
                         originX:'center',
                         originY:'center',
