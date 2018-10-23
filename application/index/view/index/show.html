@@ -529,15 +529,15 @@
         
         canvas.renderAll();//重绘
 
-        // //重绘之后更新删除按钮的位置
+        //重绘之后更新删除按钮的位置
         var act_obj = canvas.getActiveObject();
         if(act_obj){
             var tl = act_obj.aCoords.tl;
             console.log(tl);
             console.log('重绘之后更新删除按钮的位置', tl.x + canvas._offset.left - 10, tl.y + 10);
             $('#pde').show().css({
-                left:delBtnX + 'px',
-                top:delBtnY + 'px',
+                left:(tl.x + canvas._offset.left - 10) + 'px',
+                top:(tl.y + 10) + 'px',
                 zIndex:99
             });
         }
