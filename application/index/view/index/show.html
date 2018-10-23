@@ -644,6 +644,7 @@
                     //7.调用FileReader()的onload事件，当文件读取成功时，执行8
                     //8.将reader的result属性值赋值给data.parentNode.childNodes[1].childNodes[1].src，实现图片预览
                     $('#pre').attr('src', evt.target.result);
+                    $('#pde').hide();
                     drawCanvas(canvas, fabric);
                 }
             }
@@ -658,12 +659,12 @@
             if(index == 0){
                 //0蒙版直接更换大图
                 $('.pic').css("background-image","url(" + s + ")").data('bg', s);
-
+                $('#pde').hide();
                 drawCanvas(canvas, fabric);
             }else{
                 //贴图是小图 可更改大小和显示位置可挪动
                 $('.paster').find('img').attr('src', s);
-
+                $('#pde').hide();
                 drawCanvas(canvas, fabric);
             }
             console.log(s);
