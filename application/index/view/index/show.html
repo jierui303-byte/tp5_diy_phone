@@ -613,7 +613,7 @@
     $(document).ready(function(){
 
         //邮寄点击
-        $('#emailSend').on('click', function(){
+        $('#xiaDan').on('click', function(){
             console.log('aaa');
             var str = '<div><h5>订单编号：{$orderNum}</h5>'+
             '<form id="form2" method="post">'+
@@ -626,7 +626,7 @@
                     
             $(this).parents('.order').empty().append(str);
         });
-        
+
         //下单提交表单
         $('.submit').on('click', function(){
             var tel = $('input[name=tel]').val();
@@ -711,8 +711,8 @@
                         $('.loading').hide();
                         var str = '<div><h5>下单成功！</h5>'+
                                 '<h5>订单编号：{$orderNum}</h5>'+
-                                '<button id="emailSend">邮寄</button>'+
-                                '<button>自取</button>'+
+                                '<div id="xiaDan" style="width: 49.5%;height: 48px;line-height: 48px;background: #00aa66;float: left;color:#fff;">邮寄</div>'+
+        '<div id="cancelXD" style="width: 49.5%;height: 48px;line-height: 48px;background: #FFA500;float: right;color:#fff;">自提</div>'+
                                 '</div>';
                         $('.order').empty().append(str).show();
                     }else{
@@ -729,6 +729,8 @@
                 }
             });
         });
+        <div id="xiaDan" style="width: 49.5%;height: 48px;line-height: 48px;background: #00aa66;float: left;color:#fff;">邮寄</div>
+        <div id="cancelXD" style="width: 49.5%;height: 48px;line-height: 48px;background: #FFA500;float: right;color:#fff;">自提</div>
 
         //选中图片上传
         $('#choose').on('change', function(e){
