@@ -614,7 +614,16 @@
 
         //邮寄点击
         $('.order button:nth-child(1)').on('click', function(){
-            $('.order').show();
+            var str = '<div><h5>订单编号：10</h5>'+
+            '<form id="form2" method="post">'+
+                '<input type="hidden" name="orderId"><br>'+
+                '<input type="text" name="tel" placeholder="请输入手机号"><br>'+
+                '<input type="text" name="name" placeholder="请输入姓名"><br>'+
+                '<input type="text" name="address" placeholder="请输入收货地址"><br>'+
+            '</form>'+
+            '<button class="submit">提交</button><button class="esc">取消</button></div>';
+                    
+            $('.order').empty().append(str).show();
         });
         //下单提交表单
         $('.order .submit').on('click', function(){
