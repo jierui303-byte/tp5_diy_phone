@@ -624,8 +624,9 @@
             '</form>'+
             '<button class="submit">提交</button><button class="esc">取消</button></div>';
                     
-            $('.order').empty().append(str).show();
+            $(this).parents('.order').empty().append(str);
         });
+        
         //下单提交表单
         $('.submit').on('click', function(){
             var tel = $('input[name=tel]').val();
