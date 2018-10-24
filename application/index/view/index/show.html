@@ -480,49 +480,52 @@
             top:0,
             crossOrigin: 'anonymous'
         });
-        //画上传图片
-        fabric.Image.fromURL($('#pre').attr('src'), function(oImg){
-            //将图像向下缩放，并将其翻转，然后再将其添加到画布上
-            oImg.perPixelTargetFind = true;
-            oImg.scale(scaleUploadV).set('flipX', false);
-            oImg.setControlVisible('tl', true);
-            oImg.setControlVisible('tr', true);
-            oImg.setControlVisible('bl', true);
-            oImg.setControlVisible('br', true);
-            oImg.setControlVisible('ml', false);
-            oImg.setControlVisible('mt', false);
-            oImg.setControlVisible('mr', false);
-            oImg.setControlVisible('mb', false);
-            oImg.setControlVisible('mtr', true);
-            oImg.setCoords();
-            canvas.add(oImg);
-            itemIndex = oImg.zIndex;
-            console.log('画上传图片层级顺序：'+oImg.zIndex);
-            canvas.sendToBack(oImg);//将对象或多个选择的对象移动到绘制对象堆栈的底部
-            canvas.setActiveObject(oImg);
-            //重绘之后更新删除按钮的位置
-            var tl = oImg.aCoords.tl;
-            $('#pde').show().css({
-                left:(tl.x + canvas._offset.left - 10) + 'px',
-                top:(tl.y + 10) + 'px',
-                zIndex:99
+        if($('#pre').attr('src')){
+            //画上传图片
+            fabric.Image.fromURL($('#pre').attr('src'), function(oImg){
+                //将图像向下缩放，并将其翻转，然后再将其添加到画布上
+                oImg.perPixelTargetFind = true;
+                oImg.scale(scaleUploadV).set('flipX', false);
+                oImg.setControlVisible('tl', true);
+                oImg.setControlVisible('tr', true);
+                oImg.setControlVisible('bl', true);
+                oImg.setControlVisible('br', true);
+                oImg.setControlVisible('ml', false);
+                oImg.setControlVisible('mt', false);
+                oImg.setControlVisible('mr', false);
+                oImg.setControlVisible('mb', false);
+                oImg.setControlVisible('mtr', true);
+                oImg.setCoords();
+                canvas.add(oImg);
+                itemIndex = oImg.zIndex;
+                console.log('画上传图片层级顺序：'+oImg.zIndex);
+                canvas.sendToBack(oImg);//将对象或多个选择的对象移动到绘制对象堆栈的底部
+                canvas.setActiveObject(oImg);
+                //重绘之后更新删除按钮的位置
+                var tl = oImg.aCoords.tl;
+                $('#pde').show().css({
+                    left:(tl.x + canvas._offset.left - 10) + 'px',
+                    top:(tl.y + 10) + 'px',
+                    zIndex:99
+                });
+            }, {
+                hasBorders:true,
+                borderColor:'red',//选中框颜色
+                cornerColor:'red',//选中手柄颜色
+                hasBorder:true,
+                borderDashArray:[3,3],
+                cornerStyle:'circle',
+                cornerSize:13,
+                transparentCorners:false,
+                originX:'left',
+                originY:'top',
+                left:leftUploadV,
+                top:topUploadV,
+                angle:rotateUploadV,
+                zIndex:0
             });
-        }, {
-            hasBorders:true,
-            borderColor:'red',//选中框颜色
-            cornerColor:'red',//选中手柄颜色
-            hasBorder:true,
-            borderDashArray:[3,3],
-            cornerStyle:'circle',
-            cornerSize:13,
-            transparentCorners:false,
-            originX:'left',
-            originY:'top',
-            left:leftUploadV,
-            top:topUploadV,
-            angle:rotateUploadV,
-            zIndex:0
-        });
+        }
+        
         //画蒙版
         fabric.Image.fromURL($('.maskbg').data('bg'), function(oImg){
             oImg.set('selectable',false);//单个元素禁止选中
@@ -534,62 +537,64 @@
             height: canvas.height,
             zIndex:1
         });
-        //画贴图
-        fabric.Image.fromURL($('#pimg').attr('src'), function(oImg){
-            //将图像向下缩放，并将其翻转，然后再将其添加到画布上
-            oImg.perPixelTargetFind = true;
-            oImg.scale(scaleChartV).set('flipX', false);
-            oImg.setControlVisible('tl', true);
-            oImg.setControlVisible('tr', true);
-            oImg.setControlVisible('bl', true);
-            oImg.setControlVisible('br', true);
-            oImg.setControlVisible('ml', false);
-            oImg.setControlVisible('mt', false);
-            oImg.setControlVisible('mr', false);
-            oImg.setControlVisible('mb', false);
-            oImg.setControlVisible('mtr', true);
-            oImg.setCoords();
-            canvas.add(oImg);
-            canvas.setActiveObject(oImg);
-            //在控制点位置上画一个圆形
-            // var circle = new fabric.Circle({
-            //   radius: 20, fill: 'green', left: -20, top: -20
-            // });
-            // var group = new fabric.Group([ oImg, circle ], {
-            //   left: 50,
-            //   top: 50,
-            //   angle: -10
-            // });
-            // canvas.add(group);
-            // //对组内元素 进行设置
-            //重绘之后更新删除按钮的位置
-            var tl = oImg.aCoords.tl;
-            $('#pde').show().css({
-                left:(tl.x + canvas._offset.left - 10) + 'px',
-                top:(tl.y + 10) + 'px',
-                zIndex:99
+        if($('#pimg').attr('src')){
+             //画贴图
+            fabric.Image.fromURL($('#pimg').attr('src'), function(oImg){
+                //将图像向下缩放，并将其翻转，然后再将其添加到画布上
+                oImg.perPixelTargetFind = true;
+                oImg.scale(scaleChartV).set('flipX', false);
+                oImg.setControlVisible('tl', true);
+                oImg.setControlVisible('tr', true);
+                oImg.setControlVisible('bl', true);
+                oImg.setControlVisible('br', true);
+                oImg.setControlVisible('ml', false);
+                oImg.setControlVisible('mt', false);
+                oImg.setControlVisible('mr', false);
+                oImg.setControlVisible('mb', false);
+                oImg.setControlVisible('mtr', true);
+                oImg.setCoords();
+                canvas.add(oImg);
+                canvas.setActiveObject(oImg);
+                //在控制点位置上画一个圆形
+                // var circle = new fabric.Circle({
+                //   radius: 20, fill: 'green', left: -20, top: -20
+                // });
+                // var group = new fabric.Group([ oImg, circle ], {
+                //   left: 50,
+                //   top: 50,
+                //   angle: -10
+                // });
+                // canvas.add(group);
+                // //对组内元素 进行设置
+                //重绘之后更新删除按钮的位置
+                var tl = oImg.aCoords.tl;
+                $('#pde').show().css({
+                    left:(tl.x + canvas._offset.left - 10) + 'px',
+                    top:(tl.y + 10) + 'px',
+                    zIndex:99
+                });
+                
+                console.log(oImg);
+                //把删除按钮定位到左上角位置
+                
+            },{
+                hasBorders:true,
+                borderColor:'red',//选中框颜色
+                cornerColor:'red',//选中手柄颜色
+                hasBorder:true,
+                borderDashArray:[3,3],
+                cornerStyle:'circle',
+                cornerSize:13,
+                transparentCorners:false,
+                originX:'left',
+                originY:'top',
+                left:leftChartV,
+                top:topChartV,
+                angle:rotateChartV,
+                zIndex:2
             });
-            
-            console.log(oImg);
-            //把删除按钮定位到左上角位置
-            
-        },{
-            hasBorders:true,
-            borderColor:'red',//选中框颜色
-            cornerColor:'red',//选中手柄颜色
-            hasBorder:true,
-            borderDashArray:[3,3],
-            cornerStyle:'circle',
-            cornerSize:13,
-            transparentCorners:false,
-            originX:'left',
-            originY:'top',
-            left:leftChartV,
-            top:topChartV,
-            angle:rotateChartV,
-            zIndex:2
-        });
-
+        }
+       
         //画边框2
         canvas.setOverlayImage(bgSrc2, canvas.renderAll.bind(canvas), {
             width: canvas.width,
