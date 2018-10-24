@@ -109,12 +109,12 @@
         <textarea id="bs64" name="file"></textarea>
     </form>
 
-    <div id="imgBox" style="overflow: hidden;display:none;position: absolute;left: 0;top: 0;z-index: 99;width: 100%;height: 100%;padding: 50% 0;">
+    <!-- <div id="imgBox" style="overflow: hidden;display:none;position: absolute;left: 0;top: 0;z-index: 99;width: 100%;height: 100%;padding: 50% 0;">
         <h5>下单成功！</h5>
         <span>订单编号：{$orderNum}</span>
         <div id="xiaDan" style="width: 49.5%;height: 48px;line-height: 48px;background: #00aa66;float: left;color:#fff;">邮寄</div>
         <div id="cancelXD" style="width: 49.5%;height: 48px;line-height: 48px;background: #FFA500;float: right;color:#fff;">自提</div>
-    </div>
+    </div> -->
 </div>
 
 <div id="imgs" align="center">
@@ -613,7 +613,7 @@
     $(document).ready(function(){
 
         //邮寄点击
-        $('#imgBox #xiaDan').on('click', function(){
+        $('.order button:nth-child(1)').on('click', function(){
             $('.order').show();
         });
         //下单提交表单
@@ -698,7 +698,12 @@
                     console.log(data);
                     if(data.code == 1){
                         $('.loading').hide();
-                        $('#imgBox').show();
+                        var str = '<div><h5>下单成功！</h5>'+
+                                '<h5>订单编号：{$orderNum}</h5>'+
+                                '<button>邮寄</button>'+
+                                '<button>自取</button>'+
+                                '</div>';
+                        $('.order').empty().append(str);
                     }else{
 
                     }
