@@ -36,16 +36,16 @@
         <i id="pro" class="p-sf iconfont icon-suofang" style="position: absolute; left: 30px; top: 30px;display: none;"></i>
 
         <canvas id="paper" width="208px" height="435px" style="width: 208.352px; height: 435.42px;">此浏览器不支持canvas！</canvas>
-        <div class="mask varbg1" style="width: 208.352px; height: 435.42px; display:none;background-image: url({$current['var_template'][0]});"></div>
-        <div class="mask mb varbg2" style="width: 208.352px; height: 435.42px;  display:none;background-image: url({$current['var_template'][1]});"></div>
-        <div class="mask pic maskbg" data-bg="" style=" display:none;width: 208.352px; height: 435.42px;"></div>
+        <div class="mask varbg1" style="position:relative;width: 208.352px; height: 435.42px; display:none;background-image: url({$current['var_template'][0]});"></div>
+        <div class="mask mb varbg2" style="position:relative;width: 208.352px; height: 435.42px;  display:none;background-image: url({$current['var_template'][1]});"></div>
+        <div class="mask pic maskbg" data-bg="" style="position:relative;display:none;width: 208.352px; height: 435.42px;"></div>
 
-        <div class="paster" style="width: 80px; height: 80px; display: none;cursor: move;">
+        <div class="paster" style="position:relative;width: 80px; height: 80px; display: none;cursor: move;">
         <!-- <i id="pde" class="p-sc iconfont icon-shanchu"></i>
         <i id="pro" class="p-sf iconfont icon-suofang"></i> -->
             <img id="pimg" src="" alt="">
         </div>
-        <div class="preDiv" style="display: none;position:relative;left: 24%;top: 20px;width: 208.352px;height: 435.42px;overflow: hidden;border: 1px dashed #ff0000;">
+        <div class="preDiv" style="position:relative;display: none;position:relative;left: 24%;top: 20px;width: 208.352px;height: 435.42px;overflow: hidden;border: 1px dashed #ff0000;">
             <img id="pre" src="" alt="">
         </div>
         <div id="decorate" class="decorate" style=""><i>收起</i>
