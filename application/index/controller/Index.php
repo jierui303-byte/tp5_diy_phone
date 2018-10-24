@@ -177,8 +177,25 @@ class Index extends Base
     //canvas生成高清图片上传
     public function ajaxUploadImage()
     {
-        $data['img_base64'] = $this->request->post('imgBase64');
-        var_dump($data);
+        $img_base64 = $this->request->post('imgBase64');
+
+        if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $img_base64, $result)) {
+            $type = $result[2];//文件类型
+            $name = time() . '_' . mt_rand() .".{$type}";//自定义文件名称
+            $new_file = "upload/active/img/".date('Ymd',time())."/";//文件夹位置
+            if(!file_exists($new_file)){
+                //检查是否有该文件夹，如果没有就创建，并给予最高权限
+                mkdir($new_file, 0700);
+            }
+            $new_file = $new_file.time().".{$type}";
+            if(file_put_contents($new_file, base64_decode(str_replace($result[1], '', $img_base64)))){
+                echo '新文件保存成功：', $new_file;
+            }else{
+                echo '新文件保存失败';
+            }
+
+        }
+
     }
 
 }
