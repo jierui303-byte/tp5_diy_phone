@@ -90,7 +90,7 @@
         <span>高清图片上传中</span> <span>请稍等...</span>
     </div>
     <div id="error"></div>
-    <div class="order" style="display: none;">
+    <div class="order" id="orderPost" style="display: none;">
         <div>
             <h5>订单编号：{$orderNum}</h5>
             <form id="form2" method="post">
@@ -109,12 +109,14 @@
         <textarea id="bs64" name="file"></textarea>
     </form>
 
-    <!-- <div id="imgBox" style="overflow: hidden;display:none;position: absolute;left: 0;top: 0;z-index: 99;width: 100%;height: 100%;padding: 50% 0;">
-        <h5>下单成功！</h5>
-        <span>订单编号：{$orderNum}</span>
-        <div id="xiaDan" style="width: 49.5%;height: 48px;line-height: 48px;background: #00aa66;float: left;color:#fff;">邮寄</div>
-        <div id="cancelXD" style="width: 49.5%;height: 48px;line-height: 48px;background: #FFA500;float: right;color:#fff;">自提</div>
-    </div> -->
+    <div id="imgBox" class="order" style="overflow: hidden;display:none;position: absolute;left: 0;top: 0;z-index: 99;width: 100%;height: 100%;padding: 50% 0;">
+        <div>
+            <h5>下单成功！</h5>
+            <span>订单编号：{$orderNum}</span>
+            <div id="xiaDan" style="width: 49.5%;height: 48px;line-height: 48px;background: #00aa66;float: left;color:#fff;">邮寄</div>
+            <div id="cancelXD" style="width: 49.5%;height: 48px;line-height: 48px;background: #FFA500;float: right;color:#fff;">自提</div>
+        </div>
+    </div>
 </div>
 
 <div id="imgs" align="center">
@@ -610,24 +612,15 @@
 //        置底：canvas.sendToBack(canvas.getActiveObject());
     }
 
-    //邮寄点击
-    function sendEmail(){
-        console.log('aaa');
-        var str = '<div><h5>订单编号：{$orderNum}</h5>'+
-        '<form id="form2" method="post">'+
-            '<input type="hidden" name="orderId"><br>'+
-            '<input type="text" name="tel" placeholder="请输入手机号"><br>'+
-            '<input type="text" name="name" placeholder="请输入姓名"><br>'+
-            '<input type="text" name="address" placeholder="请输入收货地址"><br>'+
-        '</form>'+
-        '<button class="submit">提交</button><button class="esc">取消</button></div>';
-                
-        $(this).parents('.order').empty().append(str);
-    }
+    
 
     $(document).ready(function(){
 
-       
+       //邮寄点击
+        $('#xiaDan').on('click', function(){
+            console.log('aaa');
+            $('#orderPost').show();
+        });
 
         //下单提交表单
         $('.submit').on('click', function(){
@@ -711,12 +704,7 @@
                     console.log(data);
                     if(data.code == 1){
                         $('.loading').hide();
-                        var str = '<div><h5>下单成功！</h5>'+
-                                '<h5>订单编号：{$orderNum}</h5>'+
-                                '<div id="xiaDan" onClick="sendEmail();" style="width: 49.5%;height: 48px;line-height: 48px;background: #00aa66;float: left;color:#fff;">邮寄</div>'+
-                                '<div id="cancelXD" style="width: 49.5%;height: 48px;line-height: 48px;background: #FFA500;float: right;color:#fff;">自提</div>'+
-                                '</div>';
-                        $('.order').empty().append(str).show();
+                        $('#imgBox').show();
                     }else{
 
                     }
