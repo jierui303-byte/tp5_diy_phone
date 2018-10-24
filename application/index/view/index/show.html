@@ -655,7 +655,7 @@
                     if(data.code == 1){
                         var str = '<div><h5>下单成功！</h5>'+
                                 '<h5>订单编号：{$orderNum}</h5>'+
-                                '<button id="emailSend">邮寄</button>'+
+                                '<button>邮寄</button>'+
                                 '<button>自取</button>'+
                                 '</div>';
                         $('.order').empty().append(str);
@@ -710,7 +710,7 @@
                         $('.loading').hide();
                         var str = '<div><h5>下单成功！</h5>'+
                                 '<h5>订单编号：{$orderNum}</h5>'+
-                                '<button>邮寄</button>'+
+                                '<button id="emailSend">邮寄</button>'+
                                 '<button>自取</button>'+
                                 '</div>';
                         $('.order').empty().append(str).show();
