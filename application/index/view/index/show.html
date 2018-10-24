@@ -613,7 +613,7 @@
     $(document).ready(function(){
 
         //邮寄点击
-        $('.order #emailSend').on('click', function(){
+        $('#emailSend').on('click', function(){
             console.log('aaa');
             var str = '<div><h5>订单编号：{$orderNum}</h5>'+
             '<form id="form2" method="post">'+
@@ -627,7 +627,7 @@
             $('.order').empty().append(str).show();
         });
         //下单提交表单
-        $('.order .submit').on('click', function(){
+        $('.submit').on('click', function(){
             var tel = $('input[name=tel]').val();
             var name = $('input[name=name]').val();
             var address = $('input[name=address]').val();
