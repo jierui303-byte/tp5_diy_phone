@@ -680,18 +680,6 @@
                 width: 208,
                 height: 435
             });
-            // $('.showImgDiv').show().css({
-            //     position:'absolute',
-            //     left:0,
-            //     top:0,
-            //     zIndex:34,
-            //     background: '#1503036b',
-            //     width: '100%',
-            //     height: '100%',
-            // }).find('#showImg').attr('src', dataURL).css({
-            //     width:'208px',
-            //     height:'435px'
-            // });
             //提示高清图片正在上传中。。。
             $.ajax({
                 type: "post",
@@ -707,12 +695,21 @@
                 success: function(data){
                     //成功
                     console.log(data);
+                    $('.showImgDiv').show().css({
+                        position:'absolute',
+                        left:0,
+                        top:0,
+                        zIndex:34,
+                        background: '#1503036b',
+                        width: '100%',
+                        height: '100%',
+                    });
                 },
                 complete:function(){
                     //完成响应
 
                 },
-                error:function(){
+                error:function(data){
                     console.log("error: " + data.responseText);
                 }
             });
