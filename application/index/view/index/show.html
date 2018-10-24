@@ -619,12 +619,12 @@
        //邮寄点击
         $('#xiaDan').on('click', function(){
             console.log('aaa');
+            $('#imgBox').hide();
             $('#orderPost').show();
         });
 
         //下单提交表单
         $('.submit').on('click', function(){
-            $('#imgBox').hide();
             var tel = $('input[name=tel]').val();
             var name = $('input[name=name]').val();
             var address = $('input[name=address]').val();
