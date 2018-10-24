@@ -189,9 +189,17 @@ class Index extends Base
             }
             $new_file = $new_file.time().".{$type}";
             if(file_put_contents($new_file, base64_decode(str_replace($result[1], '', $img_base64)))){
-                echo '新文件保存成功：', $new_file;
+                return json_encode(array(
+                    'code' => 1,
+                    'msg' => '新文件保存成功',
+                    'data' => $new_file
+                    ));
             }else{
-                echo '新文件保存失败';
+                return json_encode(array(
+                    'code' => 0,
+                    'msg' => '新文件保存失败',
+                    'data' => ''
+                    ));
             }
 
         }
