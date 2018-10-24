@@ -613,7 +613,7 @@
     $(document).ready(function(){
 
         //邮寄点击
-        $('.order button:nth-child(1)').on('click', function(){
+        $('.order #emailSend').on('click', function(){
             console.log('aaa');
             var str = '<div><h5>订单编号：{$orderNum}</h5>'+
             '<form id="form2" method="post">'+
@@ -655,7 +655,7 @@
                     if(data.code == 1){
                         var str = '<div><h5>下单成功！</h5>'+
                                 '<h5>订单编号：{$orderNum}</h5>'+
-                                '<button>邮寄</button>'+
+                                '<button id="emailSend">邮寄</button>'+
                                 '<button>自取</button>'+
                                 '</div>';
                         $('.order').empty().append(str);
