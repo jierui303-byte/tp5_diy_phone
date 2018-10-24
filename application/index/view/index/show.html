@@ -113,7 +113,7 @@
         <div>
             <h5>下单成功！</h5>
             <h5>订单编号：{$orderNum}</h5>
-            <div id="xiaDan" style="width: 49.5%;height: 48px;line-height: 48px;background: #00aa66;float: left;color:#fff;">邮寄</div>
+            <div id="xiaDan" data-imgurl="" style="width: 49.5%;height: 48px;line-height: 48px;background: #00aa66;float: left;color:#fff;">邮寄</div>
             <div id="cancelXD" style="width: 49.5%;height: 48px;line-height: 48px;background: #FFA500;float: right;color:#fff;">自提</div>
         </div>
     </div>
@@ -627,7 +627,7 @@
             var tel = $('input[name=tel]').val();
             var name = $('input[name=name]').val();
             var address = $('input[name=address]').val();
-            var imgBase64 = $('#showImg').attr('src');
+            var imgBase64 = $('#xiaDan').data('imgurl');
             if(!tel || !name || !address){
                 alert('表单信息不能为空');
                 return false;
@@ -704,6 +704,7 @@
                     console.log(data);
                     if(data.code == 1){
                         $('.loading').hide();
+                        $('#xiaDan').data('imgurl', data.data);
                         $('#imgBox').show().css({
                             zIndex:15
                         });
