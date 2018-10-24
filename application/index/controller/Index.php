@@ -52,7 +52,7 @@ class Index extends Base
 
         //获取当前订单的总数
         $num = (new Order())->count('id');
-        $orderNum = $num+1;
+        $orderNum = date("d").($num + 1);
 
         $this->assign('orderNum', $orderNum);
         $this->assign('current', $current);
