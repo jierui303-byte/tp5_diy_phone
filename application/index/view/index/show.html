@@ -612,20 +612,7 @@
 
     $(document).ready(function(){
 
-        //邮寄点击
-        $('#xiaDan').on('click', function(){
-            console.log('aaa');
-            var str = '<div><h5>订单编号：{$orderNum}</h5>'+
-            '<form id="form2" method="post">'+
-                '<input type="hidden" name="orderId"><br>'+
-                '<input type="text" name="tel" placeholder="请输入手机号"><br>'+
-                '<input type="text" name="name" placeholder="请输入姓名"><br>'+
-                '<input type="text" name="address" placeholder="请输入收货地址"><br>'+
-            '</form>'+
-            '<button class="submit">提交</button><button class="esc">取消</button></div>';
-                    
-            $(this).parents('.order').empty().append(str);
-        });
+       
 
         //下单提交表单
         $('.submit').on('click', function(){
@@ -715,6 +702,20 @@
                                 '<div id="cancelXD" style="width: 49.5%;height: 48px;line-height: 48px;background: #FFA500;float: right;color:#fff;">自提</div>'+
                                 '</div>';
                         $('.order').empty().append(str).show();
+                         //邮寄点击
+                        $('#xiaDan').on('click', function(){
+                            console.log('aaa');
+                            var str = '<div><h5>订单编号：{$orderNum}</h5>'+
+                            '<form id="form2" method="post">'+
+                                '<input type="hidden" name="orderId"><br>'+
+                                '<input type="text" name="tel" placeholder="请输入手机号"><br>'+
+                                '<input type="text" name="name" placeholder="请输入姓名"><br>'+
+                                '<input type="text" name="address" placeholder="请输入收货地址"><br>'+
+                            '</form>'+
+                            '<button class="submit">提交</button><button class="esc">取消</button></div>';
+                                    
+                            $(this).parents('.order').empty().append(str);
+                        });
                     }else{
 
                     }
