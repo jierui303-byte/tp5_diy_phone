@@ -161,9 +161,9 @@ class Index extends Base
         $data['name'] = $this->request->post('name');
         $data['tel'] = $this->request->post('tel');
         $data['address'] = $this->request->post('address');
-        $data['img_base64'] = $this->request->post('imgBase64');
+        $data['pic'] = $this->request->post('pic');
         $data['create_time'] = date('y-m-d h:i:s',time());
-        if(!$data['name'] || !$data['tel'] || !$data['address']){
+        if(!$data['name'] || !$data['tel'] || !$data['address'] || !$data['pic']){
             $this->error('表单信息不能为空');
         }
         $res = (new Order())->insert($data);

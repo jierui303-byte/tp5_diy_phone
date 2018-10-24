@@ -627,8 +627,8 @@
             var tel = $('input[name=tel]').val();
             var name = $('input[name=name]').val();
             var address = $('input[name=address]').val();
-            var imgBase64 = $('#xiaDan').data('imgurl');
-            if(!tel || !name || !address){
+            var pic = $('#xiaDan').data('imgurl');
+            if(!tel || !name || !address || !pic){
                 alert('表单信息不能为空');
                 return false;
             }
@@ -643,7 +643,7 @@
                     tel:tel,
                     name:name,
                     address:address,
-                    imgBase64:imgBase64
+                    pic:pic
                 },
                 dataType: "json",
                 success: function(data){
