@@ -672,6 +672,14 @@
 
         //点击提交  把图片生成高清图片并传到服务器上之后返回URL地址
         $('.footer div:nth-child(3)').on('click', function(){
+            //判断蒙版，贴图或者上传图片任意有一个就可以进行提交
+            var uploadImg = $('#pre').attr('src');
+            var maskImg = $('.maskbg').data('bg');
+            var chartImg = $('#pimg').attr('src');
+            if(!uploadImg || !maskImg || !chartImg){
+                alert('请先自定义设置手机壳样式');
+                return false;
+            }
             $('#pde').hide();
             //点击预览时取消当前选中的对象
             canvas.discardActiveObject();
