@@ -704,7 +704,9 @@
                     console.log(data);
                     if(data.code == 1){
                         $('.loading').hide();
-                        $('#imgBox').show();
+                        $('#imgBox').show().css({
+                            zIndex:15
+                        });
                     }else{
 
                     }
