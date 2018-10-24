@@ -614,7 +614,8 @@
 
         //邮寄点击
         $('.order button:nth-child(1)').on('click', function(){
-            var str = '<div><h5>订单编号：10</h5>'+
+            console.log('aaa');
+            var str = '<div><h5>订单编号：{$orderNum}</h5>'+
             '<form id="form2" method="post">'+
                 '<input type="hidden" name="orderId"><br>'+
                 '<input type="text" name="tel" placeholder="请输入手机号"><br>'+
