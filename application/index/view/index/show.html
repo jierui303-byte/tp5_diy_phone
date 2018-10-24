@@ -109,8 +109,7 @@
         <textarea id="bs64" name="file"></textarea>
     </form>
 
-    <div class="showImgDiv" id="imgBox">
-        <img id="showImg" src="" alt="" style="margin-top: 10px;margin-bottom: 10px;">
+    <div id="imgBox">
         <div id="xiaDan" style="width: 49.5%;height: 48px;line-height: 48px;background: #00aa66;float: left;color:#fff;">下单</div>
         <div id="cancelXD" style="width: 49.5%;height: 48px;line-height: 48px;background: #FFA500;float: right;color:#fff;">取消</div>
     </div>
@@ -695,15 +694,7 @@
                 success: function(data){
                     //成功
                     console.log(data);
-                    $('.showImgDiv').show().css({
-                        position:'absolute',
-                        left:0,
-                        top:0,
-                        zIndex:100,
-                        background: '#1503036b',
-                        width: '100%',
-                        height: '100%',
-                    });
+                    $('#imgBox').show();
                 },
                 complete:function(){
                     //完成响应
