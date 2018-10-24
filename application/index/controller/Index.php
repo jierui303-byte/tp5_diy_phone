@@ -174,4 +174,11 @@ class Index extends Base
         }
     }
 
+    //canvas生成高清图片上传
+    public function ajaxUploadImage()
+    {
+        $data['img_base64'] = $this->request->post('imgBase64');
+        var_dump($data);
+    }
+
 }

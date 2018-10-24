@@ -34,6 +34,7 @@ Route::get('ajaxGetChartCategorys', 'index/index/ajaxGetChartCategorys');//获�
 Route::get('ajaxGetMaskCategoryPicturesById/:id', 'index/index/ajaxGetMaskCategoryPicturesById');//获取蒙版分类下的图片
 Route::get('ajaxGetChartCategoryPicturesById/:id', 'index/index/ajaxGetChartCategoryPicturesById');//获取贴图分类下的图片
 Route::post('ajaxPost', 'index/index/ajaxPost');//表单提交
+Route::post('ajaxUploadImage', 'index/index/ajaxUploadImage');//高清图片上传提交
 
 
 Route::get('admin', 'admin/index/index');
