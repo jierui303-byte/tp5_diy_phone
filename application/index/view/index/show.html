@@ -694,7 +694,13 @@
                 success: function(data){
                     //成功
                     console.log(data);
-                    $('#imgBox').show();
+                    if(data.code == 1){
+                        $('.loading').hide();
+                        $('#imgBox').show();
+                    }else{
+
+                    }
+                    
                 },
                 complete:function(){
                     //完成响应
