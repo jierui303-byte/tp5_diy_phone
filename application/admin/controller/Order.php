@@ -20,7 +20,7 @@ class Order extends Base
             [
                 'status' => 1
             ],
-            ['id,name,tel,address,pic']
+            ['id,name,tel,address,pic,order_num,phone_type_id,phone_type_name,phone_varieties_name,phone_varieties_id,var_type_name,var_type_id']
         );
     
         $this->assign('data', $arrS);
