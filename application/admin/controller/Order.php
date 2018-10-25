@@ -201,7 +201,7 @@ class Order extends Base
         //获取到图片的名称
         $urls = pathinfo(urldecode($imgUrl));
         $file_url = parse_url($urls['dirname'])['path'].'/'.$urls['basename'];
-        var_dump(PATHINFO_BASENAME);
+        var_dump( __DIR__);
         exit;
         $new_name='';
         if(!isset($file_url) || trim($file_url) == ''){
