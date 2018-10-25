@@ -199,7 +199,7 @@ class Order extends Base
     //文件下载
     function downLoadImg($imgUrl){
         //获取到图片的名称
-        $urls = pathinfo($imgUrl);
+        $urls = pathinfo(urldecode($imgUrl));
         var_dump($urls);exit;
         $new_name='';
         if(!isset($file_url) || trim($file_url) == ''){
