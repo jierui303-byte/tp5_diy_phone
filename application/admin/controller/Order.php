@@ -202,6 +202,7 @@ class Order extends Base
         $urls = pathinfo(urldecode($imgUrl));
         $file_url = parse_url($urls['dirname'])['path'].'/'.$urls['basename'];
         var_dump( __DIR__);
+        var_dump( APP_PATH      );
         exit;
         $new_name='';
         if(!isset($file_url) || trim($file_url) == ''){
