@@ -200,7 +200,8 @@ class Order extends Base
     function downLoadImg($imgUrl){
         //获取到图片的名称
         $urls = pathinfo(urldecode($imgUrl));
-        var_dump($urls);
+        $file_url = $urls['dirname'].$urls['basename'];
+        var_dump(parse_url($urls['dirname']));
         exit;
         $new_name='';
         if(!isset($file_url) || trim($file_url) == ''){
