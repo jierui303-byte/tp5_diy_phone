@@ -125,7 +125,7 @@ class Order extends Base
             $data['create_time'] = date('y-m-d h:i:s',time());
             $res = (new OrderService())->insert($data);//新增
             if($res){
-                $this->success('新增成功', 'admin/mask/index');//成功跳转
+                $this->success('新增成功', 'admin/order/index');//成功跳转
             }else{
                 $this->error('新增失败');//失败跳转
             }
@@ -145,7 +145,7 @@ class Order extends Base
                 ->where('id', $data['id'])
                 ->update($data);//更新
             if($res){
-                $this->success('修改成功', 'admin/mask/index');//成功跳转
+                $this->success('修改成功', 'admin/order/index');//成功跳转
             }else{
                 $this->error('修改失败');//失败跳转
             }
@@ -166,7 +166,7 @@ class Order extends Base
         $id = $this->request->post('id');
         $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
         if ($res) {
-           $this->success('删除成功', 'admin/mask/index');
+           $this->success('删除成功', 'admin/order/index');
         } else {
             $this->error('删除失败');
         }
@@ -180,7 +180,7 @@ class Order extends Base
         $where['id'] = array('in', rtrim($id, ','));
         $res = \think\Loader::model($model)->where($where)->delete();
         if ($res) {
-            $this->success('删除成功', 'admin/mask/index');
+            $this->success('删除成功', 'admin/order/index');
         } else {
             $this->error('删除失败');
         }
