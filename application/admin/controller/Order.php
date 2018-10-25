@@ -196,7 +196,7 @@ class Order extends Base
         echo  json_encode($msg);
     }
 
-    //文件下载
+    //文件下载单个图片下载
     function downLoadImg($imgUrl){
         //获取到图片的名称
         $urls = pathinfo(urldecode($imgUrl));
@@ -223,6 +223,12 @@ class Order extends Base
         //输出文件内容
         echo fread($file_type, filesize($file_url));
         fclose($file_type);
+    }
+
+    //批量图片打包成Zip下载
+    public function downLoadImgAll()
+    {
+
     }
 
 }
