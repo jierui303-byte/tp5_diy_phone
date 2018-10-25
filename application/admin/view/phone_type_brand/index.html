@@ -72,9 +72,9 @@
                     <td><img src="{$vo.brand_logo}" alt="" style="max-width:100%;height:80px;margin: auto;"></td>
                     <td>{$vo.create_time}</td>
                     <td class="td-manage">
-                        <a href="{:url('admin/PhoneType/index', ['brand_id'=>$vo.id])}" target="_blank" class="btn btn-default">机型管理</a>
-                        <a title="编辑" href="javascript:;" onclick="admin_edit('编辑','{:url('admin/PhoneTypeBrand/editPhoneTypeBrand', ['id'=>$vo.id])}','{$vo.id}','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-                        <a title="删除" href="javascript:;" onclick="category_del('{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                        <a href="{:url('admin/PhoneType/index', ['brand_id'=>$vo.id])}" target="_blank" class="btn btn-default radius size-MINI"><i class="Hui-iconfont">&#xe61d;</i>机型管理</a>
+                        <a title="编辑" href="javascript:;" onclick="admin_edit('编辑','{:url('admin/PhoneTypeBrand/editPhoneTypeBrand', ['id'=>$vo.id])}','{$vo.id}','800','500')" class="btn btn-secondary radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i>编辑</a>
+                        <a title="删除" href="javascript:;" onclick="category_del('{$vo.id}')" class="btn btn-danger radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i>删除</a>
                     </td>
                 </tr>
                 {/volist}
