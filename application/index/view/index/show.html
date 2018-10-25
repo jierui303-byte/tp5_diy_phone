@@ -686,7 +686,7 @@
             // }
             $('#pde').hide();
             //移除顶部图片
-            
+            canvas.setOverlayImage('', canvas.renderAll.bind(canvas));
             //点击预览时取消当前选中的对象
             canvas.discardActiveObject();
             canvas.renderAll();
