@@ -685,6 +685,16 @@
             //     return false;
             // }
             $('#pde').hide();
+            canvas.setOverlayImage(bgSrc1, canvas.renderAll.bind(canvas), {
+                width: canvas.width,
+                height: canvas.height,
+                repeat:'no-repeat',
+                originX: 'left',
+                originY: 'top',
+                left:0,
+                top:0,
+                crossOrigin: 'anonymous'
+            });
             //点击预览时取消当前选中的对象
             canvas.discardActiveObject();
             canvas.renderAll();
