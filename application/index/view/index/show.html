@@ -689,6 +689,7 @@
 
             //点击预览时取消当前选中的对象
             canvas.discardActiveObject();
+            canvas.backgroundImage = null;
             canvas.overlayImage = null;
             canvas.renderAll.bind(canvas);
             //将canvas元素导出到dataurl图像
