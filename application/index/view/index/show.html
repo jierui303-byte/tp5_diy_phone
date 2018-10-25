@@ -463,16 +463,16 @@
         console.log(getData());
         canvas.clear();//清空
         //设置背景1
-        canvas.setBackgroundImage(bgSrc1, canvas.renderAll.bind(canvas), {
-            width: canvas.width,
-            height: canvas.height,
-            repeat:'no-repeat',
-            originX: 'left',
-            originY: 'top',
-            left:0,
-            top:0,
-            crossOrigin: 'anonymous'
-        });
+//        canvas.setBackgroundImage(bgSrc1, canvas.renderAll.bind(canvas), {
+//            width: canvas.width,
+//            height: canvas.height,
+//            repeat:'no-repeat',
+//            originX: 'left',
+//            originY: 'top',
+//            left:0,
+//            top:0,
+//            crossOrigin: 'anonymous'
+//        });
         if($('#pre').attr('src')){
             //画上传图片
             fabric.Image.fromURL($('#pre').attr('src'), function(oImg){
@@ -588,17 +588,17 @@
             });
         }
        
-        //画边框2
-        canvas.setOverlayImage(bgSrc2, canvas.renderAll.bind(canvas), {
-            width: canvas.width,
-            height: canvas.height,
-            repeat:'no-repeat',
-            originX: 'left',
-            originY: 'top',
-            left:0,
-            top:0,
-            crossOrigin: 'anonymous'
-        });
+//        //画边框2
+//        canvas.setOverlayImage(bgSrc2, canvas.renderAll.bind(canvas), {
+//            width: canvas.width,
+//            height: canvas.height,
+//            repeat:'no-repeat',
+//            originX: 'left',
+//            originY: 'top',
+//            left:0,
+//            top:0,
+//            crossOrigin: 'anonymous'
+//        });
         
         canvas.renderAll();//重绘
 
