@@ -68,7 +68,7 @@
 							<td>{$vo.order_num ?? ''}</td>
 							<td>
 								<!--startprint-->
-								<img src="{$vo.pic ?? ''}" alt="">
+								<img src="{$vo.pic ?? ''}" alt="" style="width: 50px;height: 100px;">
 								<!--endprint-->
 							</td>
 							<td>{$vo.var_type_name ?? ''}</td>
@@ -100,13 +100,12 @@
 <script type="text/javascript" src="__ADMINPATH__/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 	function doPrint() {
-		bdhtml = window.document.body.innerHTML;
-		sprnstr = "<!--startprint-->"; //开始打印标识字符串有17个字符
-		eprnstr = "<!--endprint-->"; //结束打印标识字符串
-		prnhtml = bdhtml.substr(bdhtml.indexOf(sprnstr)+17); //从开始打印标识之后的内容
+		bdhtml=window.document.body.innerHTML;
+		sprnstr="<!--startprint-->"; //开始打印标识字符串有17个字符
+		eprnstr="<!--endprint-->"; //结束打印标识字符串
+		prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); //从开始打印标识之后的内容
 		console.log(prnhtml);
-		prnhtml = prnhtml.substring(0,prnhtml.indexOf(eprnstr)); //截取开始标识和结束标识之间的内容
-		
+		prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); //截取开始标识和结束标识之间的内容
 		window.document.body.innerHTML=prnhtml; //把需要打印的指定内容赋给body.innerHTML
 		window.print(); //调用浏览器的打印功能打印指定区域
 		window.document.body.innerHTML=bdhtml; // 最后还原页面
