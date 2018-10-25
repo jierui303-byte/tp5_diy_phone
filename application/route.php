@@ -89,6 +89,7 @@ Route::any('adminOrderAddOrder', 'admin/order/addOrder');
 Route::any('adminOrderEditOrder/:id', 'admin/order/editOrder');
 Route::any('adminOrderEditOrderDel', 'admin/order/del');
 Route::any('adminOrderEditOrderDelAll', 'admin/order/del_all');
+Route::any('adminOrderEditOrderDownLoadImg/:imgUrl', 'admin/order/downLoadImg');//图片下载
 
 //手机机型-品牌列表
 Route::get('adminPhoneTypeBrandIndex', 'admin/PhoneTypeBrand/index');
