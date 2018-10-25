@@ -66,7 +66,11 @@
 							</td>
 							<td>{$vo.id ?? ''}</td>
 							<td>{$vo.order_num ?? ''}</td>
-							<td><img src="{$vo.pic ?? ''}" alt="" style="width: 50px;height: 100px;"></td>
+							<td>
+								<!--startprint-->
+								<img src="{$vo.pic ?? ''}" alt="" style="width: 50px;height: 100px;">
+								<!--endprint-->
+							</td>
 							<td>{$vo.var_type_name ?? ''}</td>
 							<td>{$vo.phone_type_name ?? ''}</td>
 							<td>{$vo.phone_varieties_name ?? ''}</td>
@@ -74,7 +78,7 @@
 							<td class="td-manage">
 								<a style="text-decoration:none" class="btn btn-danger radius size-MINI" onClick="category_del('{$vo.id}')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i>删除</a>
 								<a class="btn btn-success radius size-MINI" href="{:url('admin/order/downLoadImg', ['imgUrl'=>$vo.pic])}" title="下载"><i class="Hui-iconfont">&#xe641;</i>下载</a>
-								<a class="btn btn-success radius size-MINI" onClick="category_edit('直接打印','{:url('admin/order/editOrder', ['id'=>$vo.id])}', '600', '300')" href="javascript:;" title="直接打印"><i class="Hui-iconfont">&#xe652;</i>直接打印</a>
+								<a class="btn btn-success radius size-MINI" onClick="doPrint();" href="javascript:;" title="直接打印"><i class="Hui-iconfont">&#xe652;</i>直接打印</a>
 							</td>
 						</tr>
 					{/foreach}
@@ -95,6 +99,16 @@
 <script type="text/javascript" src="__ADMINPATH__/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
+	function doPrint() {
+		bdhtml=window.document.body.innerHTML;
+		sprnstr="<!--startprint-->"; //开始打印标识字符串有17个字符
+		eprnstr="<!--endprint-->"; //结束打印标识字符串
+		prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); //从开始打印标识之后的内容
+		prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); //截取开始标识和结束标识之间的内容
+		window.document.body.innerHTML=prnhtml; //把需要打印的指定内容赋给body.innerHTML
+		window.print(); //调用浏览器的打印功能打印指定区域
+		window.document.body.innerHTML=bdhtml; // 最后还原页面
+	}
 $(function(){
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',
