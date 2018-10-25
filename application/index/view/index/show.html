@@ -629,6 +629,13 @@
 
         //下单提交表单
         $('.submit').on('click', function(){
+            var orderNum = '{$orderNum}';//订单编号
+            var PhoneTypeId = '{$phoneTypeNameId}';//手机机型
+            var PhoneType = '{$phoneTypeName}';//手机机型
+            var PhoneVarietiesId = '{$phoneVarietiesNameId}';//品种名称
+            var PhoneVarieties = '{$phoneVarietiesName}';//品种名称
+            var var_type_id = '{$varTypeNameId}';//品种类型
+            var var_type = '{$varTypeName}';//品种类型
             var tel = $('input[name=tel]').val();
             var name = $('input[name=name]').val();
             var address = $('input[name=address]').val();
@@ -645,10 +652,17 @@
                 type: "post",
                 url: "/ajaxPost.html",
                 data:{
+                    orderNum:orderNum,
                     tel:tel,
                     name:name,
                     address:address,
-                    pic:pic
+                    pic:pic,
+                    PhoneTypeId:PhoneTypeId,
+                    PhoneType:PhoneType,
+                    PhoneVarietiesId:PhoneVarietiesId,
+                    PhoneVarieties:PhoneVarieties,
+                    var_type_id:var_type_id,
+                    var_type:var_type
                 },
                 dataType: "json",
                 success: function(data){

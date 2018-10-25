@@ -54,8 +54,29 @@ class Index extends Base
         $num = (new Order())->count('id');
         $orderNum = date("d").'00'.($num + 1);
 
+        //获取当前的手机机型 品种名称 品种类型
+        $currentPhoneType = (new PhoneType())->getOneById($typeId);
+        $phoneTypeName = $currentPhoneType['type_name'];//手机机型
+        $phoneTypeNameId = $currentPhoneType['id'];//手机机型
+        $phoneVarietiesName = $current['var_name'];//品种名称
+        $phoneVarietiesNameId = $current['id'];//品种名称
+        if($current['var_type'] == 1){
+            $varTypeName = '手机壳';//品种类型
+            $varTypeNameId = $current['var_type'];//品种类型
+        }else{
+            $varTypeName = '手机彩膜';//品种类型
+            $varTypeNameId = $current['var_type'];//品种类型
+        }
+
+
         $this->assign('orderNum', $orderNum);
         $this->assign('current', $current);
+        $this->assign('phoneTypeName', $phoneTypeName);
+        $this->assign('phoneTypeNameId', $phoneTypeNameId);
+        $this->assign('phoneVarietiesName', $phoneVarietiesName);
+        $this->assign('phoneVarietiesNameId', $phoneVarietiesNameId);
+        $this->assign('varTypeName', $varTypeName);
+        $this->assign('varTypeNameId', $varTypeNameId);
         return $this->fetch('show');
     }
 
@@ -158,6 +179,13 @@ class Index extends Base
     //表单提交
     public function ajaxPost()
     {
+        $data['order_num'] = $this->request->post('orderNum');
+        $data['phone_type_id'] = $this->request->post('PhoneTypeId');
+        $data['phone_type_name'] = $this->request->post('PhoneType');
+        $data['phone_varieties_id'] = $this->request->post('PhoneVarietiesId');
+        $data['phone_varieties_name'] = $this->request->post('PhoneVarieties');
+        $data['var_type_id'] = $this->request->post('var_type_id');
+        $data['var_type_name'] = $this->request->post('var_type');
         $data['name'] = $this->request->post('name');
         $data['tel'] = $this->request->post('tel');
         $data['address'] = $this->request->post('address');
