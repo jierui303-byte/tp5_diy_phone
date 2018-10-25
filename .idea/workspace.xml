@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html" afterPath="$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/phone_type/index.html" afterPath="$PROJECT_DIR$/application/admin/view/phone_type/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/phone_varieties/index.html" afterPath="$PROJECT_DIR$/application/admin/view/phone_varieties/index.html" />
     </list>
     <ignored path="tp5_diy_phone.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +40,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/chart/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.413794">
-              <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="73" />
+            <state vertical-scroll-proportion="-11.034483">
+              <caret line="76" column="178" selection-start-line="76" selection-start-column="142" selection-end-line="76" selection-end-column="178" />
               <folding>
                 <marker date="1540450434335" expanded="true" signature="7055:7075" placeholder="..." />
                 <marker date="1540450434335" expanded="true" signature="7501:7521" placeholder="..." />
@@ -49,27 +50,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/phone_type/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36832413">
-              <caret line="76" column="200" selection-start-line="76" selection-start-column="200" selection-end-line="76" selection-end-column="200" />
+            <state vertical-scroll-proportion="-5.5172415">
+              <caret line="74" column="100" selection-start-line="74" selection-start-column="100" selection-end-line="74" selection-end-column="131" />
               <folding>
-                <marker date="1540450597140" expanded="true" signature="6784:6804" placeholder="..." />
-                <marker date="1540450597140" expanded="true" signature="7330:7350" placeholder="..." />
+                <marker date="1540450729836" expanded="true" signature="6656:6676" placeholder="..." />
+                <marker date="1540450729836" expanded="true" signature="7202:7222" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/mask/index.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/phone_varieties/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.4827585">
-              <caret line="78" column="71" selection-start-line="78" selection-start-column="71" selection-end-line="78" selection-end-column="102" />
+            <state vertical-scroll-proportion="0.5893186">
+              <caret line="88" column="21" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
               <folding>
-                <marker date="1540449918384" expanded="true" signature="7106:7126" placeholder="..." />
-                <marker date="1540449918384" expanded="true" signature="7552:7572" placeholder="..." />
+                <marker date="1540450779603" expanded="true" signature="7078:7098" placeholder="..." />
+                <marker date="1540450779603" expanded="true" signature="7624:7644" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -120,6 +121,8 @@
         <option value="$PROJECT_DIR$/application/admin/view/order/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/chart/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/phone_type/index.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/phone_varieties/index.html" />
       </list>
     </option>
   </component>
@@ -311,7 +314,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="phone_varieties" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tp5_diy_phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tp5_diy_phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="phone_type_brand" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tp5_diy_phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tp5_diy_phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone_type" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -545,9 +600,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47882137">
+          <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
+          <folding>
+            <marker date="1540450597140" expanded="true" signature="6784:6804" placeholder="..." />
+            <marker date="1540450597140" expanded="true" signature="7330:7350" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/mask/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.4827585">
+        <state vertical-scroll-proportion="0.77348065">
           <caret line="78" column="71" selection-start-line="78" selection-start-column="71" selection-end-line="78" selection-end-column="102" />
           <folding>
             <marker date="1540449918384" expanded="true" signature="7106:7126" placeholder="..." />
@@ -558,8 +624,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/chart/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.413794">
-          <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="73" />
+        <state vertical-scroll-proportion="-11.034483">
+          <caret line="76" column="178" selection-start-line="76" selection-start-column="142" selection-end-line="76" selection-end-column="178" />
           <folding>
             <marker date="1540450434335" expanded="true" signature="7055:7075" placeholder="..." />
             <marker date="1540450434335" expanded="true" signature="7501:7521" placeholder="..." />
@@ -567,13 +633,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html">
+    <entry file="file://$PROJECT_DIR$/application/admin/view/phone_type/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36832413">
-          <caret line="76" column="200" selection-start-line="76" selection-start-column="200" selection-end-line="76" selection-end-column="200" />
+        <state vertical-scroll-proportion="-5.5172415">
+          <caret line="74" column="100" selection-start-line="74" selection-start-column="100" selection-end-line="74" selection-end-column="131" />
           <folding>
-            <marker date="1540450597140" expanded="true" signature="6784:6804" placeholder="..." />
-            <marker date="1540450597140" expanded="true" signature="7330:7350" placeholder="..." />
+            <marker date="1540450729836" expanded="true" signature="6656:6676" placeholder="..." />
+            <marker date="1540450729836" expanded="true" signature="7202:7222" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/phone_varieties/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5893186">
+          <caret line="88" column="21" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
+          <folding>
+            <marker date="1540450779603" expanded="true" signature="7078:7098" placeholder="..." />
+            <marker date="1540450779603" expanded="true" signature="7624:7644" placeholder="..." />
           </folding>
         </state>
       </provider>
