@@ -140,7 +140,6 @@ return [
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
-        '__PUBLICPATH__'=>'/',//后台静态资源文件地址
         '__ADMINPATH__'=>'/static/admin',//后台静态资源文件地址
         '__INDEXPATH__'=>'/static/index',//前台静态资源文件地址
     ],
