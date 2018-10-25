@@ -198,18 +198,21 @@ class Order extends Base
 
     //文件下载
     function downLoadImg($file_url){
+        //获取到图片的名称
+        $urls = parse_url($file_url);
+        var_dump($urls);exit;
         $new_name='';
-        if(!isset($file_url)||trim($file_url)==''){
+        if(!isset($file_url) || trim($file_url) == ''){
             echo '500';
         }
         if(!file_exists($file_url)){ //检查文件是否存在
             echo '404';
         }
-        $file_name=basename($file_url);
-        $file_type=explode('.', $file_url);
-        $file_type=$file_type[count($file_type)-1];
-        $file_name=trim($new_name=='') ? $file_name : urlencode($new_name);
-        $file_type=fopen($file_url, 'r'); //打开文件
+        $file_name = basename($file_url);
+        $file_type = explode('.', $file_url);
+        $file_type = $file_type[count($file_type) - 1];
+        $file_name = trim($new_name=='') ? $file_name : urlencode($new_name);
+        $file_type = fopen($file_url, 'r'); //打开文件
         //输入文件标签
         header("Content-type: application/octet-stream");
         header("Accept-Ranges: bytes");
