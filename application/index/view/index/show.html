@@ -686,13 +686,13 @@
             //     return false;
             // }
             $('#pde').hide();
-            //移除顶部图片
 
             //点击预览时取消当前选中的对象
-            canvas.discardActiveObject();
-            canvas.backgroundImage = null;
-            canvas.overlayImage = null;
-            canvas.renderAll.bind(canvas);
+            canvas.discardActiveObject();//取消选中框
+            canvas.backgroundImage = null;//去除底层背景图片
+            canvas.overlayImage = null;//去除顶部背景图片
+            canvas.renderAll.bind(canvas);//重新渲染
+
             //将canvas元素导出到dataurl图像
             var dataURL = canvas.toDataURL({
                 format: 'png',
