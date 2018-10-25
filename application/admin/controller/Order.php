@@ -197,23 +197,27 @@ class Order extends Base
     }
 
     //文件下载
-    public function downLoadImg($imgUrl)
-    {
-//        var_dump($imgUrl);exit;
-//        $down = $_GET['f'];   //获取文件参数
-//        $filename = $down.'.zip'; //获取文件名称
-//        $dir ="down/";  //相对于网站根目录的下载目录路径
-//        $down_host = $_SERVER['HTTP_HOST'].'/'; //当前域名
-//
-//
-//        //判断如果文件存在,则跳转到下载路径
-//        if(file_exists(__DIR__.'/'.$dir.$filename)){
-//
-//        }else{
-//            header('HTTP/1.1 404 Not Found');
-//        }
-        header('location:'.$imgUrl);
-
+    function downLoadImg($file_url){
+        $new_name='';
+        if(!isset($file_url)||trim($file_url)==''){
+            echo '500';
+        }
+        if(!file_exists($file_url)){ //检查文件是否存在
+            echo '404';
+        }
+        $file_name=basename($file_url);
+        $file_type=explode('.', $file_url);
+        $file_type=$file_type[count($file_type)-1];
+        $file_name=trim($new_name=='') ? $file_name : urlencode($new_name);
+        $file_type=fopen($file_url, 'r'); //打开文件
+        //输入文件标签
+        header("Content-type: application/octet-stream");
+        header("Accept-Ranges: bytes");
+        header("Accept-Length: ".filesize($file_url));
+        header("Content-Disposition: attachment; filename=".$file_name);
+        //输出文件内容
+        echo fread($file_type, filesize($file_url));
+        fclose($file_type);
     }
 
 }
