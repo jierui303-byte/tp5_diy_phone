@@ -60,6 +60,9 @@
 							<th>品种名称</th>
 							<th>下单时间</th>
 							<th width="200">操作</th>
+							<th>邮寄地址</th>
+							<th>联系电话</th>
+							<th>收件人</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -86,6 +89,9 @@
 								<a class="btn btn-success radius size-MINI" href="{:url('admin/order/downLoadImg', ['imgUrl'=>$vo.pic])}" title="下载"><i class="Hui-iconfont">&#xe641;</i>下载</a>
 								<a class="btn btn-success radius size-MINI" onClick="doPrint('{$vo.id}');" href="javascript:;" title="直接打印"><i class="Hui-iconfont">&#xe652;</i>直接打印</a>
 							</td>
+							<td>{$vo.address ?? ''}</td>
+							<td>{$vo.tel ?? ''}</td>
+							<td>{$vo.name ?? ''}</td>
 						</tr>
 					{/foreach}
 					</tbody>
