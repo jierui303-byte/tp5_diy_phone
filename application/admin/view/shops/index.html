@@ -120,11 +120,13 @@
 <script type="text/javascript">
 	$(function(){
 		//批量生成二维码
-		$('.qrcode').qrcode({
-			render: "canvas", //也可以替换为table
-			width: 100,
-			height: 100,
-			text: "http://www.jq22.com"
+		$('.qrcode').each(function(){
+			$(this).qrcode({
+				render: "canvas", //也可以替换为table
+				width: 100,
+				height: 100,
+				text: $(this).data('src')
+			});
 		});
 		//switch点击失效时是受了icheck的影响  $('.skin-minimal input[name=picCheck]')
 		$('.switchIsOpenPseudo').on('switch-change', function (e, data) {
