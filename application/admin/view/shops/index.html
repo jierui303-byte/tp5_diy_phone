@@ -77,7 +77,7 @@
 						<td>{$vo.real_name ?? ''}</td>
 						<td>{$vo.address ?? ''}</td>
 						<td>{$vo.contact_name ?? ''}</td>
-						<td>{$vo.create_time|date="y-m-d",###}</td>
+						<td>{$vo.create_time|strtotime|date="y-m-d",###}</td>
 						<td>{$vo.phone ?? ''}</td>
 						<td></td>
 						<td></td>
