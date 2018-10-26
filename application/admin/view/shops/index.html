@@ -79,7 +79,9 @@
 						<td>{$vo.contact_name ?? ''}</td>
 						<td>{$vo.create_time|strtotime|date="y-m-d",###}</td>
 						<td>{$vo.phone ?? ''}</td>
-						<td></td>
+						<td>
+							<div id="qrcode{$vo.uid}" data-src="{$vo.shopUrl}"></div>
+						</td>
 						<td></td>
 						<td>
 							<!--<a style="text-decoration:none" onClick="admin_stop('{$vo.uid}', '{$vo.status}')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>-->
