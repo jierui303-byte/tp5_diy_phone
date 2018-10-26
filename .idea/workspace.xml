@@ -27,7 +27,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/order/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.586207">
+            <state vertical-scroll-proportion="-29.344828">
               <caret line="93" column="42" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="74" />
               <folding>
                 <element signature="n#style#0;n#strong#0;n#span#0;n#span#0;n#div#1;n#article#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -42,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/application/admin/view/chart/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-13.034483">
-              <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="73" />
+              <caret line="69" column="50" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
               <folding>
                 <marker date="1540450434335" expanded="true" signature="7055:7075" placeholder="..." />
                 <marker date="1540450434335" expanded="true" signature="7501:7521" placeholder="..." />
@@ -74,11 +74,11 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/view/shops/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8543689">
-              <caret line="99" column="25" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.66019416">
+              <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
               <folding>
-                <marker date="1540532056809" expanded="true" signature="10217:10237" placeholder="..." />
-                <marker date="1540532056809" expanded="true" signature="10689:10709" placeholder="..." />
+                <marker date="1540532179044" expanded="true" signature="10217:10237" placeholder="..." />
+                <marker date="1540532179044" expanded="true" signature="10689:10709" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -722,20 +722,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/chart/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.034483">
-          <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="73" />
-          <folding>
-            <marker date="1540450434335" expanded="true" signature="7055:7075" placeholder="..." />
-            <marker date="1540450434335" expanded="true" signature="7501:7521" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/order/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.586207">
+        <state vertical-scroll-proportion="-29.344828">
           <caret line="93" column="42" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="74" />
           <folding>
             <element signature="n#style#0;n#strong#0;n#span#0;n#span#0;n#div#1;n#article#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -745,13 +734,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/chart/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.034483">
+          <caret line="69" column="50" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
+          <folding>
+            <marker date="1540450434335" expanded="true" signature="7055:7075" placeholder="..." />
+            <marker date="1540450434335" expanded="true" signature="7501:7521" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/shops/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8543689">
-          <caret line="99" column="25" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.66019416">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
           <folding>
-            <marker date="1540532056809" expanded="true" signature="10217:10237" placeholder="..." />
-            <marker date="1540532056809" expanded="true" signature="10689:10709" placeholder="..." />
+            <marker date="1540532179044" expanded="true" signature="10217:10237" placeholder="..." />
+            <marker date="1540532179044" expanded="true" signature="10689:10709" placeholder="..." />
           </folding>
         </state>
       </provider>
