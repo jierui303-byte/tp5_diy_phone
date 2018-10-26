@@ -24,13 +24,9 @@ class Order extends Base
         );
 
         //统计当日数据条数
-        $arrSToday = (new OrderService())->getAllListsByWhere(
-            [
-                'status' => 1,
-                'create_time' => ''
-            ],
-            ['id,name,tel,address,pic,order_num,phone_type_id,phone_type_name,phone_varieties_name,phone_varieties_id,var_type_name,var_type_id,create_time']
-        );
+        $arrSToday = (new \app\common\model\Order())
+            ->where('create_time','between time',[date("Y-m-d"), date("Y-m-d")+1])
+            ->select();
 
         $this->assign('data', $arrS);
         $this->assign('count', count($arrS));
