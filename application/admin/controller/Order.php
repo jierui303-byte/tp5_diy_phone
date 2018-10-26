@@ -27,13 +27,14 @@ class Order extends Base
         $arrSToday = (new OrderService())->getAllListsByWhere(
             [
                 'status' => 1,
-                'create_time' => array('>', '-2 days')
+                'create_time' => ''
             ],
             ['id,name,tel,address,pic,order_num,phone_type_id,phone_type_name,phone_varieties_name,phone_varieties_id,var_type_name,var_type_id,create_time']
         );
-        var_dump(count($arrSToday));
+
         $this->assign('data', $arrS);
         $this->assign('count', count($arrS));
+        $this->assign('todyCount', count($arrSToday));
         return $this->fetch('index');
     }
 
