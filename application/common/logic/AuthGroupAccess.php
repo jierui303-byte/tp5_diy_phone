@@ -17,7 +17,7 @@ class AuthGroupAccess extends Model
     public function getOneById($id, $columns = ['*'])
     {
         return $this->dao
-            ->where('id', $id)
+            ->where('uid', $id)
             ->field($columns)
             ->find();
     }
