@@ -128,9 +128,28 @@
 	function admin_down_code(thisUserIndex){
 		var dataURL = $('tr').eq(thisUserIndex).find('.imgOne').attr('src');
 		console.log(dataURL);
-		
+		var type = "image/png"; // 定义图片类型（canvas转的图片一般都是png，也可以指定其他类型）
+		let conversions = base64ToBlob(file, type); // 调用base64转图片方法
+		// conversions就是转化之后的图片文件，
+		console.log(conversions);
 	}
 
+	function base64ToBlob(urlData, type) {
+		let arr = urlData.split(',');
+		let mime = arr[0].match(/:(.*?);/)[1] || type;
+		// 去掉url的头，并转化为byte
+		let bytes = window.atob(arr[1]);
+		// 处理异常,将ascii码小于0的转换为大于0
+		let ab = new ArrayBuffer(bytes.length);
+		// 生成视图（直接针对内存）：8位无符号整数，长度1个字节
+		let ia = new Uint8Array(ab);
+		for (let i = 0; i < bytes.length; i++) {
+			ia[i] = bytes.charCodeAt(i);
+		}
+		return new Blob([ab], {
+			type: mime
+		});
+	}
 
 	$(function(){
 		//批量生成二维码
