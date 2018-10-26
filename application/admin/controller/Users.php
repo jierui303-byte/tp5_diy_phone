@@ -19,13 +19,8 @@ class Users extends Base
         );
         //获取用户的角色名称
         foreach($arrS as $k=>$v){
-            $groupId = (new AuthGroupAccess())
-//                ->alias('a')
-//                ->where('a.uid', $v['uid'])
-//                ->join('diy_auth_group b','a.group_id = b.id')
-//                ->field('b.title')
-                ->find();
-            var_dump('<pre>', $groupId);
+            $groupId = (new AuthGroupAccess())->find();
+            var_dump('<pre>', $groupId['group_id']);
 //            $authGroup = (new AuthGroup())->find($groupId['group_id']);
 //            var_dump($authGroup);
         }
