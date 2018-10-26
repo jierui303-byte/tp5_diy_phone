@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/logic/AuthGroupAccess.php" afterPath="$PROJECT_DIR$/application/common/logic/AuthGroupAccess.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Users.php" afterPath="$PROJECT_DIR$/application/admin/controller/Users.php" />
     </list>
     <ignored path="tp5_diy_phone.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,24 +38,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Users.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Users.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.344828">
-              <caret line="21" column="73" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
+            <state vertical-scroll-proportion="0.36900368">
+              <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
               <folding>
                 <element signature="e#39#66#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthGroupAccess.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/common/service/AuthGroupAccess.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6642066">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -87,8 +77,8 @@
         <option value="$PROJECT_DIR$/application/admin/view/users/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/roles/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/permissions/index.html" />
-        <option value="$PROJECT_DIR$/application/admin/controller/Users.php" />
         <option value="$PROJECT_DIR$/application/common/logic/AuthGroupAccess.php" />
+        <option value="$PROJECT_DIR$/application/admin/controller/Users.php" />
       </list>
     </option>
   </component>
@@ -881,16 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.344828">
-          <caret line="21" column="73" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
-          <folding>
-            <element signature="e#39#66#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/common/logic/AuthGroupAccess.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51660514">
@@ -904,6 +884,16 @@
         <state vertical-scroll-proportion="0.6642066">
           <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36900368">
+          <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+          <folding>
+            <element signature="e#39#66#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
