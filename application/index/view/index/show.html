@@ -121,6 +121,18 @@
 <script src="__INDEXPATH__/Event.js-master/js/Event.js"></script>
 <script src="__INDEXPATH__/Event.js-master/demos/inc/MagicTouch.js"></script>
 <script>
+    //获取手机的当前视图的宽度 和高度
+    console.log('浏览器当前窗口可视区域高度', $(window).height()); //浏览器当前窗口可视区域高度
+    console.log('浏览器当前窗口文档的高度', $(document).height()); //浏览器当前窗口文档的高度
+    console.log('浏览器当前窗口文档body的高度', $(document.body).height());//浏览器当前窗口文档body的高度
+    console.log('浏览器当前窗口文档body的总高度 包括border padding margin', $(document.body).outerHeight(true));//浏览器当前窗口文档body的总高度 包括border padding margin
+    console.log('浏览器当前窗口可视区域宽度', $(window).width()); //浏览器当前窗口可视区域宽度
+    console.log('浏览器当前窗口文档对象宽度', $(document).width());//浏览器当前窗口文档对象宽度
+    console.log('浏览器当前窗口文档body的高度', $(document.body).width());//浏览器当前窗口文档body的高度
+    console.log('浏览器当前窗口文档body的总宽度 包括border padding margin', $(document.body).outerWidth(true));//浏览器当前窗口文档body的总宽度 包括border padding margin
+    //left定位值 = 当前视图的宽度-canvas的宽度
+</script>
+<script>
     var canvas = new fabric.Canvas('paper', {
         renderOnAddRemove: false,
         stateful: false,
