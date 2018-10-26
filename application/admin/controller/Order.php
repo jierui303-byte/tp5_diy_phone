@@ -210,7 +210,7 @@ class Order extends Base
         //数据块类型标志为pHYs
         $sign = pack("A*", "pHYs");
         //X方向和Y方向的分辨率均为300DPI（1像素/英寸=39.37像素/米），单位为米（0为未知，1为米）
-        $data = pack("NNC", 300 * 39.37, 300 * 39.37, 0x01);
+        $data = pack("NNC", 504 * 39.37, 1064 * 39.37, 0x01);
         //CRC检验码由数据块符号和数据域计算得到
         $checksum = pack("N", crc32($sign . $data));
         $phys = $len . $sign . $data . $checksum;
