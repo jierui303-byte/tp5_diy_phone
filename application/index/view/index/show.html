@@ -133,7 +133,10 @@
     //left定位值 = 当前视图的宽度-canvas的宽度
     var a = ($(window).width() - 252)/2;
     console.log(a);
-    $('.canvas-container').css('left', a+'px');
+    $('#paper').css({
+        left:a+'px',
+        top:'0px'
+    });
 </script>
 <script>
     var canvas = new fabric.Canvas('paper', {
