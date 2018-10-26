@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="" />
+    <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/shops/index.html" afterPath="$PROJECT_DIR$/application/admin/view/shops/index.html" />
+    </list>
     <ignored path="tp5_diy_phone.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -75,8 +77,8 @@
             <state vertical-scroll-proportion="0.66019416">
               <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
               <folding>
-                <marker date="1540532179044" expanded="true" signature="10217:10237" placeholder="..." />
-                <marker date="1540532179044" expanded="true" signature="10689:10709" placeholder="..." />
+                <marker date="1540532239730" expanded="true" signature="10216:10236" placeholder="..." />
+                <marker date="1540532239730" expanded="true" signature="10688:10708" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -748,8 +750,8 @@
         <state vertical-scroll-proportion="0.66019416">
           <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
           <folding>
-            <marker date="1540532179044" expanded="true" signature="10217:10237" placeholder="..." />
-            <marker date="1540532179044" expanded="true" signature="10689:10709" placeholder="..." />
+            <marker date="1540532239730" expanded="true" signature="10216:10236" placeholder="..." />
+            <marker date="1540532239730" expanded="true" signature="10688:10708" placeholder="..." />
           </folding>
         </state>
       </provider>
