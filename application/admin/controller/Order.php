@@ -203,6 +203,34 @@ class Order extends Base
         $file_url = ROOT_PATH.'public/'.parse_url($urls['dirname'])['path'].'/'.$urls['basename'];
 //        var_dump( ROOT_PATH );
 //        exit;
+        $file = file_get_contents($file_url);
+        //修改图片的dpi分辨率
+        //数据块长度为9
+        $len = pack("N", 9);
+        //数据块类型标志为pHYs
+        $sign = pack("A*", "pHYs");
+        //X方向和Y方向的分辨率均为300DPI（1像素/英寸=39.37像素/米），单位为米（0为未知，1为米）
+        $data = pack("NNC", 300 * 39.37, 300 * 39.37, 0x01);
+        //CRC检验码由数据块符号和数据域计算得到
+        $checksum = pack("N", crc32($sign . $data));
+        $phys = $len . $sign . $data . $checksum;
+
+        $pos = strpos($file, "pHYs");
+        if ($pos > 0) {
+            //修改pHYs数据块
+            $file = substr_replace($file, $phys, $pos - 4, 21);
+        } else {
+            //IHDR结束位置（PNG头固定长度为8，IHDR固定长度为25）
+            $pos = 33;
+            //将pHYs数据块插入到IHDR之后
+            $file = substr_replace($file, $phys, $pos, 0);
+        }
+
+        header("Content-type: image/png");
+        header('Content-Disposition: attachment; filename="' . basename($filename) . '"');
+        echo $file;
+        exit;
+
         $new_name='';
         if(!isset($file_url) || trim($file_url) == ''){
             echo '500';
