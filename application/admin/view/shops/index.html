@@ -122,7 +122,7 @@
 <script type="text/javascript">
 	//更新二维码
 	function admin_update_code(thisUserIndex){
-		var qrcode = $('tr').eq(thisUserIndex).find('.qrcode').remove('canvas').qrcode({
+		var qrcode = $('tr').eq(thisUserIndex).find('.qrcode').empty().qrcode({
 			render: "canvas", //也可以替换为table
 			width: 100,
 			height: 100,
