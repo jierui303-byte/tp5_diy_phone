@@ -203,10 +203,6 @@ class Order extends Base
         $file_url = ROOT_PATH.'public/'.parse_url($urls['dirname'])['path'].'/'.$urls['basename'];
 //        var_dump( ROOT_PATH );
 //        exit;
-//        $AutoImage = new AutoImage();
-//        $newImg = $AutoImage->resize($file_url, 504, 1064);
-//        echo $newImg;
-//        exit;
 
         $new_name='';
         if(!isset($file_url) || trim($file_url) == ''){

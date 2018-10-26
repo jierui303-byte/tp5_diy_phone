@@ -131,6 +131,9 @@
     console.log('浏览器当前窗口文档body的高度', $(document.body).width());//浏览器当前窗口文档body的高度
     console.log('浏览器当前窗口文档body的总宽度 包括border padding margin', $(document.body).outerWidth(true));//浏览器当前窗口文档body的总宽度 包括border padding margin
     //left定位值 = 当前视图的宽度-canvas的宽度
+    var a = ($(window).width() - 252)/2;
+    console.log(a);
+    $('.canvas-container').css('left', a+'px');
 </script>
 <script>
     var canvas = new fabric.Canvas('paper', {
