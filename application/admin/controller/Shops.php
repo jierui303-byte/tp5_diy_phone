@@ -203,7 +203,7 @@ class Shops extends Base
         $uid = $this->request->post('id');
         $status = $this->request->post('status');
         //判断是禁用还是启用
-        if($status == 0){
+        if($status == 1){
             //执行禁用
             $res = \think\Loader::model($model)->where('uid', $uid)->update([
                 'status' => 0
