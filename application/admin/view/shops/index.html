@@ -116,7 +116,59 @@
 <script type="text/javascript" src="__ADMINPATH__/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$('.skin-minimal input').iCheck({
+		//switch点击失效时是受了icheck的影响  $('.skin-minimal input[name=picCheck]')
+		$('.switchIsOpenPseudo').on('switch-change', function (e, data) {
+			var $el = $(data.el),
+					value = data.value;
+			var id = $(this).data('id');
+			console.log(id);
+			if(value){
+				//为真，开启
+				$.ajax({
+					type: "post",
+					url: "{{url('admin/category/edit_category_is_open_pseudo')}}",
+					data:{
+						_token : "{{ csrf_token() }}",
+						_method : "PUT",
+						is_open_pseudo : 1,
+						id : id
+					},
+					dataType: "json",
+					success: function(responseData){
+						console.log(data);
+						if (responseData.code == 1) {
+							layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
+						} else {
+							layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
+						}
+					}
+				});
+			}else{
+				//为假，关闭
+				$.ajax({
+					type: "post",
+					url: "{{url('admin/category/edit_category_is_open_pseudo')}}",
+					data:{
+						_token : "{{ csrf_token() }}",
+						_method : "PUT",
+						is_open_pseudo : 2,
+						id : id
+					},
+					dataType: "json",
+					success: function(responseData){
+						console.log(data);
+						if (responseData.code == 1) {
+							layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
+						} else {
+							layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
+						}
+					}
+				});
+			}
+		});
+
+
+		$('.skin-minimal input[name=picCheck]').iCheck({
 			checkboxClass: 'icheckbox-blue',
 			radioClass: 'iradio-blue',
 			increaseArea: '20%'
