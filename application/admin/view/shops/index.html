@@ -84,7 +84,7 @@
 						<td>
 							<!--<a style="text-decoration:none" onClick="admin_stop('{$vo.uid}', '{$vo.status}')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>-->
 							<div class="switch size-MINI switchIsOpenPseudo" data-on="success" data-off="warning" data-id="{{$v->cate_id}}">
-								@if($v->is_open_pseudo == 1)
+								@if($vo->status == 1)
 								<input type="checkbox" checked data-on-text="YES" data-off-text="NO"/>
 								@else
 								<input type="checkbox" data-on-text="YES" data-off-text="NO" />
