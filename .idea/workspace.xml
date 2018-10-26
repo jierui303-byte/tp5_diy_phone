@@ -74,11 +74,11 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/view/shops/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23346303">
+            <state vertical-scroll-proportion="0.58365756">
               <caret line="80" column="50" selection-start-line="80" selection-start-column="50" selection-end-line="80" selection-end-column="50" />
               <folding>
-                <marker date="1540532925093" expanded="true" signature="10177:10197" placeholder="..." />
-                <marker date="1540532925093" expanded="true" signature="10649:10669" placeholder="..." />
+                <marker date="1540532982478" expanded="true" signature="10171:10191" placeholder="..." />
+                <marker date="1540532982478" expanded="true" signature="10643:10663" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -747,11 +747,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/shops/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23346303">
+        <state vertical-scroll-proportion="0.58365756">
           <caret line="80" column="50" selection-start-line="80" selection-start-column="50" selection-end-line="80" selection-end-column="50" />
           <folding>
-            <marker date="1540532925093" expanded="true" signature="10177:10197" placeholder="..." />
-            <marker date="1540532925093" expanded="true" signature="10649:10669" placeholder="..." />
+            <marker date="1540532982478" expanded="true" signature="10171:10191" placeholder="..." />
+            <marker date="1540532982478" expanded="true" signature="10643:10663" placeholder="..." />
           </folding>
         </state>
       </provider>
