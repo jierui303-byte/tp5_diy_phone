@@ -28,7 +28,7 @@ class Order extends Base
         $tm = $td+1;
         var_dump($td, $tm);
         $arrSToday = (new \app\common\model\Order())
-            ->where('create_time','between time',[$td, $tm])
+            ->where('create_time','between',[$td, $tm])
             ->select();
 
         $this->assign('data', $arrS);
