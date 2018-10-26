@@ -79,7 +79,16 @@ class Shops extends Base
             $data['create_time'] = date('y-m-d h:i:s',time());
             $res = (new UsersService())->insert($data);//新增
             if($res){
-                $this->success('新增成功', 'admin/shops/index');//成功跳转
+                //把用户名和相应规则绑定在一起
+                $a = (new AuthGroupAccess())->insert(array(
+                    'uid' => (new UsersService())->getLastInsID(),
+                    'group_id' =>$this->request->post('adminRole')
+                ));
+                if($a){
+                    $this->success('新增成功', 'admin/shops/index');//成功跳转
+                }else{
+                    $this->error('绑定用户和角色失败');//失败跳转
+                }
             }else{
                 $this->error('新增失败');//失败跳转
             }
