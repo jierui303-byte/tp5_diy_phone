@@ -26,6 +26,7 @@ class Index extends Base
         );
 
         $this->assign('brandLists', $brandLists);
+        $this->assign('userId', $userId);
         return $this->fetch('index');
     }
 

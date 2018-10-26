@@ -205,7 +205,7 @@
             var type_id = $(this).data('type_id');//机型id
             var var_id = $(this).data('id');//品种id
             console.log($(this).data('id'));
-            window.location.href='/show/'+type_id+'/'+var_id+'.html';
+            window.location.href='/show/{$userId}/'+type_id+'/'+var_id+'.html';
         });
     });
 </script>
