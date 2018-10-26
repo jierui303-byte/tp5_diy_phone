@@ -70,33 +70,16 @@ class Shops extends Base
     public function addUser()
     {
         if($this->request->isAjax()){
-            //判断密码是否一致
-            $psd = $this->request->post('password');
-            $psd2 = $this->request->post('password2');
-            if($psd !== $psd2){
-                $this->error('密码不一致');
-            }
             $data['user_name'] = $this->request->post('user_name');
-            $data['password'] = md5($psd);
-            $data['email'] = $this->request->post('email');
+            $data['shop_name'] = $this->request->post('shop_name');
+            $data['password'] = md5($this->request->post('password'));
             $data['real_name'] = $this->request->post('real_name');
-            $data['sex'] = $this->request->post('sex');
-            $data['date_of_birth'] = $this->request->post('date_of_birth');
             $data['address'] = $this->request->post('address');
             $data['phone'] = $this->request->post('phone');
             $data['create_time'] = date('y-m-d h:i:s',time());
             $res = (new UsersService())->insert($data);//新增
             if($res){
-                //把用户名和相应规则绑定在一起
-                $a = (new AuthGroupAccess())->insert(array(
-                    'uid' => (new UsersService())->getLastInsID(),
-                    'group_id' =>$this->request->post('adminRole')
-                ));
-                if($a){
-                    $this->success('新增成功', 'admin/users/index');//成功跳转
-                }else{
-                    $this->error('绑定用户和角色失败');//失败跳转
-                }
+                $this->success('新增成功', 'admin/shops/index');//成功跳转
             }else{
                 $this->error('新增失败');//失败跳转
             }
@@ -115,36 +98,15 @@ class Shops extends Base
     public function editUser($uid)
     {
         if ($this->request->isAjax()){
-            //判断密码是否一致
-            $psd = $this->request->post('password');
-            $psd2 = $this->request->post('password2');
-            if($psd !== $psd2){
-                $this->error('密码不一致');
-            }
-            $data['user_name'] = $this->request->post('user_name');
-            $data['password'] = md5($psd);
-            $data['email'] = $this->request->post('email');
+            $data['shop_name'] = $this->request->post('shop_name');
             $data['real_name'] = $this->request->post('real_name');
-            $data['sex'] = $this->request->post('sex');
-            $data['date_of_birth'] = $this->request->post('date_of_birth');
             $data['address'] = $this->request->post('address');
             $data['phone'] = $this->request->post('phone');
             $res = (new UsersService())
                 ->where('uid', $uid)
                 ->update($data);//新增
             if($res){
-                //把用户名和相应规则绑定在一起
-                $a = (new AuthGroupAccess())
-                    ->where('uid', $uid)
-                    ->update(array(
-                        'uid' => $uid,
-                        'group_id' =>$this->request->post('adminRole')
-                    ));
-                if($a){
-                    $this->success('修改成功', 'admin/users/index');//成功跳转
-                }else{
-                    $this->error('绑定用户和角色失败');//失败跳转
-                }
+                $this->success('修改成功', 'admin/shops/index');//成功跳转
             }else{
                 $this->error('修改失败');//失败跳转
             }

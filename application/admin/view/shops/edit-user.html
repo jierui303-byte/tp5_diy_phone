@@ -63,20 +63,10 @@ $(function(){
 	
 	$("#form-admin-add").validate({
 		rules:{
-			user_name:{
+			shop_name:{
 				required:true,
 				minlength:4,
 				maxlength:16
-			},
-			password:{
-				required:true,
-			},
-			password2:{
-				required:true,
-				equalTo: "#password"
-			},
-			sex:{
-				required:true,
 			},
 			address:{
 				required:true,
@@ -87,21 +77,14 @@ $(function(){
 			phone:{
 				required:true,
 				isPhone:true,
-			},
-			email:{
-				required:true,
-				email:true,
-			},
-			adminRole:{
-				required:true,
-			},
+			}
 		},
 		onkeyup:false,
 		focusCleanup:true,
 		success:"valid",
 		submitHandler:function(form){
 			$(form).ajaxSubmit({
-				url:"{:url('admin/users/editUser', ['uid'=>$userInfo['uid']])}",//form提交数据的地址  data数据不用带了自动加上了
+				url:"{:url('admin/shops/editUser', ['uid'=>$userInfo['uid']])}",//form提交数据的地址  data数据不用带了自动加上了
 				type:'post',　　　  //form提交的方式(method:post/get)
 				beforeSerialize:function(){}, //序列化提交数据之前的回调函数
 				beforeSubmit:function(){},　　//提交前执行的回调函数
