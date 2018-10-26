@@ -138,12 +138,11 @@
 				//为真，开启
 				$.ajax({
 					type: "post",
-					url: "{{url('admin/category/edit_category_is_open_pseudo')}}",
+					url: "{:url('admin/users/admin_stop')}",
 					data:{
-						_token : "{{ csrf_token() }}",
-						_method : "PUT",
-						is_open_pseudo : 1,
-						id : id
+						status : 1,
+						id : id,
+						model:'Users'
 					},
 					dataType: "json",
 					success: function(responseData){
@@ -159,12 +158,11 @@
 				//为假，关闭
 				$.ajax({
 					type: "post",
-					url: "{{url('admin/category/edit_category_is_open_pseudo')}}",
+					url: "{:url('admin/users/admin_stop')}",
 					data:{
-						_token : "{{ csrf_token() }}",
-						_method : "PUT",
-						is_open_pseudo : 2,
-						id : id
+						status : 0,
+						id : id,
+						model:'Users'
 					},
 					dataType: "json",
 					success: function(responseData){
