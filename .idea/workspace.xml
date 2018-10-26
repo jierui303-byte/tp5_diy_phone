@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Users.php" afterPath="$PROJECT_DIR$/application/admin/controller/Users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/users/index.html" afterPath="$PROJECT_DIR$/application/admin/view/users/index.html" />
     </list>
     <ignored path="tp5_diy_phone.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,24 +24,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/view/users/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8596492">
-              <caret line="77" column="55" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.54474705">
+              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#a#3;n#td#8;n#tr#0;n#tbody#0;n#table#0;n#article#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <marker date="1540549394707" expanded="true" signature="8482:8502" placeholder="..." />
-                <marker date="1540549394707" expanded="true" signature="8954:8974" placeholder="..." />
+                <marker date="1540551663677" expanded="true" signature="8470:8490" placeholder="..." />
+                <marker date="1540551663677" expanded="true" signature="8942:8962" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Users.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Users.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51660514">
+            <state vertical-scroll-proportion="-9.655172">
               <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
               <folding>
                 <element signature="e#39#66#0#PHP" expanded="true" />
@@ -74,11 +74,11 @@
         <option value="$PROJECT_DIR$/application/admin/view/shops/edit-user.html" />
         <option value="$PROJECT_DIR$/application/admin/view/shops/add-user.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Shops.php" />
-        <option value="$PROJECT_DIR$/application/admin/view/users/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/roles/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/permissions/index.html" />
         <option value="$PROJECT_DIR$/application/common/logic/AuthGroupAccess.php" />
         <option value="$PROJECT_DIR$/application/admin/controller/Users.php" />
+        <option value="$PROJECT_DIR$/application/admin/view/users/index.html" />
       </list>
     </option>
   </component>
@@ -859,18 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/users/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8596492">
-          <caret line="77" column="55" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
-          <folding>
-            <element signature="n#style#0;n#a#3;n#td#8;n#tr#0;n#tbody#0;n#table#0;n#article#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <marker date="1540549394707" expanded="true" signature="8482:8502" placeholder="..." />
-            <marker date="1540549394707" expanded="true" signature="8954:8974" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/common/logic/AuthGroupAccess.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51660514">
@@ -889,10 +877,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51660514">
+        <state vertical-scroll-proportion="-9.655172">
           <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
           <folding>
             <element signature="e#39#66#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/users/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54474705">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#a#3;n#td#8;n#tr#0;n#tbody#0;n#table#0;n#article#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <marker date="1540551663677" expanded="true" signature="8470:8490" placeholder="..." />
+            <marker date="1540551663677" expanded="true" signature="8942:8962" placeholder="..." />
           </folding>
         </state>
       </provider>
