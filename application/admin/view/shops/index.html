@@ -80,7 +80,7 @@
 						<td>{$vo.create_time|strtotime|date="y-m-d",###}</td>
 						<td>{$vo.phone ?? ''}</td>
 						<td>
-							<div id="qrcode{$vo.uid}" data-src="{$vo.shopUrl}"></div>
+							<div class="qrcode" data-src="{$vo.shopUrl}"></div>
 						</td>
 						<td></td>
 						<td>
@@ -116,8 +116,11 @@
 <script type="text/javascript" src="__ADMINPATH__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript" src="__ADMINPATH__/lib/jquery.qrcode.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+		//批量生成二维码
+		jQuery('.qrcode').qrcode("http://www.jq22.com");
 		//switch点击失效时是受了icheck的影响  $('.skin-minimal input[name=picCheck]')
 		$('.switchIsOpenPseudo').on('switch-change', function (e, data) {
 			var $el = $(data.el),
