@@ -133,7 +133,7 @@
 		let conversions = base64ToBlob(dataURL, type); // 调用base64转图片方法
 		// conversions就是转化之后的图片文件
 		console.log(conversions);
-		var $a = $("<a></a>").attr("href", conversions).attr("download", "meitu.png");
+		var $a = $("<a></a>").attr("href", dataURL).attr("download", "meitu.png");
 		$a[0].click();
 	}
 
