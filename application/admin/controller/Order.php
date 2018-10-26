@@ -31,7 +31,7 @@ class Order extends Base
             ],
             ['id,name,tel,address,pic,order_num,phone_type_id,phone_type_name,phone_varieties_name,phone_varieties_id,var_type_name,var_type_id,create_time']
         );
-    
+        var_dump(count($arrSToday));
         $this->assign('data', $arrS);
         $this->assign('count', count($arrS));
         return $this->fetch('index');
