@@ -227,7 +227,7 @@ class Order extends Base
         }
 
         header("Content-type: image/png");
-        header('Content-Disposition: attachment; filename="' . basename($filename) . '"');
+        header('Content-Disposition: attachment; filename="' . basename($file_url) . '"');
         echo $file;
         exit;
 
