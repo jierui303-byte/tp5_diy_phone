@@ -17,6 +17,13 @@ class Users extends Base
             [],
             ['uid,user_name,email,real_name,sex,date_of_birth,status,address,phone,update_time']
         );
+        //获取用户的角色名称
+        foreach($arrS as $k=>$v){
+            $groupId = (new AuthGroupAccess())->where('uid', $v['uid'])->find();
+            var_dump($groupId, '<pre>');
+            $authGroup = (new AuthGroup())->find($groupId['group_id']);
+            var_dump($authGroup);
+        }
 //        var_dump('<pre>', $arrS);
         $this->assign('data', $arrS);
         $this->assign('count', count($arrS));
