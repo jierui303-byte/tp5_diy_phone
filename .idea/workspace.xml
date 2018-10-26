@@ -75,10 +75,10 @@
         <entry file="file://$PROJECT_DIR$/application/admin/view/shops/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.6225681">
-              <caret line="66" column="40" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
+              <caret line="66" column="41" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
               <folding>
-                <marker date="1540533239544" expanded="true" signature="10180:10200" placeholder="..." />
-                <marker date="1540533239544" expanded="true" signature="10652:10672" placeholder="..." />
+                <marker date="1540533296143" expanded="true" signature="10180:10200" placeholder="..." />
+                <marker date="1540533296143" expanded="true" signature="10652:10672" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -748,10 +748,10 @@
     <entry file="file://$PROJECT_DIR$/application/admin/view/shops/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6225681">
-          <caret line="66" column="40" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
+          <caret line="66" column="41" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
           <folding>
-            <marker date="1540533239544" expanded="true" signature="10180:10200" placeholder="..." />
-            <marker date="1540533239544" expanded="true" signature="10652:10672" placeholder="..." />
+            <marker date="1540533296143" expanded="true" signature="10180:10200" placeholder="..." />
+            <marker date="1540533296143" expanded="true" signature="10652:10672" placeholder="..." />
           </folding>
         </state>
       </provider>
