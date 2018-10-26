@@ -42,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.73800737">
-              <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -809,7 +809,7 @@
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.73800737">
-          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
           <folding />
         </state>
       </provider>

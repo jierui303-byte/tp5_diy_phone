@@ -24,7 +24,7 @@ class Users extends Base
 //                ->where('a.uid', $v['uid'])
 //                ->join('diy_auth_group b','a.group_id = b.id')
 //                ->field('b.title')
-                ->select();
+                ->find();
             var_dump('<pre>', $groupId);
 //            $authGroup = (new AuthGroup())->find($groupId['group_id']);
 //            var_dump($authGroup);
