@@ -83,7 +83,7 @@
 						<td></td>
 						<td>
 							<!--<a style="text-decoration:none" onClick="admin_stop('{$vo.uid}', '{$vo.status}')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>-->
-							<div class="switch size-MINI switchIsOpenPseudo" data-on="success" data-off="warning" data-id="{{$v->cate_id}}">
+							<div class="switch size-MINI switchIsOpenPseudo" data-on="success" data-off="warning" data-id="{{$vo->uid}}">
 								@if($vo->status == 1)
 								<input type="checkbox" checked data-on-text="YES" data-off-text="NO"/>
 								@else
