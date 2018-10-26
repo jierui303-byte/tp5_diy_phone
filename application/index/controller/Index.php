@@ -18,6 +18,8 @@ class Index extends Base
 {
     public function index($userId)
     {
+        //此处可以判断是否是经过二维码扫描进入本页面的
+
         $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
             [
                 'status' => 1
@@ -26,7 +28,7 @@ class Index extends Base
         );
 
         $this->assign('brandLists', $brandLists);
-        $this->assign('userId', $userId);
+        $this->assign('userId', $userId);//商家id
         return $this->fetch('index');
     }
 
