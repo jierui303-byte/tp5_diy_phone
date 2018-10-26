@@ -218,6 +218,10 @@ class Index extends Base
             $new_file = $new_file.time().".{$type}";
             if(file_put_contents($new_file, base64_decode(str_replace($result[1], '', $img_base64)))){
                 chmod($new_file, 0777);
+                //修改图片的分辨率
+                $AutoImage = new AutoImage();
+                $new_file = $AutoImage->resize($new_file, 504, 1064);
+//                echo $new_file;
                 return array(
                     'code' => 1,
                     'msg' => '新文件保存成功',
@@ -235,4 +239,50 @@ class Index extends Base
 
     }
 
+}
+
+class AutoImage{
+    private $image;
+
+    public function resize($src, $width, $height){
+        //$src 就是 $_FILES['upload_image_file']['tmp_name']
+        //$width和$height是指定的分辨率
+        //如果想按指定比例放缩，可以将$width和$height改为$src的指定比例
+        $this->image = $src;
+        $info = getimagesize($src);//获取图片的真实宽、高、类型
+        if($info[0] == $width && $info[1] == $height){
+            //如果分辨率一样，直接返回原图
+            return $src;
+        }
+        switch ($info['mime']){
+            case 'image/jpeg':
+                header('Content-Type:image/jpeg');
+                $image_wp = imagecreatetruecolor($width, $height);
+                $image_src = imagecreatefromjpeg($src);
+                imagecopyresampled($image_wp,  $image_src, 0, 0, 0, 0, $width, $height, $info[0], $info[1]);
+                imagedestroy($image_src);
+                imagejpeg($image_wp,$this->image);
+                break;
+            case 'image/png':
+                header('Content-Type:image/png');
+                $image_wp = imagecreatetruecolor($width, $height);
+                $image_src = imagecreatefrompng($src);
+                imagecopyresampled($image_wp, $image_src, 0, 0, 0, 0, $width, $height, $info[0], $info[1]);
+                imagedestroy($image_src);
+                imagejpeg($image_wp,$this->image);
+                break;
+            case 'image/gif':
+                header('Content-Type:image/gif');
+                $image_wp = imagecreatetruecolor($width, $height);
+                $image_src = imagecreatefromgif($src);
+                imagecopyresampled($image_wp, $image_src, 0, 0, 0, 0, $width, $height, $info[0], $info[1]);
+                imagedestroy($image_src);
+                imagejpeg($image_wp,$this->image);
+                break;
+
+        }
+
+        return $this->image;
+
+    }
 }
