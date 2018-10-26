@@ -293,7 +293,7 @@ function admin_update_code(){
 }
 //下载二维码
 function admin_down_code(thisObj){
-	var a = $(thisObj).parent();
+	var a = $(thisObj).parent().find('canvas');
 	console.log(a);
 }
 
