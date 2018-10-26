@@ -293,8 +293,8 @@ function admin_update_code(){
 }
 //下载二维码
 function admin_down_code(thisObj){
-	var a = $(thisObj).parent().find('canvas');
-	console.log(a);
+	var dataURL = $(thisObj).parent().find('canvas').toDataURL();
+	console.log(dataURL);
 }
 
 /*日期插件My97 DatePicker*/
