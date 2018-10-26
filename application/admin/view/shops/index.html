@@ -82,7 +82,14 @@
 						<td></td>
 						<td></td>
 						<td>
-							<a style="text-decoration:none" onClick="admin_stop('{$vo.uid}', '{$vo.status}')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>
+							<!--<a style="text-decoration:none" onClick="admin_stop('{$vo.uid}', '{$vo.status}')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>-->
+							<div class="switch size-MINI switchIsOpenPseudo" data-on="success" data-off="warning" data-id="{{$v->cate_id}}">
+								@if($v->is_open_pseudo == 1)
+								<input type="checkbox" checked data-on-text="YES" data-off-text="NO"/>
+								@else
+								<input type="checkbox" data-on-text="YES" data-off-text="NO" />
+								@endif
+							</div>
 						</td>
 						<td class="td-manage">
 							<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url('admin/users/editUser', ['uid'=>$vo.uid])}','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
