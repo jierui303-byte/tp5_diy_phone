@@ -13,76 +13,27 @@
 	<form action="" method="post" class="form form-horizontal" id="form-admin-add">
 		<input type="hidden" name="uid" value="{$userInfo['uid']}">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员[登录名]：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="{$userInfo['user_name']}" placeholder="" id="user_name" name="user_name">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>初始密码：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="password">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="password" class="input-text" autocomplete="off"  placeholder="确认新密码" id="password2" name="password2">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="radio-box">
-					<input name="sex" type="radio" id="sex-1" checked>
-					<label for="sex-1">男</label>
-				</div>
-				<div class="radio-box">
-					<input type="radio" id="sex-2" name="sex">
-					<label for="sex-2">女</label>
-				</div>
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>真实姓名：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商铺名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="{$userInfo['real_name']}" placeholder="" id="real_name" name="real_name">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商铺地址：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="{$userInfo['phone']}" placeholder="" id="phone" name="phone">
+				<input type="text" class="input-text" value="" placeholder="" id="real_name" name="real_name">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>地址：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机号码：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="{$userInfo['address']}" placeholder="" id="address" name="address">
+				<input type="text" class="input-text" value="" placeholder="" id="phone" name="phone">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系人：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="@" name="email" id="email" value="{$userInfo['email']}">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">角色：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
-				<select class="select" name="adminRole" size="1">
-					{volist name="authGroups" id="vo"}
-					<option value="{$vo.id}" {if condition="$vo.id eq $group_id"}selected{/if}>{$vo.title}</option>
-					{/volist}
-				</select>
-				</span>
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">备注：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...100个字符以内" dragonfly="true" onKeyUp="textarealength(this,100)"></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+				<input type="text" class="input-text" value="" placeholder="" id="address" name="address">
 			</div>
 		</div>
 		<div class="row cl">
