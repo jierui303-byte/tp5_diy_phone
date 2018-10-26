@@ -22,11 +22,11 @@
 
 use think\Route;
 
-Route::get('', 'index/index/index');
-Route::get('he', 'index/index/he');
-Route::get('canvas', 'index/index/canvas');
-Route::get('show/:typeId/:varId', 'index/index/show');
-Route::any('design/:typeId/:varId', 'index/index/design');
+Route::get('u/:userId', 'index/index/index');
+//Route::get('he', 'index/index/he');
+//Route::get('canvas', 'index/index/canvas');
+Route::get('show/:userId/:typeId/:varId', 'index/index/show');
+//Route::any('design/:typeId/:varId', 'index/index/design');
 Route::any('ajaxGetPhoneTypes/:id', 'index/index/ajaxGetPhoneTypes');
 Route::any('ajaxGetPhoneVarieties/:id', 'index/index/ajaxGetPhoneVarieties');
 Route::get('ajaxGetMaskCategorys', 'index/index/ajaxGetMaskCategorys');//获取蒙版分类

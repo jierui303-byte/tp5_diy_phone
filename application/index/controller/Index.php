@@ -16,7 +16,7 @@ use think\Controller;
 
 class Index extends Base
 {
-    public function index()
+    public function index($userId)
     {
         $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
             [
@@ -43,7 +43,7 @@ class Index extends Base
         return $this->fetch('design');
     }
 
-    public function show($typeId, $varId)
+    public function show($userId, $typeId, $varId)
     {
         //获取当前品种名称信息
         $current = (new PhoneVarieties())->getOneById($varId);

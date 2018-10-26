@@ -54,12 +54,11 @@ class Shops extends Base
             ['uid,user_name,email,real_name,sex,date_of_birth,status,address,phone,create_time,shop_name']
         );
 //        var_dump('<pre>', $arrS);
-        $typeId = 1;//机型id
-        $varId = 1;//贴图id
-        $userId = 1;//贴图id
+
         //拼接用户商户的店铺地址URL
         foreach($arrS as $k=>$v){
-            $arrS[$k]['shopUrl'] = 'http://'.$_SERVER['SERVER_NAME'].'/show/'.$typeId.'/'.$varId.'.html';
+            $userId = $v['uid'];//用户id
+            $arrS[$k]['shopUrl'] = 'http://'.$_SERVER['SERVER_NAME'].'/u/'.$userId.'.html';
         }
 
         $this->assign('data', $arrS);
