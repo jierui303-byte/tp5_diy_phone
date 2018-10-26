@@ -129,7 +129,7 @@
 			text: $(this).data('src')
 		}).hide();
 		var canvas = qrcode.find('canvas').get(0);
-		qrcode.siblings('.imgOne').attr('src', canvas.toDataURL('image/jpg'));
+		$('tr').eq(thisUserIndex).find('.imgOne').attr('src', canvas.toDataURL('image/jpg'));
 	}
 
 	//下载二维码
