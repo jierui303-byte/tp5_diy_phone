@@ -107,6 +107,7 @@
 		</article>
 	</div>
 </section>
+<a></a>
 
 <!--_footer 作为公共模版分离出去-->
 {include file="layout/_footer" /}
@@ -130,8 +131,10 @@
 		console.log(dataURL);
 		var type = "image/png"; // 定义图片类型（canvas转的图片一般都是png，也可以指定其他类型）
 		let conversions = base64ToBlob(dataURL, type); // 调用base64转图片方法
-		// conversions就是转化之后的图片文件，
+		// conversions就是转化之后的图片文件
 		console.log(conversions);
+		var $a = $("<a></a>").attr("href", conversions).attr("download", "meitu.png");
+		$a[0].click();
 	}
 
 	function base64ToBlob(urlData, type) {
