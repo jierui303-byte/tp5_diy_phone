@@ -43,7 +43,7 @@
 				<span class="l">
 					<a href="javascript:;" onclick="admin_all_del()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
 					<a href="javascript:;" onclick="admin_add('添加商铺','{:url('admin/users/addUser')}','800','500')" class="btn btn-success radius"><i class="Hui-iconfont">&#xe600;</i> 添加商铺</a>
-					<a href="javascript:;" onclick="admin_all_del()" class="btn btn-secondary radius"><i class="Hui-iconfont">&#xe68f;</i> 批量更新二维码</a>
+					<!--<a href="javascript:;" onclick="admin_all_del()" class="btn btn-secondary radius"><i class="Hui-iconfont">&#xe68f;</i> 批量更新二维码</a>-->
 					<a href="javascript:;" onclick="admin_all_del()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe641;</i> 下载二维码</a>
 				</span>
 				<span class="r">共有数据：<strong>{$count}</strong> 条</span>
@@ -97,7 +97,7 @@
 						<td class="td-manage">
 							<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url('admin/users/editUser', ['uid'=>$vo.uid])}','1','800','500')" class="btn btn-secondary radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i>编辑</a>
 							<a title="删除" href="javascript:;" onclick="admin_del('{$vo.uid}')" class="btn btn-danger radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i>删除</a>
-							<a class="btn btn-success radius size-MINI" onclick="admin_update_code('{$vo.uid}')"><i class="Hui-iconfont">&#xe641;</i>更新Code</a>
+							<!--<a class="btn btn-success radius size-MINI" onclick="admin_update_code('{$vo.uid}')"><i class="Hui-iconfont">&#xe641;</i>更新Code</a>-->
 							<a class="btn btn-success radius size-MINI" onclick="admin_down_code('{$vo.uid}')"><i class="Hui-iconfont">&#xe641;</i>下载Code</a>
 						</td>
 					</tr>
@@ -121,16 +121,16 @@
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.qrcode.min.js"></script>
 <script type="text/javascript">
 	//更新二维码
-	function admin_update_code(thisUserIndex){
-		var qrcode = $('tr').eq(thisUserIndex).find('.qrcode').qrcode({
-			render: "canvas", //也可以替换为table
-			width: 100,
-			height: 100,
-			text: $(this).data('src')
-		}).hide();
-		var canvas = qrcode.find('canvas').get(0);
-		$('tr').eq(thisUserIndex).find('.imgOne').attr('src', canvas.toDataURL('image/jpg'));
-	}
+//	function admin_update_code(thisUserIndex){
+//		var qrcode = $('tr').eq(thisUserIndex).find('.qrcode').qrcode({
+//			render: "canvas", //也可以替换为table
+//			width: 100,
+//			height: 100,
+//			text: $(this).data('src')
+//		}).hide();
+//		var canvas = qrcode.find('canvas').get(0);
+//		$('tr').eq(thisUserIndex).find('.imgOne').attr('src', canvas.toDataURL('image/jpg'));
+//	}
 
 	//下载二维码
 	function admin_down_code(thisUserIndex){
