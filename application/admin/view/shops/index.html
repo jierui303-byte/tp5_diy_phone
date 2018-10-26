@@ -119,17 +119,16 @@
 <script type="text/javascript" src="__ADMINPATH__/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.qrcode.min.js"></script>
 <script type="text/javascript">
+	//更新二维码
+	function admin_update_code(){
+
+	}
+	//下载二维码
+	function admin_down_code(thisUserIndex){
+		var dataURL = $('tr').eq(thisUserIndex).find('.imgOne').attr('src');
+		console.log(dataURL);
+	}
 	$(function(){
-		//更新二维码
-		function admin_update_code(){
-
-		}
-		//下载二维码
-		function admin_down_code(thisUserIndex){
-			var dataURL = $('tr').eq(thisUserIndex).find('.imgOne').attr('src');
-			console.log(dataURL);
-		}
-
 		//批量生成二维码
 		$('.qrcode').each(function(){
 			var qrcode = $(this).qrcode({
