@@ -69,7 +69,7 @@
 				</thead>
 				<tbody>
 				{foreach $data as $vo}
-					<tr class="text-c" data-id="{$vo.uid}">
+					<tr class="text-c trsObj" data-id="{$vo.uid}">
 						<td class="zsort" data-id="{$vo.uid}" style="position: relative;">
 							<input type="checkbox" value="{$vo.uid ?? ''}" name="picCheck" >
 						</td>
@@ -293,7 +293,7 @@ function admin_update_code(){
 }
 //下载二维码
 function admin_down_code(thisUserIndex){
-	var dataURL = $('tr').index(thisUserIndex).find('canvas').toDataURL();
+	var dataURL = $('.trsObj:nth-child(thisUserIndex)').find('canvas').toDataURL();
 	console.log(dataURL);
 }
 
