@@ -20,11 +20,13 @@ class Users extends Base
         //获取用户的角色名称
         foreach($arrS as $k=>$v){
             $groupId = (new AuthGroupAccess())->getOneById($v['uid'], ['group_id']);
-            var_dump('<pre>', $groupId['group_id']);
-//            $authGroup = (new AuthGroup())->find($groupId['group_id']);
-//            var_dump($authGroup);
+//            var_dump('<pre>', $groupId['group_id']);
+            if($groupId['group_id']){
+                $authGroup = (new AuthGroup())->getOneById($groupId['group_id'], ['title']);
+                $arrS[$k]['group_name'] = $authGroup['title'];
+            }
         }
-//        var_dump('<pre>', $arrS);
+
         $this->assign('data', $arrS);
         $this->assign('count', count($arrS));
         return $this->fetch('index');
