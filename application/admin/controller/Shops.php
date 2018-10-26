@@ -27,28 +27,6 @@ class Shops extends Base
 
     public function index()
     {
-        $cates = \think\Loader::model('Cate')->select();
-        $q = $this->sort($cates, 0, 0);
-//        dump($q);
-
-        echo '<select name="" id="">';
-        foreach($q as $k=>$v){
-            if($v['level'] == 0){
-                echo '<option value="'.$v['id'].'">'.$v['cate_name'].'&&&&&'.$v['level'].'</option>';//顶级分类
-            }elseif($v['level'] == 1){
-                echo '<option value="'.$v['id'].'">===='.$v['cate_name'].'&&&&&'.$v['level'].'</option>';//顶级分类
-            }elseif($v['level'] == 2){
-                echo '<option value="'.$v['id'].'">二二二二二'.$v['cate_name'].'&&&&&'.$v['level'].'</option>';//二级或者三级甚至更多
-            }elseif($v['level'] == 3){
-                echo '<option value="'.$v['id'].'">ssanjisanjisanjisanjianji'.$v['cate_name'].'&&&&&'.$v['level'].'</option>';//二级或者三级甚至更多
-            }elseif($v['level'] == 4){
-                echo '<option value="'.$v['id'].'">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'.$v['cate_name'].'&&&&&'.$v['level'].'</option>';//二级或者三级甚至更多
-            }
-        }
-        echo '</select>';
-//        dump($q);
-
-        exit;
         $authGroups = (new AuthGroup())->getAllListsByWhere(
             [
                 'id'=>2 //商铺管理员
