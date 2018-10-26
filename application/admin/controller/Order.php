@@ -24,8 +24,11 @@ class Order extends Base
         );
 
         //统计当日数据条数
+        $td = date("Y-m-d");
+        $tm = $td+1;
+        var_dump($td, $tm);
         $arrSToday = (new \app\common\model\Order())
-            ->where('create_time','between time',[date("Y-m-d"), date("Y-m-d")+1])
+            ->where('create_time','between time',[$td, $tm])
             ->select();
 
         $this->assign('data', $arrS);
