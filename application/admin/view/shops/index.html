@@ -92,10 +92,10 @@
 							</div>
 						</td>
 						<td class="td-manage">
-							<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url('admin/users/editUser', ['uid'=>$vo.uid])}','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-							<a title="删除" href="javascript:;" onclick="admin_del('{$vo.uid}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
-							<a class="layui-btn layui-btn-xs" lay-event="edit">更新二维码</a>
-							<a class="layui-btn layui-btn-xs" lay-event="edit">下载二维码</a>
+							<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url('admin/users/editUser', ['uid'=>$vo.uid])}','1','800','500')" class="btn btn-secondary radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i>编辑</a>
+							<a title="删除" href="javascript:;" onclick="admin_del('{$vo.uid}')" class="btn btn-danger radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i>删除</a>
+							<a class="btn btn-success radius size-MINI"><i class="Hui-iconfont">&#xe641;</i>更新二维码</a>
+							<a class="btn btn-success radius size-MINI"><i class="Hui-iconfont">&#xe641;</i>下载二维码</a>
 						</td>
 					</tr>
 				{/foreach}
