@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Shops.php" afterPath="$PROJECT_DIR$/application/admin/controller/Shops.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/shops/index.html" afterPath="$PROJECT_DIR$/application/admin/view/shops/index.html" />
     </list>
     <ignored path="tp5_diy_phone.iws" />
@@ -28,12 +27,9 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/view/shops/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44649446">
-              <caret line="163" column="32" selection-start-line="163" selection-start-column="32" selection-end-line="163" selection-end-column="32" />
-              <folding>
-                <marker date="1540538257512" expanded="true" signature="10381:10401" placeholder="..." />
-                <marker date="1540538257512" expanded="true" signature="10853:10873" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.73800737">
+              <caret line="296" column="1" selection-start-line="296" selection-start-column="1" selection-end-line="296" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -739,12 +735,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/shops/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44649446">
-          <caret line="163" column="32" selection-start-line="163" selection-start-column="32" selection-end-line="163" selection-end-column="32" />
-          <folding>
-            <marker date="1540538257512" expanded="true" signature="10381:10401" placeholder="..." />
-            <marker date="1540538257512" expanded="true" signature="10853:10873" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.73800737">
+          <caret line="296" column="1" selection-start-line="296" selection-start-column="1" selection-end-line="296" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

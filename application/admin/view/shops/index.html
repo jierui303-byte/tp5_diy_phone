@@ -96,8 +96,8 @@
 						<td class="td-manage">
 							<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url('admin/users/editUser', ['uid'=>$vo.uid])}','1','800','500')" class="btn btn-secondary radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i>编辑</a>
 							<a title="删除" href="javascript:;" onclick="admin_del('{$vo.uid}')" class="btn btn-danger radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i>删除</a>
-							<a class="btn btn-success radius size-MINI"><i class="Hui-iconfont">&#xe641;</i>更新Code</a>
-							<a class="btn btn-success radius size-MINI"><i class="Hui-iconfont">&#xe641;</i>下载Code</a>
+							<a class="btn btn-success radius size-MINI" onclick="admin_update_code()"><i class="Hui-iconfont">&#xe641;</i>更新Code</a>
+							<a class="btn btn-success radius size-MINI" onclick="admin_down_code()"><i class="Hui-iconfont">&#xe641;</i>下载Code</a>
 						</td>
 					</tr>
 				{/foreach}
@@ -286,48 +286,14 @@ function admin_all_del(){
 function admin_edit(title,url,id,w,h){
 	layer_show(title,url,w,h);
 }
-/*管理员-停用*/
-function admin_stop(obj, status){
-	var postUrl = "{:url('admin/users/admin_stop')}";
-	var tsTR = '';
-	if(status == 1){
-		tsTR = '确认要停用吗？';
-	}else{
-		tsTR = '确认要启用吗？';
-	}
-	layer.confirm(tsTR, function(index){
-		//此处请求后台程序，下方是成功后的前台处理……
-		$.post(postUrl, {"id":obj, 'status':status, 'model':'Users'}, function (responseData) {
-			if (responseData.code == 1) {
-				layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
-				setTimeout(function(){
-					window.location.href = "{:url('admin/users/index')}";
-				},100)
-			} else {
-				layer.msg(responseData.msg,{icon:"6",time:responseData.wait*1000});
-				setTimeout(function(){
-					window.location.href = "{:url('admin/users/index')}";
-				},100)
-			}
-		});
 
-		$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_start(this,id)" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
-		$(obj).remove();
-		layer.msg('已停用!',{icon: 5,time:1000});
-	});
+//更新二维码
+function admin_update_code(){
+
 }
+//下载二维码
+function admin_down_code(){
 
-/*管理员-启用*/
-function admin_start(obj,id){
-	layer.confirm('确认要启用吗？',function(index){
-		//此处请求后台程序，下方是成功后的前台处理……
-		
-		$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop(this,id)" href="javascript:;" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-		$(obj).remove();
-		layer.msg('已启用!', {icon: 6,time:1000});
-	});
 }
 
 /*日期插件My97 DatePicker*/
