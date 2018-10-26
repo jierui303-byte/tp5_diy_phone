@@ -85,7 +85,7 @@
 							{/if}
 						</td>
 						<td class="td-manage">
-							<a class="btn btn-warning radius" onClick="admin_stop('{$vo.uid}', '{$vo.status}')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i>是否停用</a>
+							<a class="btn btn-warning radius size-MINI" onClick="admin_stop('{$vo.uid}', '{$vo.status}')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i>停用</a>
 							<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url('admin/users/editUser', ['uid'=>$vo.uid])}','1','800','500')" class="btn btn-secondary radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i>编辑</a>
 							<a title="删除" href="javascript:;" onclick="admin_del('{$vo.uid}')" class="btn btn-danger radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i>删除</a>
 						</td>
