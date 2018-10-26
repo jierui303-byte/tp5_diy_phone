@@ -22,6 +22,15 @@ class Order extends Base
             ],
             ['id,name,tel,address,pic,order_num,phone_type_id,phone_type_name,phone_varieties_name,phone_varieties_id,var_type_name,var_type_id,create_time']
         );
+
+        //统计当日数据条数
+        $arrSToday = (new OrderService())->getAllListsByWhere(
+            [
+                'status' => 1,
+                'create_time' => array('>', '-2 days')
+            ],
+            ['id,name,tel,address,pic,order_num,phone_type_id,phone_type_name,phone_varieties_name,phone_varieties_id,var_type_name,var_type_id,create_time']
+        );
     
         $this->assign('data', $arrS);
         $this->assign('count', count($arrS));
