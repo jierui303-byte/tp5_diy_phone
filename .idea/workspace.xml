@@ -41,8 +41,18 @@
       <file leaf-file-name="show.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40515652">
-              <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.5156538">
+              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="design.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/static/index/static/design.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.24138">
+              <caret line="88" column="29" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -641,14 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/static/index/static/design.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2578269">
-          <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/order/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.068966">
@@ -661,10 +663,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/static/index/static/design.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.24138">
+          <caret line="88" column="29" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40515652">
-          <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.5156538">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding />
         </state>
       </provider>
