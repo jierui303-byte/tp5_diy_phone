@@ -149,7 +149,7 @@ class Shops extends Base
                 $this->error('修改失败');//失败跳转
             }
         }else{
-            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,user_name,email,real_name,sex,date_of_birth,address,phone,update_time');
+            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,real_name,address,phone,shop_name');
             //获取角色列表
             $authGroups = (new AuthGroup())->getAllListsByWhere(
                 [],
