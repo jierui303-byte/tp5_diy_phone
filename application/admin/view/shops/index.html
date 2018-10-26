@@ -80,7 +80,6 @@
 						<td>{$vo.create_time|strtotime|date="y-m-d",###}</td>
 						<td>{$vo.phone ?? ''}</td>
 						<td>
-							<a id="tttt"></a>
 							<div class="qrcode" data-src="{$vo.shopUrl}"></div>
 							<img class='imgOne'  style='border:1px solid red;'/>
 						</td>
@@ -119,35 +118,66 @@
 <script type="text/javascript" src="__ADMINPATH__/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.qrcode.min.js"></script>
-<script>
-	/**
-	 * 根据图片生成画布
-	 */
-	function convertImageToCanvas(image) {
-		var canvas = document.createElement("canvas");
-		canvas.width = image.width;
-		canvas.height = image.height;
-		canvas.getContext("2d").drawImage(image, 0, 0);
-		return canvas;
-	}
-</script>
 <script type="text/javascript">
 	//更新二维码
 	function admin_update_code(){
 
 	}
+
+	function oDownLoad(url) {
+		console.log(myBrowser());
+
+		if (myBrowser() === "IE") { //IE  //|| myBrowser() === "Edge"
+			odownLoad.href = "#";
+
+			// SaveAs5(url);
+			downloadFile("下载.jpg", url);
+		} else { //!IE
+			var blob = base64Img2Blob(url);
+			url = window.URL.createObjectURL(blob);
+			odownLoad.href = url; odownLoad.download = "";
+		}
+	}
+
+	var odownLoad = null;
+
 	//下载二维码
 	function admin_down_code(thisUserIndex){
-//		var dataURL = $('tr').eq(thisUserIndex).find('.imgOne');
-//		console.log(dataURL);
-		var sampleImage = $('tr').eq(thisUserIndex).find('.imgOne'),
-				canvas = convertImageToCanvas(sampleImage);
-		url = canvas.toDataURL("image/png");//PNG格式
-		//以下代码为下载此图片功能
-		var triggerDownload = $("#tttt").attr("href", url).attr("download", "order-1111111111.png");
-		triggerDownload[0].click();
+		var dataURL = $('tr').eq(thisUserIndex).find('.imgOne').attr('src');
+		console.log(dataURL);
+		odownLoad(dataURL);
 	}
-	$(function(){
+
+	//判断浏览器类型
+	function myBrowser() {
+		var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+		var isOpera = userAgent.indexOf("OPR") > -1;
+		if (isOpera) {
+			return "Opera"
+		}
+		; //判断是否Opera浏览器 OPR/43.0.2442.991
+
+		//if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) { return "IE"; }; //判断是否IE浏览器
+
+		if (userAgent.indexOf("Firefox") > -1) {
+			return "FF";
+		} //判断是否Firefox浏览器  Firefox/51.0
+		if (userAgent.indexOf("Trident") > -1) {
+			return "IE";
+		} //判断是否IE浏览器  Trident/7.0; rv:11.0
+		if (userAgent.indexOf("Edge") > -1) {
+			return "Edge";
+		} //判断是否Edge浏览器  Edge/14.14393
+		if (userAgent.indexOf("Chrome") > -1) {
+			return "Chrome";
+		}// Chrome/56.0.2924.87
+		if (userAgent.indexOf("Safari") > -1) {
+			return "Safari";
+		} //判断是否Safari浏览器 AppleWebKit/534.57.2 Version/5.1.7 Safari/534.57.2
+	}
+
+
+		$(function(){
 		//批量生成二维码
 		$('.qrcode').each(function(){
 			var qrcode = $(this).qrcode({
