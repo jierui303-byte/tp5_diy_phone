@@ -51,7 +51,7 @@ class Shops extends Base
             [
                 'uid' => array('in', $uidStr)
             ],
-            ['uid,user_name,email,real_name,sex,date_of_birth,status,address,phone,create_time']
+            ['uid,user_name,email,real_name,sex,date_of_birth,status,address,phone,create_time,shop_name']
         );
 //        var_dump('<pre>', $arrS);
         $typeId = 1;//机型id
