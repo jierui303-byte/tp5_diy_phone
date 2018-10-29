@@ -104,6 +104,17 @@ class Permissions extends Base
     {
         $model = $this->request->post('model');//数据模型类名
         $id = $this->request->post('id');
+        //判断一下当前这个规则是顶级规则还是子规则   子规则可以直接删除   顶级规则不能直接删除
+        $authRulesInfo = (new \app\common\model\AuthRule())->find('id', $id);
+        if($authRulesInfo['pid'] == 0){
+            //判断是否 存在子规则
+            if((new \app\common\model\AuthRule())->where(array(
+                'id'=>$id,
+                'pid'=>$id
+            ))->count()){
+                $this->error('存在子规则，不能进行删除');
+            }
+        }
         $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
         if ($res) {
             //删除也需要删除用户组绑定的数据
