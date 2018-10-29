@@ -33,7 +33,7 @@ class Base extends Controller
 
         //获取用户信息
         $userInfo = (new \app\common\model\Users())->find(Session::get('uid'));
-        var_dump($userInfo['user_name']);
+//        var_dump($userInfo['user_name']);
         $this->assign('userInfo', $userInfo);
     }
 }
