@@ -42,4 +42,11 @@ class Login extends Controller
         //一般token计算规则：用户登录设备，用户账号密码，干扰值，
         //使用hash加密计算
     }
+
+    //退出
+    public function quit_out()
+    {
+        session('uid',null);
+        $this->success("退出成功！", "admin/login/index");
+    }
 }
