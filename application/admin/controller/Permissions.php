@@ -107,7 +107,7 @@ class Permissions extends Base
 //        $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
 //        if ($res) {
             //删除也需要删除用户组绑定的数据
-            $authRules = (new \app\common\model\AuthRule())->where('rules', 'in', $id)->select();
+            $authRules = (new \app\common\model\AuthRule())->select();
             foreach($authRules as $k=>$v){
                 var_dump('<pre>', $v);
             }
