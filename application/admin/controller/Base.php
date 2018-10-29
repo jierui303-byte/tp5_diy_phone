@@ -1,6 +1,7 @@
 <?php
 namespace app\admin\controller;
 
+use app\common\service\Users;
 use think\Controller;
 use think\Request;
 use think\Loader;
@@ -20,6 +21,7 @@ class Base extends Controller
              $this->error("请先登录！", "admin/login/index");
          }
 
+
         Loader::import("org/Auth", EXTEND_PATH);
         $auth=new \Auth();
         //把模块、控制器和方法转换成一个字符串
@@ -29,5 +31,9 @@ class Base extends Controller
 //            $this->error("您没有该操作的权限!", "admin/index/showError");
 //        }
 
+        //获取用户信息
+        $userInfo = (new \app\common\model\Users())->find(Session::get('uid'));
+        var_dump($userInfo);
+        $this->assign('userInfo', $userInfo);
     }
 }
