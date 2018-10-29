@@ -104,23 +104,28 @@ class Permissions extends Base
     {
         $model = $this->request->post('model');//数据模型类名
         $id = $this->request->post('id');
-        $id = 3;
-//        $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
-//        if ($res) {
+        $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
+        if ($res) {
             //删除也需要删除用户组绑定的数据
             $authRules = (new \app\common\model\AuthGroup())->select();
             foreach($authRules as $k=>$v){
-                var_dump($v['rules'], '删除前');
+                //var_dump($v['rules'], '删除前');
                 //把字符串转换成数组，删除然后再转回字符串
                 $arr = explode(',', $v['rules']);
-                $array = array_diff($arr, [$id]);
-                $arr = implode(',', $array);
-                var_dump($arr, '删除后');
+                if(in_array($id, $arr)){
+                    $array = array_diff($arr, [$id]);
+                    $arr = implode(',', $array);
+                    //var_dump($arr, '删除后');
+                    //把删除后的数据更新到数据库
+                    (new \app\common\model\AuthGroup())->where('id', $v['id'])->update(array(
+                        'rules' => $arr
+                    ));
+                }
             }
-//            $this->success('删除成功', 'admin/permissions/index');
-//        } else {
-//            $this->error('删除失败');
-//        }
+            $this->success('删除成功', 'admin/permissions/index');
+        } else {
+            $this->error('删除失败');
+        }
     }
 
     //删除多个(公共方法)
