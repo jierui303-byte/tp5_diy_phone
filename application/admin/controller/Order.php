@@ -181,8 +181,11 @@ class Order extends Base
     {
         $model = $this->request->post('model');//数据模型类名
         $id = $this->request->post('id');
-        $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
+        $res = \think\Loader::model($model)->where(['id'=>$id])->update(array(
+            'status'=>0
+        ));
         if ($res) {
+            //订单做假删除
            $this->success('删除成功', 'admin/order/index');
         } else {
             $this->error('删除失败');

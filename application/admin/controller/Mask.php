@@ -1,6 +1,7 @@
 <?php
 namespace app\admin\controller;
 
+use app\common\model\MaskCategory;
 use think\Controller;
 use app\common\service\MaskCategory as MaskCategoryService;//引入数据库增删改查方法api类
 use app\common\service\MaskPicture;
@@ -163,6 +164,12 @@ class Mask extends Base
     {
         $model = $this->request->post('model');//数据模型类名
         $id = $this->request->post('id');
+        if($model == 'MaskCategory'){
+            //分类删除 检测分类下是否有图片
+            if((new \app\common\model\MaskPicture())->where('cate_id', $id)->count()){
+                $this->error('该分类下存在图片数据，不允许删除');
+            }
+        }
         $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
         if ($res) {
            $this->success('删除成功', 'admin/mask/index');
