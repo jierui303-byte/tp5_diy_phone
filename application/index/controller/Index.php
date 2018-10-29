@@ -20,6 +20,9 @@ class Index extends Base
     {
         //此处可以判断是否是经过二维码扫描进入本页面的
 
+        //另外需要判断当前用户的状态是否正常  已经到期的不能再访问
+
+
         $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
             [
                 'status' => 1
