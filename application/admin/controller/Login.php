@@ -47,6 +47,6 @@ class Login extends Controller
     public function quit_out()
     {
         session('uid',null);
-        $this->success("退出成功！", "admin/login/index");
+        $this->success("退出成功", "admin/index/index");
     }
 }
