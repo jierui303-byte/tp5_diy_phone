@@ -20,4 +20,16 @@ class Index extends Base
         echo '您没有操作权限';
     }
 
+    //查看用户信息
+    public function showUserInfo()
+    {
+
+    }
+
+    //修改用户密码
+    public function updateUserPassword()
+    {
+
+    }
+
 }
