@@ -22,6 +22,7 @@ class Index extends Base
 
         //另外需要判断当前用户的状态是否正常  已经到期的不能再访问
 
+        //然后，后台删除管理员时，记得删除角色用户绑定记录
 
         $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
             [
