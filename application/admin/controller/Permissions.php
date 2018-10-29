@@ -104,6 +104,7 @@ class Permissions extends Base
     {
         $model = $this->request->post('model');//数据模型类名
         $id = $this->request->post('id');
+        $id = 3;
 //        $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
 //        if ($res) {
             //删除也需要删除用户组绑定的数据
@@ -116,7 +117,6 @@ class Permissions extends Base
                 $arr = implode(',', $array);
                 var_dump('<pre>', $arr);
             }
-        exit;
 //            $this->success('删除成功', 'admin/permissions/index');
 //        } else {
 //            $this->error('删除失败');
