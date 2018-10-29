@@ -123,10 +123,11 @@ class Users extends Base
                 ['id,title,status']
             );
             //获取用户所属角色id
-            $group_id = (new AuthGroupAccess())->getOneByWhere(['uid'=>$uid], ['group_id'])->toArray()['group_id'];
+            $group_id = (new AuthGroupAccess())->getOneByWhere(['uid'=>$uid], ['group_id']);
+            
             $this->assign('authGroups', $authGroups);
             $this->assign('userInfo', $userInfo);
-            $this->assign('group_id', $group_id);
+            $this->assign('group_id', $group_id['group_id']);
             return $this->fetch('edit-user');
         }
     }
