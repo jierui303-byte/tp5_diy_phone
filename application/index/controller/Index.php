@@ -1,6 +1,7 @@
 <?php
 namespace app\index\controller;
 
+use app\common\model\Users;
 use app\common\service\ChartCategory;
 use app\common\service\ChartPicture;
 use app\common\service\MaskCategory;
@@ -21,7 +22,13 @@ class Index extends Base
         //此处可以判断是否是经过二维码扫描进入本页面的
 
         //另外需要判断当前用户的状态是否正常  已经到期的不能再访问
-
+        $userInfo = (new Users())->find($userId);
+        if($userInfo['status'] == 0){
+            return array(
+                'code' => 0,
+                'msg' => '该账户状态不正常，请联系网站管理员!'
+            );
+        }
         //然后，后台删除管理员时，记得删除角色用户绑定记录
 
         $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
