@@ -665,6 +665,7 @@
             var name = $('input[name=name]').val();
             var address = $('input[name=address]').val();
             var pic = $('#xiaDan').data('imgurl');
+            var userId = "{$userId}";
             if(!tel || !name || !address || !pic){
                 alert('表单信息不能为空');
                 return false;
@@ -687,7 +688,8 @@
                     PhoneVarietiesId:PhoneVarietiesId,
                     PhoneVarieties:PhoneVarieties,
                     var_type_id:var_type_id,
-                    var_type:var_type
+                    var_type:var_type,
+                    userId:userId
                 },
                 dataType: "json",
                 success: function(data){

@@ -198,6 +198,7 @@ class Index extends Base
         $data['tel'] = $this->request->post('tel');
         $data['address'] = $this->request->post('address');
         $data['pic'] = $this->request->post('pic');
+        $data['uid'] = $this->request->post('userId');//用户id
         $data['create_time'] = date('y-m-d h:i:s', time());
         if(!$data['name'] || !$data['tel'] || !$data['address'] || !$data['pic']){
             $this->error('表单信息不能为空');
