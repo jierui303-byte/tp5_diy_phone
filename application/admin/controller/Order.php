@@ -19,6 +19,7 @@ class Order extends Base
     {
         //获取当前登录用户id
         $uid = Session::get('uid');
+        var_dump($uid);
 
         $arrS = (new OrderService())->getAllListsByWhere(
             [
