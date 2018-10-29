@@ -6,6 +6,7 @@ use app\common\service\Order as OrderService;//引入数据库增删改查方法
 use app\common\service\MaskPicture;
 use think\Db;
 use think\Validate;
+use think\Session;
 
 class Order extends Base
 {
@@ -16,6 +17,10 @@ class Order extends Base
 
     public function index()
     {
+        //获取当前登录用户id
+        $uid = Session::get('uid');
+        var_dump($uid);
+
         $arrS = (new OrderService())->getAllListsByWhere(
             [
                 'status' => 1
