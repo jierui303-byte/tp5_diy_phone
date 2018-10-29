@@ -19,11 +19,11 @@ class Order extends Base
     {
         //获取当前登录用户id
         $uid = Session::get('uid');
-        var_dump($uid);
 
         $arrS = (new OrderService())->getAllListsByWhere(
             [
-                'status' => 1
+                'status' => 1,
+                'uid' => $uid
             ],
             ['id,name,tel,address,pic,order_num,phone_type_id,phone_type_name,phone_varieties_name,phone_varieties_id,var_type_name,var_type_id,create_time']
         );
@@ -34,6 +34,8 @@ class Order extends Base
 //        var_dump($td, $tm);
         $arrSToday = (new \app\common\model\Order())
             ->whereTime('create_time','between',[$td, $tm])
+            ->where('uid', $uid)
+            ->where('status', 1)
             ->select();
 
         $this->assign('data', $arrS);
