@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="__INDEXPATH__/static/design.css">
     <link rel="stylesheet" href="__INDEXPATH__/static/iconfont.css">
     <script src="__INDEXPATH__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="__INDEXPATH__/fabric.js"></script>
-    <!-- <script src="__INDEXPATH__/fabric2.4.2.js"></script> -->
+    <!--<script src="__INDEXPATH__/fabric.js"></script>-->
+     <script src="__INDEXPATH__/fabric2.4.2.js"></script>
     <style>
         .canvas-container{
             left:calc((100% - 252px) / 2);
@@ -139,7 +139,14 @@
     });
 </script>
 <script>
-    var canvas = new fabric.Canvas('paper', {
+    fabric.Object.prototype.set({
+        transparentCorners: false,
+        cornerColor: 'rgba(102,153,255,0.5)',
+        cornerSize: 12,
+        padding: 5
+    });
+
+    var canvas = window._canvas = new fabric.Canvas('paper', {
         renderOnAddRemove: false,
         stateful: false,
         width:252,
