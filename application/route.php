@@ -39,6 +39,7 @@ Route::post('ajaxUploadImage', 'index/index/ajaxUploadImage');//高清图片上�
 
 Route::get('admin', 'admin/index/index');
 Route::any('adminLoginIndex', 'admin/login/index');
+Route::get('adminQuit_OutIndex', 'admin/login/quit_out');
 
 //管理员管理
 Route::get('adminUsersIndex', 'admin/users/index');

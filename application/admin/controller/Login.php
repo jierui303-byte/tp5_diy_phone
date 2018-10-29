@@ -46,7 +46,7 @@ class Login extends Controller
     //退出
     public function quit_out()
     {
-        session('uid', null);
+        Session::set('uid', null);
         if(!Session::get("uid")){
             $this->error("请先登录！", "admin/login/index");
         }
