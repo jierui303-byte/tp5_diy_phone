@@ -109,7 +109,7 @@ class Permissions extends Base
             //删除也需要删除用户组绑定的数据
             $authRules = (new \app\common\model\AuthGroup())->select();
             foreach($authRules as $k=>$v){
-                var_dump('<pre>', $v);
+                var_dump('<pre>', $v['rules']);
             }
         exit;
 //            $this->success('删除成功', 'admin/permissions/index');
