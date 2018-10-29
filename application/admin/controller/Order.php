@@ -180,7 +180,7 @@ class Order extends Base
             'status'=>0
         ));
         if ($res) {
-            //订单做假删除
+            //订单做假删除 订单图片等7天后自动删除脚本进行删除
            $this->success('删除成功', 'admin/order/index');
         } else {
             $this->error('删除失败');

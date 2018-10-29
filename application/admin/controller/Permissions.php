@@ -11,11 +11,6 @@ use think\Controller;
 
 class Permissions extends Base
 {
-    public function _empty()
-    {
-        return $this->index();
-    }
-
     public function index()
     {
         $data = $this->getRuleTree();

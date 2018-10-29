@@ -99,9 +99,13 @@ class Roles extends Base
         $model = $this->request->post('model');//数据模型类名
         $id = $this->request->post('id');
         //删除之前不能有其他绑定用户
-        $uids = (new AuthGroupAccess())->getOneByWhere(['group_id'=>$id], ['uid,group_id']);
-        if(count($uids) > 0){
+        if((new \app\common\model\AuthGroupAccess())->where('group_id', $id)->count()){
             $this->error('用户组下存在其他用户不得删除');
+        }
+        //绑定了其他规则的用户组也不能进行删除
+        $rulesInfo = \think\Loader::model($model)->where(['id'=>$id])->find($id);
+        if($rulesInfo['rules']){
+            $this->error('用户组下绑定了访问规则不得删除');
         }
         $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
         if ($res) {
