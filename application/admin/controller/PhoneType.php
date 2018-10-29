@@ -2,6 +2,7 @@
 
 namespace app\admin\controller;
 
+use app\common\model\PhoneVarieties;
 use app\common\service\PhoneType as PhoneTypeService;
 use think\Request;
 use think\Validate;
@@ -74,6 +75,10 @@ class PhoneType extends Base
     {
         $model = $this->request->post('model');//数据模型类名
         $id = $this->request->post('id');
+        //删除之前先查询当前机型下是否存在品种数据
+        if((new PhoneVarieties())->where('type_id', $id)->count()){
+            $this->error('该机型下存在品种数据，不允许删除');
+        }
         $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
         if ($res) {
             $this->success('删除成功', 'admin/PhoneType/index');

@@ -162,6 +162,12 @@ class Chart extends Base
     {
         $model = $this->request->post('model');//数据模型类名
         $id = $this->request->post('id');
+        if($model == 'ChartCategory'){
+            //分类删除 检测分类下是否有图片
+            if((new ChartPicture())->where('cate_id', $id)->count()){
+                $this->error('该分类下存在图片数据，不允许删除');
+            }
+        }
         $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
         if ($res) {
             $this->success('删除成功', 'admin/chart/index');

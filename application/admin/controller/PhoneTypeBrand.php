@@ -2,6 +2,7 @@
 
 namespace app\admin\controller;
 
+use app\common\model\PhoneType;
 use app\common\service\PhoneTypeBrand as PhoneTypeBrandService;
 use think\Request;
 use think\Validate;
@@ -106,6 +107,10 @@ class PhoneTypeBrand extends Base
     {
         $model = $this->request->post('model');//数据模型类名
         $id = $this->request->post('id');
+        //删除之前先查询当前品牌下是否存在机型数据
+        if((new PhoneType())->where('brand_id', $id)->count()){
+            $this->error('该品牌下存在机型数据，不允许删除');
+        }
         $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
         if ($res) {
             $this->success('删除成功', 'admin/PhoneTypeBrand/index');
