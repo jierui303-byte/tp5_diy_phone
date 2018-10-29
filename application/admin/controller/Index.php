@@ -24,12 +24,13 @@ class Index extends Base
     public function showUserInfo()
     {
 
+        return $this->fetch('edit-user');
     }
 
     //修改用户密码
     public function updateUserPassword()
     {
-
+        return $this->fetch('update-password');
     }
 
 }
