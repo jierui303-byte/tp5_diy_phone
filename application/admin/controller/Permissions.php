@@ -111,6 +111,7 @@ class Permissions extends Base
             foreach($authRules as $k=>$v){
                 var_dump('<pre>', $v);
             }
+        exit;
 //            $this->success('删除成功', 'admin/permissions/index');
 //        } else {
 //            $this->error('删除失败');
