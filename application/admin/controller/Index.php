@@ -40,17 +40,13 @@ class Index extends Base
                 ->update($data);//新增
             if($res){
                 //把用户名和相应规则绑定在一起
-                $a = (new AuthGroupAccess())
+               (new AuthGroupAccess())
                     ->where('uid', $uid)
                     ->update(array(
                         'uid' => $uid,
                         'group_id' =>$this->request->post('adminRole')
                     ));
-                if($a){
-                    $this->success('修改成功', 'admin/users/index');//成功跳转
-                }else{
-                    $this->error('绑定用户和角色失败');//失败跳转
-                }
+                $this->success('修改成功', 'admin/users/index');//成功跳转
             }else{
                 $this->error('修改失败');//失败跳转
             }
