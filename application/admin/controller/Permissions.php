@@ -109,7 +109,6 @@ class Permissions extends Base
         if($authRulesInfo['pid'] == 0){
             //判断是否 存在子规则
             if((new \app\common\model\AuthRule())->where(array(
-                'id'=>$id,
                 'pid'=>$id
             ))->count()){
                 $this->error('存在子规则，不能进行删除');
