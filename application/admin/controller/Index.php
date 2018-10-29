@@ -70,8 +70,28 @@ class Index extends Base
     //修改用户密码
     public function updateUserPassword()
     {
+        $uid = Session::get('uid');
+        if ($this->request->isAjax()){
+            $psd = $this->request->post('password');
+            $psd2 = $this->request->post('password2');
+            if($psd !== $psd2){
+                $this->error('密码不一致');
+            }
+            $data['password'] = md5($psd);
+            $res = (new UsersService())
+                ->where('uid', $uid)
+                ->update($data);//新增
+            if($res){
+                $this->success('修改成功', 'admin/index/index');//成功跳转
+            }else{
+                $this->error('修改失败');//失败跳转
+            }
+        }else{
+            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,user_name,email,real_name,sex,date_of_birth,address,phone,update_time');
 
-        return $this->fetch('update-password');
+            $this->assign('userInfo', $userInfo);
+            return $this->fetch('update-password');
+        }
     }
 
 }
