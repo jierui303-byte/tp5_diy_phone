@@ -104,17 +104,17 @@ class Permissions extends Base
     {
         $model = $this->request->post('model');//数据模型类名
         $id = $this->request->post('id');
-        //删除之前不能绑定在用户所属权限上
-//        $uids = (new AuthGroupAccess())->getOneByWhere(['group_id'=>$id], ['uid,group_id']);
-//        if(count($uids) > 0){
-//            $this->error('用户组下存在其他用户不得删除');
+//        $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
+//        if ($res) {
+            //删除也需要删除用户组绑定的数据
+            $authRules = (new \app\common\model\AuthRule())->where('rules', 'in', $id)->select();
+            foreach($authRules as $k=>$v){
+                var_dump('<pre>', $v);
+            }
+//            $this->success('删除成功', 'admin/permissions/index');
+//        } else {
+//            $this->error('删除失败');
 //        }
-        $res = \think\Loader::model($model)->where(['id'=>$id])->delete();
-        if ($res) {
-            $this->success('删除成功', 'admin/permissions/index');
-        } else {
-            $this->error('删除失败');
-        }
     }
 
     //删除多个(公共方法)
