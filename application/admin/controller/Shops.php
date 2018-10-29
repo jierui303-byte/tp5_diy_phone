@@ -142,12 +142,8 @@ class Shops extends Base
         $uid = $this->request->post('id');
         $res = \think\Loader::model($model)->where(['uid'=>$uid])->delete();
         if ($res) {
-            $a = \think\Loader::model($model2)->where(['uid'=>$uid])->delete();
-            if($a){
-                $this->success('删除成功', 'admin/users/index');
-            }else{
-                $this->error('删除用户和角色绑定失败');
-            }
+            \think\Loader::model($model2)->where(['uid'=>$uid])->delete();
+            $this->success('删除成功', 'admin/users/index');
         } else {
             $this->error('删除失败');
         }
