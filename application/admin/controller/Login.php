@@ -48,7 +48,7 @@ class Login extends Controller
     {
         Session::set('uid', null);
         if(!Session::get("uid")){
-            $this->error("请先登录！", "admin/login/index");
+            $this->error("退出成功！", "admin/login/index");
         }
     }
 }
