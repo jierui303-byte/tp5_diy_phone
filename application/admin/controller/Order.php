@@ -10,11 +10,6 @@ use think\Session;
 
 class Order extends Base
 {
-    public function _empty()
-    {
-        return $this->index();
-    }
-
     public function index()
     {
         //获取当前登录用户id
