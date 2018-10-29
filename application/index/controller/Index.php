@@ -80,6 +80,7 @@ class Index extends Base
         $this->assign('phoneVarietiesNameId', $phoneVarietiesNameId);
         $this->assign('varTypeName', $varTypeName);
         $this->assign('varTypeNameId', $varTypeNameId);
+        $this->assign('userId', $userId);
         return $this->fetch('show');
     }
 
