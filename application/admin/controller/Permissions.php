@@ -110,6 +110,11 @@ class Permissions extends Base
             $authRules = (new \app\common\model\AuthGroup())->select();
             foreach($authRules as $k=>$v){
                 var_dump('<pre>', $v['rules']);
+                //把字符串转换成数组，删除然后再转回字符串
+                $arr = explode(',', $v['rules']);
+                $array = array_diff($arr, [$id]);
+                $arr = implode(',', $array);
+                var_dump('<pre>', $arr);
             }
         exit;
 //            $this->success('删除成功', 'admin/permissions/index');
