@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/view/index/show.html" afterPath="$PROJECT_DIR$/application/index/view/index/show.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/static/index/fabric.js" afterPath="$PROJECT_DIR$/public/static/index/fabric.js" />
     </list>
     <ignored path="tp5_diy_phone.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,21 +55,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fabric.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="fabric.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/static/index/fabric.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="110.666664">
-              <caret line="1889" column="44" selection-start-line="1889" selection-start-column="44" selection-end-line="1889" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.70240295">
+              <caret line="0" column="2066" selection-start-line="0" selection-start-column="2066" selection-end-line="0" selection-end-column="2066" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="show.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40590405">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+            <state vertical-scroll-proportion="-9.655172">
+              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -103,8 +104,8 @@
         <option value="$PROJECT_DIR$/application/index/view/index/index.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Users.php" />
         <option value="$PROJECT_DIR$/application/index/controller/Index.php" />
-        <option value="$PROJECT_DIR$/public/static/index/fabric.js" />
         <option value="$PROJECT_DIR$/application/index/view/index/show.html" />
+        <option value="$PROJECT_DIR$/public/static/index/fabric.js" />
       </list>
     </option>
   </component>
@@ -924,18 +925,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/static/index/fabric.js">
+    <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="110.666664">
-          <caret line="1889" column="44" selection-start-line="1889" selection-start-column="44" selection-end-line="1889" selection-end-column="44" />
+        <state vertical-scroll-proportion="-9.655172">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
+    <entry file="file://$PROJECT_DIR$/public/static/index/fabric.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40590405">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.70240295">
+          <caret line="0" column="2066" selection-start-line="0" selection-start-column="2066" selection-end-line="0" selection-end-column="2066" />
           <folding />
         </state>
       </provider>
