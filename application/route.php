@@ -38,8 +38,8 @@ Route::post('ajaxUploadImage', 'index/index/ajaxUploadImage');//高清图片上�
 
 
 Route::get('admin', 'admin/index/index');
-Route::get('admin', 'admin/index/showUserInfo');//个人信息
-Route::get('admin', 'admin/index/updateUserPassword');//修改密码
+Route::get('adminShowUserInfo', 'admin/index/showUserInfo');//个人信息
+Route::get('adminUpdateUserPassword', 'admin/index/updateUserPassword');//修改密码
 Route::any('adminLoginIndex', 'admin/login/index');//登录
 Route::get('adminQuit_OutIndex', 'admin/login/quit_out');//退出
 
