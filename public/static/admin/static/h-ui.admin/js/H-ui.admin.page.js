@@ -89,7 +89,7 @@ function getHTMLDate(obj) {
 function myselfinfo(){
 	layer.open({
 		type: 1,
-		area: ['300px','200px'],
+		area: ['800px','500px'],
 		fix: false, //不固定
 		maxmin: true,
 		shade:0.4,
