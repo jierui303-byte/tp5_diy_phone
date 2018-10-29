@@ -30,10 +30,4 @@ class Base extends Controller
 //        }
 
     }
-
-    public function __construct(Request $request)
-    {
-        parent::__construct($request);
-        $this->request = Request::instance();
-    }
 }

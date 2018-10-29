@@ -20,7 +20,7 @@ class Login extends Controller
                 if(md5($this->request->post('password')) === $userInfo['password']){
                     //登录成功，存储UID
                     Session::set('uid', $userInfo['uid']);
-                    var_dump(Session::get('uid'));exit;
+
                     //此时可以计算用户token 代表用户登录在线状态
                     $this->success('登录成功', 'admin/index/index');
                 }else{
