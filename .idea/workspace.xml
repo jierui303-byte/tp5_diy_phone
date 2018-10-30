@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/view/index/index.html" afterPath="$PROJECT_DIR$/application/index/view/index/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/static/index/jquery.marquee.css" afterPath="$PROJECT_DIR$/public/static/index/jquery.marquee.css" />
     </list>
     <ignored path="tp5_diy_phone.iws" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="jquery.marquee.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/static/index/jquery.marquee.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6213592">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5048544">
+              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -829,8 +828,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/static/index/jquery.marquee.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6213592">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5048544">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
           <folding />
         </state>
       </provider>
