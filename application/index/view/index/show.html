@@ -96,7 +96,7 @@
             <h5>订单编号：{$orderNum}</h5>
             <form id="form2" method="post">
                 <input type="hidden" name="orderId"><br>
-                <input type="text" name="tel" placeholder="请输入手机号【必填】"><br>
+                <input type="text" name="tel" placeholder="请输入手机号"><br>
                 <input type="text" name="name" placeholder="请输入姓名"><br>
                 <input type="text" name="address" placeholder="请输入收货地址"><br>
             </form>
@@ -667,17 +667,18 @@
             var address = $('input[name=address]').val();
             var pic = $('#xiaDan').data('imgurl');
             var userId = "{$userId}";
-            if(!tel){
-                alert('手机号不能为空');
+            if(!tel || !name || !address || !pic){
+                alert('表单信息不能为空');
                 return false;
             }
-            //手机号码规则验证 手机号正则
+            //手机号正则
             var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
+            //电话
+            var phone = $.trim(tel);
             if (!phoneReg.test(tel)) {
                 alert('请输入有效的手机号码！');
                 return false;
             }
-
             //把图片进行上传并且返回图片的完整地址
             console.log(pic);
 
