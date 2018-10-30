@@ -67,6 +67,7 @@ class Index extends Base
 
         $this->assign('brandLists', $brandLists);
         $this->assign('userId', $userId);//商家id
+        $this->assign('userInfo', $userInfo);//商家信息
         return $this->fetch('index');
     }
 
