@@ -37,7 +37,17 @@ class Index extends Base
                     $end_time = strtotime($userInfo['end_time']);
                     $currentTime = time();
                     if($currentTime >= $start_time && $currentTime <= $end_time){
+                        $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
+                            [
+                                'status' => 1
+                            ],
+                            ['id,brand_logo']
+                        );
 
+                        $this->assign('brandLists', $brandLists);
+                        $this->assign('userId', $userId);//商家id
+                        $this->assign('userInfo', $userInfo);//商家信息
+                        return $this->fetch('index');
                     }else{
                         return array(
                             'code' => 0,
@@ -63,18 +73,6 @@ class Index extends Base
                 'msg' => '该账户状态不正常，请联系网站管理员!'
             );
         }
-
-        $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
-            [
-                'status' => 1
-            ],
-            ['id,brand_logo']
-        );
-
-        $this->assign('brandLists', $brandLists);
-        $this->assign('userId', $userId);//商家id
-        $this->assign('userInfo', $userInfo);//商家信息
-        return $this->fetch('index');
 
     }
 
