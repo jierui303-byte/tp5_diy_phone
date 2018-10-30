@@ -667,7 +667,7 @@
             $('#orderPostSelf').show();
         });
 
-        //下单提交表单
+        //邮寄下单提交表单
         $('#orderPost .submit').on('click', function(){
             var orderNum = '{$orderNum}';//订单编号
             var PhoneTypeId = '{$phoneTypeNameId}';//手机机型
@@ -730,6 +730,70 @@
             });
 
         });
+
+        //自提下单提交表单
+        $('#orderPostSelf .submit').on('click', function(){
+            var orderNum = '{$orderNum}';//订单编号
+            var PhoneTypeId = '{$phoneTypeNameId}';//手机机型
+            var PhoneType = '{$phoneTypeName}';//手机机型
+            var PhoneVarietiesId = '{$phoneVarietiesNameId}';//品种名称
+            var PhoneVarieties = '{$phoneVarietiesName}';//品种名称
+            var var_type_id = '{$varTypeNameId}';//品种类型
+            var var_type = '{$varTypeName}';//品种类型
+            var tel = $('#orderPost input[name=tel]').val();
+            var name = $('#orderPost input[name=name]').val();
+            var pic = $('#xiaDan').data('imgurl');
+            var userId = "{$userId}";
+            if(!tel || !pic){
+                alert('表单信息不能为空');
+                return false;
+            }
+            //手机号正则
+            var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
+            //电话
+            var phone = $.trim(tel);
+            if (!phoneReg.test(tel)) {
+                alert('请输入有效的手机号码！');
+                return false;
+            }
+            //把图片进行上传并且返回图片的完整地址
+            console.log(pic);
+
+            //ajax表单提交订单
+            $.ajax({
+                type: "post",
+                url: "/ajaxPost.html",
+                data:{
+                    orderNum:orderNum,
+                    tel:tel,
+                    name:name,
+                    address:address,
+                    pic:pic,
+                    PhoneTypeId:PhoneTypeId,
+                    PhoneType:PhoneType,
+                    PhoneVarietiesId:PhoneVarietiesId,
+                    PhoneVarieties:PhoneVarieties,
+                    var_type_id:var_type_id,
+                    var_type:var_type,
+                    userId:userId
+                },
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    if(data.code == 1){
+                        var str = '<div><h5>下单成功！</h5>'+
+                                '<h5>订单编号：{$orderNum}</h5>'+
+                                '</div>';
+                        $('.order').empty().append(str);
+                    }else{
+                        alert(data.msg);
+                    }
+
+                }
+            });
+
+        });
+
         //取消表单提交
         $('.order .esc').on('click', function(){
             $(this).parents('.order').hide();
