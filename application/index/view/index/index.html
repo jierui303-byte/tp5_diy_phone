@@ -123,9 +123,10 @@
     </style>
 <body>
 <div id="app">
-    <div class="head marquee"  id="marquee">
-        <span>店铺地址：{$userInfo['address']} 新品：纳米防爆镜面壳（非易碎玻璃壳）</span>
-    </div>
+    <ul class="head marquee"  id="marquee">
+        <li>店铺地址：{$userInfo['address']}</li>
+        <li>新品：纳米防爆镜面壳（非易碎玻璃壳）</li>
+    </ul>
     <h5>请选择品牌</h5>
     <ul class="brands">
         {foreach $brandLists as $vo}
