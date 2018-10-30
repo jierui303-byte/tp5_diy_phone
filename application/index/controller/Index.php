@@ -35,8 +35,25 @@ class Index extends Base
                     //判断商户的有效期是否到期，是否在有效期范围内，不再范围内不允许访问
                     $start_time = $userInfo['start_time'];
                     $end_time = $userInfo['end_time'];
-                    $currentTime = time();
+                    $currentTime = date('Y-m-d h:i:s', time());
+                    if($currentTime >= $start_time && $currentTime <= $end_time){
+                        $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
+                            [
+                                'status' => 1
+                            ],
+                            ['id,brand_logo']
+                        );
 
+                        $this->assign('brandLists', $brandLists);
+                        $this->assign('userId', $userId);//商家id
+                        $this->assign('userInfo', $userInfo);//商家信息
+                        return $this->fetch('index');
+                    }else{
+                        return array(
+                            'code' => 0,
+                            'msg' => '该账户有效期已到期，请联系网站管理员!'
+                        );
+                    }
                 }else{
                     //为商户,判断商户状态为0时，也就是认证状态被关闭  只有认证过的才能允许访问
                     return array(
@@ -58,17 +75,7 @@ class Index extends Base
         }
 
 
-        $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
-            [
-                'status' => 1
-            ],
-            ['id,brand_logo']
-        );
 
-        $this->assign('brandLists', $brandLists);
-        $this->assign('userId', $userId);//商家id
-        $this->assign('userInfo', $userInfo);//商家信息
-        return $this->fetch('index');
     }
 
     public function canvas()
