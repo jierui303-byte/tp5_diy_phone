@@ -667,10 +667,12 @@
             var address = $('input[name=address]').val();
             var pic = $('#xiaDan').data('imgurl');
             var userId = "{$userId}";
-            if(!tel || !name || !address || !pic){
-                alert('表单信息不能为空');
+            if(!tel){
+                alert('手机号不能为空');
                 return false;
             }
+            //手机号码规则验证
+            
             //把图片进行上传并且返回图片的完整地址
             console.log(pic);
 
