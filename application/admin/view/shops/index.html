@@ -81,7 +81,7 @@
 						<td>{$vo.phone ?? ''}</td>
 						<td>
 							<div class="qrcode" data-src="{$vo.shopUrl}"></div>
-							<img class='img{$vo.uid}'  style='border:1px solid #ccc;'/>
+							<img class='imgOne'  style='border:1px solid #ccc;'/>
 						</td>
 						<td>0</td>
 						<td>
@@ -134,7 +134,7 @@
 
 	//下载二维码
 	function admin_down_code(thisUserIndex){
-		var dataURL = $('tr').eq(thisUserIndex).find('.img'+thisUserIndex).attr('src');
+		var dataURL = $('tr').eq(thisUserIndex).find('.imgOne').attr('src');
 		console.log(dataURL);
 //		var type = "image/png"; // 定义图片类型（canvas转的图片一般都是png，也可以指定其他类型）
 //		let conversions = base64ToBlob(dataURL, type); // 调用base64转图片方法
