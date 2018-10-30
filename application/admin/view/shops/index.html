@@ -98,7 +98,7 @@
 							<a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url('admin/shops/editUser', ['uid'=>$vo.uid])}','1','800','500')" class="btn btn-secondary radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i>编辑</a>
 							<a title="删除" href="javascript:;" onclick="admin_del('{$vo.uid}')" class="btn btn-danger radius size-MINI" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i>删除</a>
 							<!--<a class="btn btn-success radius size-MINI" onclick="admin_update_code('{$vo.uid}')"><i class="Hui-iconfont">&#xe641;</i>更新Code</a>-->
-							<a class="btn btn-success radius size-MINI" onclick="admin_down_code({$vo.uid})"><i class="Hui-iconfont">&#xe641;</i>下载Code</a>
+							<a class="btn btn-success radius size-MINI" onclick="admin_down_code(this, {$vo.uid})"><i class="Hui-iconfont">&#xe641;</i>下载Code</a>
 						</td>
 					</tr>
 				{/foreach}
@@ -133,7 +133,8 @@
 //	}
 
 	//下载二维码
-	function admin_down_code(thisUserIndex){
+	function admin_down_code(thisObj, thisUserIndex){
+		console.log($(thisObj));
 		var dataURL = $('tr').eq(thisUserIndex).find('.imgOne').attr('src');
 		console.log(dataURL);
 //		var type = "image/png"; // 定义图片类型（canvas转的图片一般都是png，也可以指定其他类型）
