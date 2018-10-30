@@ -51,7 +51,7 @@ class Shops extends Base
             [
                 'uid' => array('in', $uidStr)
             ],
-            ['uid,user_name,email,real_name,sex,birth_time,status,address,phone,create_time,shop_name']
+            ['uid,user_name,email,real_name,sex,birth_time,status,address,phone,create_time,shop_name,start_time,end_time']
         );
 //        var_dump('<pre>', $arrS);
 
@@ -75,6 +75,8 @@ class Shops extends Base
             $data['real_name'] = $this->request->post('real_name');
             $data['address'] = $this->request->post('address');
             $data['phone'] = $this->request->post('phone');
+            $data['start_time'] = $this->request->post('start_time');
+            $data['end_time'] = $this->request->post('end_time');
             $data['create_time'] = date('y-m-d h:i:s',time());
             $res = (new UsersService())->insert($data);//新增
             if($res){
@@ -110,6 +112,8 @@ class Shops extends Base
             $data['real_name'] = $this->request->post('real_name');
             $data['address'] = $this->request->post('address');
             $data['phone'] = $this->request->post('phone');
+            $data['start_time'] = $this->request->post('start_time');
+            $data['end_time'] = $this->request->post('end_time');
             $res = (new UsersService())
                 ->where('uid', $uid)
                 ->update($data);//新增
@@ -119,7 +123,7 @@ class Shops extends Base
                 $this->error('修改失败');//失败跳转
             }
         }else{
-            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,real_name,address,phone,shop_name');
+            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,real_name,address,phone,shop_name,start_time,end_time');
             //获取角色列表
             $authGroups = (new AuthGroup())->getAllListsByWhere(
                 [],

@@ -59,6 +59,14 @@
 			</div>
 		</div>
 		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>有效期：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" name="start_time" onfocus="selecttime(1)" id="countTimestart" class="input-text Wdate" style="width:120px;">
+				-
+				<input type="text" name="end_time" onfocus="selecttime(2)" id="countTimeend" class="input-text Wdate" style="width:120px;">
+			</div>
+		</div>
+		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
@@ -72,6 +80,7 @@
 
 {block name="javascript"}
 <!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__ADMINPATH__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
@@ -111,6 +120,12 @@ $(function(){
 			adminRole:{
 				required:true,
 			},
+			start_time:{
+				required:true,
+			},
+			end_time:{
+				required:true,
+			}
 		},
 		onkeyup:false,
 		focusCleanup:true,
@@ -153,6 +168,27 @@ $(function(){
 		}
 	});
 });
+
+/*日期插件My97 DatePicker*/
+function selecttime(flag){
+	if(flag==1){
+		var endTime = $("#countTimeend").val();
+		if(endTime != ""){
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',maxDate:endTime})}else{
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})}
+	}else if(flag == 2){
+		var startTime = $("#countTimestart").val();
+		if(startTime != ""){
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',minDate:startTime})}else{
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})}
+	}else{
+		var birthTime = $("#birthTime").val();
+		if(birthTime != ""){
+			WdatePicker({dateFmt:'yyyy-MM-dd',minDate:birthTime})}else{
+			WdatePicker({dateFmt:'yyyy-MM-dd'})}
+	}
+}
+
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 {/block}
