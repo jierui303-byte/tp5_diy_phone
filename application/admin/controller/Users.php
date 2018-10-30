@@ -15,7 +15,7 @@ class Users extends Base
     {
         $arrS = (new UsersService())->getAllListsByWhere(
             [],
-            ['uid,user_name,email,real_name,sex,date_of_birth,status,address,phone,update_time']
+            ['uid,user_name,email,real_name,sex,birth_time,status,address,phone,update_time,start_time,end_time']
         );
         //获取用户的角色名称
         foreach($arrS as $k=>$v){
