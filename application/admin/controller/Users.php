@@ -113,7 +113,7 @@ class Users extends Base
                 $this->error('修改失败');//失败跳转
             }
         }else{
-            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,user_name,email,real_name,sex,date_of_birth,address,phone,update_time');
+            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,user_name,email,real_name,sex,birth_time,address,phone,update_time,start_time,end_time');
             //获取角色列表
             $authGroups = (new AuthGroup())->getAllListsByWhere(
                 [],

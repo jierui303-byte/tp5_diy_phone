@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Users.php" afterPath="$PROJECT_DIR$/application/admin/controller/Users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/users/edit-user.html" afterPath="$PROJECT_DIR$/application/admin/view/users/edit-user.html" />
     </list>
     <ignored path="tp5_diy_phone.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,8 +55,8 @@
       <file leaf-file-name="Users.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.80478823">
-              <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.59484345">
+              <caret line="122" column="91" selection-start-line="122" selection-start-column="91" selection-end-line="122" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -847,8 +846,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.80478823">
-          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.59484345">
+          <caret line="122" column="91" selection-start-line="122" selection-start-column="91" selection-end-line="122" selection-end-column="91" />
           <folding />
         </state>
       </provider>
