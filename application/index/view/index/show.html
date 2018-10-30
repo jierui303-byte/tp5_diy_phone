@@ -104,6 +104,19 @@
             <button class="esc">取消</button>
         </div>
     </div>
+
+    <div class="order" id="orderPostSelf" style="display: none;">
+        <div>
+            <h5>订单编号：{$orderNum}</h5>
+            <form id="form2" method="post">
+                <input type="hidden" name="orderId"><br>
+                <input type="text" name="tel" placeholder="请输入手机号[必填]"><br>
+                <input type="text" name="name" placeholder="请输入姓名"><br>
+            </form>
+            <button class="submit">提交</button>
+            <button class="esc">取消</button>
+        </div>
+    </div>
     <!-- <form id="form1">
         <input type="text" name="tbShopsId">
         <input type="text" name="tbSpecId">
@@ -650,6 +663,8 @@
 
         //自提
         $('#cancelXD').on('click', function(){
+            $('#imgBox').hide();
+            $('#orderPostSelf').show();
             window.location.href = window.location.href;
         });
 
