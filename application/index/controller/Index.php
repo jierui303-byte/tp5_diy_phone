@@ -37,17 +37,7 @@ class Index extends Base
                     $end_time = $userInfo['end_time'];
                     $currentTime = date('Y-m-d h:i:s', time());
                     if($currentTime >= $start_time && $currentTime <= $end_time){
-                        $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
-                            [
-                                'status' => 1
-                            ],
-                            ['id,brand_logo']
-                        );
 
-                        $this->assign('brandLists', $brandLists);
-                        $this->assign('userId', $userId);//商家id
-                        $this->assign('userInfo', $userInfo);//商家信息
-                        return $this->fetch('index');
                     }else{
                         return array(
                             'code' => 0,
@@ -74,7 +64,17 @@ class Index extends Base
             );
         }
 
+        $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
+            [
+                'status' => 1
+            ],
+            ['id,brand_logo']
+        );
 
+        $this->assign('brandLists', $brandLists);
+        $this->assign('userId', $userId);//商家id
+        $this->assign('userInfo', $userInfo);//商家信息
+        return $this->fetch('index');
 
     }
 
