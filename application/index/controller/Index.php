@@ -19,17 +19,26 @@ class Index extends Base
 {
     public function index($userId)
     {
+        $userInfo = (new Users())->find($userId);
         //此处可以判断是否是经过二维码扫描进入本页面的
 
+        //还需要判断当前用户的身份是否是商户，是商户才能访问
+        $admin_role_id = $userInfo['admin_role_id'];//
+
         //另外需要判断当前用户的状态是否正常  已经到期的不能再访问
-        $userInfo = (new Users())->find($userId);
+        $status = $userInfo['status'];
+
         if($userInfo['status'] == 0){
+            //状态为0时，也就是认证状态被关闭  只有认证过的才能允许访问
             return array(
                 'code' => 0,
                 'msg' => '该账户状态不正常，请联系网站管理员!'
             );
         }
-        //然后，后台删除管理员时，记得删除角色用户绑定记录
+        //判断商户的有效期是否到期，是否在有效期范围内，不再范围内不允许访问
+        $start_time = $userInfo['start_time'];
+        $end_time = $userInfo['end_time'];
+
 
         $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
             [
