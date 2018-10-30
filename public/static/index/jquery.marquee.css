@@ -14,6 +14,14 @@ ul.marquee {
 
 	background-color: #f2f2ff;
 	border: 1px solid #08084d;
+	height: 40px;
+	line-height: 40px;
+	background: #FFA500;
+	box-shadow: 0 0 1px #ccc;
+	color: #fff;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 ul.marquee li {
