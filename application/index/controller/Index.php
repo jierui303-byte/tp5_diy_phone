@@ -1,6 +1,7 @@
 <?php
 namespace app\index\controller;
 
+use app\common\model\AuthGroupAccess;
 use app\common\model\Users;
 use app\common\service\ChartCategory;
 use app\common\service\ChartPicture;
@@ -22,22 +23,39 @@ class Index extends Base
         $userInfo = (new Users())->find($userId);
         //此处可以判断是否是经过二维码扫描进入本页面的
 
-        //还需要判断当前用户的身份是否是商户，是商户才能访问
-        $admin_role_id = $userInfo['admin_role_id'];//
-
-        //另外需要判断当前用户的状态是否正常  已经到期的不能再访问
-        $status = $userInfo['status'];
-
-        if($userInfo['status'] == 0){
-            //状态为0时，也就是认证状态被关闭  只有认证过的才能允许访问
+        //还需要判断当前用户的身份是否是商户，是商户才能访问  默认2为商户
+        $authGroupAccess = (new AuthGroupAccess())->where('id', $userId)->find();
+        if($authGroupAccess){
+            //判断是商户还是普通用户
+            if($authGroupAccess['group_id'] == 2){
+                //另外需要判断当前用户的状态是否正常  已经到期的不能再访问
+                $status = $userInfo['status'];
+                if($status == 1){
+                    //判断是否在营运的有效期内
+                    //判断商户的有效期是否到期，是否在有效期范围内，不再范围内不允许访问
+                    $start_time = $userInfo['start_time'];
+                    $end_time = $userInfo['end_time'];
+                    $currentTime = time();
+                    
+                }else{
+                    //为商户,判断商户状态为0时，也就是认证状态被关闭  只有认证过的才能允许访问
+                    return array(
+                        'code' => 0,
+                        'msg' => '该账户状态不正常，请联系网站管理员!'
+                    );
+                }
+            }else{
+                return array(
+                    'code' => 0,
+                    'msg' => '该账户不具备访问店铺资格，请联系网站管理员!'
+                );
+            }
+        }else{
             return array(
                 'code' => 0,
                 'msg' => '该账户状态不正常，请联系网站管理员!'
             );
         }
-        //判断商户的有效期是否到期，是否在有效期范围内，不再范围内不允许访问
-        $start_time = $userInfo['start_time'];
-        $end_time = $userInfo['end_time'];
 
 
         $brandLists = (new PhoneTypeBrand())->getAllListsByWhere(
