@@ -658,12 +658,14 @@
         $('#xiaDan').on('click', function(){
             console.log('aaa');
             $('#imgBox').hide();
+            $('#orderPostSelf').remove();
             $('#orderPost').show();
         });
 
         //自提
         $('#cancelXD').on('click', function(){
             $('#imgBox').hide();
+            $('#orderPost').remove();
             $('#orderPostSelf').show();
         });
 
