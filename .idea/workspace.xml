@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/chart/index.html" afterPath="$PROJECT_DIR$/application/admin/view/chart/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/mask/index.html" afterPath="$PROJECT_DIR$/application/admin/view/mask/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/order/index.html" afterPath="$PROJECT_DIR$/application/admin/view/order/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/permissions/index.html" afterPath="$PROJECT_DIR$/application/admin/view/permissions/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/phone_type/index.html" afterPath="$PROJECT_DIR$/application/admin/view/phone_type/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html" afterPath="$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/phone_varieties/index.html" afterPath="$PROJECT_DIR$/application/admin/view/phone_varieties/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/shop/index.html" afterPath="$PROJECT_DIR$/application/admin/view/shop/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/shops/index.html" afterPath="$PROJECT_DIR$/application/admin/view/shops/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/users/index.html" afterPath="$PROJECT_DIR$/application/admin/view/users/index.html" />
     </list>
     <ignored path="tp5_diy_phone.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,14 +57,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.379311">
-              <caret line="37" column="22" selection-start-line="34" selection-start-column="16" selection-end-line="37" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.5745856">
+              <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
               <folding>
-                <marker date="1540873316035" expanded="true" signature="6819:6839" placeholder="..." />
-                <marker date="1540873316035" expanded="true" signature="7365:7385" placeholder="..." />
+                <marker date="1540873469016" expanded="true" signature="6795:6815" placeholder="..." />
+                <marker date="1540873469016" expanded="true" signature="7341:7361" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -141,10 +132,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/users/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5377532">
+            <state vertical-scroll-proportion="-10.068966">
               <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
               <folding>
                 <marker date="1540873384114" expanded="true" signature="8504:8524" placeholder="..." />
@@ -198,11 +189,11 @@
         <option value="$PROJECT_DIR$/application/admin/view/order/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/permissions/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/phone_type/index.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/phone_varieties/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/shop/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/shops/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/users/index.html" />
+        <option value="$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html" />
       </list>
     </option>
   </component>
@@ -1160,28 +1151,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/phone_type/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.275862">
-          <caret line="37" column="22" selection-start-line="34" selection-start-column="16" selection-end-line="37" selection-end-column="22" />
-          <folding>
-            <marker date="1540873309391" expanded="true" signature="6691:6711" placeholder="..." />
-            <marker date="1540873309391" expanded="true" signature="7237:7257" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.379311">
-          <caret line="37" column="22" selection-start-line="34" selection-start-column="16" selection-end-line="37" selection-end-column="22" />
-          <folding>
-            <marker date="1540873316035" expanded="true" signature="6819:6839" placeholder="..." />
-            <marker date="1540873316035" expanded="true" signature="7365:7385" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/phone_varieties/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.655172">
@@ -1236,11 +1205,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/users/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5377532">
+        <state vertical-scroll-proportion="-10.068966">
           <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
           <folding>
             <marker date="1540873384114" expanded="true" signature="8504:8524" placeholder="..." />
             <marker date="1540873384114" expanded="true" signature="8976:8996" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/phone_type/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.275862">
+          <caret line="37" column="22" selection-start-line="34" selection-start-column="16" selection-end-line="37" selection-end-column="22" />
+          <folding>
+            <marker date="1540873309391" expanded="true" signature="6691:6711" placeholder="..." />
+            <marker date="1540873309391" expanded="true" signature="7237:7257" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/phone_type_brand/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5745856">
+          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+          <folding>
+            <marker date="1540873469016" expanded="true" signature="6795:6815" placeholder="..." />
+            <marker date="1540873469016" expanded="true" signature="7341:7361" placeholder="..." />
           </folding>
         </state>
       </provider>
