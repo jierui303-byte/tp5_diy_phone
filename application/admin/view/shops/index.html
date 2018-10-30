@@ -134,8 +134,7 @@
 
 	//下载二维码
 	function admin_down_code(thisObj, thisUserIndex){
-		console.log( $(thisObj).parents('tbody').find('.imgOne').attr('src') );
-		var dataURL = $('tr').eq(thisUserIndex).find('.imgOne').attr('src');
+		var dataURL = $(thisObj).parents('tbody').find('.imgOne').attr('src');
 		console.log(dataURL);
 //		var type = "image/png"; // 定义图片类型（canvas转的图片一般都是png，也可以指定其他类型）
 //		let conversions = base64ToBlob(dataURL, type); // 调用base64转图片方法
