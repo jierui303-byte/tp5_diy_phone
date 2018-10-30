@@ -113,6 +113,7 @@
 
 {block name="javascript"}
 <!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__ADMINPATH__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
@@ -209,6 +210,26 @@ $(function(){
 		}
 	});
 });
+
+/*日期插件My97 DatePicker*/
+function selecttime(flag){
+	if(flag==1){
+		var endTime = $("#countTimeend").val();
+		if(endTime != ""){
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',maxDate:endTime})}else{
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})}
+	}else if(flag == 2){
+		var startTime = $("#countTimestart").val();
+		if(startTime != ""){
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',minDate:startTime})}else{
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})}
+	}else{
+		var birthTime = $("#birthTime").val();
+		if(birthTime != ""){
+			WdatePicker({dateFmt:'yyyy-MM-dd',minDate:birthTime})}else{
+			WdatePicker({dateFmt:'yyyy-MM-dd'})}
+	}
+}
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 {/block}

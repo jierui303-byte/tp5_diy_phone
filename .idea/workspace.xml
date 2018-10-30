@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Users.php" afterPath="$PROJECT_DIR$/application/admin/controller/Users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/users/add-user.html" afterPath="$PROJECT_DIR$/application/admin/view/users/add-user.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/users/edit-user.html" afterPath="$PROJECT_DIR$/application/admin/view/users/edit-user.html" />
     </list>
     <ignored path="tp5_diy_phone.iws" />
@@ -29,8 +27,8 @@
       <file leaf-file-name="add-user.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/users/add-user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.877193">
-              <caret line="168" column="13" selection-start-line="163" selection-start-column="12" selection-end-line="168" selection-end-column="13" />
+            <state vertical-scroll-proportion="-7.982456">
+              <caret line="231" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#6;n#form#0;n#article#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#10;n#form#0;n#article#0;n#!!top" expanded="true" />
@@ -40,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit-user.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="edit-user.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/view/users/edit-user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.7017544">
-              <caret line="146" column="22" selection-start-line="146" selection-start-column="12" selection-end-line="146" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.18446602">
+              <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#7;n#form#0;n#article#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#10;n#form#0;n#article#0;n#!!top" expanded="true" />
@@ -54,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Users.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Users.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22651933">
-              <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+            <state vertical-scroll-proportion="-11.827586">
+              <caret line="132" column="25" selection-start-line="132" selection-start-column="25" selection-end-line="132" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -124,8 +122,8 @@
         <option value="$PROJECT_DIR$/application/admin/controller/Permissions.php" />
         <option value="$PROJECT_DIR$/application/admin/controller/Shops.php" />
         <option value="$PROJECT_DIR$/application/admin/view/users/add-user.html" />
-        <option value="$PROJECT_DIR$/application/admin/view/users/edit-user.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Users.php" />
+        <option value="$PROJECT_DIR$/application/admin/view/users/edit-user.html" />
       </list>
     </option>
   </component>
@@ -822,10 +820,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.827586">
+          <caret line="132" column="25" selection-start-line="132" selection-start-column="25" selection-end-line="132" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/users/add-user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.877193">
-          <caret line="168" column="13" selection-start-line="163" selection-start-column="12" selection-end-line="168" selection-end-column="13" />
+        <state vertical-scroll-proportion="-7.982456">
+          <caret line="231" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#6;n#form#0;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#10;n#form#0;n#article#0;n#!!top" expanded="true" />
@@ -836,21 +842,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/users/edit-user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7017544">
-          <caret line="146" column="22" selection-start-line="146" selection-start-column="12" selection-end-line="146" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.18446602">
+          <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#7;n#form#0;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#10;n#form#0;n#article#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#div#10;n#form#0;n#article#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22651933">
-          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
