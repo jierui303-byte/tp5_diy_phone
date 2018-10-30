@@ -84,6 +84,14 @@
 			</div>
 		</div>
 		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>有效期：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" name="start_time" onfocus="selecttime(1)" id="countTimestart" class="input-text Wdate" style="width:120px;">
+				-
+				<input type="text" name="end_time" onfocus="selecttime(2)" id="countTimeend" class="input-text Wdate" style="width:120px;">
+			</div>
+		</div>
+		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">备注：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...100个字符以内" dragonfly="true" onKeyUp="textarealength(this,100)"></textarea>
@@ -191,6 +199,21 @@ $(function(){
 		}
 	});
 });
+
+/*日期插件My97 DatePicker*/
+function selecttime(flag){
+	if(flag==1){
+		var endTime = $("#countTimeend").val();
+		if(endTime != ""){
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',maxDate:endTime})}else{
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})}
+	}else{
+		var startTime = $("#countTimestart").val();
+		if(startTime != ""){
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',minDate:startTime})}else{
+			WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})}
+	}
+}
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 {/block}
