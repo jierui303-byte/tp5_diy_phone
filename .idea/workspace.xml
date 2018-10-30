@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/view/index/show.html" afterPath="$PROJECT_DIR$/application/index/view/index/show.html" />
     </list>
     <ignored path="tp5_diy_phone.iws" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="show.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7679558">
-              <caret line="103" column="19" selection-start-line="103" selection-start-column="19" selection-end-line="103" selection-end-column="19" />
+            <state vertical-scroll-proportion="-1.3922652">
+              <caret line="684" column="34" selection-start-line="684" selection-start-column="34" selection-end-line="684" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -808,8 +807,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7679558">
-          <caret line="103" column="19" selection-start-line="103" selection-start-column="19" selection-end-line="103" selection-end-column="19" />
+        <state vertical-scroll-proportion="-1.3922652">
+          <caret line="684" column="34" selection-start-line="684" selection-start-column="34" selection-end-line="684" selection-end-column="34" />
           <folding />
         </state>
       </provider>
