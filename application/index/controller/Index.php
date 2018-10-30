@@ -36,14 +36,14 @@ class Index extends Base
                     $start_time = $userInfo['start_time'];
                     $end_time = $userInfo['end_time'];
                     $currentTime = date('Y-m-d h:i:s', time());
-                    if($currentTime >= $start_time && $currentTime <= $end_time){
-
-                    }else{
-                        return array(
-                            'code' => 0,
-                            'msg' => '该账户有效期已到期，请联系网站管理员!'
-                        );
-                    }
+//                    if($currentTime >= $start_time && $currentTime <= $end_time){
+//
+//                    }else{
+//                        return array(
+//                            'code' => 0,
+//                            'msg' => '该账户有效期已到期，请联系网站管理员!'
+//                        );
+//                    }
                 }else{
                     //为商户,判断商户状态为0时，也就是认证状态被关闭  只有认证过的才能允许访问
                     return array(
