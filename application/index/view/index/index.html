@@ -5,7 +5,7 @@
     <title>DIY 手机壳在线下单</title>
     <script src="__INDEXPATH__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="__INDEXPATH__/jquery.marquee.js" type="text/javascript" charset="utf-8"></script>
-    <!--<link type="text/css" href="__INDEXPATH__/jquery.marquee.css" rel="stylesheet" media="all" />-->
+    <link type="text/css" href="__INDEXPATH__/jquery.marquee.css" rel="stylesheet" media="all" />
     <script>
         $(document).ready(function (){
             $("#marquee").marquee();
@@ -123,10 +123,9 @@
     </style>
 <body>
 <div id="app">
-    <ul class="head marquee"  id="marquee">
-        <li>店铺地址：{$userInfo['address']}</li>
-        <li>新品：纳米防爆镜面壳（非易碎玻璃壳）</li>
-    </ul>
+    <div class="head marquee"  id="marquee">
+        <span>店铺地址：{$userInfo['address']} 新品：纳米防爆镜面壳（非易碎玻璃壳）</span>
+    </div>
     <h5>请选择品牌</h5>
     <ul class="brands">
         {foreach $brandLists as $vo}
