@@ -50,6 +50,9 @@ class Users extends Base
             $data['date_of_birth'] = $this->request->post('date_of_birth');
             $data['address'] = $this->request->post('address');
             $data['phone'] = $this->request->post('phone');
+            $data['start_time'] = $this->request->post('start_time');
+            $data['end_time'] = $this->request->post('end_time');
+            $data['date_of_birth'] = $this->request->post('birth_time');
             $data['create_time'] = date('y-m-d h:i:s',time());
             $res = (new UsersService())->insert($data);//新增
             if($res){
@@ -89,9 +92,11 @@ class Users extends Base
             $data['email'] = $this->request->post('email');
             $data['real_name'] = $this->request->post('real_name');
             $data['sex'] = $this->request->post('sex');
-            $data['date_of_birth'] = $this->request->post('date_of_birth');
+            $data['date_of_birth'] = $this->request->post('birth_time');
             $data['address'] = $this->request->post('address');
             $data['phone'] = $this->request->post('phone');
+            $data['start_time'] = $this->request->post('start_time');
+            $data['end_time'] = $this->request->post('end_time');
             $res = (new UsersService())
                 ->where('uid', $uid)
                 ->update($data);//新增

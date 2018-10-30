@@ -57,7 +57,6 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>出生日期：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<!--<input type="text" class="input-text" value="" placeholder="" id="address" name="address">-->
 				<input type="text" name="birth_time" onfocus="selecttime(3)" id="birthTime" class="input-text Wdate" style="width:120px;">
 			</div>
 		</div>
@@ -145,6 +144,9 @@ $(function(){
 			address:{
 				required:true,
 			},
+			birth_time:{
+				required:true,
+			},
 			real_name:{
 				required:true,
 			},
@@ -159,6 +161,12 @@ $(function(){
 			adminRole:{
 				required:true,
 			},
+			start_time:{
+				required:true,
+			},
+			end_time:{
+				required:true,
+			}
 		},
 		onkeyup:false,
 		focusCleanup:true,
