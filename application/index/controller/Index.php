@@ -24,7 +24,7 @@ class Index extends Base
         //此处可以判断是否是经过二维码扫描进入本页面的
 
         //还需要判断当前用户的身份是否是商户，是商户才能访问  默认2为商户
-        $authGroupAccess = (new AuthGroupAccess())->where('id', $userId)->find();
+        $authGroupAccess = (new AuthGroupAccess())->where('uid', $userId)->find();
         if($authGroupAccess){
             //判断是商户还是普通用户
             if($authGroupAccess['group_id'] == 2){
@@ -36,7 +36,7 @@ class Index extends Base
                     $start_time = $userInfo['start_time'];
                     $end_time = $userInfo['end_time'];
                     $currentTime = time();
-                    
+
                 }else{
                     //为商户,判断商户状态为0时，也就是认证状态被关闭  只有认证过的才能允许访问
                     return array(
