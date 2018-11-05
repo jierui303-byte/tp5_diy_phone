@@ -19,6 +19,12 @@
 			</div>
 		</div>
 		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商铺名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$userInfo['shop_name']}" placeholder="" id="shop_name" name="shop_name">
+			</div>
+		</div>
+		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
@@ -32,19 +38,19 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>真实姓名：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系人：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="{$userInfo['real_name']}" placeholder="" id="real_name" name="real_name">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="{$userInfo['phone']}" placeholder="" id="phone" name="phone">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>地址：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商铺地址：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="{$userInfo['address']}" placeholder="" id="address" name="address">
 			</div>
@@ -56,23 +62,31 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">角色：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
-				<select class="select" name="adminRole" size="1">
-					{volist name="authGroups" id="vo"}
-					<option value="{$vo.id}" {if condition="$vo.id eq $group_id"}selected{/if}>{$vo.title}</option>
-					{/volist}
-				</select>
-				</span>
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">备注：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>店铺二维码：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...100个字符以内" dragonfly="true" onKeyUp="textarealength(this,100)"></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+				<div class="qrcode" data-src=""></div>
+				<img class='imgOne'  style='border:1px solid #ccc;'/>
 			</div>
 		</div>
+		<!--<div class="row cl">-->
+			<!--<label class="form-label col-xs-4 col-sm-3">角色：</label>-->
+			<!--<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">-->
+				<!--<select class="select" name="adminRole" size="1">-->
+					<!--{volist name="authGroups" id="vo"}-->
+					<!--<option value="{$vo.id}" {if condition="$vo.id eq $group_id"}selected{/if}>{$vo.title}</option>-->
+					<!--{/volist}-->
+				<!--</select>-->
+				<!--</span>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="row cl">-->
+			<!--<label class="form-label col-xs-4 col-sm-3">备注：</label>-->
+			<!--<div class="formControls col-xs-8 col-sm-9">-->
+				<!--<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...100个字符以内" dragonfly="true" onKeyUp="textarealength(this,100)"></textarea>-->
+				<!--<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>-->
+			<!--</div>-->
+		<!--</div>-->
+
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
