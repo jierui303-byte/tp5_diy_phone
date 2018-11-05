@@ -35,5 +35,8 @@ class Base extends Controller
         $userInfo = (new \app\common\model\Users())->find(Session::get('uid'));
 //        var_dump($userInfo['user_name']);
         $this->assign('userInfo', $userInfo);
+        //获取用户身份
+        $authGroup = $auth->getGroups($userInfo['uid']);
+        var_dump($authGroup);
     }
 }
