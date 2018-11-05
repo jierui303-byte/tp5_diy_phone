@@ -24,18 +24,18 @@
 			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<!--<?php if((new \Auth())->check('admin/roles/', $userInfo['uid'])){ ?>-->
+					<?php if((new \Auth())->check('admin/roles/', $userInfo['uid'])){ ?>
 					<li><a href="{:url('admin/roles/index')}" title="角色管理">角色管理</a></li>
-					<!--<?php }?>-->
-					<!--<?php if((new \Auth())->check('admin/permissions/', $userInfo['uid'])){ ?>-->
+					<?php }?>
+					<?php if((new \Auth())->check('admin/permissions/', $userInfo['uid'])){ ?>
 					<li><a href="{:url('admin/permissions/index')}" title="权限管理">权限管理</a></li>
-					<!--<?php }?>-->
-					<!--<?php if((new \Auth())->check('admin/users/', $userInfo['uid'])){ ?>-->
+					<?php }?>
+					<?php if((new \Auth())->check('admin/users/', $userInfo['uid'])){ ?>
 					<li><a href="{:url('admin/users/index')}" title="管理员列表">管理员列表</a></li>
-					<!--<?php }?>-->
-					<!--<?php if((new \Auth())->check('admin/shops/', $userInfo['uid'])){ ?>-->
+					<?php }?>
+					<?php if((new \Auth())->check('admin/shops/', $userInfo['uid'])){ ?>
 					<li><a href="{:url('admin/shops/index')}" title="管理员列表">商铺管理</a></li>
-					<!--<?php }?>-->
+					<?php }?>
 				</ul>
 			</dd>
 		</dl>
