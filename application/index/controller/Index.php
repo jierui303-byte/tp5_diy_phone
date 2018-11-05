@@ -44,7 +44,7 @@ class Index extends Base
                             ['id,brand_logo']
                         );
                         //记录当前账户被调用次数
-                        (new Users())->where('id','=', $userId)->setInc( 'call_count');
+                        (new Users())->where('uid','=', $userId)->setInc( 'call_count');
 
                         $this->assign('brandLists', $brandLists);
                         $this->assign('userId', $userId);//商家id
