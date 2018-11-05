@@ -29,6 +29,7 @@ class Index extends Base
         $uid = Session::get('uid');
         if ($this->request->isAjax()){
             $data['user_name'] = $this->request->post('user_name');
+            $data['shop_name'] = $this->request->post('shop_name');
             $data['admin_role_id'] = $this->request->post('admin_role_id');
             $data['email'] = $this->request->post('email');
             $data['real_name'] = $this->request->post('real_name');
@@ -52,7 +53,7 @@ class Index extends Base
                 $this->error('修改失败');//失败跳转
             }
         }else{
-            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,user_name,email,real_name,sex,birth_time,address,phone,update_time');
+            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,user_name,shop_name,email,real_name,sex,birth_time,address,phone,update_time');
             //获取角色列表
             $authGroups = (new AuthGroup())->getAllListsByWhere(
                 [],

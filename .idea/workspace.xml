@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/application/admin/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/controller/Index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/admin/view/index/edit-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/admin/view/index/edit-user.html" afterDir="false" />
     </list>
     <ignored path="tp5_diy_phone.iws" />
@@ -31,26 +32,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="152" />
-          <entry key="php" value="138" />
+          <entry key="html" value="162" />
+          <entry key="php" value="162" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="152" />
-          <entry key="PHP" value="138" />
+          <entry key="HTML" value="162" />
+          <entry key="PHP" value="162" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="11" />
-          <entry key="php" value="11" />
+          <entry key="php" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="11" />
-          <entry key="PHP" value="11" />
+          <entry key="PHP" value="12" />
         </counts>
       </usages-collector>
     </session>
@@ -63,17 +64,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Shops.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-446">
+            <state relative-caret-position="-239">
               <caret line="53" column="101" selection-start-line="53" selection-start-column="92" selection-end-line="53" selection-end-column="101" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/admin/controller/Index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/view/index/edit-user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="67" column="69" lean-forward="true" selection-start-line="67" selection-start-column="69" selection-end-line="67" selection-end-column="69" />
+            <state relative-caret-position="109">
+              <caret line="124" column="17" lean-forward="true" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#7;n#form#0;n#article#0;n#!!top" expanded="true" />
               </folding>
@@ -145,11 +155,11 @@
         <option value="$PROJECT_DIR$/application/admin/controller/Base.php" />
         <option value="$PROJECT_DIR$/application/admin/controller/Shops.php" />
         <option value="$PROJECT_DIR$/application/admin/view/layout/_menu.html" />
-        <option value="$PROJECT_DIR$/application/admin/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/admin/view/shops/index.html" />
         <option value="$PROJECT_DIR$/application/admin/view/layout/_header.html" />
         <option value="$PROJECT_DIR$/application/admin/controller/Login.php" />
         <option value="$PROJECT_DIR$/application/admin/view/index/edit-user.html" />
+        <option value="$PROJECT_DIR$/application/admin/controller/Index.php" />
       </list>
     </option>
   </component>
@@ -320,19 +330,19 @@
       <option name="presentableId" value="Default" />
       <updated>1540439118783</updated>
       <workItem from="1541388236393" duration="11400000" />
-      <workItem from="1541415760916" duration="1766000" />
+      <workItem from="1541415760916" duration="1973000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13166000" />
+    <option name="totallyTimeSpent" value="13373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1909" y="96" width="1372" height="733" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.2637195" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.2629573" />
       <window_info id="Structure" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="1" />
@@ -625,13 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2162">
-          <caret line="101" column="49" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/layout/_menu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="989">
@@ -704,20 +707,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/index/edit-user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="124" column="17" lean-forward="true" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#7;n#form#0;n#article#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Shops.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-446">
+        <state relative-caret-position="-239">
           <caret line="53" column="101" selection-start-line="53" selection-start-column="92" selection-end-line="53" selection-end-column="101" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/index/edit-user.html">
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/Index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="67" column="69" lean-forward="true" selection-start-line="67" selection-start-column="69" selection-end-line="67" selection-end-column="69" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#7;n#form#0;n#article#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="432">
+          <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
         </state>
       </provider>
     </entry>
