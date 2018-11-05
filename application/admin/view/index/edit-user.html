@@ -90,6 +90,7 @@
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<a class="btn btn-success radius size-MINI" onclick="admin_down_code(this, {$vo.uid})"><i class="Hui-iconfont">&#xe641;</i>下载Code</a>
 			</div>
 		</div>
 	</form>
@@ -106,6 +107,13 @@
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.qrcode.min.js"></script>
 <script type="text/javascript">
+    //下载二维码
+    function admin_down_code(thisObj, thisUserIndex){
+        var dataURL = $('.imgOne').attr('src');
+        console.log(dataURL);
+        var $a = $("<a></a>").attr("href", dataURL).attr("download", thisUserIndex+"code.png");
+        $a[0].click();
+    }
 $(function(){
     //批量生成二维码
     $('.qrcode').each(function(){
