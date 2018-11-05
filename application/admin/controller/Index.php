@@ -33,7 +33,7 @@ class Index extends Base
             $data['email'] = $this->request->post('email');
             $data['real_name'] = $this->request->post('real_name');
             $data['sex'] = $this->request->post('sex');
-            $data['date_of_birth'] = $this->request->post('date_of_birth');
+            $data['birth_time'] = $this->request->post('birth_time');
             $data['address'] = $this->request->post('address');
             $data['phone'] = $this->request->post('phone');
             $res = (new UsersService())
@@ -52,7 +52,7 @@ class Index extends Base
                 $this->error('修改失败');//失败跳转
             }
         }else{
-            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,user_name,email,real_name,sex,date_of_birth,address,phone,update_time');
+            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,user_name,email,real_name,sex,birth_time,address,phone,update_time');
             //获取角色列表
             $authGroups = (new AuthGroup())->getAllListsByWhere(
                 [],
@@ -97,7 +97,7 @@ class Index extends Base
                 $this->error('用户旧密码不对');
             }
         }else{
-            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,user_name,email,real_name,sex,date_of_birth,address,phone,update_time');
+            $userInfo = (new UsersService())->getOneByWhere(['uid'=>$uid],'uid,user_name,email,real_name,sex,birth_time,address,phone,update_time');
 
             $this->assign('userInfo', $userInfo);
             return $this->fetch('update-password');
