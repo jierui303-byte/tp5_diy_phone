@@ -7,9 +7,15 @@
 					<?php if((new \Auth())->check('admin/PhoneTypeBrand/index', $userInfo['uid'])){ ?>
 					<li><a href="{:url('admin/PhoneTypeBrand/index', '')}" title="手机机型"><i class="Hui-iconfont Hui-iconfont-edit"></i> 手机机型</a></li>
 					<?php }?>
+					<?php if((new \Auth())->check('admin/chart/index', $userInfo['uid'])){ ?>
 					<li><a href="{:url('admin/chart/index', '')}" title="贴图管理"><i class="Hui-iconfont Hui-iconfont-picture"></i> 贴图管理</a></li>
+					<?php }?>
+					<?php if((new \Auth())->check('admin/mask/index', $userInfo['uid'])){ ?>
 					<li><a href="{:url('admin/mask/index', '')}" title="蒙版管理"><i class="Hui-iconfont Hui-iconfont-tuku"></i> 蒙版管理</a></li>
+					<?php }?>
+					<?php if((new \Auth())->check('admin/order/index', $userInfo['uid'])){ ?>
 					<li><a href="{:url('admin/order/index', '')}" title="订单管理"><i class="Hui-iconfont Hui-iconfont-tuku"></i> 订单管理</a></li>
+					<?php }?>
 				</ul>
 			</dd>
 		</dl>
