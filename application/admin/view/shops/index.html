@@ -59,7 +59,7 @@
 						<th>店铺名称</th>
 						<th>店铺地址</th>
 						<th>联系人</th>
-						<th width="60">时间</th>
+						<th width="60">到期时间</th>
 						<th width="80">联系电话</th>
 						<th width="100">店铺二维码</th>
 						<th>调用次数</th>
@@ -77,7 +77,7 @@
 						<td>{$vo.shop_name ?? ''}</td>
 						<td>{$vo.address ?? ''}</td>
 						<td>{$vo.real_name ?? ''}</td>
-						<td>{$vo.create_time|strtotime|date="y-m-d",###}</td>
+						<td>{$vo.end_time|strtotime|date="Y-m-d h:i:s",###}</td>
 						<td>{$vo.phone ?? ''}</td>
 						<td>
 							<div class="qrcode" data-src="{$vo.shopUrl}"></div>
