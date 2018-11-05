@@ -22,7 +22,8 @@ class Login extends Controller
                     Session::set('uid', $userInfo['uid']);
 
                     //此时可以计算用户token 代表用户登录在线状态
-                    $this->success('登录成功', 'admin/index/index');
+                    $this->redirect('admin/order/index');
+//                    $this->success('登录成功', 'admin/index/index');
                 }else{
                     //用户密码不对
                     $this->error('用户密码不对');
