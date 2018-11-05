@@ -64,7 +64,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>店铺二维码：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<div class="qrcode" data-src=""></div>
+				<div class="qrcode" data-src="http://test.jierui303.com/u/{$userInfo['uid']}.html"></div>
 				<img class='imgOne'  style='border:1px solid #ccc;'/>
 			</div>
 		</div>
@@ -106,6 +106,18 @@
 <script type="text/javascript" src="__ADMINPATH__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
+    //批量生成二维码
+    $('.qrcode').each(function(){
+        var qrcode = $(this).qrcode({
+            render: "canvas", //也可以替换为table
+            width: 100,
+            height: 100,
+            text: $(this).data('src')
+        }).hide();
+        var canvas = qrcode.find('canvas').get(0);
+        $(this).siblings('.imgOne').attr('src', canvas.toDataURL('image/jpg'));
+    });
+
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',
 		radioClass: 'iradio-blue',
