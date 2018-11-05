@@ -20,7 +20,6 @@ class Index extends Base
 {
     public function index($userId)
     {
-        echo phpinfo();exit;
         $userInfo = (new Users())->find($userId);
         //此处可以判断是否是经过二维码扫描进入本页面的
 
