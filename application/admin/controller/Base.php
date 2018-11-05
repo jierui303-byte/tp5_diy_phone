@@ -36,7 +36,8 @@ class Base extends Controller
 //        var_dump($userInfo['user_name']);
         $this->assign('userInfo', $userInfo);
         //获取用户身份
-        $authGroup = $auth->getGroups($userInfo['uid']);
-        var_dump($authGroup);
+        $authGroupInfo = $auth->getGroups($userInfo['uid']);
+        var_dump($authGroupInfo);
+        $this->assign('authGroupInfo', $authGroupInfo[0]);
     }
 }
