@@ -27,9 +27,9 @@ class Base extends Controller
         //把模块、控制器和方法转换成一个字符串
         $this->current_action = request()->module().'/'.request()->controller().'/'.lcfirst(request()->action());
         $result = $auth->check($this->current_action, Session::get('uid'));
-//        if(!$result){
-//            $this->error("您没有该操作的权限!", "admin/index/showError");
-//        }
+        if(!$result){
+            $this->error("您没有该操作的权限!", "admin/index/showError");
+        }
 
         //获取用户信息
         $userInfo = (new \app\common\model\Users())->find(Session::get('uid'));

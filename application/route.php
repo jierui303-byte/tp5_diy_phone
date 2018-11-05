@@ -22,6 +22,7 @@
 
 use think\Route;
 
+//前台路由
 Route::get('u/:userId', 'index/index/index');
 //Route::get('he', 'index/index/he');
 //Route::get('canvas', 'index/index/canvas');
@@ -37,6 +38,7 @@ Route::post('ajaxPost', 'index/index/ajaxPost');//表单提交
 Route::post('ajaxUploadImage', 'index/index/ajaxUploadImage');//高清图片上传提交
 
 
+//后台路由
 Route::get('admin', 'admin/index/index');
 Route::get('adminShowUserInfo', 'admin/index/showUserInfo');//个人信息
 Route::get('adminUpdateUserPassword', 'admin/index/updateUserPassword');//修改密码
