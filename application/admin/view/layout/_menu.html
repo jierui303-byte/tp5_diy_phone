@@ -4,7 +4,7 @@
 			<dt><i class="Hui-iconfont">&#xe620;</i> 产品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<?php if($auth->check('admin/PhoneTypeBrand/index', Session::get('uid'))){ ?>
+					<?php if((new \Auth())->check('admin/PhoneTypeBrand/index', Session::get('uid'))){ ?>
 					<li><a href="{:url('admin/PhoneTypeBrand/index', '')}" title="手机机型"><i class="Hui-iconfont Hui-iconfont-edit"></i> 手机机型</a></li>
 					<?php }?>
 					<li><a href="{:url('admin/chart/index', '')}" title="贴图管理"><i class="Hui-iconfont Hui-iconfont-picture"></i> 贴图管理</a></li>
