@@ -13,7 +13,7 @@
 					<?php if((new \Auth())->check('admin/mask', $userInfo['uid'])){ ?>
 					<li><a href="{:url('admin/mask/index', '')}" title="蒙版管理"><i class="Hui-iconfont Hui-iconfont-tuku"></i> 蒙版管理</a></li>
 					<?php }?>
-					<?php if((new \Auth())->check('admin/order', $userInfo['uid'])){ ?>
+					<?php if((new \Auth())->check('admin/order/', $userInfo['uid'])){ ?>
 					<li><a href="{:url('admin/order/index', '')}" title="订单管理"><i class="Hui-iconfont Hui-iconfont-tuku"></i> 订单管理</a></li>
 					<?php }?>
 				</ul>
