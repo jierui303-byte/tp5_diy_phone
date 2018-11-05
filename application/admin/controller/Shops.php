@@ -51,7 +51,7 @@ class Shops extends Base
             [
                 'uid' => array('in', $uidStr)
             ],
-            ['uid,user_name,email,real_name,sex,birth_time,status,address,phone,create_time,shop_name,start_time,end_time']
+            ['uid,user_name,email,real_name,sex,birth_time,status,address,phone,create_time,shop_name,start_time,end_time,call_count']
         );
 //        var_dump('<pre>', $arrS);
 

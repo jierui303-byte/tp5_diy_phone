@@ -83,7 +83,7 @@
 							<div class="qrcode" data-src="{$vo.shopUrl}"></div>
 							<img class='imgOne'  style='border:1px solid #ccc;'/>
 						</td>
-						<td>0</td>
+						<td>{$vo.call_count ?? ''}</td>
 						<td>
 							<!--<a style="text-decoration:none" onClick="admin_stop('{$vo.uid}', '{$vo.status}')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>-->
 							<div class="switch size-MINI switchIsOpenPseudo" data-on="success" data-off="warning" data-id="{$vo->uid}">
