@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/application/index/view/index/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/index/show.html" afterDir="false" />
-    </list>
+    <list default="true" id="17d80cdf-9707-4a60-ae79-85554ec0e021" name="Default" comment="" />
     <ignored path="tp5_diy_phone.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -92,8 +90,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="764" column="34" lean-forward="true" selection-start-line="764" selection-start-column="34" selection-end-line="764" selection-end-column="34" />
+            <state relative-caret-position="480">
+              <caret line="760" column="29" lean-forward="true" selection-start-line="760" selection-start-column="29" selection-end-line="760" selection-end-column="29" />
               <folding>
                 <element signature="n#style#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -342,12 +340,12 @@
       <workItem from="1541496333798" duration="256000" />
       <workItem from="1541497046356" duration="762000" />
       <workItem from="1543571018730" duration="2091000" />
-      <workItem from="1543904167976" duration="3403000" />
+      <workItem from="1543904167976" duration="3765000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21718000" />
+    <option name="totallyTimeSpent" value="22080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -740,8 +738,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="764" column="34" lean-forward="true" selection-start-line="764" selection-start-column="34" selection-end-line="764" selection-end-column="34" />
+        <state relative-caret-position="480">
+          <caret line="760" column="29" lean-forward="true" selection-start-line="760" selection-start-column="29" selection-end-line="760" selection-end-column="29" />
           <folding>
             <element signature="n#style#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
