@@ -33,13 +33,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="257" />
+          <entry key="html" value="258" />
           <entry key="php" value="188" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="257" />
+          <entry key="HTML" value="258" />
           <entry key="PHP" value="188" />
         </counts>
       </usages-collector>
@@ -92,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="774" column="37" lean-forward="true" selection-start-line="774" selection-start-column="37" selection-end-line="774" selection-end-column="37" />
+            <state relative-caret-position="437">
+              <caret line="765" column="40" lean-forward="true" selection-start-line="765" selection-start-column="40" selection-end-line="765" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -342,12 +342,12 @@
       <workItem from="1541496333798" duration="256000" />
       <workItem from="1541497046356" duration="762000" />
       <workItem from="1543571018730" duration="2091000" />
-      <workItem from="1543904167976" duration="5011000" />
+      <workItem from="1543904167976" duration="5396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23326000" />
+    <option name="totallyTimeSpent" value="23711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -740,8 +740,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="774" column="37" lean-forward="true" selection-start-line="774" selection-start-column="37" selection-end-line="774" selection-end-column="37" />
+        <state relative-caret-position="437">
+          <caret line="765" column="40" lean-forward="true" selection-start-line="765" selection-start-column="40" selection-end-line="765" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
