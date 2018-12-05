@@ -100,7 +100,7 @@
                 <input type="text" name="name" placeholder="请输入姓名"><br>
                 <input type="text" name="address" placeholder="请输入收货地址"><br>
             </form>
-            <button class="submit">提交</button>
+            <button class="submit submitPost">提交</button>
             <button class="esc">取消</button>
         </div>
     </div>
@@ -668,7 +668,7 @@
         });
 
         //邮寄下单提交表单
-        $('#orderPost .submit').on('click', function(){
+        $('.submitPost').on('click', function(){
             console.log('邮寄下单提交表单');
             var orderNum = '{$orderNum}';//订单编号
             var PhoneTypeId = '{$phoneTypeNameId}';//手机机型
@@ -733,7 +733,7 @@
         });
 
         //自提下单提交表单
-        $('#orderPostSelf .submitSelf').on('click', function(){
+        $('.submitSelf').on('click', function(){
             console.log('自提下单');
             var orderNum = '{$orderNum}';//订单编号
             var PhoneTypeId = '{$phoneTypeNameId}';//手机机型
