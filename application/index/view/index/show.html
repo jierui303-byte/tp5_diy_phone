@@ -761,7 +761,7 @@
                 userId:userId
             };
             console.log(postData);
-            if(!tel || !pic){
+            if(typeof tel!="undefined" || typeof pic!="undefined"){
                 alert('表单信息不能为空');
                 return false;
             }
