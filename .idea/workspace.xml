@@ -33,13 +33,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="338" />
+          <entry key="html" value="359" />
           <entry key="php" value="188" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="338" />
+          <entry key="HTML" value="359" />
           <entry key="PHP" value="188" />
         </counts>
       </usages-collector>
@@ -324,12 +324,12 @@
       <workItem from="1541496333798" duration="256000" />
       <workItem from="1541497046356" duration="762000" />
       <workItem from="1543571018730" duration="2091000" />
-      <workItem from="1543904167976" duration="10877000" />
+      <workItem from="1543904167976" duration="10970000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29192000" />
+    <option name="totallyTimeSpent" value="29285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
