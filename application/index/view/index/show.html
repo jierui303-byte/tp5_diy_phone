@@ -746,6 +746,21 @@
             var name = $('#orderPostSelf input[name=name]').val();
             var pic = $('#xiaDan').data('imgurl');
             var userId = "{$userId}";
+            var postData = {
+                orderNum:orderNum,
+                tel:tel,
+                name:name,
+                address:'',
+                pic:pic,
+                PhoneTypeId:PhoneTypeId,
+                PhoneType:PhoneType,
+                PhoneVarietiesId:PhoneVarietiesId,
+                PhoneVarieties:PhoneVarieties,
+                var_type_id:var_type_id,
+                var_type:var_type,
+                userId:userId
+            };
+            console.log(postData);
             if(!tel || !pic){
                 alert('表单信息不能为空');
                 return false;
@@ -765,23 +780,9 @@
             $.ajax({
                 type: "post",
                 url: "/ajaxPost.html",
-                data:{
-                    orderNum:orderNum,
-                    tel:tel,
-                    name:name,
-                    address:'',
-                    pic:pic,
-                    PhoneTypeId:PhoneTypeId,
-                    PhoneType:PhoneType,
-                    PhoneVarietiesId:PhoneVarietiesId,
-                    PhoneVarieties:PhoneVarieties,
-                    var_type_id:var_type_id,
-                    var_type:var_type,
-                    userId:userId
-                },
+                data:postData,
                 dataType: "json",
                 success: function(data){
-                    console.log(data);
                     if(data.code == 1){
                         var str = '<div><h5>下单成功！</h5>'+
                                 '<h5>订单编号：{$orderNum}</h5>'+
