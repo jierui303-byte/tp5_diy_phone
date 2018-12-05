@@ -91,13 +91,7 @@
         <span>高清图片上传中</span> <span>请稍等...</span>
     </div>
     <div id="error"></div>
-    <div id="orderPost" style="display: none;    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0%;
-    background-color: rgba(0,0,0,0.2);
-    z-index: 38;">
+    <div class="order" id="orderPost" style="display: none;">
         <div>
             <h5>订单编号：{$orderNum}</h5>
             <form id="form2_orderPost" method="post">
@@ -111,13 +105,7 @@
         </div>
     </div>
 
-    <div id="orderPostSelf" style="display: none;    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0%;
-    background-color: rgba(0,0,0,0.2);
-    z-index: 38;">
+    <div class="order" id="orderPostSelf" style="display: none;">
         <div>
             <h5>订单编号：{$orderNum}</h5>
             <form id="form2_orderPostSelf" method="post">
@@ -125,12 +113,12 @@
                 <input type="text" name="tel" placeholder="请输入手机号[必填]"><br>
                 <input type="text" name="name" placeholder="请输入姓名"><br>
             </form>
-            <button class="submit submitSelf">提交</button>
+            <div class="submit submitSelf">提交</div>
             <button class="esc">取消</button>
         </div>
     </div>
 
-    <div id="imgBox" style="overflow: hidden;display:none;position: absolute;left: 0;top: 0;z-index: 99;width: 100%;height: 100%;">
+    <div id="imgBox" class="order" style="overflow: hidden;display:none;position: absolute;left: 0;top: 0;z-index: 99;width: 100%;height: 100%;">
         <div>
             <h5>下单成功！</h5>
             <h5>订单编号：{$orderNum}</h5>
