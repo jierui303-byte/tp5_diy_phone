@@ -21,6 +21,7 @@ class Index extends Base
     public function index($userId)
     {
         $userInfo = (new Users())->find($userId);
+        var_dump($userInfo);
         //此处可以判断是否是经过二维码扫描进入本页面的
 
         //还需要判断当前用户的身份是否是商户，是商户才能访问  默认2为商户
