@@ -669,6 +669,7 @@
 
         //邮寄下单提交表单
         $('#orderPost .submit').on('click', function(){
+            console.log('邮寄下单提交表单');
             var orderNum = '{$orderNum}';//订单编号
             var PhoneTypeId = '{$phoneTypeNameId}';//手机机型
             var PhoneType = '{$phoneTypeName}';//手机机型
@@ -733,6 +734,7 @@
 
         //自提下单提交表单
         $('#orderPostSelf .submit').on('click', function(){
+            console.log('自提下单');
             var orderNum = '{$orderNum}';//订单编号
             var PhoneTypeId = '{$phoneTypeNameId}';//手机机型
             var PhoneType = '{$phoneTypeName}';//手机机型
