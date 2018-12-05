@@ -229,6 +229,7 @@ class Index extends Base
     //表单提交
     public function ajaxPost()
     {
+        $type = $this->request->post('type');
         $data['order_num'] = $this->request->post('orderNum');
         $data['phone_type_id'] = $this->request->post('PhoneTypeId');
         $data['phone_type_name'] = $this->request->post('PhoneType');
@@ -242,9 +243,17 @@ class Index extends Base
         $data['pic'] = $this->request->post('pic');
         $data['uid'] = $this->request->post('userId');//用户id
         $data['create_time'] = date('y-m-d h:i:s', time());
-        if(!$data['name'] || !$data['tel'] || !$data['address'] || !$data['pic']){
-            $this->error('表单信息不能为空');
+
+        if($type == 1){
+            if(!$data['name'] || !$data['tel'] || !$data['address'] || !$data['pic']){
+                $this->error('表单信息不能为空');
+            }
+        }else{
+            if(!$data['tel'] || !$data['pic']){
+                $this->error('表单信息不能为空');
+            }
         }
+
         $res = (new Order())->insert($data);
         if($res){
             $this->success('表单提交成功', 'index/index/design');//成功跳转
