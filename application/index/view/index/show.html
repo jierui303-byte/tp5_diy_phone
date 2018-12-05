@@ -761,9 +761,7 @@
                 userId:userId
             };
             console.log(postData);
-            console.log(typeof tel=="undefined");
-
-            if(typeof tel=="undefined"){
+            if(!tel){
                 alert('表单信息不能为空');
                 return false;
             }
