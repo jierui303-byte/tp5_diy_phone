@@ -92,8 +92,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="665" column="32" lean-forward="true" selection-start-line="665" selection-start-column="32" selection-end-line="665" selection-end-column="32" />
+            <state relative-caret-position="710">
+              <caret line="791" column="21" lean-forward="true" selection-start-line="791" selection-start-column="21" selection-end-line="791" selection-end-column="21" />
+              <folding>
+                <element signature="n#style#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -339,12 +342,12 @@
       <workItem from="1541496333798" duration="256000" />
       <workItem from="1541497046356" duration="762000" />
       <workItem from="1543571018730" duration="2091000" />
-      <workItem from="1543904167976" duration="1760000" />
+      <workItem from="1543904167976" duration="3023000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20075000" />
+    <option name="totallyTimeSpent" value="21338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -737,8 +740,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/index/view/index/show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="665" column="32" lean-forward="true" selection-start-line="665" selection-start-column="32" selection-end-line="665" selection-end-column="32" />
+        <state relative-caret-position="710">
+          <caret line="791" column="21" lean-forward="true" selection-start-line="791" selection-start-column="21" selection-end-line="791" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

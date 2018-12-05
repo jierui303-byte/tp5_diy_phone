@@ -722,7 +722,7 @@
                         var str = '<div><h5>下单成功！</h5>'+
                                 '<h5>订单编号：{$orderNum}</h5>'+
                                 '</div>';
-                        $('.order').empty().append(str);
+                        $('#orderPost').empty().append(str);
                     }else{
                         alert(data.msg);
                     }
@@ -742,8 +742,8 @@
             var PhoneVarieties = '{$phoneVarietiesName}';//品种名称
             var var_type_id = '{$varTypeNameId}';//品种类型
             var var_type = '{$varTypeName}';//品种类型
-            var tel = $('#orderPost input[name=tel]').val();
-            var name = $('#orderPost input[name=name]').val();
+            var tel = $('#orderPostSelf input[name=tel]').val();
+            var name = $('#orderPostSelf input[name=name]').val();
             var pic = $('#xiaDan').data('imgurl');
             var userId = "{$userId}";
             if(!tel || !pic){
@@ -786,7 +786,7 @@
                         var str = '<div><h5>下单成功！</h5>'+
                                 '<h5>订单编号：{$orderNum}</h5>'+
                                 '</div>';
-                        $('.order').empty().append(str);
+                        $('#orderPostSelf').empty().append(str);
                     }else{
                         alert(data.msg);
                     }
